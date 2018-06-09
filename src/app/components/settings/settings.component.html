@@ -1,0 +1,126 @@
+<main role="main" class="container">
+  <div class="jumbotron">
+    <h1>Hardware Einstellungen</h1>
+    <div id="accordion">
+      <div class="card">
+        <div class="card-header" id="headingOne">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              ThingsSpeak Einstellungen
+            </button>
+          </h5>
+        </div>
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="ts-channelid">ThingsSpeak Channel-ID</label>
+              <input type="text" class="form-control" id="ts-channelid" name="ts-channelid" placeholder="Channel-ID">
+            </div>
+            <div class="form-group">
+              <label for="ts-wk">ThingsSpeak Write-Key</label>
+              <input type="text" class="form-control" id="ts-wk" name="ts-wk" placeholder="Write-Key">
+            </div>
+            <div class="form-group">
+              <label for="ts-rk">ThingsSpeak Read-Key</label>
+              <input type="text" class="form-control" id="ts-rk" name="ts-rk" placeholder="Read-Key">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingTwo">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Mobilfunkübertragung
+            </button>
+          </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="sim-apn">APN der SIM-Karte</label>
+              <input type="text" class="form-control" id="sim-apn" name="sim-apn" placeholder="APN">
+            </div>
+            <div class="form-group">
+              <label for="sim-time">Übertragungsintervall</label>
+              <select id="sim-time" name="sim-time" class="custom-select">
+                <option value="1">1min</option>
+                <option value="5">5min</option>
+                <option value="30">30min</option>
+                <option value="60">1h</option>
+                <option value="180">3h</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingThree">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Angeschlossene Sensoren
+            </button>
+          </h5>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+          <div class="card-body">
+            <table class="table table-bordered table-striped table-sm table-responsive-md">
+              <thead>
+              <tr>
+                <th>Sensortyp</th>
+                <th>ThingsSpeak-Feldname</th>
+                <th>Messintervall</th>
+                <th>GPIO-PIN</th>
+                <th>Entfernen</th>
+              </tr>
+              </thead>
+              <tbody id="sensors">
+              <tr>
+                <td>
+                  <select id="sensor-type" name="sensor-type" class="custom-select">
+                    <option value="1">Temperatursensor (DS18b20)</option>
+                    <option value="2">BME680 (Temperatur+Luftfeuchtigkeit+Luftdruck+Qualität)</option>
+                    <option value="3">Gewichtssensor (A/D: HX711)</option>
+                  </select>
+                </td>
+                <td>
+                  <input type="text" class="form-control" id="sensor-ts-fieldname" name="sensor-ts-fieldname" placeholder="Feldname">
+                </td>
+                <td>
+                  <select id="sensor-time" name="sensor-time" class="custom-select">
+                    <option value="1">1min</option>
+                    <option value="5">5min</option>
+                    <option value="30">30min</option>
+                    <option value="60">1h</option>
+                    <option value="180">3h</option>
+                  </select>
+                </td>
+                <td>
+                  <input type="text" class="form-control" id="sensor-pin" name="sensor-pin" placeholder="PIN">
+                </td>
+                <td>
+                  <button class="btn btn-danger" onclick="removeSensor()">
+                    &#x232b;
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="5">
+                  <button class="btn btn-primary" onclick="addSensor()">
+                    &#x2b; Sensor hinzufügen
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <hr />
+            <div class="form-group">
+              <label for="set_reference_unit">Wägezellen Kalibrierungswert</label>
+              <input type="text" class="form-control" id="set_reference_unit" name="set_reference_unit" placeholder="Kalibrierungswert">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
