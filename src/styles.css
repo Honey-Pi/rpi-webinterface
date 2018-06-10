@@ -16,11 +16,10 @@ body {
   background-color: #f5f5f5;
 }
 
-/* Show it is fixed to the top */
-body {
-  padding-top: 4.5rem;
-}
-
 .jumbotron {
   padding: 1rem 1rem;
+}
+
+main.container {
+  margin-top:20px;
 }

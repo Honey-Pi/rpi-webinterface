@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from '../../services/app.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,13 +7,9 @@ import { AppService } from '../../services/app.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private app: AppService) { }
+  constructor() { }
 
   ngOnInit() {
-  }
-
-  private saveSettings(): void {
-   // this.app.saveSettings();
   }
 
 }
