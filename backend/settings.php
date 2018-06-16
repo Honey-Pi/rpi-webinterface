@@ -16,27 +16,27 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// vars
+// define vars
 $filename = "settings.json";
 
+// check if file exists
 if (!file_exists($filename)) 
 {
 	file_put_contents($filename, '');
 }
 
+// save settings
 if (isset($_GET['setSettings'])) 
 {
 	file_put_contents($filename, file_get_contents("php://input"));
+
+	// run shell script after settings saved
+	shell_exec("sudo sh /var/www/backend/settings_saved.sh");
 }
 
 // send settings
 $settings = json_decode(file_get_contents($filename));
 echo json_encode($settings);
 
-// save a xml file
-/*$xml = new SimpleXMLElement('<settings/>');
-array_to_xml($settings,$xml);
-$xml->asXML("settings.xml");
-*/
 
 ?>
