@@ -1,5 +1,10 @@
 <?php
 
+// function for shell script after settings saved
+function reboot() {
+	shell_exec("sudo reboot");
+}
+
 // enable CORS (only for testing)
 header("Access-Control-Allow-Origin: *");
 
@@ -30,8 +35,8 @@ if (isset($_GET['setSettings']))
 {
 	file_put_contents($filename, file_get_contents("php://input"));
 
-	// run shell script after settings saved
-	shell_exec("sudo sh /var/www/backend/settings_saved.sh");
+	
+	//reboot(); // not needed
 }
 
 // send settings

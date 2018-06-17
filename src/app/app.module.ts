@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
@@ -11,8 +10,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'settings', pathMatch: 'full' },
-  { path: 'settings', component: SettingsComponent }
+  { path: '', component: SettingsComponent }
 ];
 
 
@@ -25,7 +23,6 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    HttpModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,

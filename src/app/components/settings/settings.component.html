@@ -1,5 +1,8 @@
 <main role="main" class="container">
   <div class="jumbotron">
+    <div class="float-right">
+      <button class="btn btn-sm btn-primary" type="button" (click)="saveSettings()">Speichern</button>
+    </div>
     <h1>Hardware Einstellungen</h1>
     <div id="accordion">
       <div class="card">
@@ -8,24 +11,17 @@
             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
               ThingsSpeak Einstellungen
             </button>
-            <div class="float-right">
-              <button class="btn btn-primary" type="button" (click)="saveSettings()">Speichern</button>
-            </div>
           </h5>
         </div>
         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
           <div class="card-body">
             <div class="form-group">
-              <label for="tsChannelId">ThingsSpeak Channel-ID</label>
-              <input type="number" class="form-control" [(ngModel)]="settings.tsChannelId" id="tsChannelId" name="tsChannelId" placeholder="Channel-ID">
+              <label for="ts_channel_id">ThingsSpeak Channel-ID</label>
+              <input type="number" class="form-control" [(ngModel)]="settings.ts_channel_id" id="ts_channel_id" name="ts_channel_id" placeholder="Channel-ID">
             </div>
             <div class="form-group">
-              <label for="tsWriteKey">ThingsSpeak Write-Key</label>
-              <input type="text" class="form-control" [(ngModel)]="settings.tsWriteKey" id="tsWriteKey" name="tsWriteKey" placeholder="Write-Key">
-            </div>
-            <div class="form-group">
-              <label for="tsReadKey">ThingsSpeak Read-Key</label>
-              <input type="text" class="form-control" [(ngModel)]="settings.tsReadKey" id="tsReadKey" name="tsReadKey" placeholder="Read-Key">
+              <label for="ts_write_key">ThingsSpeak Write-Key</label>
+              <input type="text" class="form-control" [(ngModel)]="settings.ts_write_key" id="ts_write_key" name="ts_write_key" placeholder="Write-Key">
             </div>
           </div>
         </div>
@@ -36,26 +32,13 @@
             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
               Mobilfunkübertragung
             </button>
-            <div class="float-right">
-              <button class="btn btn-primary" type="button" (click)="saveSettings()">Speichern</button>
-            </div>
           </h5>
         </div>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
           <div class="card-body">
             <div class="form-group">
-              <label for="simApn">APN der SIM-Karte</label>
-              <input type="text" class="form-control" [(ngModel)]="settings.simApn" id="simApn" name="simApn" placeholder="APN">
-            </div>
-            <div class="form-group">
-              <label for="simTime">Übertragungsintervall</label>
-              <select [(ngModel)]="settings.simTime" id="simTime" name="simTime" class="custom-select">
-                <option value="1">1min</option>
-                <option value="5">5min</option>
-                <option value="30">30min</option>
-                <option value="60">1h</option>
-                <option value="180">3h</option>
-              </select>
+              <label for="sim_apn">APN der SIM-Karte</label>
+              <input type="text" class="form-control" [(ngModel)]="settings.sim_apn" id="sim_apn" name="sim_apn" placeholder="APN">
             </div>
           </div>
         </div>
@@ -66,66 +49,126 @@
             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
               Angeschlossene Sensoren
             </button>
-            <div class="float-right">
-              <button class="btn btn-primary" type="button" (click)="saveSettings()">Speichern</button>
-            </div>
           </h5>
         </div>
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
           <div class="card-body">
-            <table class="table table-bordered table-striped table-sm table-responsive-md">
+            <table class="table table-bordered table-sm table-responsive-md">
               <thead>
-              <tr>
-                <th>Sensortyp</th>
-                <th>ThingsSpeak-Feldname</th>
-                <th>Messintervall</th>
-                <th>GPIO-PIN</th>
-                <th>Entfernen</th>
-              </tr>
+                <tr>
+                  <th colspan="2">Sensoren</th>
+                </tr>
               </thead>
               <tbody id="sensors">
-              <tr *ngFor="let sensor of settings.sensoren; let i = index">
-                <td>
-                  <select [(ngModel)]="sensor.type" name="sensor-type" class="custom-select">
-                    <option value="0">Temperatursensor (DS18b20)</option>
-                    <option value="1">BME680 (Temperatur+Luftfeuchtigkeit+Luftdruck+Qualität)</option>
-                    <option value="2">Gewichtssensor (A/D: HX711)</option>
-                  </select>
-                </td>
-                <td>
-                  <input type="text" class="form-control" [(ngModel)]="sensor.tsField" name="tsField" placeholder="Feldname">
-                </td>
-                <td>
-                  <select [(ngModel)]="sensor.time" name="sensor-time" class="custom-select">
-                    <option value="1">1min</option>
-                    <option value="5">5min</option>
-                    <option value="30">30min</option>
-                    <option value="60">1h</option>
-                    <option value="180">3h</option>
-                  </select>
-                </td>
-                <td>
-                  <input type="text" class="form-control"  [(ngModel)]="sensor.pin" name="pin" placeholder="PIN">
-                </td>
-                <td>
-                  <button class="btn btn-danger" (click)="removeSensor(i)">
-                    &#x232b;
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td colspan="5">
-                  <button class="btn btn-primary" (click)="addSensor()">
-                    &#x2b; Sensor hinzufügen
-                  </button>
-                </td>
-              </tr>
+                <ng-container *ngFor="let sensor of settings.sensors; let i = index">
+                  <tr [ngClass]="{'my-bg': (i%2 == 0)}">
+                    <td>
+                      <select [(ngModel)]="sensor.type" name="sensor-type" class="custom-select">
+                        <option [ngValue]="0">Temperatursensor (DS18b20)</option>
+                        <option [ngValue]="1">BME680 (Temperatur+Luftfeuchtigkeit+Luftdruck+Qualität)</option>
+                        <option [ngValue]="2">Gewichtssensor (A/D: HX711)</option>
+                      </select>
+                    </td>
+                    <td>
+                      <button class="btn btn-danger float-right" (click)="removeSensor(i)" title="Entfernen">
+                        &#x232b;
+                      </button>
+                    </td>
+                  </tr>
+                  <tr *ngIf="sensor.type == 0" [ngClass]="{'my-bg': (i%2 == 0)}">
+                    <td colspan="2">
+                      <div class="row">
+                        <div class="form-group col-6">
+                          <label for="device_id">Sensor Device-ID</label>
+                          <input type="string" class="form-control" [(ngModel)]="sensor.device_id" id="device_id" name="device_id" placeholder="Device-ID">
+                        </div>
+                        <div class="form-group col-6">
+                          <label>ThingSpeak Feldname</label>
+                          <input type="string" class="form-control" [(ngModel)]="sensor.ts_field" name="ts_field" placeholder="Feldname">
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr *ngIf="sensor.type == 1" [ngClass]="{'my-bg': (i%2 == 0)}">
+                    <td colspan="2">
+                      <div class="row">
+                        <div class="form-group col-6">
+                          <label for="ts_field_temperature">ThingSpeak Feldname Temperatur</label>
+                          <input type="string" class="form-control" [(ngModel)]="sensor.ts_field_temperature" id="ts_field_temperature" name="ts_field_temperature" placeholder="Temperatur">
+                        </div>
+                        <div class="form-group col-6">
+                          <label for="ts_field_humidity">ThingSpeak Feldname Luftfeuchtigkeit</label>
+                          <input type="string" class="form-control" [(ngModel)]="sensor.ts_field_humidity" id="ts_field_humidity" name="ts_field_humidity" placeholder="Luftfeuchtigkeit">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group col-6">
+                          <label for="ts_field_air_pressure">ThingSpeak Feldname Luftdruck</label>
+                          <input type="string" class="form-control" [(ngModel)]="sensor.ts_field_air_pressure" id="ts_field_air_pressure" name="ts_field_air_pressure" placeholder="Luftdruck">
+                        </div>
+                        <div class="form-group col-6">
+                          <label for="ts_field_air_quality">ThingSpeak Feldname Qualität</label>
+                          <input type="string" class="form-control" [(ngModel)]="sensor.ts_field_air_quality" id="ts_field_air_quality" name="ts_field_air_quality" placeholder="Qualität">
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr *ngIf="sensor.type == 2" [ngClass]="{'my-bg': (i%2 == 0)}">
+                    <td colspan="2">
+                      <div class="row">
+                        <div class="form-group col-6">
+                          <label for="pin_dt">GPIO-PIN DT</label>
+                          <input type="number" class="form-control" [(ngModel)]="sensor.pin_dt" id="pin_dt" name="pin_dt" placeholder="DT">
+                        </div>
+                        <div class="form-group col-6">
+                          <label for="pin_sck">GPIO-PIN SCK</label>
+                          <input type="number" class="form-control" [(ngModel)]="sensor.pin_sck" id="pin_sck" name="pin_sck" placeholder="SCK">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group col-6">
+                          <label for="reference_unit">Wägezellen Kalibrierungswert</label>
+                          <input type="number" class="form-control" [(ngModel)]="sensor.reference_unit" id="reference_unit" name="reference_unit" placeholder="Kalibrierungswert">
+                        </div>
+                        <div class="form-group col-6">
+                          <label>ThingSpeak Feldname</label>
+                          <input type="string" class="form-control" [(ngModel)]="sensor.ts_field" name="ts_field" placeholder="Feldname">
+                        </div>
+                        <div class="col-12">
+                          <div class="alert alert-info"><b>Kalibrierungswert ausrechnen:</b><br>
+                            1. Setze den Kalibrierungswert auf 1<br>
+                            2. Platziere genau 2kg (2000g) auf die Waage<br>
+                            3. Teile den durchschnittlichen Messwert durch die 2kg: 184000/2000 = <b>Kalibrierungswert</b>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </ng-container>
+                <tr>
+                  <td colspan="2">
+                    <button class="btn btn-primary" (click)="addSensor()" title="Hinzufügen">
+                      &#x2b; Sensor hinzufügen
+                    </button>
+                  </td>
+                </tr>
               </tbody>
             </table>
             <hr />
             <div class="form-group">
-              <label for="set_reference_unit">Wägezellen Kalibrierungswert</label>
-              <input type="number" class="form-control" [(ngModel)]="settings.set_reference_unit" id="set_reference_unit" name="set_reference_unit" placeholder="Kalibrierungswert">
+              <label for="button_pin">Wartungsmodus-Taster GPIO-PIN</label>
+              <input type="number" class="form-control" [(ngModel)]="settings.button_pin" id="button_pin" name="button_pin" placeholder="GPIO-PIN">
+            </div>
+            <div class="alert alert-info">Eine Änderung am GPIO-PIN des Tasters erfordert einen Neustart des Gerätes.</div>
+            <div class="form-group">
+              <label for="interval">Messintervall</label>
+              <select [(ngModel)]="settings.interval" id="interval" name="interval" class="custom-select">
+                <option [ngValue]="60">1min</option>
+                <option [ngValue]="300">5min</option>
+                <option [ngValue]="600">10min</option>
+                <option [ngValue]="900">15min</option>
+                <option [ngValue]="1800">30min</option>
+              </select>
             </div>
           </div>
         </div>

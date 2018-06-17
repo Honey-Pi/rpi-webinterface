@@ -21,7 +21,9 @@ export class SettingsComponent implements OnInit {
   getSettings(): void {
     this.appService.getSettings()
       .subscribe(res => {
-        this.settings = <any>res;
+        if(res) {
+          this.settings = <any>res;
+        }
       }, (err: any) => {console.log(err.status); console.log(err);});
   }
 
@@ -34,11 +36,11 @@ export class SettingsComponent implements OnInit {
   }
 
   addSensor(): void {
-    this.settings.sensoren.push(new Sensor());
+    this.settings.sensors.push(new Sensor());
   }
 
   removeSensor(index: number): void {
-    this.settings.sensoren.splice(index,1);
+    this.settings.sensors.splice(index,1);
   }
 
 }

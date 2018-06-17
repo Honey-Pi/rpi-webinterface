@@ -3,13 +3,12 @@ import { Sensor } from "./sensor.model";
 export class Settings {
 
   constructor() {
-    this.sensoren = new Array<Sensor>();
+    this.sensors = new Array<Sensor>();
   }
-  tsChannelId: number;
-  tsReadKey: string;
-  tsWriteKey: string;
-  simApn: string;
-  simTime: number;
-  set_reference_unit: number;
-  sensoren: Sensor[];
+  ts_channel_id: number;
+  ts_write_key: string;
+  sim_apn: string;
+  interval: number;
+  button_pin: number;
+  sensors: Sensor[];
 }

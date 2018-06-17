@@ -23,3 +23,7 @@ body {
 main.container {
   margin-top:20px;
 }
+
+tr.my-bg {
+  background-color: #e9ecef;
+}
