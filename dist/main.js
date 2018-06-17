@@ -448,7 +448,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-var apiUrl = 'https://www.honey-pi.de/backend/settings.php';
+var apiUrl = './backend/settings.php';
 var AppService = /** @class */ (function () {
     function AppService(http) {
         this.http = http;

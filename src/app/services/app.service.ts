@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/map";
 
-const apiUrl = 'https://www.honey-pi.de/backend/settings.php';
+const apiUrl = './backend/settings.php';
 
 @Injectable({
   providedIn: 'root'
