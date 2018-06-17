@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* Sticky footer styles\r\n-------------------------------------------------- */\r\nhtml {\r\n  position: relative;\r\n  min-height: 100%;\r\n}\r\nbody {\r\n  margin-bottom: 80px; /* Margin bottom by footer height */\r\n}\r\n.footer {\r\n  position: absolute;\r\n  bottom: 0;\r\n  width: 100%;\r\n  height: 60px; /* Set the fixed height of the footer here */\r\n  line-height: 60px; /* Vertically center the text there */\r\n  background-color: #f5f5f5;\r\n}\r\n.jumbotron {\r\n  padding: 1rem 1rem;\r\n}\r\nmain.container {\r\n  margin-top:20px;\r\n}\r\n"
+module.exports = "/* Sticky footer styles\r\n-------------------------------------------------- */\r\nhtml {\r\n  position: relative;\r\n  min-height: 100%;\r\n}\r\nbody {\r\n  margin-bottom: 80px; /* Margin bottom by footer height */\r\n}\r\n.footer {\r\n  position: absolute;\r\n  bottom: 0;\r\n  width: 100%;\r\n  height: 60px; /* Set the fixed height of the footer here */\r\n  line-height: 60px; /* Vertically center the text there */\r\n  background-color: #f5f5f5;\r\n}\r\n.jumbotron {\r\n  padding: 1rem 1rem;\r\n}\r\nmain.container {\r\n  margin-top:20px;\r\n}\r\ntr.my-bg {\r\n  background-color: #e9ecef;\r\n}\r\n"
 
 /***/ }),
 

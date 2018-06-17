@@ -83,10 +83,6 @@ MIT
 MIT
 MIT
 
-@angular/http@6.0.5
-MIT
-MIT
-
 @angular/platform-browser-dynamic@6.0.5
 MIT
 MIT
