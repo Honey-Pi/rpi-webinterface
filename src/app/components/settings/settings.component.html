@@ -83,8 +83,9 @@
                           <input type="string" class="form-control" [(ngModel)]="sensor.device_id" id="device_id" name="device_id" placeholder="Device-ID">
                         </div>
                         <div class="form-group col-6">
-                          <label>ThingSpeak Feldname</label>
-                          <input type="string" class="form-control" [(ngModel)]="sensor.ts_field" name="ts_field" placeholder="Feldname">
+                          <settings-ts-field [label]="'ThingSpeak Feldname'"
+                                             (ts_fieldChanged)="sensor.ts_field = $event"
+                                             [ts_field]="sensor.ts_field" ></settings-ts-field>
                         </div>
                       </div>
                     </td>
@@ -93,22 +94,30 @@
                     <td colspan="2">
                       <div class="row">
                         <div class="form-group col-6">
-                          <label for="ts_field_temperature">ThingSpeak Feldname Temperatur</label>
-                          <input type="string" class="form-control" [(ngModel)]="sensor.ts_field_temperature" id="ts_field_temperature" name="ts_field_temperature" placeholder="Temperatur">
+                          <settings-ts-field [label]="'ThingSpeak Temperatur'"
+                                             [ts_field_id]="'ts_field_temperature'"
+                                             (ts_fieldChanged)="sensor.ts_field_temperature = $event"
+                                             [ts_field]="sensor.ts_field_temperature" ></settings-ts-field>
                         </div>
                         <div class="form-group col-6">
-                          <label for="ts_field_humidity">ThingSpeak Feldname Luftfeuchtigkeit</label>
-                          <input type="string" class="form-control" [(ngModel)]="sensor.ts_field_humidity" id="ts_field_humidity" name="ts_field_humidity" placeholder="Luftfeuchtigkeit">
+                          <settings-ts-field [label]="'ThingSpeak Luftfeuchtigkeit'"
+                                             [ts_field_id]="'ts_field_humidity'"
+                                             (ts_fieldChanged)="sensor.ts_field_humidity = $event"
+                                             [ts_field]="sensor.ts_field_humidity" ></settings-ts-field>
                         </div>
                       </div>
                       <div class="row">
                         <div class="form-group col-6">
-                          <label for="ts_field_air_pressure">ThingSpeak Feldname Luftdruck</label>
-                          <input type="string" class="form-control" [(ngModel)]="sensor.ts_field_air_pressure" id="ts_field_air_pressure" name="ts_field_air_pressure" placeholder="Luftdruck">
+                          <settings-ts-field [label]="'ThingSpeak Luftdruck'"
+                                             [ts_field_id]="'ts_field_air_pressure'"
+                                             (ts_fieldChanged)="sensor.ts_field_air_pressure = $event"
+                                             [ts_field]="sensor.ts_field_air_pressure" ></settings-ts-field>
                         </div>
                         <div class="form-group col-6">
-                          <label for="ts_field_air_quality">ThingSpeak Feldname Qualität</label>
-                          <input type="string" class="form-control" [(ngModel)]="sensor.ts_field_air_quality" id="ts_field_air_quality" name="ts_field_air_quality" placeholder="Qualität">
+                          <settings-ts-field [label]="'ThingSpeak Qualität'"
+                                             [ts_field_id]="'ts_field_air_quality'"
+                                             (ts_fieldChanged)="sensor.ts_field_air_quality = $event"
+                                             [ts_field]="sensor.ts_field_air_quality" ></settings-ts-field>
                         </div>
                       </div>
                     </td>
@@ -131,8 +140,9 @@
                           <input type="number" class="form-control" [(ngModel)]="sensor.reference_unit" id="reference_unit" name="reference_unit" placeholder="Kalibrierungswert">
                         </div>
                         <div class="form-group col-6">
-                          <label>ThingSpeak Feldname</label>
-                          <input type="string" class="form-control" [(ngModel)]="sensor.ts_field" name="ts_field" placeholder="Feldname">
+                          <settings-ts-field [label]="'ThingSpeak Feldname'"
+                                             (ts_fieldChanged)="sensor.ts_field = $event"
+                                             [ts_field]="sensor.ts_field" ></settings-ts-field>
                         </div>
                         <div class="col-12">
                           <div class="alert alert-info"><b>Kalibrierungswert ausrechnen:</b><br>

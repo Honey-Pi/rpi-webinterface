@@ -1,0 +1,12 @@
+<label for="{{ ts_field_id }}">{{ label }}</label>
+<select [(ngModel)]="ts_field" id="{{ ts_field_id }}" name="{{ ts_field_id }}" (ngModelChange)="onChange($event)" class="custom-select">
+  <option [ngValue]="undefined">Feld auswählen...</option>
+  <option value="field1">Feld 1</option>
+  <option value="field2">Feld 2</option>
+  <option value="field3">Feld 3</option>
+  <option value="field4">Feld 4</option>
+  <option value="field5">Feld 5</option>
+  <option value="field6">Feld 6</option>
+  <option value="field7">Feld 7</option>
+  <option value="field8">Feld 8</option>
+</select>
