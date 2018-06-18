@@ -11,11 +11,13 @@ import { Sensor } from '../../models/sensor.model';
 export class SettingsComponent implements OnInit {
 
   public settings: Settings = new Settings();
+  public temperatureSensors: Array<any> = new Array<any>();
   constructor(private appService: AppService) { }
 
   ngOnInit() {
     /* initial load */
     this.getSettings();
+    this.getTemperatureSensors();
   }
 
   getSettings(): void {
@@ -35,12 +37,23 @@ export class SettingsComponent implements OnInit {
     }, (err: any) => {console.log(err.status); console.log(err);});
   }
 
+  /* Sensors */
+
   addSensor(): void {
     this.settings.sensors.push(new Sensor());
   }
 
   removeSensor(index: number): void {
     this.settings.sensors.splice(index,1);
+  }
+
+  getTemperatureSensors(): void {
+    this.appService.getTemperatureSensors()
+      .subscribe(res => {
+        if(res) {
+          this.temperatureSensors = <any>res;
+        }
+      }, (err: any) => {console.log(err.status); console.log(err);});
   }
 
 }

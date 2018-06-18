@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/map";
 
-const apiUrl = './backend/settings.php';
+const apiUrl = './backend/';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,17 @@ export class AppService {
 
   getSettings(): Observable<Response> {
     let timestamp = "&t=" + ((new Date()).getTime());
-    return this.http.get(apiUrl + '?getSettings' + timestamp)
+    return this.http.get(apiUrl + 'settings.php?getSettings' + timestamp)
+      .map((response: Response) => {
+        if (response) {
+          return response;
+        }
+      });
+  }
+
+  getTemperatureSensors(): Observable<Response> {
+    let timestamp = "&t=" + ((new Date()).getTime());
+    return this.http.get(apiUrl + 'ds18b20.php?getSettings' + timestamp)
       .map((response: Response) => {
         if (response) {
           return response;
@@ -24,7 +34,7 @@ export class AppService {
   }
 
   setSettings(newSettings: Settings): Observable<Response> {
-    return this.http.post(apiUrl + '?setSettings', JSON.stringify(newSettings)).map((response: Response) => {
+    return this.http.post(apiUrl + 'settings.php?setSettings', JSON.stringify(newSettings)).map((response: Response) => {
       return response;
     });
   }

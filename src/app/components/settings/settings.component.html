@@ -80,12 +80,25 @@
                       <div class="row">
                         <div class="form-group col-6">
                           <label for="device_id">Sensor Device-ID</label>
-                          <input type="string" class="form-control" [(ngModel)]="sensor.device_id" id="device_id" name="device_id" placeholder="Device-ID">
+                          <select [(ngModel)]="sensor.device_id" id="device_id" name="device_id" class="custom-select">
+                            <option [ngValue]="undefined">Device-ID auswählen...</option>
+                            <ng-container *ngFor="let device of temperatureSensors">
+                              <option [ngValue]="device">{{ device }}</option>
+                            </ng-container>
+                          </select>
                         </div>
                         <div class="form-group col-6">
                           <settings-ts-field [label]="'ThingSpeak Feldname'"
                                              (ts_fieldChanged)="sensor.ts_field = $event"
                                              [ts_field]="sensor.ts_field" ></settings-ts-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="alert alert-info" *ngIf="temperatureSensors.length == 0">
+                            Es konnten keine Temperatursensor am Gerät gefunden werden.<br>
+                            Prüfe ob die Sensoren angeschlossen und <a (click)="getTemperatureSensors()" [routerLink]="">aktualisiere</a> die Liste.
+                          </div>
                         </div>
                       </div>
                     </td>
@@ -173,6 +186,7 @@
             <div class="form-group">
               <label for="interval">Messintervall</label>
               <select [(ngModel)]="settings.interval" id="interval" name="interval" class="custom-select">
+                <option [ngValue]="undefined">Intervall auswählen...</option>
                 <option [ngValue]="60">1min</option>
                 <option [ngValue]="300">5min</option>
                 <option [ngValue]="600">10min</option>
