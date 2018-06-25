@@ -149,19 +149,40 @@
                       </div>
                       <div class="row">
                         <div class="form-group col-6">
-                          <label for="reference_unit">Wägezellen Kalibrierungswert</label>
-                          <input type="string" class="form-control" [(ngModel)]="sensor.reference_unit" id="reference_unit" name="reference_unit" placeholder="Kalibrierungswert">
+                          <label for="channel">HX711 Channel</label>
+                          <select [(ngModel)]="sensor.channel" name="channel" id="channel" class="custom-select">
+                            <option [ngValue]="undefined">Channel auswählen...</option>
+                            <option [ngValue]="'A'">Channel A</option>
+                            <option [ngValue]="'B'">Channel B</option>
+                          </select>
                         </div>
                         <div class="form-group col-6">
                           <settings-ts-field [label]="'ThingSpeak Feldname'"
                                              (ts_fieldChanged)="sensor.ts_field = $event"
                                              [ts_field]="sensor.ts_field" ></settings-ts-field>
                         </div>
-                        <div class="col-12">
-                          <div class="alert alert-info"><b>Kalibrierungswert ausrechnen:</b><br>
-                            1. Setze den Kalibrierungswert auf 1<br>
-                            2. Platziere genau 2kg (2000g) auf die Waage<br>
-                            3. Teile den durchschnittlichen Messwert durch die 2kg: 184000/2000 = <b>Kalibrierungswert</b>
+                      </div>
+                      <div class="row">
+                        <div class="form-group col-6">
+                          <label for="offset">Wägezellen Offset</label>
+                          <input type="number" class="form-control" [(ngModel)]="sensor.offset" id="offset" name="offset" placeholder="Offset">
+                        </div>
+                        <div class="form-group col-6">
+                          <label for="reference_unit">Wägezellen Skalierungswert</label>
+                          <input type="string" class="form-control" [(ngModel)]="sensor.reference_unit" id="reference_unit" name="reference_unit" placeholder="Skalierungswert">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-6">
+                          <div class="alert alert-info">
+                            <b>Offset:</b> Beeinflusst das Messergebnis indem das Offset vom Messwert abgezogen wird.
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div class="alert alert-info">
+                            <b>Skalierungswert:</b> Beeinflusst das Messergebnis indem (Messwert-Offset) durch den Skalierungswert geteilt wird.
+                            <br />
+                            <i>Wertebereicht: 0.0 bis 1.0 und 1 bis ...</i>
                           </div>
                         </div>
                       </div>

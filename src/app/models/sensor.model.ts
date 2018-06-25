@@ -12,6 +12,8 @@ export class Sensor {
   ts_field: string;
   // Gewicht spezifisch:
   reference_unit: number;
+  channel: string;
+  offset: number;
   pin_dt: number;
   pin_sck: number;
   // BME680 spezifisch:
