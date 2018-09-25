@@ -30,16 +30,17 @@
         <div class="card-header" id="headingTwo">
           <h5 class="mb-0">
             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-              Mobilfunkübertragung
+              Internetverbindung
             </button>
           </h5>
         </div>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
           <div class="card-body">
-            <div class="form-group">
+            <p>Dieser Bereich wird in der nächsten Version fertiggestellt. Geplant ist die Auswahl zwischen Surfstick (Mobilfunk) und vorhandenem WLAN-Netzwerk.</p>
+            <!--<div class="form-group">
               <label for="sim_apn">APN der SIM-Karte</label>
               <input type="text" class="form-control" [(ngModel)]="settings.sim_apn" id="sim_apn" name="sim_apn" placeholder="APN">
-            </div>
+            </div>-->
           </div>
         </div>
       </div>
@@ -67,6 +68,7 @@
                         <option [ngValue]="0">Temperatursensor (DS18b20)</option>
                         <option [ngValue]="1">BME680 (Temperatur+Luftfeuchtigkeit+Luftdruck+Qualität)</option>
                         <option [ngValue]="2">Gewichtssensor (A/D: HX711)</option>
+                        <option [ngValue]="3">Luftfeuchtigkeit und Temperatur (DHT11/DHT22)</option>
                       </select>
                     </td>
                     <td>
@@ -184,6 +186,30 @@
                             <br />
                             <i>Wertebereicht: 0.0 bis 1.0 und 1 bis ...</i>
                           </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr *ngIf="sensor.type == 3" [ngClass]="{'my-bg': (i%2 == 0)}">
+                    <td colspan="2">
+                      <div class="row">
+                        <div class="form-group col-6">
+                          <settings-ts-field [label]="'ThingSpeak Temperatur'"
+                                             [ts_field_id]="'ts_field_temperature'"
+                                             (ts_fieldChanged)="sensor.ts_field_temperature = $event"
+                                             [ts_field]="sensor.ts_field_temperature" ></settings-ts-field>
+                        </div>
+                        <div class="form-group col-6">
+                          <settings-ts-field [label]="'ThingSpeak Luftfeuchtigkeit'"
+                                             [ts_field_id]="'ts_field_humidity'"
+                                             (ts_fieldChanged)="sensor.ts_field_humidity = $event"
+                                             [ts_field]="sensor.ts_field_humidity" ></settings-ts-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group col-6">
+                          <label for="pin">GPIO-PIN </label>
+                          <input type="number" class="form-control" [(ngModel)]="sensor.pin" id="pin" name="pin" placeholder="PIN" />
                         </div>
                       </div>
                     </td>
