@@ -12,12 +12,27 @@ export class SettingsComponent implements OnInit {
 
   public settings: Settings = new Settings();
   public temperatureSensors: Array<any> = new Array<any>();
+  public settingsSaved: boolean = false;
+  public settingsError: boolean = false;
+
   constructor(private appService: AppService) { }
 
   ngOnInit() {
     /* initial load */
     this.getSettings();
     this.getTemperatureSensors();
+  }
+
+  private n: any;
+  hideAlertsTimer() {
+    //wait 4 Seconds and hide
+    if (this.n) {
+      clearTimeout(this.n);
+    }
+    this.n = window.setTimeout(() => {
+      this.settingsSaved = false;
+      this.settingsError = false;
+    }, 4000);
   }
 
   getSettings(): void {
@@ -34,7 +49,15 @@ export class SettingsComponent implements OnInit {
       console.log(res);
       // load new Settings
       this.getSettings();
-    }, (err: any) => {console.log(err.status); console.log(err);});
+      this.settingsSaved = true;
+      this.settingsError = false;
+      this.hideAlertsTimer();
+    }, (err: any) => {
+      console.log(err.status);
+      console.log(err);
+      this.settingsError = true;
+      this.hideAlertsTimer();
+    });
   }
 
   /* Sensors */

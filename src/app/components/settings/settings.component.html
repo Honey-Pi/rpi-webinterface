@@ -4,6 +4,14 @@
       <button class="btn btn-sm btn-primary" type="button" (click)="saveSettings()">Speichern</button>
     </div>
     <h1>Hardware Einstellungen</h1>
+    <div class="alert alert-success myAlert-top" role="alert" *ngIf="settingsSaved">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Gespeichert!</strong> Die Einstellungen wurden gespeichert.
+    </div>
+    <div class="alert alert-danger myAlert-top" role="alert" *ngIf="settingsError">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Fehler!</strong> Die Einstellungen konnten nicht gespeichert werden.
+    </div>
     <div id="accordion">
       <div class="card">
         <div class="card-header" id="headingOne">
@@ -227,9 +235,9 @@
             <hr />
             <div class="form-group">
               <label for="button_pin">Wartungsmodus-Taster GPIO-PIN</label>
-              <input type="number" class="form-control" [(ngModel)]="settings.button_pin" id="button_pin" name="button_pin" placeholder="GPIO-PIN">
+              <input type="number" class="form-control" [(ngModel)]="settings.button_pin" id="button_pin" name="button_pin" placeholder="GPIO-PIN" required>
             </div>
-            <div class="alert alert-info">Eine Änderung am GPIO-PIN des Tasters erfordert einen Neustart des Gerätes.</div>
+            <div class="alert alert-info">Die Änderung am Taster wird nach einem Neustart aktiv.</div>
             <div class="form-group">
               <label for="interval">Messintervall</label>
               <select [(ngModel)]="settings.interval" id="interval" name="interval" class="custom-select">
@@ -239,6 +247,7 @@
                 <option [ngValue]="600">10min</option>
                 <option [ngValue]="900">15min</option>
                 <option [ngValue]="1800">30min</option>
+                <option [ngValue]="3600">60min</option>
               </select>
             </div>
           </div>
