@@ -14,6 +14,7 @@ export class SettingsComponent implements OnInit {
   public temperatureSensors: Array<any> = new Array<any>();
   public settingsSaved: boolean = false;
   public settingsError: boolean = false;
+  public checkInternetResponse: any;
 
   constructor(private appService: AppService) { }
 
@@ -75,6 +76,15 @@ export class SettingsComponent implements OnInit {
       .subscribe(res => {
         if(res) {
           this.temperatureSensors = <any>res;
+        }
+      }, (err: any) => {console.log(err.status); console.log(err);});
+  }
+
+  checkInternet(): void {
+    this.appService.checkInternet()
+      .subscribe(res => {
+        if(res) {
+          this.checkInternetResponse = <any>res;
         }
       }, (err: any) => {console.log(err.status); console.log(err);});
   }

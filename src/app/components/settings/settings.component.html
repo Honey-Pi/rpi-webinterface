@@ -49,6 +49,12 @@
               <label for="sim_apn">APN der SIM-Karte</label>
               <input type="text" class="form-control" [(ngModel)]="settings.sim_apn" id="sim_apn" name="sim_apn" placeholder="APN">
             </div>-->
+
+            <h5 class="h5">Surfstick Internetzugriff</h5>
+            <button type="button" role="button" class="btn btn-primary btn-sm" (click)="checkInternet()">Teste Internetverbindung</button>
+            <pre *ngIf="checkInternetResponse">
+              Antwort: {{checkInternetResponse}}
+            </pre>
           </div>
         </div>
       </div>
@@ -107,7 +113,7 @@
                         <div class="col-12">
                           <div class="alert alert-info" *ngIf="temperatureSensors.length == 0">
                             Es konnten keine Temperatursensor am Gerät gefunden werden.<br>
-                            Prüfe ob die Sensoren angeschlossen und <a (click)="getTemperatureSensors()" [routerLink]="">aktualisiere</a> die Liste.
+                            Prüfe ob die Sensoren richtig angeschlossen sind und <a (click)="getTemperatureSensors()" [routerLink]="">aktualisiere</a> die Liste.
                           </div>
                         </div>
                       </div>

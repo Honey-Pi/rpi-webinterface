@@ -23,6 +23,12 @@ export class AppService {
       });
   }
 
+  setSettings(newSettings: Settings): Observable<Response> {
+    return this.http.post(apiUrl + 'settings.php?setSettings', JSON.stringify(newSettings)).map((response: Response) => {
+      return response;
+    });
+  }
+
   getTemperatureSensors(): Observable<Response> {
     let timestamp = "&t=" + ((new Date()).getTime());
     return this.http.get(apiUrl + 'ds18b20.php?getSettings' + timestamp)
@@ -33,9 +39,14 @@ export class AppService {
       });
   }
 
-  setSettings(newSettings: Settings): Observable<Response> {
-    return this.http.post(apiUrl + 'settings.php?setSettings', JSON.stringify(newSettings)).map((response: Response) => {
-      return response;
-    });
+  checkInternet(): Observable<Response> {
+    let timestamp = "?t=" + ((new Date()).getTime());
+    return this.http.get(apiUrl + 'check_internet.php' + timestamp)
+      .map((response: Response) => {
+        if (response) {
+          return response;
+        }
+      });
   }
+
 }
