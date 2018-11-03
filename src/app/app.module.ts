@@ -9,6 +9,8 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TsFieldComponent } from './components/settings/ts-field/ts-field.component';
+import { InternetComponent } from './components/internet/internet.component';
+import { LogComponent } from './components/log/log.component';
 
 const appRoutes: Routes = [
   { path: '', component: SettingsComponent }
@@ -21,7 +23,9 @@ const appRoutes: Routes = [
     SettingsComponent,
     NavbarComponent,
     FooterComponent,
-    TsFieldComponent
+    TsFieldComponent,
+    InternetComponent,
+    LogComponent
   ],
   imports: [
     BrowserModule,

@@ -44,17 +44,7 @@
         </div>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
           <div class="card-body">
-            <p>Dieser Bereich wird in der nächsten Version fertiggestellt. Geplant ist die Auswahl zwischen Surfstick (Mobilfunk) und vorhandenem WLAN-Netzwerk.</p>
-            <!--<div class="form-group">
-              <label for="sim_apn">APN der SIM-Karte</label>
-              <input type="text" class="form-control" [(ngModel)]="settings.sim_apn" id="sim_apn" name="sim_apn" placeholder="APN">
-            </div>-->
-
-            <h5 class="h5">Surfstick Internetzugriff</h5>
-            <button type="button" role="button" class="btn btn-primary btn-sm" (click)="checkInternet()">Teste Internetverbindung</button>
-            <pre *ngIf="checkInternetResponse">
-              Antwort: {{checkInternetResponse}}
-            </pre>
+            <app-internet></app-internet>
           </div>
         </div>
       </div>
@@ -256,6 +246,20 @@
                 <option [ngValue]="3600">60min</option>
               </select>
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingFour">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              Protokoll
+            </button>
+          </h5>
+        </div>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+          <div class="card-body">
+            <app-log></app-log>
           </div>
         </div>
       </div>

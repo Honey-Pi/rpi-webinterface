@@ -19,5 +19,5 @@
         
     }
     
-    echo json_encode(is_connected());
+    echo json_encode({"connection": is_connected()});
 ?>

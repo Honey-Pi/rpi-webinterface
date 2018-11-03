@@ -30,8 +30,18 @@ export class AppService {
   }
 
   getTemperatureSensors(): Observable<Response> {
-    let timestamp = "&t=" + ((new Date()).getTime());
-    return this.http.get(apiUrl + 'ds18b20.php?getSettings' + timestamp)
+    let timestamp = "t=" + ((new Date()).getTime());
+    return this.http.get(apiUrl + 'ds18b20.php?getSettings&' + timestamp)
+      .map((response: Response) => {
+        if (response) {
+          return response;
+        }
+      });
+  }
+
+  getLog(): Observable<Response> {
+    let timestamp = "t=" + ((new Date()).getTime());
+    return this.http.get(apiUrl + 'log.php?' + timestamp)
       .map((response: Response) => {
         if (response) {
           return response;
@@ -40,8 +50,8 @@ export class AppService {
   }
 
   checkInternet(): Observable<Response> {
-    let timestamp = "?t=" + ((new Date()).getTime());
-    return this.http.get(apiUrl + 'check_internet.php' + timestamp)
+    let timestamp = "t=" + ((new Date()).getTime());
+    return this.http.get(apiUrl + 'check_internet.php?' + timestamp)
       .map((response: Response) => {
         if (response) {
           return response;
