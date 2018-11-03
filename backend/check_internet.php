@@ -1,4 +1,8 @@
 <?php
+    
+    // enable CORS (only for testing)
+    header("Access-Control-Allow-Origin: *");
+    
     // json
     header('Content-type:application/json;charset=utf-8');
     
@@ -7,17 +11,29 @@
     header("Cache-Control: post-check=0, pre-check=0", false);
     header("Pragma: no-cache");
     
+    // enable PHP error reporting
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+    
     function is_connected()
     {
-        $connected = fopen("http://www.google.com:80/","r");
-        if($connected)
+        // see https://superuser.com/a/769248
+        $filename = "http://www.msftncsi.com/ncsi.txt";
+        $check = "Microsoft NCSI";
+        $content = file_get_contents($filename);
+        if($content === $check)
         {
-            return true;
+            return ['connected' => true,
+            'content' => null];
         } else {
-            return false;
+            $obj = ['connected' => false,
+            'content' => $content];
         }
         
     }
     
-    echo json_encode({"connection": is_connected()});
+    $obj = is_connected();
+    
+    echo json_encode($obj);
 ?>

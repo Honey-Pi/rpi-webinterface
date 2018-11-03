@@ -8,7 +8,7 @@ import {AppService} from "../../services/app.service";
 })
 export class LogComponent implements OnInit {
 
-  public log: string = "";
+  public log: string;
 
   constructor(private appService: AppService) { }
 
@@ -20,7 +20,7 @@ export class LogComponent implements OnInit {
     this.appService.getLog()
       .subscribe(res => {
         if(res) {
-          this.log = <any>res;
+          this.log = res;
         }
       }, (err: any) => {console.log(err.status); console.log(err);});
   }

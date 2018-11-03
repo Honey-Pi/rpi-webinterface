@@ -1,2 +1,3 @@
-<pre class="pre-scrollable">{{log}}</pre>
+<pre class="pre-scrollable" *ngIf="log && log !== 'NOFILE'">{{log}}</pre>
+<div class="alert alert-info" *ngIf="log === 'NOFILE'">Auf deinem Gerät gibt es noch kein Protokoll.</div>
 <button class="btn btn-primary btn-sm" type="button" role="button" (click)="getLog()">Protokoll aktualisieren</button>

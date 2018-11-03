@@ -16,11 +16,12 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     
-    // define vars
-    $file = '/home/pi/rpi-scripts/error.log';
+    $filename = '/home/pi/rpi-scripts/error.log';
     
-    $log = file_get_contents($file);
-    echo $log;
+    if (file_exists($filename)) {
+        echo file_get_contents($filename);
+    } else {
+        echo "NOFILE";
+    }
     
-    
-    ?>
+?>

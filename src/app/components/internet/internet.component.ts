@@ -9,7 +9,7 @@ import {Wifi} from "../../models/wifi.model";
 })
 export class InternetComponent {
 
-  public checkInternetResponse: any;
+  public checkInternetResponse: {'connected': boolean, 'content': string};
   public wifi: Wifi = new Wifi();
   public honeypiWifi: Wifi = new Wifi();
 

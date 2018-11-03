@@ -7,7 +7,7 @@
 /*! exports provided: name, version, license, scripts, private, dependencies, devDependencies, default */
 /***/ (function(module) {
 
-module.exports = {"name":"rpi-webinterface","version":"0.0.2","license":"MIT","scripts":{"ng":"ng","start":"ng serve","build":"ng build","test":"ng test","lint":"ng lint","e2e":"ng e2e"},"private":true,"dependencies":{"@angular/animations":"^6.1.8","@angular/common":"^6.1.8","@angular/compiler":"^6.1.8","@angular/core":"^6.1.8","@angular/forms":"^6.1.8","@angular/http":"^6.1.8","@angular/platform-browser":"^6.1.8","@angular/platform-browser-dynamic":"^6.1.8","@angular/router":"^6.1.8","core-js":"^2.4.1","rxjs":"^6.3.2","rxjs-compat":"^6.3.2","zone.js":"^0.8.14"},"devDependencies":{"@angular-devkit/build-angular":"~0.6.8","@angular/cli":"^6.2.3","@angular/compiler-cli":"^6.1.8","@angular/language-service":"^6.1.8","@types/jasmine":"~2.5.53","@types/jasminewd2":"~2.0.2","@types/node":"^6.0.117","codelyzer":"~3.2.0","jasmine-core":"~2.6.2","jasmine-spec-reporter":"~4.1.0","karma":"~1.7.0","karma-chrome-launcher":"~2.1.1","karma-cli":"~1.0.1","karma-coverage-istanbul-reporter":"^1.2.1","karma-jasmine":"~1.1.0","karma-jasmine-html-reporter":"^0.2.2","protractor":"~5.1.2","ts-node":"~3.2.0","tslint":"~5.7.0","typescript":"^2.9.2"}};
+module.exports = {"name":"rpi-webinterface","version":"0.0.3","license":"MIT","scripts":{"ng":"ng","start":"ng serve","build":"ng build","test":"ng test","lint":"ng lint","e2e":"ng e2e"},"private":true,"dependencies":{"@angular/animations":"^6.1.8","@angular/common":"^6.1.8","@angular/compiler":"^6.1.8","@angular/core":"^6.1.8","@angular/forms":"^6.1.8","@angular/http":"^6.1.8","@angular/platform-browser":"^6.1.8","@angular/platform-browser-dynamic":"^6.1.8","@angular/router":"^6.1.8","core-js":"^2.4.1","rxjs":"^6.3.2","rxjs-compat":"^6.3.2","zone.js":"^0.8.14"},"devDependencies":{"@angular-devkit/build-angular":"~0.6.8","@angular/cli":"^6.2.3","@angular/compiler-cli":"^6.1.8","@angular/language-service":"^6.1.8","@types/jasmine":"~2.5.53","@types/jasminewd2":"~2.0.2","@types/node":"^6.0.117","codelyzer":"~3.2.0","jasmine-core":"~2.6.2","jasmine-spec-reporter":"~4.1.0","karma":"~1.7.0","karma-chrome-launcher":"~2.1.1","karma-cli":"~1.0.1","karma-coverage-istanbul-reporter":"^1.2.1","karma-jasmine":"~1.1.0","karma-jasmine-html-reporter":"^0.2.2","protractor":"~5.1.2","ts-node":"~3.2.0","tslint":"~5.7.0","typescript":"^2.9.2"}};
 
 /***/ }),
 
@@ -52,7 +52,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\r\n<router-outlet></router-outlet>\r\n<app-footer></app-footer>\r\n"
+module.exports = "<app-navbar></app-navbar>\n<router-outlet></router-outlet>\n<app-footer></app-footer>\n"
 
 /***/ }),
 
@@ -111,12 +111,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/navbar/navbar.component */ "./src/app/components/navbar/navbar.component.ts");
 /* harmony import */ var _components_footer_footer_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/footer/footer.component */ "./src/app/components/footer/footer.component.ts");
 /* harmony import */ var _components_settings_ts_field_ts_field_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/settings/ts-field/ts-field.component */ "./src/app/components/settings/ts-field/ts-field.component.ts");
+/* harmony import */ var _components_internet_internet_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/internet/internet.component */ "./src/app/components/internet/internet.component.ts");
+/* harmony import */ var _components_log_log_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/log/log.component */ "./src/app/components/log/log.component.ts");
+/* harmony import */ var _components_measurement_measurement_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/measurement/measurement.component */ "./src/app/components/measurement/measurement.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
 
 
 
@@ -140,7 +146,10 @@ var AppModule = /** @class */ (function () {
                 _components_settings_settings_component__WEBPACK_IMPORTED_MODULE_6__["SettingsComponent"],
                 _components_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_7__["NavbarComponent"],
                 _components_footer_footer_component__WEBPACK_IMPORTED_MODULE_8__["FooterComponent"],
-                _components_settings_ts_field_ts_field_component__WEBPACK_IMPORTED_MODULE_9__["TsFieldComponent"]
+                _components_settings_ts_field_ts_field_component__WEBPACK_IMPORTED_MODULE_9__["TsFieldComponent"],
+                _components_internet_internet_component__WEBPACK_IMPORTED_MODULE_10__["InternetComponent"],
+                _components_log_log_component__WEBPACK_IMPORTED_MODULE_11__["LogComponent"],
+                _components_measurement_measurement_component__WEBPACK_IMPORTED_MODULE_12__["MeasurementComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -178,7 +187,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<footer class=\"footer\">\r\n  <div class=\"container\">\r\n    <span class=\"text-muted\">&copy; <a href=\"https://www.honey-pi.de\" target=\"_blank\">Honey-Pi.de</a> | v{{ appVersion }}</span>\r\n  </div>\r\n</footer>\r\n"
+module.exports = "<footer class=\"footer\">\n  <div class=\"container\">\n    <span class=\"text-muted\">&copy; <a href=\"https://www.honey-pi.de\" target=\"_blank\">Honey-Pi.de</a> | v{{ appVersion }}</span>\n  </div>\n</footer>\n"
 
 /***/ }),
 
@@ -225,6 +234,236 @@ var FooterComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/components/internet/internet.component.css":
+/*!************************************************************!*\
+  !*** ./src/app/components/internet/internet.component.css ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/internet/internet.component.html":
+/*!*************************************************************!*\
+  !*** ./src/app/components/internet/internet.component.html ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"alert alert-info\">Die Änderungen in diesem Bereich werden nach einem Neustart aktiv.</div>\n<hr />\n<h5 class=\"h5\">WLAN Internetzugang</h5>\n<div class=\"form-check\">\n  <input class=\"form-check-input\" type=\"checkbox\" [(ngModel)]=\"wifi.enabled\" id=\"enabledWifi\">\n  <label class=\"form-check-label\" for=\"enabledWifi\">\n    Mit vorhandenem WLAN-Netzwerk verbinden, wenn verfügbar?\n  </label>\n</div>\n<div class=\"row\" *ngIf=\"wifi.enabled\">\n  <div class=\"form-group col-6\">\n    <label for=\"ssid\">WLAN-Funknetz (SSID)</label>\n    <input type=\"text\" class=\"form-control\" [(ngModel)]=\"wifi.ssid\" id=\"ssid\" name=\"ssid\" placeholder=\"WLAN-Netzwerkname\">\n  </div>\n  <div class=\"form-group col-6\">\n    <label for=\"password\">WLAN-Netzwerkschlüssel</label>\n    <input type=\"text\" class=\"form-control\" [(ngModel)]=\"wifi.password\" id=\"password\" name=\"password\" placeholder=\"Passwort\">\n  </div>\n</div>\n<button class=\"btn btn-primary btn-sm\" type=\"button\" role=\"button\">Änderungen speichern</button>\n<hr />\n<h5 class=\"h5\">Mobilfunkverbindung vorhanden?</h5>\n<button type=\"button\" role=\"button\" class=\"btn btn-primary btn-sm\" (click)=\"checkInternet()\">Teste Internetverbindung</button>\n<br>\n<div *ngIf=\"checkInternetResponse\">\n  <span class=\"text-success\" *ngIf=\"checkInternetResponse.connected\">Internetaufruf erfolgreich.</span>\n  <span class=\"text-danger\" *ngIf=\"!checkInternetResponse.connected\">Verbindung fehlgeschlagen.</span>\n  <pre class=\"pre-scrollable\" *ngIf=\"checkInternetResponse.content\">{{checkInternetResponse.content}}</pre>\n</div>\n<br>\n<div class=\"alert alert-info\">\n  Bei aktiviertem AccessPoint, also hier im Wartungsmodus, kann sich der Raspberry Pi <strong>nicht gleichzeitig</strong> auch mit einem WLAN-Netzwerk verbinden.\n  Daher kann beim Test nur die Internetverbindung über den Surfstick oder beim RPi 3B/3B+ auch der LAN-Anschluss getestet werden.\n</div>\n<p>\n  <a class=\"text-danger\" data-toggle=\"collapse\" href=\"#collapseExample\" role=\"button\" aria-expanded=\"false\" aria-controls=\"collapseExample\">\n    Erweiterte Einstellungen für Nutzer, die wissen was sie tun »\n  </a>\n</p>\n<div class=\"collapse\" id=\"collapseExample\">\n  <div class=\"card card-body\">\n    <h5 class=\"h5\">HoneyPi Wartungsmodus</h5>\n    <p>Ändere die SSID und das Passwort des AccessPoints.</p>\n    <div class=\"row\">\n      <div class=\"form-group col-6\">\n        <label for=\"honeypiWifissid\">WLAN-Funknetz (SSID)</label>\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"honeypiWifi.ssid\" id=\"honeypiWifissid\" name=\"honeypiWifissid\" placeholder=\"WLAN-Netzwerkname\">\n      </div>\n      <div class=\"form-group col-6\">\n        <label for=\"honeypiWifipassword\">WLAN-Netzwerkschlüssel</label>\n        <input type=\"text\" class=\"form-control\" [(ngModel)]=\"honeypiWifi.password\" id=\"honeypiWifipassword\" name=\"honeypiWifipassword\" placeholder=\"Passwort\">\n      </div>\n    </div>\n    <button class=\"btn btn-primary btn-sm\" type=\"button\" role=\"button\">Bisherige Konfiguration überschreiben</button>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/internet/internet.component.ts":
+/*!***********************************************************!*\
+  !*** ./src/app/components/internet/internet.component.ts ***!
+  \***********************************************************/
+/*! exports provided: InternetComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InternetComponent", function() { return InternetComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_app_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/app.service */ "./src/app/services/app.service.ts");
+/* harmony import */ var _models_wifi_model__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../models/wifi.model */ "./src/app/models/wifi.model.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var InternetComponent = /** @class */ (function () {
+    function InternetComponent(appService) {
+        this.appService = appService;
+        this.wifi = new _models_wifi_model__WEBPACK_IMPORTED_MODULE_2__["Wifi"]();
+        this.honeypiWifi = new _models_wifi_model__WEBPACK_IMPORTED_MODULE_2__["Wifi"]();
+    }
+    InternetComponent.prototype.checkInternet = function () {
+        var _this = this;
+        this.appService.checkInternet()
+            .subscribe(function (res) {
+            if (res) {
+                _this.checkInternetResponse = res;
+            }
+        }, function (err) { console.log(err.status); console.log(err); });
+    };
+    InternetComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-internet',
+            template: __webpack_require__(/*! ./internet.component.html */ "./src/app/components/internet/internet.component.html"),
+            styles: [__webpack_require__(/*! ./internet.component.css */ "./src/app/components/internet/internet.component.css")]
+        }),
+        __metadata("design:paramtypes", [_services_app_service__WEBPACK_IMPORTED_MODULE_1__["AppService"]])
+    ], InternetComponent);
+    return InternetComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/log/log.component.css":
+/*!**************************************************!*\
+  !*** ./src/app/components/log/log.component.css ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/log/log.component.html":
+/*!***************************************************!*\
+  !*** ./src/app/components/log/log.component.html ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<pre class=\"pre-scrollable\">{{log}}</pre>\n<button class=\"btn btn-primary btn-sm\" type=\"button\" role=\"button\" (click)=\"getLog()\">Protokoll aktualisieren</button>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/log/log.component.ts":
+/*!*************************************************!*\
+  !*** ./src/app/components/log/log.component.ts ***!
+  \*************************************************/
+/*! exports provided: LogComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LogComponent", function() { return LogComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_app_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/app.service */ "./src/app/services/app.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var LogComponent = /** @class */ (function () {
+    function LogComponent(appService) {
+        this.appService = appService;
+        this.log = "";
+    }
+    LogComponent.prototype.ngOnInit = function () {
+        this.getLog();
+    };
+    LogComponent.prototype.getLog = function () {
+        var _this = this;
+        this.appService.getLog()
+            .subscribe(function (res) {
+            if (res) {
+                _this.log = res;
+            }
+        }, function (err) { console.log(err.status); console.log(err); });
+    };
+    LogComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-log',
+            template: __webpack_require__(/*! ./log.component.html */ "./src/app/components/log/log.component.html"),
+            styles: [__webpack_require__(/*! ./log.component.css */ "./src/app/components/log/log.component.css")]
+        }),
+        __metadata("design:paramtypes", [_services_app_service__WEBPACK_IMPORTED_MODULE_1__["AppService"]])
+    ], LogComponent);
+    return LogComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/measurement/measurement.component.css":
+/*!******************************************************************!*\
+  !*** ./src/app/components/measurement/measurement.component.css ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/measurement/measurement.component.html":
+/*!*******************************************************************!*\
+  !*** ./src/app/components/measurement/measurement.component.html ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"alert alert-info\">\n  Hier werden die Sensoren angezeigt, die im Reiter \"<strong>Angeschlossene Sensoren</strong>\" konfiguriert und gespeichert sind.\n</div>\n<pre class=\"pre-scrollable\">{{measurement}}</pre>\n<button class=\"btn btn-primary btn-sm\" type=\"button\" role=\"button\" (click)=\"getMeasurement()\">Neue Messung abrufen</button>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/measurement/measurement.component.ts":
+/*!*****************************************************************!*\
+  !*** ./src/app/components/measurement/measurement.component.ts ***!
+  \*****************************************************************/
+/*! exports provided: MeasurementComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MeasurementComponent", function() { return MeasurementComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_app_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/app.service */ "./src/app/services/app.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var MeasurementComponent = /** @class */ (function () {
+    function MeasurementComponent(appService) {
+        this.appService = appService;
+    }
+    MeasurementComponent.prototype.ngOnInit = function () {
+        this.getMeasurement();
+    };
+    MeasurementComponent.prototype.getMeasurement = function () {
+        var _this = this;
+        this.appService.getMeasurement()
+            .subscribe(function (res) {
+            if (res) {
+                _this.measurement = res;
+            }
+        }, function (err) { console.log(err.status); console.log(err); });
+    };
+    MeasurementComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-measurement',
+            template: __webpack_require__(/*! ./measurement.component.html */ "./src/app/components/measurement/measurement.component.html"),
+            styles: [__webpack_require__(/*! ./measurement.component.css */ "./src/app/components/measurement/measurement.component.css")]
+        }),
+        __metadata("design:paramtypes", [_services_app_service__WEBPACK_IMPORTED_MODULE_1__["AppService"]])
+    ], MeasurementComponent);
+    return MeasurementComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/components/navbar/navbar.component.css":
 /*!********************************************************!*\
   !*** ./src/app/components/navbar/navbar.component.css ***!
@@ -243,7 +482,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-dark bg-dark\">\r\n  <a class=\"navbar-brand\" href=\"\">HoneyPi</a>\r\n</nav>\r\n"
+module.exports = "<nav class=\"navbar navbar-dark bg-dark\">\n  <a class=\"navbar-brand\" href=\"\">HoneyPi</a>\n</nav>\n"
 
 /***/ }),
 
@@ -295,7 +534,7 @@ var NavbarComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".myAlert-top{\r\n  position: fixed;\r\n  top: 5px;\r\n  left:2%;\r\n  width: 96%;\r\n  z-index:99;\r\n}\r\n\r\n.myAlert-bottom{\r\n  position: fixed;\r\n  bottom: 5px;\r\n  left:2%;\r\n  width: 96%;\r\n  z-index:99;\r\n}\r\n"
+module.exports = ".myAlert-top{\n  position: fixed;\n  top: 5px;\n  left:2%;\n  width: 96%;\n  z-index:99;\n}\n\n.myAlert-bottom{\n  position: fixed;\n  bottom: 5px;\n  left:2%;\n  width: 96%;\n  z-index:99;\n}\n"
 
 /***/ }),
 
@@ -306,7 +545,7 @@ module.exports = ".myAlert-top{\r\n  position: fixed;\r\n  top: 5px;\r\n  left:2
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<main role=\"main\" class=\"container\">\r\n  <div class=\"jumbotron\">\r\n    <div class=\"float-right\">\r\n      <button class=\"btn btn-sm btn-primary\" type=\"button\" (click)=\"saveSettings()\">Speichern</button>\r\n    </div>\r\n    <h1>Hardware Einstellungen</h1>\r\n    <div class=\"alert alert-success myAlert-top\" role=\"alert\" *ngIf=\"settingsSaved\">\r\n      <a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>\r\n      <strong>Gespeichert!</strong> Die Einstellungen wurden gespeichert.\r\n    </div>\r\n    <div class=\"alert alert-danger myAlert-top\" role=\"alert\" *ngIf=\"settingsError\">\r\n      <a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>\r\n      <strong>Fehler!</strong> Die Einstellungen konnten nicht gespeichert werden.\r\n    </div>\r\n    <div id=\"accordion\">\r\n      <div class=\"card\">\r\n        <div class=\"card-header\" id=\"headingOne\">\r\n          <h5 class=\"mb-0\">\r\n            <button class=\"btn btn-link collapsed\" data-toggle=\"collapse\" data-target=\"#collapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">\r\n              ThingSpeak Einstellungen\r\n            </button>\r\n          </h5>\r\n        </div>\r\n        <div id=\"collapseOne\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\r\n          <div class=\"card-body\">\r\n            <div class=\"form-group\">\r\n              <label for=\"ts_channel_id\">ThingSpeak Channel-ID</label>\r\n              <input type=\"number\" class=\"form-control\" [(ngModel)]=\"settings.ts_channel_id\" id=\"ts_channel_id\" name=\"ts_channel_id\" placeholder=\"Channel-ID\">\r\n            </div>\r\n            <div class=\"form-group\">\r\n              <label for=\"ts_write_key\">ThingSpeak Write-Key</label>\r\n              <input type=\"text\" class=\"form-control\" [(ngModel)]=\"settings.ts_write_key\" id=\"ts_write_key\" name=\"ts_write_key\" placeholder=\"Write-Key\">\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"card\">\r\n        <div class=\"card-header\" id=\"headingTwo\">\r\n          <h5 class=\"mb-0\">\r\n            <button class=\"btn btn-link collapsed\" data-toggle=\"collapse\" data-target=\"#collapseTwo\" aria-expanded=\"false\" aria-controls=\"collapseTwo\">\r\n              Internetverbindung\r\n            </button>\r\n          </h5>\r\n        </div>\r\n        <div id=\"collapseTwo\" class=\"collapse\" aria-labelledby=\"headingTwo\" data-parent=\"#accordion\">\r\n          <div class=\"card-body\">\r\n            <p>Dieser Bereich wird in der nächsten Version fertiggestellt. Geplant ist die Auswahl zwischen Surfstick (Mobilfunk) und vorhandenem WLAN-Netzwerk.</p>\r\n            <!--<div class=\"form-group\">\r\n              <label for=\"sim_apn\">APN der SIM-Karte</label>\r\n              <input type=\"text\" class=\"form-control\" [(ngModel)]=\"settings.sim_apn\" id=\"sim_apn\" name=\"sim_apn\" placeholder=\"APN\">\r\n            </div>-->\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"card\">\r\n        <div class=\"card-header\" id=\"headingThree\">\r\n          <h5 class=\"mb-0\">\r\n            <button class=\"btn btn-link collapsed\" data-toggle=\"collapse\" data-target=\"#collapseThree\" aria-expanded=\"false\" aria-controls=\"collapseThree\">\r\n              Angeschlossene Sensoren\r\n            </button>\r\n          </h5>\r\n        </div>\r\n        <div id=\"collapseThree\" class=\"collapse\" aria-labelledby=\"headingThree\" data-parent=\"#accordion\">\r\n          <div class=\"card-body\">\r\n            <table class=\"table table-bordered table-sm table-responsive-md\">\r\n              <thead>\r\n                <tr>\r\n                  <th colspan=\"2\">Sensoren</th>\r\n                </tr>\r\n              </thead>\r\n              <tbody id=\"sensors\">\r\n                <ng-container *ngFor=\"let sensor of settings.sensors; let i = index\">\r\n                  <tr [ngClass]=\"{'my-bg': (i%2 == 0)}\">\r\n                    <td>\r\n                      <select [(ngModel)]=\"sensor.type\" name=\"sensor-type\" class=\"custom-select\">\r\n                        <option [ngValue]=\"0\">Temperatursensor (DS18b20)</option>\r\n                        <option [ngValue]=\"1\">BME680 (Temperatur+Luftfeuchtigkeit+Luftdruck+Qualität)</option>\r\n                        <option [ngValue]=\"2\">Gewichtssensor (A/D: HX711)</option>\r\n                        <option [ngValue]=\"3\">Luftfeuchtigkeit und Temperatur (DHT11/DHT22)</option>\r\n                      </select>\r\n                    </td>\r\n                    <td>\r\n                      <button class=\"btn btn-danger float-right\" (click)=\"removeSensor(i)\" title=\"Entfernen\">\r\n                        &#x232b;\r\n                      </button>\r\n                    </td>\r\n                  </tr>\r\n                  <tr *ngIf=\"sensor.type == 0\" [ngClass]=\"{'my-bg': (i%2 == 0)}\">\r\n                    <td colspan=\"2\">\r\n                      <div class=\"row\">\r\n                        <div class=\"form-group col-6\">\r\n                          <label for=\"device_id\">Sensor Device-ID</label>\r\n                          <select [(ngModel)]=\"sensor.device_id\" id=\"device_id\" name=\"device_id\" class=\"custom-select\">\r\n                            <option [ngValue]=\"undefined\">Device-ID auswählen...</option>\r\n                            <ng-container *ngFor=\"let device of temperatureSensors\">\r\n                              <option [ngValue]=\"device\">{{ device }}</option>\r\n                            </ng-container>\r\n                          </select>\r\n                        </div>\r\n                        <div class=\"form-group col-6\">\r\n                          <settings-ts-field [label]=\"'ThingSpeak Feldname'\"\r\n                                             (ts_fieldChanged)=\"sensor.ts_field = $event\"\r\n                                             [ts_field]=\"sensor.ts_field\" ></settings-ts-field>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"row\">\r\n                        <div class=\"col-12\">\r\n                          <div class=\"alert alert-info\" *ngIf=\"temperatureSensors.length == 0\">\r\n                            Es konnten keine Temperatursensor am Gerät gefunden werden.<br>\r\n                            Prüfe ob die Sensoren angeschlossen und <a (click)=\"getTemperatureSensors()\" [routerLink]=\"\">aktualisiere</a> die Liste.\r\n                          </div>\r\n                        </div>\r\n                      </div>\r\n                    </td>\r\n                  </tr>\r\n                  <tr *ngIf=\"sensor.type == 1\" [ngClass]=\"{'my-bg': (i%2 == 0)}\">\r\n                    <td colspan=\"2\">\r\n                      <div class=\"row\">\r\n                        <div class=\"form-group col-6\">\r\n                          <settings-ts-field [label]=\"'ThingSpeak Temperatur'\"\r\n                                             [ts_field_id]=\"'ts_field_temperature'\"\r\n                                             (ts_fieldChanged)=\"sensor.ts_field_temperature = $event\"\r\n                                             [ts_field]=\"sensor.ts_field_temperature\" ></settings-ts-field>\r\n                        </div>\r\n                        <div class=\"form-group col-6\">\r\n                          <settings-ts-field [label]=\"'ThingSpeak Luftfeuchtigkeit'\"\r\n                                             [ts_field_id]=\"'ts_field_humidity'\"\r\n                                             (ts_fieldChanged)=\"sensor.ts_field_humidity = $event\"\r\n                                             [ts_field]=\"sensor.ts_field_humidity\" ></settings-ts-field>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"row\">\r\n                        <div class=\"form-group col-6\">\r\n                          <settings-ts-field [label]=\"'ThingSpeak Luftdruck'\"\r\n                                             [ts_field_id]=\"'ts_field_air_pressure'\"\r\n                                             (ts_fieldChanged)=\"sensor.ts_field_air_pressure = $event\"\r\n                                             [ts_field]=\"sensor.ts_field_air_pressure\" ></settings-ts-field>\r\n                        </div>\r\n                        <div class=\"form-group col-6\">\r\n                          <settings-ts-field [label]=\"'ThingSpeak Qualität'\"\r\n                                             [ts_field_id]=\"'ts_field_air_quality'\"\r\n                                             (ts_fieldChanged)=\"sensor.ts_field_air_quality = $event\"\r\n                                             [ts_field]=\"sensor.ts_field_air_quality\" ></settings-ts-field>\r\n                        </div>\r\n                      </div>\r\n                    </td>\r\n                  </tr>\r\n                  <tr *ngIf=\"sensor.type == 2\" [ngClass]=\"{'my-bg': (i%2 == 0)}\">\r\n                    <td colspan=\"2\">\r\n                      <div class=\"row\">\r\n                        <div class=\"form-group col-6\">\r\n                          <label for=\"pin_dt\">GPIO-PIN DT</label>\r\n                          <input type=\"number\" class=\"form-control\" [(ngModel)]=\"sensor.pin_dt\" id=\"pin_dt\" name=\"pin_dt\" placeholder=\"DT\">\r\n                        </div>\r\n                        <div class=\"form-group col-6\">\r\n                          <label for=\"pin_sck\">GPIO-PIN SCK</label>\r\n                          <input type=\"number\" class=\"form-control\" [(ngModel)]=\"sensor.pin_sck\" id=\"pin_sck\" name=\"pin_sck\" placeholder=\"SCK\">\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"row\">\r\n                        <div class=\"form-group col-6\">\r\n                          <label for=\"channel\">HX711 Channel</label>\r\n                          <select [(ngModel)]=\"sensor.channel\" name=\"channel\" id=\"channel\" class=\"custom-select\">\r\n                            <option [ngValue]=\"undefined\">Channel auswählen...</option>\r\n                            <option [ngValue]=\"'A'\">Channel A</option>\r\n                            <option [ngValue]=\"'B'\">Channel B</option>\r\n                          </select>\r\n                        </div>\r\n                        <div class=\"form-group col-6\">\r\n                          <settings-ts-field [label]=\"'ThingSpeak Feldname'\"\r\n                                             (ts_fieldChanged)=\"sensor.ts_field = $event\"\r\n                                             [ts_field]=\"sensor.ts_field\" ></settings-ts-field>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"row\">\r\n                        <div class=\"form-group col-6\">\r\n                          <label for=\"offset\">Wägezellen Offset</label>\r\n                          <input type=\"number\" class=\"form-control\" [(ngModel)]=\"sensor.offset\" id=\"offset\" name=\"offset\" placeholder=\"Offset\">\r\n                        </div>\r\n                        <div class=\"form-group col-6\">\r\n                          <label for=\"reference_unit\">Wägezellen Skalierungswert</label>\r\n                          <input type=\"number\" step=\"0.001\" class=\"form-control\" [(ngModel)]=\"sensor.reference_unit\" id=\"reference_unit\" name=\"reference_unit\" placeholder=\"Skalierungswert\">\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"row\">\r\n                        <div class=\"col-6\">\r\n                          <div class=\"alert alert-info\">\r\n                            <b>Offset:</b> Beeinflusst das Messergebnis indem das Offset vom Messwert abgezogen wird.\r\n                          </div>\r\n                        </div>\r\n                        <div class=\"col-6\">\r\n                          <div class=\"alert alert-info\">\r\n                            <b>Skalierungswert:</b> Beeinflusst das Messergebnis indem (Messwert-Offset) durch den Skalierungswert geteilt wird.\r\n                            <br />\r\n                            <i>Wertebereicht: 0.0 bis 1.0 und 1 bis ...</i>\r\n                          </div>\r\n                        </div>\r\n                      </div>\r\n                    </td>\r\n                  </tr>\r\n                  <tr *ngIf=\"sensor.type == 3\" [ngClass]=\"{'my-bg': (i%2 == 0)}\">\r\n                    <td colspan=\"2\">\r\n                      <div class=\"row\">\r\n                        <div class=\"form-group col-6\">\r\n                          <settings-ts-field [label]=\"'ThingSpeak Temperatur'\"\r\n                                             [ts_field_id]=\"'ts_field_temperature'\"\r\n                                             (ts_fieldChanged)=\"sensor.ts_field_temperature = $event\"\r\n                                             [ts_field]=\"sensor.ts_field_temperature\" ></settings-ts-field>\r\n                        </div>\r\n                        <div class=\"form-group col-6\">\r\n                          <settings-ts-field [label]=\"'ThingSpeak Luftfeuchtigkeit'\"\r\n                                             [ts_field_id]=\"'ts_field_humidity'\"\r\n                                             (ts_fieldChanged)=\"sensor.ts_field_humidity = $event\"\r\n                                             [ts_field]=\"sensor.ts_field_humidity\" ></settings-ts-field>\r\n                        </div>\r\n                      </div>\r\n                      <div class=\"row\">\r\n                        <div class=\"form-group col-6\">\r\n                          <label for=\"pin\">GPIO-PIN </label>\r\n                          <input type=\"number\" class=\"form-control\" [(ngModel)]=\"sensor.pin\" id=\"pin\" name=\"pin\" placeholder=\"PIN\" />\r\n                        </div>\r\n                      </div>\r\n                    </td>\r\n                  </tr>\r\n                </ng-container>\r\n                <tr>\r\n                  <td colspan=\"2\">\r\n                    <button class=\"btn btn-primary\" (click)=\"addSensor()\" title=\"Hinzufügen\">\r\n                      &#x2b; Sensor hinzufügen\r\n                    </button>\r\n                  </td>\r\n                </tr>\r\n              </tbody>\r\n            </table>\r\n            <hr />\r\n            <div class=\"form-group\">\r\n              <label for=\"button_pin\">Wartungsmodus-Taster GPIO-PIN</label>\r\n              <input type=\"number\" class=\"form-control\" [(ngModel)]=\"settings.button_pin\" id=\"button_pin\" name=\"button_pin\" placeholder=\"GPIO-PIN\" required>\r\n            </div>\r\n            <div class=\"alert alert-info\">Die Änderung am Taster wird nach einem Neustart aktiv.</div>\r\n            <div class=\"form-group\">\r\n              <label for=\"interval\">Messintervall</label>\r\n              <select [(ngModel)]=\"settings.interval\" id=\"interval\" name=\"interval\" class=\"custom-select\">\r\n                <option [ngValue]=\"undefined\">Intervall auswählen...</option>\r\n                <option [ngValue]=\"60\">1min</option>\r\n                <option [ngValue]=\"300\">5min</option>\r\n                <option [ngValue]=\"600\">10min</option>\r\n                <option [ngValue]=\"900\">15min</option>\r\n                <option [ngValue]=\"1800\">30min</option>\r\n                <option [ngValue]=\"3600\">60min</option>\r\n              </select>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</main>\r\n"
+module.exports = "<main role=\"main\" class=\"container\">\n  <div class=\"jumbotron\">\n    <div class=\"float-right\">\n      <button class=\"btn btn-sm btn-primary\" type=\"button\" (click)=\"saveSettings()\">Speichern</button>\n    </div>\n    <h1 class=\"h1\">Einstellungen</h1>\n    <div class=\"alert alert-success myAlert-top\" role=\"alert\" *ngIf=\"settingsSaved\">\n      <a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>\n      <strong>Gespeichert!</strong> Die Einstellungen wurden gespeichert.\n    </div>\n    <div class=\"alert alert-danger myAlert-top\" role=\"alert\" *ngIf=\"settingsError\">\n      <a href=\"#\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a>\n      <strong>Fehler!</strong> Die Einstellungen konnten nicht gespeichert werden.\n    </div>\n    <div id=\"accordion\">\n      <div class=\"card\">\n        <div class=\"card-header\" id=\"headingOne\">\n          <h5 class=\"mb-0\">\n            <button class=\"btn btn-link collapsed\" data-toggle=\"collapse\" data-target=\"#collapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">\n              ThingSpeak Einstellungen\n            </button>\n          </h5>\n        </div>\n        <div id=\"collapseOne\" class=\"collapse\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n          <div class=\"card-body\">\n            <div class=\"form-group\">\n              <label for=\"ts_channel_id\">ThingSpeak Channel-ID</label>\n              <input type=\"number\" class=\"form-control\" [(ngModel)]=\"settings.ts_channel_id\" id=\"ts_channel_id\" name=\"ts_channel_id\" placeholder=\"Channel-ID\">\n            </div>\n            <div class=\"form-group\">\n              <label for=\"ts_write_key\">ThingSpeak Write-Key</label>\n              <input type=\"text\" class=\"form-control\" [(ngModel)]=\"settings.ts_write_key\" id=\"ts_write_key\" name=\"ts_write_key\" placeholder=\"Write-Key\">\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"card\">\n        <div class=\"card-header\" id=\"headingTwo\">\n          <h5 class=\"mb-0\">\n            <button class=\"btn btn-link collapsed\" data-toggle=\"collapse\" data-target=\"#collapseTwo\" aria-expanded=\"false\" aria-controls=\"collapseTwo\">\n              Internetverbindung\n            </button>\n          </h5>\n        </div>\n        <div id=\"collapseTwo\" class=\"collapse\" aria-labelledby=\"headingTwo\" data-parent=\"#accordion\">\n          <div class=\"card-body\">\n            <app-internet></app-internet>\n          </div>\n        </div>\n      </div>\n      <div class=\"card\">\n        <div class=\"card-header\" id=\"headingThree\">\n          <h5 class=\"mb-0\">\n            <button class=\"btn btn-link collapsed\" data-toggle=\"collapse\" data-target=\"#collapseThree\" aria-expanded=\"false\" aria-controls=\"collapseThree\">\n              Angeschlossene Sensoren\n            </button>\n          </h5>\n        </div>\n        <div id=\"collapseThree\" class=\"collapse\" aria-labelledby=\"headingThree\" data-parent=\"#accordion\">\n          <div class=\"card-body\">\n            <table class=\"table table-bordered table-sm table-responsive-md\">\n              <thead>\n                <tr>\n                  <th colspan=\"2\">Sensoren</th>\n                </tr>\n              </thead>\n              <tbody id=\"sensors\">\n                <ng-container *ngFor=\"let sensor of settings.sensors; let i = index\">\n                  <tr [ngClass]=\"{'my-bg': (i%2 == 0)}\">\n                    <td>\n                      <select [(ngModel)]=\"sensor.type\" name=\"sensor-type\" class=\"custom-select\">\n                        <option [ngValue]=\"0\">Temperatursensor (DS18b20)</option>\n                        <option [ngValue]=\"1\">BME680 (Temperatur+Luftfeuchtigkeit+Luftdruck+Qualität)</option>\n                        <option [ngValue]=\"2\">Gewichtssensor (A/D: HX711)</option>\n                        <option [ngValue]=\"3\">Luftfeuchtigkeit und Temperatur (DHT11/DHT22)</option>\n                      </select>\n                    </td>\n                    <td>\n                      <button class=\"btn btn-danger float-right\" (click)=\"removeSensor(i)\" title=\"Entfernen\">\n                        &#x232b;\n                      </button>\n                    </td>\n                  </tr>\n                  <tr *ngIf=\"sensor.type == 0\" [ngClass]=\"{'my-bg': (i%2 == 0)}\">\n                    <td colspan=\"2\">\n                      <div class=\"row\">\n                        <div class=\"form-group col-6\">\n                          <label for=\"device_id\">Sensor Device-ID</label>\n                          <select [(ngModel)]=\"sensor.device_id\" id=\"device_id\" name=\"device_id\" class=\"custom-select\">\n                            <option [ngValue]=\"undefined\">Device-ID auswählen...</option>\n                            <ng-container *ngFor=\"let device of temperatureSensors\">\n                              <option [ngValue]=\"device\">{{ device }}</option>\n                            </ng-container>\n                          </select>\n                        </div>\n                        <div class=\"form-group col-6\">\n                          <settings-ts-field [label]=\"'ThingSpeak Feldname'\"\n                                             (ts_fieldChanged)=\"sensor.ts_field = $event\"\n                                             [ts_field]=\"sensor.ts_field\" ></settings-ts-field>\n                        </div>\n                      </div>\n                      <div class=\"row\">\n                        <div class=\"col-12\">\n                          <div class=\"alert alert-info\" *ngIf=\"temperatureSensors.length == 0\">\n                            Es konnten keine Temperatursensor am Gerät gefunden werden.<br>\n                            Prüfe ob die Sensoren richtig angeschlossen sind und <a (click)=\"getTemperatureSensors()\" [routerLink]=\"\">aktualisiere</a> die Liste.\n                          </div>\n                        </div>\n                      </div>\n                    </td>\n                  </tr>\n                  <tr *ngIf=\"sensor.type == 1\" [ngClass]=\"{'my-bg': (i%2 == 0)}\">\n                    <td colspan=\"2\">\n                      <div class=\"row\">\n                        <div class=\"form-group col-6\">\n                          <settings-ts-field [label]=\"'ThingSpeak Temperatur'\"\n                                             [ts_field_id]=\"'ts_field_temperature'\"\n                                             (ts_fieldChanged)=\"sensor.ts_field_temperature = $event\"\n                                             [ts_field]=\"sensor.ts_field_temperature\" ></settings-ts-field>\n                        </div>\n                        <div class=\"form-group col-6\">\n                          <settings-ts-field [label]=\"'ThingSpeak Luftfeuchtigkeit'\"\n                                             [ts_field_id]=\"'ts_field_humidity'\"\n                                             (ts_fieldChanged)=\"sensor.ts_field_humidity = $event\"\n                                             [ts_field]=\"sensor.ts_field_humidity\" ></settings-ts-field>\n                        </div>\n                      </div>\n                      <div class=\"row\">\n                        <div class=\"form-group col-6\">\n                          <settings-ts-field [label]=\"'ThingSpeak Luftdruck'\"\n                                             [ts_field_id]=\"'ts_field_air_pressure'\"\n                                             (ts_fieldChanged)=\"sensor.ts_field_air_pressure = $event\"\n                                             [ts_field]=\"sensor.ts_field_air_pressure\" ></settings-ts-field>\n                        </div>\n                        <div class=\"form-group col-6\">\n                          <settings-ts-field [label]=\"'ThingSpeak Qualität'\"\n                                             [ts_field_id]=\"'ts_field_air_quality'\"\n                                             (ts_fieldChanged)=\"sensor.ts_field_air_quality = $event\"\n                                             [ts_field]=\"sensor.ts_field_air_quality\" ></settings-ts-field>\n                        </div>\n                      </div>\n                    </td>\n                  </tr>\n                  <tr *ngIf=\"sensor.type == 2\" [ngClass]=\"{'my-bg': (i%2 == 0)}\">\n                    <td colspan=\"2\">\n                      <div class=\"row\">\n                        <div class=\"form-group col-6\">\n                          <label for=\"pin_dt\">GPIO-PIN DT</label>\n                          <input type=\"number\" class=\"form-control\" [(ngModel)]=\"sensor.pin_dt\" id=\"pin_dt\" name=\"pin_dt\" placeholder=\"DT\">\n                        </div>\n                        <div class=\"form-group col-6\">\n                          <label for=\"pin_sck\">GPIO-PIN SCK</label>\n                          <input type=\"number\" class=\"form-control\" [(ngModel)]=\"sensor.pin_sck\" id=\"pin_sck\" name=\"pin_sck\" placeholder=\"SCK\">\n                        </div>\n                      </div>\n                      <div class=\"row\">\n                        <div class=\"form-group col-6\">\n                          <label for=\"channel\">HX711 Channel</label>\n                          <select [(ngModel)]=\"sensor.channel\" name=\"channel\" id=\"channel\" class=\"custom-select\">\n                            <option [ngValue]=\"undefined\">Channel auswählen...</option>\n                            <option [ngValue]=\"'A'\">Channel A</option>\n                            <option [ngValue]=\"'B'\">Channel B</option>\n                          </select>\n                        </div>\n                        <div class=\"form-group col-6\">\n                          <settings-ts-field [label]=\"'ThingSpeak Feldname'\"\n                                             (ts_fieldChanged)=\"sensor.ts_field = $event\"\n                                             [ts_field]=\"sensor.ts_field\" ></settings-ts-field>\n                        </div>\n                      </div>\n                      <div class=\"row\">\n                        <div class=\"form-group col-6\">\n                          <label for=\"offset\">Wägezellen Offset</label>\n                          <input type=\"number\" class=\"form-control\" [(ngModel)]=\"sensor.offset\" id=\"offset\" name=\"offset\" placeholder=\"Offset\">\n                        </div>\n                        <div class=\"form-group col-6\">\n                          <label for=\"reference_unit\">Wägezellen Skalierungswert</label>\n                          <input type=\"number\" step=\"0.001\" class=\"form-control\" [(ngModel)]=\"sensor.reference_unit\" id=\"reference_unit\" name=\"reference_unit\" placeholder=\"Skalierungswert\">\n                        </div>\n                      </div>\n                      <div class=\"row\">\n                        <div class=\"col-6\">\n                          <div class=\"alert alert-info\">\n                            <b>Offset:</b> Beeinflusst das Messergebnis indem das Offset vom Messwert abgezogen wird.\n                          </div>\n                        </div>\n                        <div class=\"col-6\">\n                          <div class=\"alert alert-info\">\n                            <b>Skalierungswert:</b> Beeinflusst das Messergebnis indem (Messwert-Offset) durch den Skalierungswert geteilt wird.\n                            <br />\n                            <i>Wertebereicht: 0.0 bis 1.0 und 1 bis ...</i>\n                          </div>\n                        </div>\n                      </div>\n                    </td>\n                  </tr>\n                  <tr *ngIf=\"sensor.type == 3\" [ngClass]=\"{'my-bg': (i%2 == 0)}\">\n                    <td colspan=\"2\">\n                      <div class=\"row\">\n                        <div class=\"form-group col-6\">\n                          <settings-ts-field [label]=\"'ThingSpeak Temperatur'\"\n                                             [ts_field_id]=\"'ts_field_temperature'\"\n                                             (ts_fieldChanged)=\"sensor.ts_field_temperature = $event\"\n                                             [ts_field]=\"sensor.ts_field_temperature\" ></settings-ts-field>\n                        </div>\n                        <div class=\"form-group col-6\">\n                          <settings-ts-field [label]=\"'ThingSpeak Luftfeuchtigkeit'\"\n                                             [ts_field_id]=\"'ts_field_humidity'\"\n                                             (ts_fieldChanged)=\"sensor.ts_field_humidity = $event\"\n                                             [ts_field]=\"sensor.ts_field_humidity\" ></settings-ts-field>\n                        </div>\n                      </div>\n                      <div class=\"row\">\n                        <div class=\"form-group col-6\">\n                          <label for=\"pin\">GPIO-PIN </label>\n                          <input type=\"number\" class=\"form-control\" [(ngModel)]=\"sensor.pin\" id=\"pin\" name=\"pin\" placeholder=\"PIN\" />\n                        </div>\n                      </div>\n                    </td>\n                  </tr>\n                </ng-container>\n                <tr>\n                  <td colspan=\"2\">\n                    <button class=\"btn btn-primary\" (click)=\"addSensor()\" title=\"Hinzufügen\">\n                      &#x2b; Sensor hinzufügen\n                    </button>\n                  </td>\n                </tr>\n              </tbody>\n            </table>\n            <hr />\n            <div class=\"form-group\">\n              <label for=\"button_pin\">Wartungsmodus-Taster GPIO-PIN</label>\n              <input type=\"number\" class=\"form-control\" [(ngModel)]=\"settings.button_pin\" id=\"button_pin\" name=\"button_pin\" placeholder=\"GPIO-PIN\" required>\n            </div>\n            <div class=\"alert alert-info\">Die Änderung am Taster wird nach einem Neustart aktiv.</div>\n            <div class=\"form-group\">\n              <label for=\"interval\">Messintervall</label>\n              <select [(ngModel)]=\"settings.interval\" id=\"interval\" name=\"interval\" class=\"custom-select\">\n                <option [ngValue]=\"undefined\">Intervall auswählen...</option>\n                <option [ngValue]=\"60\">1min</option>\n                <option [ngValue]=\"300\">5min</option>\n                <option [ngValue]=\"600\">10min</option>\n                <option [ngValue]=\"900\">15min</option>\n                <option [ngValue]=\"1800\">30min</option>\n                <option [ngValue]=\"3600\">60min</option>\n              </select>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"card\">\n        <div class=\"card-header\" id=\"headingFive\">\n          <h5 class=\"mb-0\">\n            <button class=\"btn btn-link collapsed\" data-toggle=\"collapse\" data-target=\"#collapseHive\" aria-expanded=\"false\" aria-controls=\"collapseHive\">\n              Messdaten\n            </button>\n          </h5>\n        </div>\n        <div id=\"collapseHive\" class=\"collapse\" aria-labelledby=\"headingFive\" data-parent=\"#accordion\">\n          <div class=\"card-body\">\n            <app-measurement></app-measurement>\n          </div>\n        </div>\n      </div>\n      <div class=\"card\">\n        <div class=\"card-header\" id=\"headingFour\">\n          <h5 class=\"mb-0\">\n            <button class=\"btn btn-link collapsed\" data-toggle=\"collapse\" data-target=\"#collapseFour\" aria-expanded=\"false\" aria-controls=\"collapseFour\">\n              Protokoll\n            </button>\n          </h5>\n        </div>\n        <div id=\"collapseFour\" class=\"collapse\" aria-labelledby=\"headingFour\" data-parent=\"#accordion\">\n          <div class=\"card-body\">\n            <app-log></app-log>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</main>\n"
 
 /***/ }),
 
@@ -341,7 +580,7 @@ var SettingsComponent = /** @class */ (function () {
     function SettingsComponent(appService) {
         this.appService = appService;
         this.settings = new _models_settings_model__WEBPACK_IMPORTED_MODULE_2__["Settings"]();
-        this.temperatureSensors = new Array();
+        this.temperatureSensors = [];
         this.settingsSaved = false;
         this.settingsError = false;
     }
@@ -543,6 +782,26 @@ var Settings = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/models/wifi.model.ts":
+/*!**************************************!*\
+  !*** ./src/app/models/wifi.model.ts ***!
+  \**************************************/
+/*! exports provided: Wifi */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Wifi", function() { return Wifi; });
+var Wifi = /** @class */ (function () {
+    function Wifi() {
+    }
+    return Wifi;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/app.service.ts":
 /*!*****************************************!*\
   !*** ./src/app/services/app.service.ts ***!
@@ -582,18 +841,45 @@ var AppService = /** @class */ (function () {
             }
         });
     };
+    AppService.prototype.setSettings = function (newSettings) {
+        return this.http.post(apiUrl + 'settings.php?setSettings', JSON.stringify(newSettings)).map(function (response) {
+            return response;
+        });
+    };
     AppService.prototype.getTemperatureSensors = function () {
-        var timestamp = "&t=" + ((new Date()).getTime());
-        return this.http.get(apiUrl + 'ds18b20.php?getSettings' + timestamp)
+        var timestamp = "t=" + ((new Date()).getTime());
+        return this.http.get(apiUrl + 'ds18b20.php?getSettings&' + timestamp)
             .map(function (response) {
             if (response) {
                 return response;
             }
         });
     };
-    AppService.prototype.setSettings = function (newSettings) {
-        return this.http.post(apiUrl + 'settings.php?setSettings', JSON.stringify(newSettings)).map(function (response) {
-            return response;
+    AppService.prototype.getLog = function () {
+        var timestamp = "t=" + ((new Date()).getTime());
+        return this.http.get(apiUrl + 'log.php?' + timestamp)
+            .map(function (response) {
+            if (response) {
+                return response;
+            }
+        });
+    };
+    AppService.prototype.getMeasurement = function () {
+        var timestamp = "t=" + ((new Date()).getTime());
+        return this.http.get(apiUrl + 'measurement.php?' + timestamp)
+            .map(function (response) {
+            if (response) {
+                return response;
+            }
+        });
+    };
+    AppService.prototype.checkInternet = function () {
+        var timestamp = "t=" + ((new Date()).getTime());
+        return this.http.get(apiUrl + 'check_internet.php?' + timestamp)
+            .map(function (response) {
+            if (response) {
+                return response;
+            }
         });
     };
     AppService = __decorate([
@@ -663,7 +949,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\javan\Desktop\HoneyPi\rpi-webinterface\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! /Users/jara/WebstormProjects/rpi-webinterface/src/main.ts */"./src/main.ts");
 
 
 /***/ })

@@ -22,7 +22,11 @@
 <h5 class="h5">Mobilfunkverbindung vorhanden?</h5>
 <button type="button" role="button" class="btn btn-primary btn-sm" (click)="checkInternet()">Teste Internetverbindung</button>
 <br>
-<pre *ngIf="checkInternetResponse">Antwort: {{checkInternetResponse}}</pre>
+<div *ngIf="checkInternetResponse">
+  <span class="text-success" *ngIf="checkInternetResponse.connected">Internet wurde erfolgreich aufgerufen.</span>
+  <span class="text-danger" *ngIf="!checkInternetResponse.connected">Verbindung ins Internet fehlgeschlagen.</span>
+  <pre class="pre-scrollable" *ngIf="checkInternetResponse.content">{{checkInternetResponse.content}}</pre>
+</div>
 <br>
 <div class="alert alert-info">
   Bei aktiviertem AccessPoint, also hier im Wartungsmodus, kann sich der Raspberry Pi <strong>nicht gleichzeitig</strong> auch mit einem WLAN-Netzwerk verbinden.
