@@ -2,12 +2,12 @@
 <hr />
 <h5 class="h5">WLAN Internetzugang</h5>
 <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" id="enabledWifi">
+  <input class="form-check-input" type="checkbox" [(ngModel)]="wifi.enabled" id="enabledWifi">
   <label class="form-check-label" for="enabledWifi">
     Mit vorhandenem WLAN-Netzwerk verbinden, wenn verfügbar?
   </label>
 </div>
-<div class="row">
+<div class="row" *ngIf="wifi.enabled">
   <div class="form-group col-6">
     <label for="ssid">WLAN-Funknetz (SSID)</label>
     <input type="text" class="form-control" [(ngModel)]="wifi.ssid" id="ssid" name="ssid" placeholder="WLAN-Netzwerkname">
@@ -19,18 +19,18 @@
 </div>
 <button class="btn btn-primary btn-sm" type="button" role="button">Änderungen speichern</button>
 <hr />
-<h5 class="h5">Internetzugriff?</h5>
+<h5 class="h5">Mobilfunkverbindung vorhanden?</h5>
 <button type="button" role="button" class="btn btn-primary btn-sm" (click)="checkInternet()">Teste Internetverbindung</button>
 <br>
 <pre *ngIf="checkInternetResponse">Antwort: {{checkInternetResponse}}</pre>
 <br>
 <div class="alert alert-info">
-  Bei aktiviertem AccessPoint, also hier im Wartungsmodus kann sich der Raspberry Pi <strong>nicht gleichzeitig</strong> auch mit einem WLAN-Netzwerk verbinden.
-  Daher kann beim Test nur die Verbindung mit dem Surfstick oder beim RPi 3B/3B+ auch der LAN-Anschluss getestet werden.
+  Bei aktiviertem AccessPoint, also hier im Wartungsmodus, kann sich der Raspberry Pi <strong>nicht gleichzeitig</strong> auch mit einem WLAN-Netzwerk verbinden.
+  Daher kann beim Test nur die Internetverbindung über den Surfstick oder beim RPi 3B/3B+ auch der LAN-Anschluss getestet werden.
 </div>
 <p>
   <a class="text-danger" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-    Erweiterte Einstellungen für Nutzer, die wissen was sie tun >>
+    Erweiterte Einstellungen für Nutzer, die wissen was sie tun »
   </a>
 </p>
 <div class="collapse" id="collapseExample">

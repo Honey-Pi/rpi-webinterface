@@ -11,6 +11,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { TsFieldComponent } from './components/settings/ts-field/ts-field.component';
 import { InternetComponent } from './components/internet/internet.component';
 import { LogComponent } from './components/log/log.component';
+import { MeasurementComponent } from './components/measurement/measurement.component';
 
 const appRoutes: Routes = [
   { path: '', component: SettingsComponent }
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
     FooterComponent,
     TsFieldComponent,
     InternetComponent,
-    LogComponent
+    LogComponent,
+    MeasurementComponent
   ],
   imports: [
     BrowserModule,

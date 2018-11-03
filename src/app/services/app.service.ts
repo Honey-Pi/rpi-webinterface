@@ -49,6 +49,16 @@ export class AppService {
       });
   }
 
+  getMeasurement(): Observable<Response> {
+    let timestamp = "t=" + ((new Date()).getTime());
+    return this.http.get(apiUrl + 'measurement.php?' + timestamp)
+      .map((response: Response) => {
+        if (response) {
+          return response;
+        }
+      });
+  }
+
   checkInternet(): Observable<Response> {
     let timestamp = "t=" + ((new Date()).getTime());
     return this.http.get(apiUrl + 'check_internet.php?' + timestamp)
