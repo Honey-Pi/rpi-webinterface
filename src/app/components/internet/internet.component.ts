@@ -16,6 +16,7 @@ export class InternetComponent {
   constructor(private appService: AppService) { }
 
   checkInternet(): void {
+    this.checkInternetResponse = null;
     this.appService.checkInternet()
       .subscribe(res => {
         if(res) {

@@ -25,11 +25,33 @@
           <div class="card-body">
             <div class="form-group">
               <label for="ts_channel_id">ThingSpeak Channel-ID</label>
-              <input type="number" class="form-control" [(ngModel)]="settings.ts_channel_id" id="ts_channel_id" name="ts_channel_id" placeholder="Channel-ID" required>
+              <input type="number" class="form-control" [(ngModel)]="settings.ts_channel_id"
+                     id="ts_channel_id" name="ts_channel_id" placeholder="Channel-ID"
+                     required [min]="0" [max]="9999999" #ts_channel_id="ngModel">
             </div>
             <div class="form-group">
-              <label for="ts_write_key">ThingSpeak Write-Key</label>
-              <input type="text" class="form-control" [(ngModel)]="settings.ts_write_key" id="ts_write_key" name="ts_write_key" placeholder="Write-Key" required>
+              <label for="ts_write_key">ThingSpeak Write-API-Key</label>
+              <input type="text" class="form-control" [(ngModel)]="settings.ts_write_key"
+                     id="ts_write_key" name="ts_write_key" placeholder="Write-API-Key"
+                     required minlength="16" maxlength="16" #ts_write_key="ngModel">
+            </div>
+            <div *ngIf="ts_channel_id.invalid && (ts_channel_id.dirty || ts_channel_id.touched)"
+                 class="alert alert-danger">
+              <div *ngIf="ts_channel_id?.errors.required">
+                Das Feld "Channel-ID" benötigt eine gültige Eingabe.
+              </div>
+              <div *ngIf="ts_channel_id?.errors.min || ts_channel_id?.errors.max">
+                "Channel-ID" liegt außerhalb des gültigen Wertebereichs.
+              </div>
+            </div>
+            <div *ngIf="ts_write_key.invalid && (ts_write_key.dirty || ts_write_key.touched)"
+                 class="alert alert-danger">
+              <div *ngIf="ts_write_key?.errors.required">
+                Das Feld "Write-API-Key" wird benötigt.
+              </div>
+              <div *ngIf="ts_write_key?.errors.minlength || ts_write_key?.errors.maxlength">
+                "Write-API-Key" liegt außerhalb des gültigen Wertebereichs.
+              </div>
             </div>
           </div>
         </div>

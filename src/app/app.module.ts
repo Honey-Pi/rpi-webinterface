@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { CustomFormsModule } from 'ng5-validation'
 
 import { AppComponent } from './app.component';
 import { SettingsComponent } from './components/settings/settings.component';
@@ -36,6 +37,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    CustomFormsModule,
     RouterModule.forRoot(
       appRoutes
     )

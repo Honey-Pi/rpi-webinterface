@@ -1,5 +1,4 @@
 <div class="alert alert-info">Die Änderungen in diesem Bereich werden nach einem Neustart aktiv.</div>
-<hr />
 <h5 class="h5">WLAN Internetzugang</h5>
 <div class="form-check">
   <input class="form-check-input" type="checkbox" [(ngModel)]="wifi.enabled" id="enabledWifi">
@@ -20,18 +19,25 @@
 <button class="btn btn-primary btn-sm" type="button" role="button">Änderungen speichern</button>
 <hr />
 <h5 class="h5">Mobilfunkverbindung vorhanden?</h5>
-<button type="button" role="button" class="btn btn-primary btn-sm" (click)="checkInternet()">Teste Internetverbindung</button>
-<br>
+<p>
+  <button type="button" role="button" class="btn btn-primary btn-sm" (click)="checkInternet()">Teste Internetverbindung</button>
+</p>
 <div *ngIf="checkInternetResponse">
-  <span class="text-success" *ngIf="checkInternetResponse.connected">Der Internet Test war erfolgreich.</span>
-  <span class="text-danger" *ngIf="!checkInternetResponse.connected">Verbindung ins Internet fehlgeschlagen.</span>
+  <div class="alert alert-success" role="alert" *ngIf="checkInternetResponse.connected">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>HoneyPi ist verbunden!</strong> Der Internet Test war erfolgreich.
+  </div>
+  <div class="alert alert-danger" role="alert" *ngIf="!checkInternetResponse.connected">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Fehler!</strong> Verbindung ins Internet fehlgeschlagen.
+  </div>
   <pre class="pre-scrollable" *ngIf="checkInternetResponse.content">{{checkInternetResponse.content}}</pre>
 </div>
-<br>
 <div class="alert alert-info">
   Bei aktiviertem AccessPoint, also hier im Wartungsmodus, kann sich der Raspberry Pi <strong>nicht gleichzeitig</strong> auch mit einem WLAN-Netzwerk verbinden.
   Daher kann beim Test nur die Internetverbindung über den Surfstick oder beim RPi 3B/3B+ auch der LAN-Anschluss getestet werden.
 </div>
+<hr />
 <p>
   <a class="text-danger" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
     Erweiterte Einstellungen für Nutzer, die wissen was sie tun »
