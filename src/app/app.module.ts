@@ -14,6 +14,7 @@ import { InternetComponent } from './components/internet/internet.component';
 import { LogComponent } from './components/log/log.component';
 import { MeasurementComponent } from './components/measurement/measurement.component';
 import { SensorsComponent } from './components/sensors/sensors.component';
+import { ThingspeakComponent } from './components/thingspeak/thingspeak.component';
 
 const appRoutes: Routes = [
   { path: '', component: SettingsComponent }
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
     InternetComponent,
     LogComponent,
     MeasurementComponent,
-    SensorsComponent
+    SensorsComponent,
+    ThingspeakComponent
   ],
   imports: [
     BrowserModule,
