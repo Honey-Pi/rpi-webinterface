@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AppService} from "../../services/app.service";
+import {InternetSettings} from "../../models/internet-settings.model";
 import {Wifi} from "../../models/wifi.model";
 
 @Component({
@@ -7,13 +8,27 @@ import {Wifi} from "../../models/wifi.model";
   templateUrl: './internet.component.html',
   styleUrls: ['./internet.component.css']
 })
-export class InternetComponent {
+export class InternetComponent implements OnInit {
 
-  public checkInternetResponse: {'connected': boolean, 'content': string};
-  public wifi: Wifi = new Wifi();
-  public honeypiWifi: Wifi = new Wifi();
+  public checkInternetResponse: {connected: boolean, content: string};
 
-  constructor(private appService: AppService) { }
+  /* two-way databinding for settings*/
+  _wifi: InternetSettings;
+  @Input()
+  set wifi(val: InternetSettings) {
+    this.wifiChange.emit(val);
+    this._wifi = val;
+  }
+  get wifi() {
+    return this._wifi;
+  }
+  @Output()
+  wifiChange: EventEmitter<InternetSettings> = new EventEmitter<InternetSettings>();
+
+  constructor(private appService: AppService) {}
+
+  ngOnInit() {
+  }
 
   checkInternet(): void {
     this.checkInternetResponse = null;

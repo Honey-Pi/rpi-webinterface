@@ -1,14 +1,16 @@
 import { Sensor } from "./sensor.model";
+import {InternetSettings} from "./internet-settings.model";
 
 export class Settings {
 
   constructor() {
-    this.sensors = new Array<Sensor>();
+    this.sensors = [];
+    this.internet = new InternetSettings();
   }
   ts_channel_id: number;
   ts_write_key: string;
-  sim_apn: string;
   interval: number;
   button_pin: number;
   sensors: Sensor[];
+  internet: InternetSettings;
 }

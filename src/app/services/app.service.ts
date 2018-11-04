@@ -13,18 +13,13 @@ export class AppService {
 
   constructor(private http: HttpClient) { }
 
-  getSettings(): Observable<Response> {
-    let timestamp = "&t=" + ((new Date()).getTime());
-    return this.http.get(apiUrl + 'settings.php?getSettings' + timestamp)
-      .map((response: Response) => {
-        if (response) {
-          return response;
-        }
-      });
+  getSettings(): Observable<Settings> {
+    let timestamp = "t=" + ((new Date()).getTime());
+    return this.http.get<Settings>(apiUrl + 'settings.php?getSettings&' + timestamp, {responseType: 'json'});
   }
 
-  setSettings(newSettings: Settings): Observable<Response> {
-    return this.http.post(apiUrl + 'settings.php?setSettings', JSON.stringify(newSettings)).map((response: Response) => {
+  setSettings(newSettings: Settings): Observable<Settings> {
+    return this.http.post(apiUrl + 'settings.php?setSettings', JSON.stringify(newSettings)).map((response: Settings) => {
       return response;
     });
   }

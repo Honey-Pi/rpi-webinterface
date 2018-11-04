@@ -16,7 +16,7 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     
-    // function for shell script after settings saved
+    // function for shell script
     function run_measurement() {
         $output = shell_exec("python /home/pi/rpi-scripts/measurement.py");
         return $output;

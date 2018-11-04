@@ -1,26 +1,30 @@
-<div class="alert alert-info">Die Änderungen in diesem Bereich werden nach einem Neustart aktiv.</div>
+<div class="alert alert-info" role="alert">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  Die Änderungen in diesem Bereich werden nach einem Neustart aktiv.
+</div>
 <h5 class="h5">WLAN Internetzugang</h5>
 <div class="form-check">
-  <input class="form-check-input" type="checkbox" [(ngModel)]="wifi.enabled" id="enabledWifi">
+  <input class="form-check-input" type="checkbox" [(ngModel)]="wifi.router.enabled" id="enabledWifi">
   <label class="form-check-label" for="enabledWifi">
     Mit vorhandenem WLAN-Netzwerk verbinden, wenn verfügbar?
   </label>
 </div>
-<div class="row" *ngIf="wifi.enabled">
+<div class="row" *ngIf="wifi.router.enabled">
   <div class="form-group col-6">
     <label for="ssid">WLAN-Funknetz (SSID)</label>
-    <input type="text" class="form-control" [(ngModel)]="wifi.ssid" id="ssid" name="ssid" placeholder="WLAN-Netzwerkname">
+    <input type="text" class="form-control" [(ngModel)]="wifi.router.ssid" id="ssid" name="ssid" placeholder="WLAN-Netzwerkname"
+    required [maxlength]="32">
   </div>
   <div class="form-group col-6">
     <label for="password">WLAN-Netzwerkschlüssel</label>
-    <input type="text" class="form-control" [(ngModel)]="wifi.password" id="password" name="password" placeholder="Passwort">
+    <input type="text" class="form-control" [(ngModel)]="wifi.router.password" id="password" name="password" placeholder="Passwort"
+    required [minlength]="8" [maxlength]="63">
   </div>
 </div>
-<button class="btn btn-primary btn-sm" type="button" role="button">Änderungen speichern</button>
 <hr />
 <h5 class="h5">Mobilfunkverbindung vorhanden?</h5>
 <p>
-  <button type="button" role="button" class="btn btn-primary btn-sm" (click)="checkInternet()">Teste Internetverbindung</button>
+  <button type="button" role="button" class="btn btn-warning btn-sm" (click)="checkInternet()">Teste Internetverbindung</button>
 </p>
 <div *ngIf="checkInternetResponse">
   <div class="alert alert-success" role="alert" *ngIf="checkInternetResponse.connected">
@@ -33,7 +37,8 @@
   </div>
   <pre class="pre-scrollable" *ngIf="checkInternetResponse.content">{{checkInternetResponse.content}}</pre>
 </div>
-<div class="alert alert-info">
+<div class="alert alert-info" role="alert">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   Bei aktiviertem AccessPoint, also hier im Wartungsmodus, kann sich der Raspberry Pi <strong>nicht gleichzeitig</strong> auch mit einem WLAN-Netzwerk verbinden.
   Daher kann beim Test nur die Internetverbindung über den Surfstick oder beim RPi 3B/3B+ auch der LAN-Anschluss getestet werden.
 </div>
@@ -50,13 +55,12 @@
     <div class="row">
       <div class="form-group col-6">
         <label for="honeypiWifissid">WLAN-Funknetz (SSID)</label>
-        <input type="text" class="form-control" [(ngModel)]="honeypiWifi.ssid" id="honeypiWifissid" name="honeypiWifissid" placeholder="WLAN-Netzwerkname">
+        <input type="text" class="form-control" [(ngModel)]="wifi.honeypi.ssid" id="honeypiWifissid" name="honeypiWifissid" placeholder="WLAN-Netzwerkname">
       </div>
       <div class="form-group col-6">
         <label for="honeypiWifipassword">WLAN-Netzwerkschlüssel</label>
-        <input type="text" class="form-control" [(ngModel)]="honeypiWifi.password" id="honeypiWifipassword" name="honeypiWifipassword" placeholder="Passwort">
+        <input type="text" class="form-control" [(ngModel)]="wifi.honeypi.password" id="honeypiWifipassword" name="honeypiWifipassword" placeholder="Passwort">
       </div>
     </div>
-    <button class="btn btn-primary btn-sm" type="button" role="button">Bisherige Konfiguration überschreiben</button>
   </div>
 </div>

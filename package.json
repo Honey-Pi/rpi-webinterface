@@ -1,7 +1,8 @@
 {
   "name": "rpi-webinterface",
   "version": "0.0.3",
-  "license": "MIT",
+  "author": "Javan Rasokat",
+  "license": "CC BY-NC-SA 3.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../services/app.service';
 import { Settings } from "../../models/settings.model";
-import { Sensor } from '../../models/sensor.model';
 
 @Component({
   selector: 'app-settings',
@@ -14,7 +13,7 @@ export class SettingsComponent implements OnInit {
   public settingsSaved: boolean = false;
   public settingsError: boolean = false;
 
-  constructor(private appService: AppService) { }
+  constructor(private appService: AppService) {}
 
   ngOnInit() {
     /* initial load */
@@ -37,7 +36,7 @@ export class SettingsComponent implements OnInit {
     this.appService.getSettings()
       .subscribe(res => {
         if(res) {
-          this.settings = <any>res;
+          this.settings = <Settings>res;
         }
       }, (err: any) => {console.log(err.status); console.log(err);});
   }
@@ -45,8 +44,9 @@ export class SettingsComponent implements OnInit {
   saveSettings(): void  {
     this.appService.setSettings(this.settings).subscribe(res => {
       console.log(res);
-      // load new Settings
-      this.getSettings();
+      if(res) {
+        this.settings = <Settings>res;
+      }
       this.settingsSaved = true;
       this.settingsError = false;
       this.hideAlertsTimer();
