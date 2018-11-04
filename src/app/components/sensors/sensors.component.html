@@ -26,7 +26,7 @@
         <div class="row">
           <div class="form-group col-6">
             <label for="device_id">Sensor Device-ID</label>
-            <select [(ngModel)]="sensor.device_id" id="device_id" name="device_id" class="custom-select">
+            <select [(ngModel)]="sensor.device_id" id="device_id" name="device_id" class="custom-select" required>
               <option [ngValue]="undefined">Device-ID auswählen...</option>
               <ng-container *ngFor="let device of temperatureSensors">
                 <option [ngValue]="device">{{ device }}</option>
@@ -86,17 +86,17 @@
         <div class="row">
           <div class="form-group col-6">
             <label for="pin_dt">GPIO-PIN DT</label>
-            <input type="number" class="form-control" [(ngModel)]="sensor.pin_dt" id="pin_dt" name="pin_dt" placeholder="DT">
+            <input type="number" class="form-control" [(ngModel)]="sensor.pin_dt" id="pin_dt" name="pin_dt" placeholder="DT" required>
           </div>
           <div class="form-group col-6">
             <label for="pin_sck">GPIO-PIN SCK</label>
-            <input type="number" class="form-control" [(ngModel)]="sensor.pin_sck" id="pin_sck" name="pin_sck" placeholder="SCK">
+            <input type="number" class="form-control" [(ngModel)]="sensor.pin_sck" id="pin_sck" name="pin_sck" placeholder="SCK" required>
           </div>
         </div>
         <div class="row">
           <div class="form-group col-6">
             <label for="channel">HX711 Channel</label>
-            <select [(ngModel)]="sensor.channel" name="channel" id="channel" class="custom-select">
+            <select [(ngModel)]="sensor.channel" name="channel" id="channel" class="custom-select" required>
               <option [ngValue]="undefined">Channel auswählen...</option>
               <option [ngValue]="'A'">Channel A</option>
               <option [ngValue]="'B'">Channel B</option>
@@ -152,8 +152,8 @@
         </div>
         <div class="row">
           <div class="form-group col-6">
-            <label for="pin">GPIO-PIN </label>
-            <input type="number" class="form-control" [(ngModel)]="sensor.pin" id="pin" name="pin" placeholder="PIN" />
+            <label for="pin">GPIO-PIN</label>
+            <input type="number" class="form-control" [(ngModel)]="sensor.pin" id="pin" name="pin" placeholder="GPIO" required/>
           </div>
         </div>
       </td>
@@ -171,7 +171,7 @@
 <hr />
 <div class="form-group">
   <label for="button_pin">Wartungsmodus-Taster GPIO-PIN</label>
-  <input type="number" class="form-control" [(ngModel)]="settings.button_pin" id="button_pin" name="button_pin" placeholder="GPIO-PIN" required>
+  <input type="number" class="form-control" [(ngModel)]="settings.button_pin" id="button_pin" name="button_pin" placeholder="GPIO" required>
 </div>
 <div class="alert alert-info">Die Änderung am Taster wird nach einem Neustart aktiv.</div>
 <div class="form-group">

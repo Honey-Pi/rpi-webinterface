@@ -16,22 +16,20 @@ export class SensorsComponent implements OnInit {
   _settings: Settings;
   @Input()
   set settings(val: Settings) {
-    this.correctChange.emit(val);
+    this.settingsChange.emit(val);
     this._settings = val;
   }
   get settings() {
     return this._settings;
   }
   @Output()
-  correctChange: EventEmitter<Settings> = new EventEmitter<Settings>();
+  settingsChange: EventEmitter<Settings> = new EventEmitter<Settings>();
 
   constructor(private appService: AppService) { }
 
   ngOnInit() {
     this.getTemperatureSensors();
   }
-
-  /* Sensors */
 
   addSensor(): void {
     this.settings.sensors.push(new Sensor());

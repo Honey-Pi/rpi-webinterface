@@ -25,11 +25,11 @@
           <div class="card-body">
             <div class="form-group">
               <label for="ts_channel_id">ThingSpeak Channel-ID</label>
-              <input type="number" class="form-control" [(ngModel)]="settings.ts_channel_id" id="ts_channel_id" name="ts_channel_id" placeholder="Channel-ID">
+              <input type="number" class="form-control" [(ngModel)]="settings.ts_channel_id" id="ts_channel_id" name="ts_channel_id" placeholder="Channel-ID" required>
             </div>
             <div class="form-group">
               <label for="ts_write_key">ThingSpeak Write-Key</label>
-              <input type="text" class="form-control" [(ngModel)]="settings.ts_write_key" id="ts_write_key" name="ts_write_key" placeholder="Write-Key">
+              <input type="text" class="form-control" [(ngModel)]="settings.ts_write_key" id="ts_write_key" name="ts_write_key" placeholder="Write-Key" required>
             </div>
           </div>
         </div>
