@@ -18,6 +18,15 @@
     
     $filename = '/home/pi/rpi-scripts/error.log';
     
+    // delete log
+    if (isset($_GET['delete']))
+    {
+        if (file_exists($filename)) {
+            unlink($filename);
+        }
+    }
+    
+    // read log
     if (file_exists($filename)) {
         echo file_get_contents($filename);
     } else {

@@ -25,4 +25,13 @@ export class LogComponent implements OnInit {
       }, (err: any) => {console.log(err.status); console.log(err);});
   }
 
+  deleteLog(): void {
+    this.appService.deleteLog()
+      .subscribe(res => {
+        if(res) {
+          this.log = res;
+        }
+      }, (err: any) => {console.log(err.status); console.log(err);});
+  }
+
 }

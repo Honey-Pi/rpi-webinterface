@@ -44,6 +44,11 @@ export class AppService {
     return this.http.get(apiUrl + 'log.php?' + timestamp, {responseType: 'text'});
   }
 
+  deleteLog(): Observable<string> {
+    let timestamp = "t=" + ((new Date()).getTime());
+    return this.http.get(apiUrl + 'log.php?delete&' + timestamp, {responseType: 'text'});
+  }
+
   getMeasurement(): Observable<Response> {
     let timestamp = "t=" + ((new Date()).getTime());
     return this.http.get(apiUrl + 'measurement.php?' + timestamp)
