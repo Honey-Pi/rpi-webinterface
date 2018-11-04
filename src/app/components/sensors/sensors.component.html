@@ -1,0 +1,189 @@
+<table class="table table-bordered table-sm table-responsive-md">
+  <thead>
+  <tr>
+    <th colspan="2">Sensoren</th>
+  </tr>
+  </thead>
+  <tbody id="sensors">
+  <ng-container *ngFor="let sensor of settings.sensors; let i = index">
+    <tr [ngClass]="{'my-bg': (i%2 == 0)}">
+      <td>
+        <select [(ngModel)]="sensor.type" name="sensor-type" class="custom-select">
+          <option [ngValue]="0">Temperatursensor (DS18b20)</option>
+          <option [ngValue]="1">BME680 (Temperatur+Luftfeuchtigkeit+Luftdruck+Qualität)</option>
+          <option [ngValue]="2">Gewichtssensor (A/D: HX711)</option>
+          <option [ngValue]="3">Luftfeuchtigkeit und Temperatur (DHT11/DHT22)</option>
+        </select>
+      </td>
+      <td>
+        <button class="btn btn-danger float-right" (click)="removeSensor(i)" title="Entfernen">
+          &#x232b;
+        </button>
+      </td>
+    </tr>
+    <tr *ngIf="sensor.type == 0" [ngClass]="{'my-bg': (i%2 == 0)}">
+      <td colspan="2">
+        <div class="row">
+          <div class="form-group col-6">
+            <label for="device_id">Sensor Device-ID</label>
+            <select [(ngModel)]="sensor.device_id" id="device_id" name="device_id" class="custom-select">
+              <option [ngValue]="undefined">Device-ID auswählen...</option>
+              <ng-container *ngFor="let device of temperatureSensors">
+                <option [ngValue]="device">{{ device }}</option>
+              </ng-container>
+            </select>
+          </div>
+          <div class="form-group col-6">
+            <settings-ts-field [label]="'ThingSpeak Feldname'"
+                               (ts_fieldChanged)="sensor.ts_field = $event"
+                               [ts_field]="sensor.ts_field" ></settings-ts-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="alert alert-info" *ngIf="temperatureSensors.length == 0">
+              Es konnten keine Temperatursensor am Gerät gefunden werden.<br>
+              Prüfe ob die Sensoren richtig angeschlossen sind und <a (click)="getTemperatureSensors()" [routerLink]="">aktualisiere</a> die Liste.
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr *ngIf="sensor.type == 1" [ngClass]="{'my-bg': (i%2 == 0)}">
+      <td colspan="2">
+        <div class="row">
+          <div class="form-group col-6">
+            <settings-ts-field [label]="'ThingSpeak Temperatur'"
+                               [ts_field_id]="'ts_field_temperature'"
+                               (ts_fieldChanged)="sensor.ts_field_temperature = $event"
+                               [ts_field]="sensor.ts_field_temperature" ></settings-ts-field>
+          </div>
+          <div class="form-group col-6">
+            <settings-ts-field [label]="'ThingSpeak Luftfeuchtigkeit'"
+                               [ts_field_id]="'ts_field_humidity'"
+                               (ts_fieldChanged)="sensor.ts_field_humidity = $event"
+                               [ts_field]="sensor.ts_field_humidity" ></settings-ts-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-6">
+            <settings-ts-field [label]="'ThingSpeak Luftdruck'"
+                               [ts_field_id]="'ts_field_air_pressure'"
+                               (ts_fieldChanged)="sensor.ts_field_air_pressure = $event"
+                               [ts_field]="sensor.ts_field_air_pressure" ></settings-ts-field>
+          </div>
+          <div class="form-group col-6">
+            <settings-ts-field [label]="'ThingSpeak Qualität'"
+                               [ts_field_id]="'ts_field_air_quality'"
+                               (ts_fieldChanged)="sensor.ts_field_air_quality = $event"
+                               [ts_field]="sensor.ts_field_air_quality" ></settings-ts-field>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr *ngIf="sensor.type == 2" [ngClass]="{'my-bg': (i%2 == 0)}">
+      <td colspan="2">
+        <div class="row">
+          <div class="form-group col-6">
+            <label for="pin_dt">GPIO-PIN DT</label>
+            <input type="number" class="form-control" [(ngModel)]="sensor.pin_dt" id="pin_dt" name="pin_dt" placeholder="DT">
+          </div>
+          <div class="form-group col-6">
+            <label for="pin_sck">GPIO-PIN SCK</label>
+            <input type="number" class="form-control" [(ngModel)]="sensor.pin_sck" id="pin_sck" name="pin_sck" placeholder="SCK">
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-6">
+            <label for="channel">HX711 Channel</label>
+            <select [(ngModel)]="sensor.channel" name="channel" id="channel" class="custom-select">
+              <option [ngValue]="undefined">Channel auswählen...</option>
+              <option [ngValue]="'A'">Channel A</option>
+              <option [ngValue]="'B'">Channel B</option>
+            </select>
+          </div>
+          <div class="form-group col-6">
+            <settings-ts-field [label]="'ThingSpeak Feldname'"
+                               (ts_fieldChanged)="sensor.ts_field = $event"
+                               [ts_field]="sensor.ts_field" ></settings-ts-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-6">
+            <label for="offset">Wägezellen Offset</label>
+            <input type="number" class="form-control" [(ngModel)]="sensor.offset" id="offset" name="offset" placeholder="Offset">
+          </div>
+          <div class="form-group col-6">
+            <label for="reference_unit">Wägezellen Skalierungswert</label>
+            <input type="number" step="0.001" class="form-control" [(ngModel)]="sensor.reference_unit" id="reference_unit" name="reference_unit" placeholder="Skalierungswert">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <div class="alert alert-info">
+              <b>Offset:</b> Beeinflusst das Messergebnis indem das Offset vom Messwert abgezogen wird.
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="alert alert-info">
+              <b>Skalierungswert:</b> Beeinflusst das Messergebnis indem (Messwert-Offset) durch den Skalierungswert geteilt wird.
+              <br />
+              <i>Wertebereicht: 0.0 bis 1.0 und 1 bis ...</i>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr *ngIf="sensor.type == 3" [ngClass]="{'my-bg': (i%2 == 0)}">
+      <td colspan="2">
+        <div class="row">
+          <div class="form-group col-6">
+            <settings-ts-field [label]="'ThingSpeak Temperatur'"
+                               [ts_field_id]="'ts_field_temperature'"
+                               (ts_fieldChanged)="sensor.ts_field_temperature = $event"
+                               [ts_field]="sensor.ts_field_temperature" ></settings-ts-field>
+          </div>
+          <div class="form-group col-6">
+            <settings-ts-field [label]="'ThingSpeak Luftfeuchtigkeit'"
+                               [ts_field_id]="'ts_field_humidity'"
+                               (ts_fieldChanged)="sensor.ts_field_humidity = $event"
+                               [ts_field]="sensor.ts_field_humidity" ></settings-ts-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-6">
+            <label for="pin">GPIO-PIN </label>
+            <input type="number" class="form-control" [(ngModel)]="sensor.pin" id="pin" name="pin" placeholder="PIN" />
+          </div>
+        </div>
+      </td>
+    </tr>
+  </ng-container>
+  <tr>
+    <td colspan="2">
+      <button class="btn btn-primary" (click)="addSensor()" title="Hinzufügen">
+        &#x2b; Sensor hinzufügen
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<hr />
+<div class="form-group">
+  <label for="button_pin">Wartungsmodus-Taster GPIO-PIN</label>
+  <input type="number" class="form-control" [(ngModel)]="settings.button_pin" id="button_pin" name="button_pin" placeholder="GPIO-PIN" required>
+</div>
+<div class="alert alert-info">Die Änderung am Taster wird nach einem Neustart aktiv.</div>
+<div class="form-group">
+  <label for="interval">Messintervall</label>
+  <select [(ngModel)]="settings.interval" id="interval" name="interval" class="custom-select" required>
+    <option [ngValue]="undefined">Intervall auswählen...</option>
+    <option [ngValue]="60">1min</option>
+    <option [ngValue]="300">5min</option>
+    <option [ngValue]="600">10min</option>
+    <option [ngValue]="900">15min</option>
+    <option [ngValue]="1800">30min</option>
+    <option [ngValue]="3600">60min</option>
+    <option [ngValue]="0">Keine Messdatenübertragung</option>
+  </select>
+</div>

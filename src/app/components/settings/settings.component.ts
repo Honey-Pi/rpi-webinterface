@@ -11,7 +11,6 @@ import { Sensor } from '../../models/sensor.model';
 export class SettingsComponent implements OnInit {
 
   public settings: Settings = new Settings();
-  public temperatureSensors: Array<any> = [];
   public settingsSaved: boolean = false;
   public settingsError: boolean = false;
 
@@ -20,7 +19,6 @@ export class SettingsComponent implements OnInit {
   ngOnInit() {
     /* initial load */
     this.getSettings();
-    this.getTemperatureSensors();
   }
 
   private n: any;
@@ -58,25 +56,6 @@ export class SettingsComponent implements OnInit {
       this.settingsError = true;
       this.hideAlertsTimer();
     });
-  }
-
-  /* Sensors */
-
-  addSensor(): void {
-    this.settings.sensors.push(new Sensor());
-  }
-
-  removeSensor(index: number): void {
-    this.settings.sensors.splice(index,1);
-  }
-
-  getTemperatureSensors(): void {
-    this.appService.getTemperatureSensors()
-      .subscribe(res => {
-        if(res) {
-          this.temperatureSensors = <any>res;
-        }
-      }, (err: any) => {console.log(err.status); console.log(err);});
   }
 
 }

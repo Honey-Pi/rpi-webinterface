@@ -12,6 +12,7 @@ import { TsFieldComponent } from './components/settings/ts-field/ts-field.compon
 import { InternetComponent } from './components/internet/internet.component';
 import { LogComponent } from './components/log/log.component';
 import { MeasurementComponent } from './components/measurement/measurement.component';
+import { SensorsComponent } from './components/sensors/sensors.component';
 
 const appRoutes: Routes = [
   { path: '', component: SettingsComponent }
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
     TsFieldComponent,
     InternetComponent,
     LogComponent,
-    MeasurementComponent
+    MeasurementComponent,
+    SensorsComponent
   ],
   imports: [
     BrowserModule,
