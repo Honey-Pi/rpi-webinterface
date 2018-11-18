@@ -1,1 +1,1 @@
-{"sensors":[{"type":0,"device_id":"28-0517b01bfcff","ts_field":"field1"},{"type":1}],"button_pin":17,"interval":300,"ts_channel_id":22,"ts_write_key":"Test123456789012", "internet": {"router": {}, "honeypi": {}}}
+{"sensors":[{"type":0,"device_id":"28-0517b01bfcff","ts_field":"field1"},{"type":1}],"button_pin":17,"interval":300,"ts_channel_id":22,"ts_write_key":"Test123456789012", "internet": {"router": {"ssid":"", "password":"", "enabled":false}, "honeypi": {"ssid":"", "password":""}}}

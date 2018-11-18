@@ -33,30 +33,32 @@
         $postBody = file_get_contents("php://input");
         file_put_contents($filename, $postBody);
         
+		
+		$postJson = json_decode($postBody, true);
         // WLAN-Router
-        if (isset($postBody["internet"]["router"])) {
-            $router = $postBody["internet"]["router"];
+        if (isset($postJson["internet"]["router"])) {
+            $router = $postJson["internet"]["router"];
             if (isset($router["enabled"]) && $router["enabled"] === true) {
                 if (isset($router["ssid"]) && isset($router["password"]) && strlen($router["password"]) >= 8) {
                     $ssid = $router["ssid"];
                     $pw = $router["password"];
-                    shell_exec("sudo sh ".$shellDir."/change_router_ssid.sh ".$ssid);
-                    shell_exec("sudo sh ".$shellDir."/change_router_pw.sh ".$pw);
+                    shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_router_ssid.sh ".$ssid);
+                    shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_router_pw.sh ".$pw);
                 }
             } else {
                 // disable connection
-                shell_exec("sudo sh ".$shellDir."/change_router_ssid.sh fremderRouter");
-                shell_exec("sudo sh ".$shellDir."/change_router_pw.sh WLANpasswort");
+                shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_router_ssid.sh fremderRouter");
+                shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_router_pw.sh WLANpasswort");
             }
         }
         
         // HoneyPi-AccessPoint
-        if (isset($postBody["internet"]["honeypi"])) {
-            $honeypi = $postBody["internet"]["honeypi"];
-            if (isset($honeypi["ssid"]) && strlen($honeypi["ssid"]) > 0 && isset($honeypi["password"]) && strlen($honeypi["password"]) >= 8) {
-                $honeypi_ssid = $honeypi["ssid"];
-                $honeypi_pw = $honeypi["password"];
-                shell_exec("sudo sh ".$shellDir."/change_honeypi_ssidpw.sh ".$honeypi_ssid." ".$honeypi_pw.";");
+        if ($postJson["internet"]["honeypi"]) {
+            $honeypi = $postJson["internet"]["honeypi"];
+			$honeypi_ssid = $honeypi["ssid"];
+            $honeypi_pw = $honeypi["password"];
+            if (isset($honeypi_ssid) && strlen($honeypi_ssid) > 0 && isset($honeypi_pw) && strlen($honeypi_pw) >= 8) {
+                shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_honeypi_ssidpw.sh ".$honeypi_ssid." ".$honeypi_pw.";");
             }
         }
     }

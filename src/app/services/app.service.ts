@@ -4,7 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/map";
 
-const apiUrl = 'http://raspberrypi.fritz.box/backend/';
+// const apiUrl = 'http://raspberrypi.fritz.box/backend/';
+const apiUrl = './backend/';
 
 @Injectable({
   providedIn: 'root'

@@ -18,18 +18,19 @@
     
     // define vars
     $filename = '/home/pi/rpi-scripts/error.log';
+	$shellDir = "/var/www/html/backend/shell-scripts";
     
     // function for shell script
-    function clear_file($filename) {
-        $output = shell_exec("true > ".$filename."; echo $?");
-        return $output;
+    function clear_log() {
+        shell_exec("sudo sh ".$GLOBALS['shellDir']."/clear_log.sh");
     }
     
     // delete log
     if (isset($_GET['delete']))
     {
         if (file_exists($filename)) {
-            file_put_contents($filename, "");
+            clear_log();
+			//file_put_contents($filename, "");
         }
     }
     
