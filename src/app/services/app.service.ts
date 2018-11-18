@@ -64,4 +64,14 @@ export class AppService {
       });
   }
 
+  reboot(): Observable<Response> {
+    let timestamp = "t=" + ((new Date()).getTime());
+    return this.http.get(apiUrl + 'reboot.php?' + timestamp)
+      .map((response: Response) => {
+        if (response) {
+          return response;
+        }
+      });
+  }
+
 }

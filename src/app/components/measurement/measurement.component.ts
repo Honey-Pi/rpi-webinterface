@@ -13,7 +13,7 @@ export class MeasurementComponent implements OnInit {
   constructor(private appService: AppService) { }
 
   ngOnInit() {
-    this.getMeasurement();
+  //  this.getMeasurement();
   }
 
   getMeasurement(): void {

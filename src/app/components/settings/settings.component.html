@@ -1,7 +1,10 @@
 <main role="main" class="container">
   <div class="jumbotron">
     <div class="float-right">
-      <button class="btn btn-sm btn-primary" type="button" (click)="saveSettings()">Speichern</button>
+      <div class="btn-group btn-group-sm" role="group" aria-label="Controls">
+        <button class="btn btn-sm btn-primary" type="button" (click)="saveSettings()">Speichern</button>
+        <button class="btn btn-sm btn-primary" type="button" (click)="reboot()">Neustarten</button>
+      </div>
     </div>
     <h1 class="h1">Einstellungen</h1>
     <div class="alert alert-success myAlert-top" role="alert" *ngIf="settingsSaved">

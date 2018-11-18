@@ -58,4 +58,10 @@ export class SettingsComponent implements OnInit {
     });
   }
 
+  reboot(): void {
+    if (confirm("Alle bisher ungespeicherten Änderungen gehen verloren. Die Verbindung wird sich vorrübergehend trennen. \n Das Gerät wird nun neugestartet. Sicher?")) {
+      this.appService.reboot();
+    }
+  }
+
 }
