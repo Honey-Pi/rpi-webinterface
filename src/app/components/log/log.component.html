@@ -1,5 +1,6 @@
 <pre class="pre-scrollable" *ngIf="log && log !== 'NOFILE'">{{log}}</pre>
 <div class="alert alert-info" *ngIf="log === 'NOFILE'">Auf diesem Gerät befindet sich kein Protokoll.</div>
+<div class="alert alert-info" *ngIf="log == ''">Das Protokoll auf diesem Gerät ist leer.</div>
 <div class="btn-group btn-group-sm" role="group">
   <button class="btn btn-primary btn-sm" type="button" role="button" (click)="getLog()">Protokoll aktualisieren</button>
   <button class="btn btn-danger btn-sm" type="button" role="button" (click)="deleteLog()">Protokoll löschen</button>

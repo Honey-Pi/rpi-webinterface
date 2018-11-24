@@ -59,7 +59,7 @@ export class SettingsComponent implements OnInit {
   }
 
   reboot(): void {
-    if (confirm("Alle bisher ungespeicherten Änderungen gehen verloren. Die Verbindung wird sich vorübergehend trennen. \nDas Gerät wird nun neugestartet. Sicher?")) {
+    if (confirm("Alle ungespeicherten Änderungen gehen verloren. Die Verbindung wird sich vorübergehend trennen. \nDas Gerät wird nun neugestartet. Sicher?")) {
       this.appService.reboot().subscribe(res => {
         console.log(res);
       });

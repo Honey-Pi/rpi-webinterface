@@ -34,10 +34,13 @@ export class InternetComponent implements OnInit {
     this.checkInternetResponse = null;
     this.appService.checkInternet()
       .subscribe(res => {
-        if(res) {
-          this.checkInternetResponse = <any>res;
-        }
-      }, (err: any) => {console.log(err.status); console.log(err);});
+        this.checkInternetResponse = <any>res;
+      }, (err: any) => {
+        this.checkInternetResponse.connected = false;
+        this.checkInternetResponse.content = err;
+        console.log(err.status);
+        console.log(err);
+      });
   }
 
 }
