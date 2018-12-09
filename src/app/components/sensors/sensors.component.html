@@ -12,7 +12,7 @@
           <option [ngValue]="0">Temperatursensor (DS18b20)</option>
           <option [ngValue]="1">BME680 (Temperatur+Luftfeuchtigkeit+Luftdruck+Qualität)</option>
           <option [ngValue]="2">Gewichtssensor (A/D: HX711)</option>
-          <option [ngValue]="3">Luftfeuchtigkeit und Temperatur (DHT11/DHT22)</option>
+          <option [ngValue]="3">Luftfeuchtigkeit und Temperatur (DHT)</option>
         </select>
       </td>
       <td>
@@ -111,24 +111,37 @@
         <div class="row">
           <div class="form-group col-6">
             <label for="offset">Wägezellen Offset</label>
-            <input type="number" class="form-control" [(ngModel)]="sensor.offset" id="offset" name="offset" placeholder="Offset">
+            <input type="number" step="1" class="form-control" [(ngModel)]="sensor.offset" id="offset" name="offset" placeholder="Offset" required>
           </div>
           <div class="form-group col-6">
             <label for="reference_unit">Wägezellen Skalierungswert</label>
-            <input type="number" step="0.001" class="form-control" [(ngModel)]="sensor.reference_unit" id="reference_unit" name="reference_unit" placeholder="Skalierungswert">
+            <input type="number" step="0.0001" class="form-control"
+                   [ngModel]="sensor.reference_unit | number:'1.0-4'"
+                   (ngModelChange)="sensor.reference_unit=$event"
+                   id="reference_unit" name="reference_unit" placeholder="Skalierungswert"
+                   #ref_unit="ngModel" required [min]="0.0001" [max]="999.9999" />
+            <div *ngIf="ref_unit.invalid && (ref_unit.dirty || ref_unit.touched)"
+                 class="alert alert-danger" style="margin-top:5px">
+              <div *ngIf="ref_unit?.errors.required">
+                Eine Eingabe für "Skalierungswert" wird benötigt. Standard ist "1"
+              </div>
+              <div *ngIf="ref_unit?.errors.min || ref_unit?.errors.max">
+                Der Skalierungswert liegt außerhalb des gültigen Wertebereichs.
+              </div>
+            </div>
           </div>
         </div>
         <div class="row">
           <div class="col-6">
             <div class="alert alert-info">
               <b>Offset:</b> Beeinflusst das Messergebnis indem das Offset vom Messwert abgezogen wird.
+              <br />Kann auch eine negative Zahl sein. Angabe in Gramm. Standard ist "0".
             </div>
           </div>
           <div class="col-6">
             <div class="alert alert-info">
               <b>Skalierungswert:</b> Beeinflusst das Messergebnis indem (Messwert-Offset) durch den Skalierungswert geteilt wird.
-              <br />
-              <i>Wertebereich: 0.0 bis 1.0 und 1 bis ∞</i>
+              <br />Es sind vier Nachkommastellen erlaubt und die Nachkommastellen werden mit Punkt und nicht mit Komma getrennt.
             </div>
           </div>
         </div>
@@ -154,6 +167,15 @@
           <div class="form-group col-6">
             <label for="pin">GPIO-PIN</label>
             <input type="number" class="form-control" [(ngModel)]="sensor.pin" id="pin" name="pin" placeholder="GPIO" required/>
+          </div>
+          <div class="form-group col-6">
+            <label for="dht_type">Auswahl des Sensormodells</label>
+            <select [(ngModel)]="sensor.dht_type" id="dht_type" name="dht_type" class="custom-select" required>
+              <option [ngValue]="undefined">DHT auswählen...</option>
+              <option value="11">DHT11</option>
+              <option value="22">DHT22</option>
+              <option value="22">AM2302</option>
+            </select>
           </div>
         </div>
       </td>

@@ -27,4 +27,5 @@ export class Sensor {
   device_id: string;
   // DHT11
   pin: number;
+  dht_type: number;
 }
