@@ -48,7 +48,6 @@ export class SettingsComponent implements OnInit {
           this.isConnected = true;
         }
       }, (err: any) => {
-        console.log(err.status);
         console.log(err);
         if(err.name && err.name === 'TimeoutError') {
           this.isConnected = false;

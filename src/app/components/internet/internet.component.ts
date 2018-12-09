@@ -1,7 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AppService} from "../../services/app.service";
 import {InternetSettings} from "../../models/internet-settings.model";
-import {Wifi} from "../../models/wifi.model";
 
 @Component({
   selector: 'app-internet',
