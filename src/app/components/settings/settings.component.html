@@ -6,6 +6,12 @@
         <button class="btn btn-sm btn-warning" type="button" (click)="reboot()">Neustarten</button>
       </div>
     </div>
+    <div class="clearfix"></div>
+    <div class="alert alert-warning" role="alert" *ngIf="!isAccessPoint" style="margin-top:5px">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Hinweis:</strong> Dieser Wartungsmodus wird von dir nicht über den "HoneyPi"-AccessPoint aufgerufen. Denke daher bitte an folgendes:
+      Deine Änderungen werden erst nach einem Neustart aktiv. (da der Tastendruck ausbleibt)
+    </div>
     <h1 class="h1">Wartungsmodus</h1>
     <div class="alert alert-success myAlert-top" role="alert" *ngIf="settingsSaved">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -89,3 +95,20 @@
     </div>
   </div>
 </main>
+<!-- Modal -->
+<div class="modal fade show" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" [ngStyle]="!isConnected && {'display':'block'}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Verbindung fehlgeschlagen</h5>
+      </div>
+      <div class="modal-body">
+        Der HoneyPi ist gerade nicht erreichbar. Vermutlich durch einen Neustart. Bis das Gerät vollständig hochgefahren ist musst Du kurz warten...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="getSettings()">Erneut versuchen</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="!isConnected" class="modal-backdrop fade show"></div>

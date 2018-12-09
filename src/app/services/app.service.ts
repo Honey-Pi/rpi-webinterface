@@ -4,8 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/map";
 
-// const apiUrl = 'http://raspberrypi.fritz.box/backend/';
-const apiUrl = './backend/';
+const apiUrl = 'http://raspberrypi.fritz.box/backend/';
+//const apiUrl = './backend/';
 
 @Injectable({
   providedIn: 'root'
@@ -65,14 +65,9 @@ export class AppService {
       });
   }
 
-  reboot(): Observable<Response> {
+  reboot(): Observable<Object> {
     let timestamp = "t=" + ((new Date()).getTime());
-    return this.http.get(apiUrl + 'reboot.php?' + timestamp)
-      .map((response: Response) => {
-        if (response) {
-          return response;
-        }
-      });
+    return this.http.get(apiUrl + 'reboot.php?' + timestamp);
   }
 
 }
