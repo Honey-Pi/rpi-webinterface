@@ -172,9 +172,9 @@
             <label for="dht_type">Auswahl des Sensormodells</label>
             <select [(ngModel)]="sensor.dht_type" id="dht_type" name="dht_type" class="custom-select" required>
               <option [ngValue]="undefined">DHT auswählen...</option>
-              <option value="11">DHT11</option>
-              <option value="22">DHT22</option>
-              <option value="22">AM2302</option>
+              <option [ngValue]="11">DHT11</option>
+              <option [ngValue]="22">DHT22</option>
+              <option [ngValue]="2302">AM2302</option>
             </select>
           </div>
         </div>

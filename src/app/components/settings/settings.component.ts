@@ -64,6 +64,12 @@ export class SettingsComponent implements OnInit {
       this.settingsSaved = true;
       this.settingsError = false;
       this.hideAlertsTimer();
+
+      if(!this.isAccessPoint) {
+        if (window.confirm("Damit die Änderungen wirksam werden ist ein Neustart erforderlich. \nSoll das Gerät nun neugestartet werden?")) {
+          this.reboot();
+        }
+      }
     }, (err: any) => {
       console.log(err.status);
       console.log(err);
@@ -72,24 +78,27 @@ export class SettingsComponent implements OnInit {
     });
   }
 
-  reboot(): void {
+  askForReboot(): void {
     if (window.confirm("Alle ungespeicherten Änderungen gehen verloren. Die Verbindung wird sich vorübergehend trennen. \nDas Gerät wird nun neugestartet. Sicher?")) {
-      this.isConnected = false;
-      this.appService.reboot().timeout(3000).subscribe(
-        result => {
-          // Handle result
-          console.log(result);
-        },
-        error => {
-          console.log("Reboot: Connection timeout.");
-        },
-        () => {
-          // 'onCompleted' callback.
-          // No errors, route to new page here
-          window.location.reload(true);
-        }
-      );
+      this.reboot();
     }
+  }
+  reboot(): void {
+    this.isConnected = false;
+    this.appService.reboot().timeout(3000).subscribe(
+      result => {
+        // Handle result
+        console.log(result);
+      },
+      error => {
+        console.log("Reboot: Connection timeout.");
+      },
+      () => {
+        // 'onCompleted' callback.
+        // No errors, route to new page here
+        window.location.reload(true);
+      }
+    );
   }
 
 }
