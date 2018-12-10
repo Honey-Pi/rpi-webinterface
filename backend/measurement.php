@@ -18,7 +18,7 @@
     
     // function for shell script
     function run_measurement() {
-        $output = shell_exec("python /home/pi/rpi-scripts/measurement.py");
+        $output = shell_exec("sudo python /home/pi/rpi-scripts/measurement.py");
         return $output;
     }
     
