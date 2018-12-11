@@ -38,9 +38,9 @@
         if (isset($postJson["internet"]["router"])) {
             $router = $postJson["internet"]["router"];
             if (isset($router["enabled"]) && $router["enabled"] === true && isset($router["ssid"]) && isset($router["password"]) && strlen($router["password"]) >= 8) {
-				$ssid = escapeshellarg($router["ssid"]);
-				$pw = escapeshellarg($router["password"]);
-				shell_exec('sudo sh '.$GLOBALS['shellDir'].'/change_router_ssidpw.sh '.$ssid.' '.$pw.';');
+				$escapedSsid = escapeshellarg($router["ssid"]);
+				$escapedPw = escapeshellarg($router["password"]);
+				shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_router_ssidpw.sh $escapedSsid $escapedPw;");
                 
             } else {
                 // disable connection
@@ -52,9 +52,9 @@
         if ($postJson["internet"]["honeypi"]) {
             $honeypi = $postJson["internet"]["honeypi"];
             if (isset($honeypi['ssid']) && strlen($honeypi['ssid']) > 0 && isset($honeypi["password"]) && strlen($honeypi["password"]) >= 8) {
-				$honeypi_ssid = escapeshellarg($honeypi["ssid"]);
-				$honeypi_pw = escapeshellarg($honeypi["password"]);
-                shell_exec('sudo sh '.$GLOBALS['shellDir'].'/change_honeypi_ssidpw.sh '.$honeypi_ssid.' '.$honeypi_pw.';');
+				$escapedHoneypiSsid = escapeshellarg($honeypi["ssid"]);
+				$escapedHoneypiPw = escapeshellarg($honeypi["password"]);
+                shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_honeypi_ssidpw.sh $escapedHoneypiSsid $escapedHoneypiPw;");
             }
         }
     }
