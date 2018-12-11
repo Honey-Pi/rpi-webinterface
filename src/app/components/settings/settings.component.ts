@@ -37,7 +37,7 @@ export class SettingsComponent implements OnInit {
 
   public get isAccessPoint() {
     let host = window.location.hostname;
-    return (host === '192.169.4.1');
+    return (host === '192.168.4.1');
   }
 
   getSettings(): void {

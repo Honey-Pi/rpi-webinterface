@@ -85,11 +85,11 @@
       <td colspan="2">
         <div class="row">
           <div class="form-group col-6">
-            <label for="pin_dt">GPIO-PIN DT</label>
+            <label for="pin_dt">GPIO DT</label>
             <input type="number" class="form-control" [(ngModel)]="sensor.pin_dt" id="pin_dt" name="pin_dt" placeholder="DT" required>
           </div>
           <div class="form-group col-6">
-            <label for="pin_sck">GPIO-PIN SCK</label>
+            <label for="pin_sck">GPIO SCK</label>
             <input type="number" class="form-control" [(ngModel)]="sensor.pin_sck" id="pin_sck" name="pin_sck" placeholder="SCK" required>
           </div>
         </div>
@@ -165,7 +165,7 @@
         </div>
         <div class="row">
           <div class="form-group col-6">
-            <label for="pin">GPIO-PIN</label>
+            <label for="pin">GPIO</label>
             <input type="number" class="form-control" [(ngModel)]="sensor.pin" id="pin" name="pin" placeholder="GPIO" required/>
           </div>
           <div class="form-group col-6">
@@ -190,9 +190,11 @@
   </tr>
   </tbody>
 </table>
+<div class="alert alert-info">
+  <b>GPIO:</b> Die Kontaktstifte auf dem Raspberry Pi Board haben zwei Nummerierungen. Eine physische von 1 bis 40 und eine für jeden frei programmierbaren GPIO. Bei der Angabe des Kontaktstiftes wird hier im Wartungsmodus immer die GPIO Nummerierung angegeben.</div>
 <hr />
 <div class="form-group">
-  <label for="button_pin">Wartungsmodus-Taster GPIO-PIN</label>
+  <label for="button_pin">Wartungsmodus-Taster GPIO</label>
   <input type="number" class="form-control" [(ngModel)]="settings.button_pin" id="button_pin" name="button_pin" placeholder="GPIO" required>
 </div>
 <div class="alert alert-info">Die Änderung am Taster wird nach einem Neustart aktiv.</div>

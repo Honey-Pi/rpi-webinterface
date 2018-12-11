@@ -17,6 +17,7 @@ export class LogComponent implements OnInit {
   }
 
   getLog(): void {
+    this.log = null;
     this.appService.getLog()
       .subscribe(res => {
         this.log = res;

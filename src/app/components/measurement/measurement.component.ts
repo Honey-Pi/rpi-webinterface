@@ -17,6 +17,7 @@ export class MeasurementComponent implements OnInit {
   }
 
   getMeasurement(): void {
+    this.measurement = null;
     this.appService.getMeasurement()
       .subscribe(res => {
         if(res) {
@@ -25,4 +26,9 @@ export class MeasurementComponent implements OnInit {
       }, (err: any) => {console.log(err.status); console.log(err);});
   }
 
+  get thingSpeakFields() {
+    let str = this.measurement.split('{');
+    str = "{" + str[str.length-1];
+    return JSON.parse(str);
+  }
 }
