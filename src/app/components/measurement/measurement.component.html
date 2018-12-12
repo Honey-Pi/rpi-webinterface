@@ -3,6 +3,14 @@
 </div>
 <ng-container *ngIf="measurement">
   <pre class="pre-scrollable">{{measurement}}</pre>
+  <ul class="list-group" *ngIf="thingSpeakFields">
+    <ng-container *ngFor="let i of [1,2,3,4,5,6,7,8]">
+      <li *ngIf="thingSpeakFields['field' + i]"
+          class="list-group-item">
+        <strong>Feld {{i}}</strong>: {{thingSpeakFields['field' + i]}}
+      </li>
+    </ng-container>
+  </ul>
 </ng-container>
 <p>Diese Ansicht ist bisher nur provisorisch und soll in der nächsten Firmware Version ausgebaut werden.</p>
 <button class="btn btn-primary btn-sm" type="button" role="button" (click)="getMeasurement()">Neue Messung abrufen</button>

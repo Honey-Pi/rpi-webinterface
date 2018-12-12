@@ -26,9 +26,12 @@ export class MeasurementComponent implements OnInit {
       }, (err: any) => {console.log(err.status); console.log(err);});
   }
 
-  get thingSpeakFields() {
-    let str = this.measurement.split('{');
-    str = "{" + str[str.length-1];
-    return JSON.parse(str);
+  get thingSpeakFields(): JSON {
+    if (this.measurement) {
+      let str = this.measurement.split('{');
+      str = "{" + str[str.length-1];
+      return JSON.parse(str);
+    }
+    return null;
   }
 }
