@@ -36,7 +36,7 @@ export class SettingsComponent implements OnInit {
   }
 
   public get isAccessPoint() {
-    let host = window.location.hostname;
+    let host: string = window.location.hostname;
     return (host === '192.168.4.1');
   }
 
@@ -56,26 +56,29 @@ export class SettingsComponent implements OnInit {
   }
 
   saveSettings(): void  {
-    this.appService.setSettings(this.settings).subscribe(res => {
-      console.log(res);
-      if(res) {
-        this.settings = <Settings>res;
-      }
-      this.settingsSaved = true;
-      this.settingsError = false;
-      this.hideAlertsTimer();
-
-      if(!this.isAccessPoint) {
-        if (window.confirm("Damit die Änderungen wirksam werden ist ein Neustart erforderlich. \nSoll das Gerät nun neugestartet werden?")) {
-          this.reboot();
+    this.appService.setSettings(this.settings).timeout(3000)
+      .subscribe(res => {
+        console.log(res);
+        if(res) {
+          this.settings = <Settings>res;
         }
-      }
-    }, (err: any) => {
-      console.log(err.status);
-      console.log(err);
-      this.settingsError = true;
-      this.hideAlertsTimer();
-    });
+        this.settingsSaved = true;
+        this.settingsError = false;
+        this.hideAlertsTimer();
+
+        if(!this.isAccessPoint) {
+          if (window.confirm("Damit die Änderungen wirksam werden ist ein Neustart erforderlich. \nSoll das Gerät nun neugestartet werden?")) {
+            this.reboot();
+          }
+        }
+      }, (err: any) => {
+        console.log(err);
+        if(err.name && err.name === 'TimeoutError') {
+          this.isConnected = false;
+        }
+        this.settingsError = true;
+        this.hideAlertsTimer();
+      });
   }
 
   askForReboot(): void {

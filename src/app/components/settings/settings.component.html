@@ -6,12 +6,12 @@
         <button class="btn btn-sm btn-warning" type="button" (click)="askForReboot()">Neustarten</button>
       </div>
     </div>
+    <h1 class="h1">Wartungsmodus</h1>
     <div class="clearfix"></div>
     <div class="alert alert-warning" role="alert" *ngIf="!isAccessPoint" style="margin-top:5px">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      <strong>Hinweis:</strong> Der Wartungsmodus wird von nicht über den "HoneyPi"-AccessPoint aufgerufen. Die Änderungen werden daher nach einem Neustart aktiv (da der Tastendruck ausbleibt).
+      <strong>Hinweis:</strong> Der Wartungsmodus wird nicht über den "HoneyPi"-AccessPoint aufgerufen. Änderungen werden daher erst nach einem Neustart aktiv (da der Tastendruck ausbleibt).
     </div>
-    <h1 class="h1">Wartungsmodus</h1>
     <div class="alert alert-success myAlert-top" role="alert" *ngIf="settingsSaved">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
       <strong>Gespeichert!</strong> Die Einstellungen wurden gespeichert.
@@ -102,7 +102,7 @@
         <h5 class="modal-title" id="exampleModalLongTitle">Verbindung fehlgeschlagen</h5>
       </div>
       <div class="modal-body">
-        Die Bienenstockwaage ist gerade nicht erreichbar, vermutlich wurde das System neu gestartet, dies kann bis zu 1min dauern.
+        Die Bienenstockwaage ist gerade nicht erreichbar, vermutlich wurde das System neu gestartet, dies kann bis zu 1 Minute dauern.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" (click)="getSettings()">Erneut versuchen</button>

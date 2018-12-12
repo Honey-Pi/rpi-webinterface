@@ -2,6 +2,8 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AppService} from "../../services/app.service";
 import {InternetSettings} from "../../models/internet-settings.model";
 
+import 'rxjs/add/operator/timeout';
+
 @Component({
   selector: 'app-internet',
   templateUrl: './internet.component.html',
@@ -31,14 +33,16 @@ export class InternetComponent implements OnInit {
 
   checkInternet(): void {
     this.checkInternetResponse = null;
-    this.appService.checkInternet()
+    this.appService.checkInternet().timeout(15000)
       .subscribe(res => {
         this.checkInternetResponse = <any>res;
       }, (err: any) => {
-        this.checkInternetResponse.connected = false;
-        this.checkInternetResponse.content = err;
-        console.log(err.status);
         console.log(err);
+        if(err.name && err.name === 'TimeoutError') {
+          this.checkInternetResponse = {connected: false, content: "Timeout nach 15 Sekunden."};
+        } else {
+          this.checkInternetResponse = {connected: false, content: err};
+        }
       });
   }
 

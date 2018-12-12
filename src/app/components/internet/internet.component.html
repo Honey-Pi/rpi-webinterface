@@ -36,11 +36,11 @@
     <strong>Fehler!</strong> Verbindung ins Internet fehlgeschlagen.
   </div>
   <pre class="pre-scrollable" *ngIf="!checkInternetResponse.connected && checkInternetResponse.content">{{checkInternetResponse.content | json}}</pre>
-</div>
-<div class="alert alert-info" role="alert">
-  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  Hier im Wartungsmodus kann sich der Raspberry Pi <strong>nicht gleichzeitig</strong> auch mit einem WLAN-Netzwerk verbinden.
-  Daher kann nur die Internetverbindung des Surfsticks oder beim RPi 3B/3B+ auch der LAN-Anschluss getestet werden.
+  <div class="alert alert-info" role="alert">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    Hier im Wartungsmodus kann sich der Raspberry Pi <strong>nicht gleichzeitig</strong> auch mit einem WLAN-Netzwerk verbinden.
+    Daher kann nur die Internetverbindung des Surfsticks oder beim RPi 3B/3B+ auch der LAN-Anschluss getestet werden.
+  </div>
 </div>
 <hr />
 <p>
