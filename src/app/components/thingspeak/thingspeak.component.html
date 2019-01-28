@@ -10,6 +10,10 @@
          id="ts_write_key" name="ts_write_key" placeholder="Write-API-Key"
          required minlength="16" maxlength="16" #ts_write_key="ngModel">
 </div>
+<div *ngIf="(settings.ts_write_key.indexOf(' ') !== -1)"
+     class="alert alert-warning">
+  "ThingSpeak Write-API-Key" enthält ein Leerzeichen. Ist das gewollt?
+</div>
 <div *ngIf="ts_channel_id.invalid && (ts_channel_id.dirty || ts_channel_id.touched)"
      class="alert alert-danger">
   <div *ngIf="ts_channel_id?.errors.required">
