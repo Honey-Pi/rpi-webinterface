@@ -41,6 +41,15 @@
         </div>
         <div class="row">
           <div class="col-12">
+            <div class="alert alert-warning" *ngIf="temperatureSensorWasFiltered">
+              Es wurde ein Temperatursensor mit einer ungültigen Device-ID festgestellt.
+              Dies tritt dann auf, wenn ein Widerstand vergessen wurde oder ein falscher Widerstand verwendet wurde.
+              Eine weitere Ursache könnte mit dem DHT-Sensor zusammen hängen. Dann hilft es kurz die Stromzufuhr zu trennen.
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
             <div class="alert alert-info" *ngIf="temperatureSensors.length == 0">
               Es konnten keine Temperatursensor am Gerät gefunden werden.<br>
               Prüfe ob die Sensoren richtig angeschlossen sind und <a (click)="getTemperatureSensors()" [routerLink]="">aktualisiere</a> die Liste.

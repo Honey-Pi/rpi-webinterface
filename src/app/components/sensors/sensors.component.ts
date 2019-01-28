@@ -10,7 +10,8 @@ import {Settings} from "../../models/settings.model";
 })
 export class SensorsComponent implements OnInit {
 
-  public temperatureSensors: Array<any> = [];
+  public temperatureSensors: Array<string> = [];
+  public temperatureSensorWasFiltered = false;
 
   /* two-way databinding for settings*/
   _settings: Settings;
@@ -39,11 +40,22 @@ export class SensorsComponent implements OnInit {
     this.settings.sensors.splice(index,1);
   }
 
+  /* Temperature Sensors */
+  filterTemperatureSensors(devices:Array<string>): Array<string> {
+    // 00-40000000000 und
+    // 00-c0000000000
+    const filteredDevices = devices.filter(function(value: string, index, arr){
+      return (value.indexOf('0000000000') !== -1);
+    });
+    this.temperatureSensorWasFiltered = devices.length !== filteredDevices.length;
+    return filteredDevices;
+  }
+
   getTemperatureSensors(): void {
     this.appService.getTemperatureSensors()
       .subscribe(res => {
-        if(res) {
-          this.temperatureSensors = <any>res;
+        if (res) {
+          this.temperatureSensors = this.filterTemperatureSensors(<any>res);
         }
       }, (err: any) => {console.log(err.status); console.log(err);});
   }
