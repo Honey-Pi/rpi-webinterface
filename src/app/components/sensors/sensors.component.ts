@@ -44,8 +44,12 @@ export class SensorsComponent implements OnInit {
   filterTemperatureSensors(devices:Array<string>): Array<string> {
     // 00-40000000000 und
     // 00-c0000000000
+    // Array [ "00-500000000000", "00-900000000000" ]
+    // Array [ "00-080000000000", "00-f00000000000" ]
+    // [ "00-080000000000", "00-880000000000", "00-f00000000000" ]
+    // Array(3) [ "00-080000000000", "00-480000000000", "00-880000000000" ]
     const filteredDevices = devices.filter(function(value: string, index, arr){
-      return (value.indexOf('0000000000') !== -1);
+      return (value.indexOf('0000000000') === -1);
     });
     this.temperatureSensorWasFiltered = devices.length !== filteredDevices.length;
     return filteredDevices;
@@ -55,7 +59,9 @@ export class SensorsComponent implements OnInit {
     this.appService.getTemperatureSensors()
       .subscribe(res => {
         if (res) {
+          console.log('unfiltered', res);
           this.temperatureSensors = this.filterTemperatureSensors(<any>res);
+          console.log('filtered', this.temperatureSensors);
         }
       }, (err: any) => {console.log(err.status); console.log(err);});
   }

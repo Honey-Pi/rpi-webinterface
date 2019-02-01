@@ -1,6 +1,6 @@
 {
   "name": "rpi-webinterface",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "author": "Javan Rasokat",
   "license": "CC BY-NC-SA 3.0",
   "scripts": {

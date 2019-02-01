@@ -5,13 +5,14 @@
          required [min]="0" [max]="9999999" #ts_channel_id="ngModel">
 </div>
 <div class="form-group">
-  <label for="ts_write_key">ThingSpeak Write-API-Key</label>
+  <label for="ts_write_key">ThingSpeak <strong>Write</strong>-API-Key</label>
   <input type="text" class="form-control" [(ngModel)]="settings.ts_write_key"
          id="ts_write_key" name="ts_write_key" placeholder="Write-API-Key"
          required minlength="16" maxlength="16" #ts_write_key="ngModel">
 </div>
-<div *ngIf="(settings.ts_write_key.indexOf(' ') !== -1)"
-     class="alert alert-warning">
+<div *ngIf="(ts_write_key?.value?.indexOf(' ') !== -1)"
+     class="alert alert-warning" role="alert">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   "ThingSpeak Write-API-Key" enthält ein Leerzeichen. Ist das gewollt?
 </div>
 <div *ngIf="ts_channel_id.invalid && (ts_channel_id.dirty || ts_channel_id.touched)"

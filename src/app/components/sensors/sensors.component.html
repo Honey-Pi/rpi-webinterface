@@ -41,17 +41,18 @@
         </div>
         <div class="row">
           <div class="col-12">
-            <div class="alert alert-warning" *ngIf="temperatureSensorWasFiltered">
-              Es wurde ein Temperatursensor mit einer ungültigen Device-ID festgestellt.
-              Dies tritt dann auf, wenn ein Widerstand vergessen wurde oder ein falscher Widerstand verwendet wurde.
-              Eine weitere Ursache könnte mit dem DHT-Sensor zusammen hängen. Dann hilft es kurz die Stromzufuhr zu trennen.
+            <div class="alert alert-warning" *ngIf="temperatureSensorWasFiltered" role="alert">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <strong>Hinweis:</strong> Es wurde ein Sensor mit einer ungültigen Device-ID festgestellt.
+              Dies tritt unter anderem beim DS18B20 dann auf, wenn ein Widerstand vergessen wurde oder ein falscher Widerstand verwendet wurde.
+              Eine weitere Ursache könnte mit einem DHT-Sensor zusammen hängen. Manchmal hilft es kurz die Stromzufuhr zu trennen. <strong>Dieser Hinweis kann ignoriert werden.</strong>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-12">
             <div class="alert alert-info" *ngIf="temperatureSensors.length == 0">
-              Es konnten keine Temperatursensor am Gerät gefunden werden.<br>
+              Es konnte kein Temperatursensor am Gerät gefunden werden.<br>
               Prüfe ob die Sensoren richtig angeschlossen sind und <a (click)="getTemperatureSensors()" [routerLink]="">aktualisiere</a> die Liste.
             </div>
           </div>
@@ -199,7 +200,8 @@
   </tr>
   </tbody>
 </table>
-<div class="alert alert-info">
+<div class="alert alert-info" role="alert">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   <b>GPIO:</b> Die Kontaktstifte auf dem Raspberry Pi Board haben zwei Nummerierungen. Eine physische von 1 bis 40 und eine für jeden frei programmierbaren GPIO. Bei der Angabe des Kontaktstiftes wird hier im Wartungsmodus immer die GPIO Nummerierung angegeben.</div>
 <hr />
 <div class="form-group">
