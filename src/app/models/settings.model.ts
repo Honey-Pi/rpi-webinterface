@@ -9,6 +9,7 @@ export class Settings {
   }
   ts_channel_id: number;
   ts_write_key: string;
+  ts_server_url: string;
   interval: number;
   button_pin: number;
   sensors: Sensor[];
