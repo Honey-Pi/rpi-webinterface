@@ -1,0 +1,23 @@
+<div class="alert alert-info" role="alert">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  Mit Hilfe des zusätzlichen Witty Pi Moduls kann der Raspberry Pi zeitgesteuert werden.
+  Wir bieten bereits drei nützliche Programme.
+  Diese können im Eingabefeld auch verändert werden. Voraussetzung ist das <strong>Witty Pi Mini</strong>-Modul.
+</div>
+<div style="max-width:500px">
+  <div class="clearfix">
+    <div class="form-group float-right">
+      <select class="form-control" [(ngModel)]="selectedExample" (ngModelChange)="script = $event" style="max-width:250px">
+        <option [value]="null">Beispiel Programm laden...</option>
+        <option *ngFor="let s of exampleScripts" [ngValue]="s.script">{{s.name}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
+    <textarea placeholder="Programmcode" class="form-control pre-scrollable" id="exampleFormControlTextarea1" rows="5">{{script}}</textarea>
+  </div>
+  <div class="clearfix">
+    <button class="btn btn-warning btn-sm float-right" type="button" role="button" (click)="saveWittypi()">Programm an Witty Pi übertragen</button>
+  </div>
+</div>
+

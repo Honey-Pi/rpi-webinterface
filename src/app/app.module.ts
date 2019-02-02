@@ -15,6 +15,7 @@ import { LogComponent } from './components/log/log.component';
 import { MeasurementComponent } from './components/measurement/measurement.component';
 import { SensorsComponent } from './components/sensors/sensors.component';
 import { ThingspeakComponent } from './components/thingspeak/thingspeak.component';
+import { WittypiComponent } from './components/wittypi/wittypi.component';
 
 const appRoutes: Routes = [
   { path: '', component: SettingsComponent }
@@ -32,7 +33,8 @@ const appRoutes: Routes = [
     LogComponent,
     MeasurementComponent,
     SensorsComponent,
-    ThingspeakComponent
+    ThingspeakComponent,
+    WittypiComponent
   ],
   imports: [
     BrowserModule,
