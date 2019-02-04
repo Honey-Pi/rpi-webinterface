@@ -36,9 +36,9 @@
 	    	die('FCM Send Error: ' . curl_error($ch));
 	    }
 		curl_close($ch);
-		echo 'Noticiation succesfully send.'
+		echo '<p>Erfolgreich.</p>';
 	} else {
-		echo 'Error in the given parameters.'
+		echo '<p>Fehler in den Parametern. Bitte überprüfe die Parameter.</p>';
 	}
 
 ?>
