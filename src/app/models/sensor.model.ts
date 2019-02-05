@@ -17,6 +17,7 @@ export class Sensor {
   offset: number;
   pin_dt: number;
   pin_sck: number;
+  invert: boolean;
   // BME680 spezifisch:
   ts_field_air_pressure: string;
   ts_field_air_quality: string;
