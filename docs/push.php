@@ -3,7 +3,8 @@
 	header('Content-Type: text/html; charset=utf-8');
 
 	/* Access like:
-	http://pathto/push.php?channel=595959&title=&body=Das Gewicht ist um 10kg (12%) gesunken.
+	http://pathto/push.php?channel=123&title=&body=Das Gewicht ist um 10kg (12%) gesunken.
+	Replacement Keys: https://de.mathworks.com/help/thingspeak/thinghttp-app.html#bvtzy2y-5
 	*/
 
 	// if params are set
@@ -18,7 +19,7 @@
 	    $serverKey = 'fcm key';
 	    $title = ($_REQUEST['title']) ? filter_var($_REQUEST['title'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH) : 'HoneyPi';
 	    $body = filter_var($_REQUEST['body'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
-	    $notification = array('title' =>$title , 'text' => $body, 'sound' => 'default', 'badge' => '1');
+	    $notification = array('title' => $title , 'body' => $body, 'sound' => 'default', 'badge' => '1');
 	    $arrayToSend = array('to' => $token, 'notification' => $notification,'priority'=>'high');
 	    $json = json_encode($arrayToSend);
 	    $headers = array();
