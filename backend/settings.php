@@ -15,6 +15,11 @@
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
+
+    function clean($string) {
+       $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
+       return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
+    }
     
     // define vars
     $filename = "settings.json";
@@ -52,7 +57,7 @@
         if ($postJson["internet"]["honeypi"]) {
             $honeypi = $postJson["internet"]["honeypi"];
             if (isset($honeypi['ssid']) && strlen($honeypi['ssid']) > 0 && isset($honeypi["password"]) && strlen($honeypi["password"]) >= 8) {
-				$escapedHoneypiSsid = escapeshellarg($honeypi["ssid"]);
+				$escapedHoneypiSsid = clean($honeypi["ssid"]);
 				$escapedHoneypiPw = escapeshellarg($honeypi["password"]);
                 shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_honeypi_ssidpw.sh $escapedHoneypiSsid $escapedHoneypiPw;");
             }
