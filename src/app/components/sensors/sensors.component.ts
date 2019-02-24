@@ -49,7 +49,7 @@ export class SensorsComponent implements OnInit {
     // [ "00-080000000000", "00-880000000000", "00-f00000000000" ]
     // Array(3) [ "00-080000000000", "00-480000000000", "00-880000000000" ]
     const filteredDevices = devices.filter(function(value: string, index, arr){
-      return (value.indexOf('0000000000') === -1);
+      return (value.indexOf('00000000') === -1);
     });
     this.temperatureSensorWasFiltered = devices.length !== filteredDevices.length;
     return filteredDevices;

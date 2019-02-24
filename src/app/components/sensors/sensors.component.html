@@ -41,11 +41,11 @@
         </div>
         <div class="row">
           <div class="col-12">
-            <div class="alert alert-warning" *ngIf="temperatureSensorWasFiltered" role="alert">
+            <div class="alert alert-warning" *ngIf="temperatureSensorWasFiltered && temperatureSensors.length == 0" role="alert">
               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
               <strong>Hinweis:</strong> Es wurde ein Sensor mit einer ungültigen Device-ID festgestellt.
               Dies tritt unter anderem beim DS18B20 dann auf, wenn ein Widerstand vergessen wurde oder ein falscher Widerstand verwendet wurde.
-              Eine weitere Ursache könnte mit einem DHT-Sensor zusammen hängen. Manchmal hilft es kurz die Stromzufuhr zu trennen. <strong>Dieser Hinweis kann ignoriert werden.</strong>
+              Eine weitere Ursache könnte ein angeschlossener DHT-Sensor sein. <strong>In diesem Fall kann dieser Hinweis ignoriert werden.</strong>
             </div>
           </div>
         </div>
@@ -210,13 +210,8 @@
 </table>
 <div class="alert alert-info" role="alert">
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  <b>GPIO:</b> Die Kontaktstifte auf dem Raspberry Pi Board haben zwei Nummerierungen. Eine physische von 1 bis 40 und eine für jeden frei programmierbaren GPIO. Bei der Angabe des Kontaktstiftes wird hier im Wartungsmodus immer die GPIO Nummerierung angegeben.</div>
-<hr />
-<div class="form-group">
-  <label for="button_pin">Wartungsmodus-Taster GPIO</label>
-  <input type="number" class="form-control" [(ngModel)]="settings.button_pin" id="button_pin" name="button_pin" placeholder="GPIO" required>
+  <b>GPIO:</b> Die Kontaktstifte auf dem Raspberry Pi Board haben zwei Nummerierungen. Eine physische von 1 bis 40 und eine für jeden frei programmierbaren GPIO. Bei der Angabe des Kontaktstiftes wird hier im Wartungsmodus immer die GPIO Nummerierung angegeben.
 </div>
-<div class="alert alert-info">Die Änderung am Taster wird nach einem Neustart aktiv.</div>
 <div class="form-group">
   <label for="interval">Messintervall</label>
   <select [(ngModel)]="settings.interval" id="interval" name="interval" class="custom-select" required>
@@ -234,3 +229,27 @@
     <option [ngValue]="0">Keine Messdatenübertragung</option>
   </select>
 </div>
+<p>
+  <a class="text-danger" data-toggle="collapse" href="#collapseSensor" role="button" aria-expanded="false" aria-controls="collapseSensor">
+    Erweiterte Einstellungen »
+  </a>
+</p>
+<div class="collapse" id="collapseSensor">
+  <div class="card card-body">
+    <div class="row">
+      <div class="col-6">
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" name="debug" [(ngModel)]="settings.debug" id="debug">
+          <label class="form-check-label" for="debug">Debug-Modus aktivieren <small>(keine Neustarts, HDMI-Ausgang an)</small></label>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="form-group">
+      <label for="button_pin">Wartungsmodus-Taster GPIO</label>
+      <input type="number" class="form-control" [(ngModel)]="settings.button_pin" id="button_pin" name="button_pin" placeholder="GPIO" required>
+    </div>
+    <div class="alert alert-info">Die Änderung am Taster wird nach einem Neustart aktiv.</div>
+  </div>
+</div>
+

@@ -15,7 +15,7 @@ export class TsFieldComponent implements OnInit {
   @Input() ts_field: any;
   @Output() ts_fieldChanged = new EventEmitter<boolean>();
 
-  onChange(){
+  onChange(event){
     this.ts_fieldChanged.emit(this.ts_field);
   }
 

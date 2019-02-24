@@ -14,4 +14,5 @@ export class Settings {
   button_pin: number;
   sensors: Sensor[];
   internet: InternetSettings;
+  debug: boolean;
 }

@@ -17,7 +17,7 @@
          id="ts_write_key" name="ts_write_key" placeholder="Write-API-Key"
          required minlength="16" maxlength="16" #ts_write_key="ngModel">
 </div>
-<div *ngIf="(ts_write_key?.value?.indexOf(' ') !== -1)"
+<div *ngIf="(ts_write_key?.value && ts_write_key?.value?.indexOf(' ') !== -1)"
      class="alert alert-warning" role="alert">
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   "ThingSpeak Write-API-Key" enthält ein Leerzeichen. Ist das gewollt?

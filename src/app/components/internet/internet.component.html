@@ -20,12 +20,12 @@
     <input type="text" class="form-control" [(ngModel)]="wifi.router.password" id="password" name="password" placeholder="Passwort"
     required [minlength]="8" [maxlength]="63" #router_password="ngModel">
   </div>
-  <div *ngIf="(router_ssid?.value?.indexOf(' ') !== -1)"
+  <div *ngIf="(router_ssid?.value && router_ssid?.value?.indexOf(' ') !== -1)"
        class="alert alert-warning" role="alert">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     "WLAN-Funknetz (SSID)" enthält ein Leerzeichen. Ist das gewollt?
   </div>
-  <div *ngIf="(router_password?.value?.indexOf(' ') !== -1)"
+  <div *ngIf="(router_password?.value && router_password?.value?.indexOf(' ') !== -1)"
        class="alert alert-warning" role="alert">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     "WLAN-Netzwerkschlüssel" enthält ein Leerzeichen. Ist das gewollt?
