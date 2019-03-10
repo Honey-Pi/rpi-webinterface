@@ -62,6 +62,29 @@
                 shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_honeypi_ssidpw.sh $escapedHoneypiSsid $escapedHoneypiPw;");
             }
         }
+
+        // WittyPi Module ( time- & ernergy management)
+        if ($postJson["wittyPi_enabled"]) {
+
+            // path to schedule file
+            $wittyPiFile = "/home/pi/wittyPi/schedule.wpi";
+            if (isset($postJson["wittyPi_enabled"]) && isset($postJson["wittyPi_script"]) ){
+                $wittyPi_enabled = $postJson["wittyPi_enabled"];
+                $wittyPi_script = $postJson["wittyPi_script"];
+
+                if ($wittyPi_enabled === true  && strlen(trim($wittyPi_script)) >= 1) {
+
+                    file_put_contents($wittyPiFile, $wittyPi_script);
+                } else {
+
+                    // empty file
+                    file_put_contents($wittyPiFile, '');
+               }
+
+               // tranfer script to witty pi
+               shell_exec("sudo sh home/pi/wittyPi/runScript.sh");
+            }
+        }
     }
     
     // send settings

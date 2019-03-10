@@ -13,6 +13,7 @@
           <option [ngValue]="1">BME680 (Temperatur+Luftfeuchtigkeit+Luftdruck+Qualität)</option>
           <option [ngValue]="2">Gewichtssensor (A/D: HX711)</option>
           <option [ngValue]="3">Luftfeuchtigkeit und Temperatur (DHT)</option>
+          <option [ngValue]="4">Temperatursensor (MAX6675/MAX31855)</option>
         </select>
       </td>
       <td>
@@ -163,6 +164,38 @@
             </div>
           </div>
         </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" [(ngModel)]="sensor.compensation" id="compensation">
+              <label class="form-check-label" for="compensation">
+                Temperaturkompensation bei temperaturbedingten Messabweichungen
+              </label>
+            </div>
+          </div>
+          <div class="col-12">
+          <div class="card card-body" *ngIf="sensor.compensation">
+            <div class="row">
+              <div class="form-group col-6">
+                <label for="compensation_value">Korrekturwert [Gramm pro °C]</label>
+                <input type="number" step="0.01" class="form-control" [(ngModel)]="sensor.compensation_value" id="compensation_value" name="compensation_value" placeholder="Kompensationswert" required />
+              </div>
+              <div class="form-group col-6">
+                <label for="compensation_temp">Temperatur bei Kalibrierung</label>
+                <input type="number" step="0.01" class="form-control" [(ngModel)]="sensor.compensation_temp" id="compensation_temp" name="compensation_temp" placeholder="Temperaturwert (z.B. 22°C)" required />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <settings-ts-field [label]="'Auswahl des Temperatursensors'"
+                                   [ts_field_id]="'ts_field_temperature'"
+                                   (ts_fieldChanged)="sensor.ts_field_temperature = $event"
+                                   [ts_field]="sensor.ts_field_temperature" [required]="true"></settings-ts-field>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
       </td>
     </tr>
     <tr *ngIf="sensor.type == 3" [ngClass]="{'my-bg': (i%2 == 0)}">
@@ -194,6 +227,46 @@
               <option [ngValue]="22">DHT22</option>
               <option [ngValue]="2302">AM2302</option>
             </select>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr *ngIf="sensor.type == 4" [ngClass]="{'my-bg': (i%2 == 0)}">
+      <td colspan="2">
+        <div class="row">
+          <div class="form-group col-6">
+            <label for="pin_cs">Chip-Select (CS)-GPIO</label>
+            <input type="number" class="form-control" [(ngModel)]="sensor.pin" id="pin_cs" name="pin" placeholder="GPIO" required/>
+          </div>
+          <div class="form-group col-6">
+            <label for="pin_clk">Clock (CLK)-GPIO</label>
+            <input type="number" class="form-control" [(ngModel)]="sensor.pin" id="pin_clk" name="pin" placeholder="GPIO" required/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-6">
+            <label for="pin_miso">Daten (MISO)-GPIO</label>
+            <input type="number" class="form-control" [(ngModel)]="sensor.pin" id="pin_miso" name="pin" placeholder="GPIO" required/>
+          </div>
+          <div class="form-group col-6">
+            <label for="dht_type">Auswahl des Sensormodells</label>
+            <select [(ngModel)]="sensor.max_type" id="max_type" name="max_type" class="custom-select" required>
+              <option [ngValue]="undefined">MAX auswählen...</option>
+              <option [ngValue]="6675">MAX6675</option>
+              <option [ngValue]="31855">MAX31855</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-6">
+            <label for="offset_max">Offset</label>
+            <input type="number" step="1" class="form-control" [(ngModel)]="sensor.offset" id="offset_max" name="offset" placeholder="Offset" required>
+          </div>
+          <div class="form-group col-6">
+            <settings-ts-field [label]="'ThingSpeak'"
+                               [ts_field_id]="'ts_field'"
+                               (ts_fieldChanged)="sensor.ts_field = $event"
+                               [ts_field]="sensor.ts_field" ></settings-ts-field>
           </div>
         </div>
       </td>
@@ -240,7 +313,7 @@
       <div class="col-6">
         <div class="form-group form-check">
           <input type="checkbox" class="form-check-input" name="debug" [(ngModel)]="settings.debug" id="debug">
-          <label class="form-check-label" for="debug">Debug-Modus aktivieren <small>(keine Neustarts, HDMI-Ausgang an)</small></label>
+          <label class="form-check-label" for="debug">Debug-Modus aktivieren <small>(keine Neustarts, HDMI-Ausgang an, erfolgreiche Übertragungen im Protokoll)</small></label>
         </div>
       </div>
     </div>

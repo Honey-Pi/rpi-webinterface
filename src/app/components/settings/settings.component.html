@@ -91,7 +91,7 @@
           </div>
         </div>
       </div>
-      <div class="card" *ngIf="settings.debug">
+      <div class="card">
         <div class="card-header" id="headingSix">
           <h5 class="mb-0">
             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
@@ -116,7 +116,12 @@
         <h5 class="modal-title" id="exampleModalLongTitle">Verbindung fehlgeschlagen</h5>
       </div>
       <div class="modal-body">
-        Die Bienenstockwaage ist gerade nicht erreichbar, vermutlich wurde das System neu gestartet, dies kann bis zu 1 Minute dauern.
+        <p>
+          Die Bienenstockwaage ist gerade nicht erreichbar, vermutlich wurde das System neu gestartet, dies kann bis zu 1 Minute dauern.
+        </p>
+        <p>
+          Stelle bitte sicher, dass du immernoch mit dem "HoneyPi"-WLAN verbunden bist. Die Verbindung könnte sich in der Zwischenzeit automatisch getrennt haben.
+        </p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" (click)="getSettings()">Erneut versuchen</button>

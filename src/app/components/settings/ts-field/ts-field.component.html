@@ -1,5 +1,5 @@
 <label for="{{ ts_field_id }}">{{ label }}</label>
-<select [(ngModel)]="ts_field" id="{{ ts_field_id }}" name="{{ ts_field_id }}" (ngModelChange)="onChange($event)" class="custom-select">
+<select [(ngModel)]="ts_field" id="{{ ts_field_id }}" name="{{ ts_field_id }}" (ngModelChange)="onChange($event)" class="custom-select" [required]="required">
   <option [ngValue]="undefined">Feld auswählen...</option>
   <option value="field1">Feld 1</option>
   <option value="field2">Feld 2</option>

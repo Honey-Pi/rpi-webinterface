@@ -4,20 +4,28 @@
   Wir bieten bereits drei nützliche Programme.
   Diese können im Eingabefeld auch verändert werden. Voraussetzung ist das <strong>Witty Pi Mini</strong>-Modul.
 </div>
-<div style="max-width:500px">
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" [(ngModel)]="settings.wittyPi_enabled" id="wittyPi">
+  <label class="form-check-label" for="wittyPi">
+    Witty Pi Modul aktivieren
+  </label>
+</div>
+<div style="max-width:500px" *ngIf="settings.wittyPi_enabled">
   <div class="clearfix">
     <div class="form-group float-right">
-      <select class="form-control" [(ngModel)]="selectedExample" (ngModelChange)="script = $event" style="max-width:250px">
+      <select class="form-control" [(ngModel)]="selectedExample" (ngModelChange)="settings.wittyPi_script = $event" style="max-width:250px">
         <option [value]="null">Beispiel Programm laden...</option>
         <option *ngFor="let s of exampleScripts" [ngValue]="s.script">{{s.name}}</option>
       </select>
     </div>
   </div>
   <div class="form-group">
-    <textarea placeholder="Programmcode" class="form-control pre-scrollable" id="exampleFormControlTextarea1" rows="5">{{script}}</textarea>
+    <textarea placeholder="Programmcode" class="form-control pre-scrollable" id="exampleFormControlTextarea1" rows="5">{{settings.wittyPi_script}}</textarea>
   </div>
+  <!--
   <div class="clearfix">
     <button class="btn btn-warning btn-sm float-right" type="button" role="button" (click)="saveWittypi()">Programm an Witty Pi übertragen</button>
   </div>
+  -->
 </div>
 
