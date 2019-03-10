@@ -64,27 +64,42 @@
         }
 
         // WittyPi Module ( time- & ernergy management)
-        if ($postJson["wittyPi_enabled"]) {
+        if (isset($postJson["wittyPi_enabled"]) ){
 
             // path to schedule file
-            $wittyPiFile = "/home/pi/wittyPi/schedule.wpi";
-            if (isset($postJson["wittyPi_enabled"]) && isset($postJson["wittyPi_script"]) ){
-                $wittyPi_enabled = $postJson["wittyPi_enabled"];
-                $wittyPi_script = $postJson["wittyPi_script"];
+            $wittyPiFile = "schedule.wpi"; // home/pi/wittyPi/
 
-                if ($wittyPi_enabled === true  && strlen(trim($wittyPi_script)) >= 1) {
+            $wittyPi_enabled = $postJson["wittyPi_enabled"];
+            $wittyPi_script = $postJson["wittyPi_script"];
 
-                    file_put_contents($wittyPiFile, $wittyPi_script);
-                } else {
-
-                    // empty file
-                    file_put_contents($wittyPiFile, '');
-               }
-
-               // tranfer script to witty pi
-               shell_exec("sudo sh home/pi/wittyPi/runScript.sh");
+            if (!file_exists($wittyPiFile))
+            {
+                // create file
+                file_put_contents($wittyPiFile, '');
             }
+
+            if ($wittyPi_enabled === true 
+                && isset($postJson["wittyPi_script"])
+                    && strlen(trim($wittyPi_script)) >= 1) {
+
+                file_put_contents($wittyPiFile, $wittyPi_script);
+            } else {
+
+                // empty file
+                //open file to write
+                $fp = fopen($wittyPiFile, "r+");
+                // clear content to 0 bits
+                ftruncate($fp, 0);
+                //close file
+                fclose($fp);
+
+                $postJson["wittyPi_enabled"] = false;
+           }
+
+           // tranfer script to witty pi
+           shell_exec("sudo sh home/pi/wittyPi/runScript.sh");
         }
+        
     }
     
     // send settings

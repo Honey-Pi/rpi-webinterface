@@ -160,7 +160,7 @@
           <div class="col-6">
             <div class="form-group form-check">
               <input type="checkbox" class="form-check-input" name="invert" [(ngModel)]="sensor.invert" id="invert">
-              <label class="form-check-label" for="invert">Vorzeichen umkehren (Inverse)</label>
+              <label class="form-check-label" for="invert">Vorzeichen umkehren</label>
             </div>
           </div>
         </div>
@@ -236,17 +236,17 @@
         <div class="row">
           <div class="form-group col-6">
             <label for="pin_cs">Chip-Select (CS)-GPIO</label>
-            <input type="number" class="form-control" [(ngModel)]="sensor.pin" id="pin_cs" name="pin" placeholder="GPIO" required/>
+            <input type="number" class="form-control" [(ngModel)]="sensor.pin_cs" id="pin_cs" name="pin_cs" placeholder="GPIO" required/>
           </div>
           <div class="form-group col-6">
-            <label for="pin_clk">Clock (CLK)-GPIO</label>
-            <input type="number" class="form-control" [(ngModel)]="sensor.pin" id="pin_clk" name="pin" placeholder="GPIO" required/>
+            <label for="pin_clock">Clock (CLK)-GPIO</label>
+            <input type="number" class="form-control" [(ngModel)]="sensor.pin_clock" id="pin_clock" name="pin_clock" placeholder="GPIO" required/>
           </div>
         </div>
         <div class="row">
           <div class="form-group col-6">
             <label for="pin_miso">Daten (MISO)-GPIO</label>
-            <input type="number" class="form-control" [(ngModel)]="sensor.pin" id="pin_miso" name="pin" placeholder="GPIO" required/>
+            <input type="number" class="form-control" [(ngModel)]="sensor.pin" id="pin_miso" name="pin_miso" placeholder="GPIO" required/>
           </div>
           <div class="form-group col-6">
             <label for="dht_type">Auswahl des Sensormodells</label>
@@ -260,7 +260,7 @@
         <div class="row">
           <div class="form-group col-6">
             <label for="offset_max">Offset</label>
-            <input type="number" step="1" class="form-control" [(ngModel)]="sensor.offset" id="offset_max" name="offset" placeholder="Offset" required>
+            <input type="number" step="1" class="form-control" [(ngModel)]="sensor.offset" id="offset_max" name="offset" placeholder="Offset" />
           </div>
           <div class="form-group col-6">
             <settings-ts-field [label]="'ThingSpeak'"
