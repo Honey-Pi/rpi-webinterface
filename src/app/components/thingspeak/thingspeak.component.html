@@ -20,23 +20,23 @@
 <div *ngIf="(ts_write_key?.value && ts_write_key?.value?.indexOf(' ') !== -1)"
      class="alert alert-warning" role="alert">
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  "ThingSpeak Write-API-Key" enthält ein Leerzeichen. Ist das gewollt?
+  {{ 'error.spaces' | translate: { field: 'Write-API-Key'} }}
 </div>
 <div *ngIf="ts_channel_id.invalid && (ts_channel_id.dirty || ts_channel_id.touched)"
      class="alert alert-danger">
   <div *ngIf="ts_channel_id?.errors.required">
-    Das Feld "Channel-ID" wird benötigt.
+    {{ 'error.required' | translate: { field: 'Channel-ID'} }}
   </div>
   <div *ngIf="ts_channel_id?.errors.min || ts_channel_id?.errors.max">
-    "Channel-ID" liegt außerhalb des gültigen Wertebereichs.
+    {{ 'error.length' | translate: { field: 'Channel-ID'} }}
   </div>
 </div>
 <div *ngIf="ts_write_key.invalid && (ts_write_key.dirty || ts_write_key.touched)"
      class="alert alert-danger">
   <div *ngIf="ts_write_key?.errors.required">
-    Das Feld "Write-API-Key" wird benötigt.
+    {{ 'error.required' | translate: { field: 'Write-API-Key'} }}
   </div>
   <div *ngIf="ts_write_key?.errors.minlength || ts_write_key?.errors.maxlength">
-    "Write-API-Key" liegt außerhalb des gültigen Wertebereichs.
+    {{ 'error.length' | translate: { field: 'Write-API-Key'} }}
   </div>
 </div>

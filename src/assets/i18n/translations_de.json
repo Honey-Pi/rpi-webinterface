@@ -1,14 +1,32 @@
 {
   "alerts": {
+    "afterSave": "Die Änderungen in diesem Bereich werden nach einem Neustart aktiv.",
+    "deviceId": "<strong>Hinweis:</strong> Es wurde ein Sensor mit einer ungültigen Device-ID festgestellt.\nDies tritt unter anderem beim DS18B20 dann auf, wenn ein Widerstand vergessen wurde oder ein falscher Widerstand verwendet wurde.\nEine weitere Ursache könnte ein angeschlossener DHT-Sensor sein. <strong>In diesem Fall kann dieser Hinweis ignoriert werden.</strong>",
     "errorSaving": "<strong>Fehler!</strong> Die Einstellungen konnten nicht gespeichert werden.",
+    "gpio": "<b>GPIO:</b> Die Kontaktstifte auf dem Raspberry Pi Board haben zwei Nummerierungen. Eine physische von 1 bis 40 und eine für jeden frei programmierbaren GPIO. Bei der Angabe des Kontaktstiftes wird hier im Wartungsmodus immer die GPIO Nummerierung angegeben.",
+    "hx711": {
+      "offset": "<b>Offset:</b> Beeinflusst das Messergebnis indem das Offset vom Messwert abgezogen wird.\n<br />Kann auch eine negative Zahl sein. Angabe in Gramm. Standard ist \"0\".",
+      "scale": "<b>Skalierungswert:</b> Beeinflusst das Messergebnis indem (Messwert-Offset) durch den Skalierungswert geteilt wird.\n<br />Es sind vier Nachkommastellen erlaubt und die Nachkommastellen werden mit Punkt und nicht mit Komma getrennt. Standard ist \"1\"."
+    },
+    "noTempSensorFound": "Es konnte kein Temperatursensor am Gerät gefunden werden.",
     "notAP": "<strong>Hinweis:</strong> Der Wartungsmodus wird nicht über den \"HoneyPi\"-AccessPoint aufgerufen. Änderungen werden daher erst nach einem Neustart aktiv (da der Tastendruck ausbleibt).",
-    "saved": "<strong>Gespeichert!</strong> Die Einstellungen wurden gespeichert."
+    "saved": "<strong>Gespeichert!</strong> Die Einstellungen wurden gespeichert.",
+    "wittypi": "Mit Hilfe des zusätzlichen Witty Pi Moduls kann der Raspberry Pi zeitgesteuert werden.\nWir bieten bereits drei nützliche Programme.\nDiese können im Eingabefeld auch verändert werden. Voraussetzung ist das <strong>Witty Pi Mini</strong>-Modul."
   },
-  "brand": "HoneyPi-DE",
+  "brand": "HoneyPi",
   "buttons": {
+    "add": "Hinzufügen",
     "reboot": "Neustarten",
+    "refresh": "aktualisiere",
+    "remove": "Entfernen",
     "save": "Speichern",
+    "select": "Bitte {{value}} auswählen...",
     "tryagain": "Erneut versuchen"
+  },
+  "error": {
+    "length": "\"{{field}}\" liegt außerhalb des gültigen Wertebereichs.",
+    "required": "Das Feld \"{{field}}\" wird benötigt.",
+    "spaces": "\"{{field}}\" enthält ein Leerzeichen. Ist das gewollt?"
   },
   "settings": {
     "confirm": {
@@ -16,8 +34,85 @@
       "savedAP": "Damit die Änderungen wirksam werden ist ein Neustart erforderlich. \nSoll das Gerät nun neugestartet werden?"
     },
     "connectionerror": {
-      "body": "<p>\n          Die Bienenstockwaage ist gerade nicht erreichbar, vermutlich wurde das System neu gestartet, dies kann bis zu 1 Minute dauern.\n        </p>\n        <p>\n          Stelle bitte sicher, dass du immernoch mit dem \"HoneyPi\"-WLAN verbunden bist. Die Verbindung könnte sich in der Zwischenzeit automatisch getrennt haben.\n        </p>",
+      "body": "<p>Die Bienenstockwaage ist gerade nicht erreichbar, vermutlich wurde das System neu gestartet, dies kann bis zu 1 Minute dauern.\n</p>\n<p>Stelle bitte sicher, dass du immernoch mit dem \"HoneyPi\"-WLAN verbunden bist. Die Verbindung könnte sich auch in der Zwischenzeit automatisch getrennt haben.\n</p>",
       "title": "Verbindung fehlgeschlagen"
+    },
+    "internet": {
+      "collapseAP": "Erweiterte Einstellungen für Nutzer, die wissen was sie tun »",
+      "connectWifi": "Mit vorhandenem WLAN-Netzwerk verbinden, wenn in Reichweite?",
+      "honeypiAP": "HoneyPi Wartungsmodus",
+      "honeypiAPtext": "Ändere die SSID und das Passwort des AccessPoints.",
+      "infoConnection": "Während des Wartungsmodus kann sich <strong>nicht gleichzeitig</strong> mit einem WLAN-Netzwerk verbunden werden, da der WLAN Chip ja bereits den AccessPoint bereitstellt.\nDaher kann nur die Internetverbindung eines angeschlossenen Surfsticks oder des LAN-Anschluss getestet werden.",
+      "isMobileConnected": "Mobilfunkverbindung vorhanden?",
+      "password": "WLAN-Netzwerkschlüssel",
+      "ssid": "WLAN-Funknetz (SSID)",
+      "testConnection": "Teste Internetverbindung",
+      "testError": "<strong>Fehler!</strong> Verbindung ins Internet fehlgeschlagen.",
+      "testSuccess": "<strong>HoneyPi ist verbunden!</strong> Der Internet Test war erfolgreich.",
+      "title": "Internetverbindung",
+      "wifi": "WLAN Internetzugang"
+    },
+    "log": {
+      "delete": "Protokoll löschen",
+      "empty": "Das Protokoll auf diesem Gerät ist leer.",
+      "export": "Einstellungen exportieren",
+      "get": "Protokoll aktualisieren",
+      "import": "Importieren",
+      "importSettings": "Einstellungsdatei importieren:",
+      "nofile": "Auf diesem Gerät befindet sich kein Protokoll.",
+      "title": "Protokoll"
+    },
+    "measurement": {
+      "construction": "Diese Ansicht ist bisher nur provisorisch und soll in der nächsten Firmware Version ausgebaut werden.",
+      "get": "Neue Messung abrufen",
+      "info": "Hier werden die Sensoren angezeigt, die im Reiter \"<strong>{{tab}}</strong>\" konfiguriert und gespeichert sind. Es erfolgt kein Upload der Messdaten an ThingSpeak. Messung dauert bis zu 1 Minute.",
+      "title": "Messdaten"
+    },
+    "sensors": {
+      "addSensor": "Sensor hinzufügen",
+      "advancedSettings": "Erweiterte Einstellungen »",
+      "buttonPin": "Wartungsmodus-Taster GPIO",
+      "checkWires": "Prüfe ob die Sensoren richtig angeschlossen sind und",
+      "checkWiresSuffix": "die Liste.",
+      "compensationSelectTemp": "Auswahl des Temperatursensors",
+      "compensationTemp": "Temperatur bei Kalibrierung",
+      "compensationTempPlaceholder": "Temperaturwert (z.B. 22°C)",
+      "compensationValue": "Korrekturwert [Gramm pro °C]",
+      "compensationValuePlaceholder": "Kompensationswert",
+      "debug": "Debug-Modus aktivieren <small>(keine Neustarts, HDMI-Ausgang an, erfolgreiche Übertragungen im Protokoll)</small>",
+      "enableCompensation": "Temperaturkompensation bei temperaturbedingten Messabweichungen",
+      "humidity": "Luftfeuchtigkeit",
+      "interval": "Intervall",
+      "invert": "Vorzeichen umkehren",
+      "measurementInterval": "Messintervall",
+      "measurementNone": "Keine Messdatenübertragung",
+      "measurementOnce": "Einmalige Übertragung nach dem Anschalten",
+      "offset": "Offset",
+      "pressure": "Luftdruck",
+      "quality": "Luftgüte",
+      "scale": "Skalierungswert",
+      "selectType": "Auswahl des Sensormodells",
+      "sensor": "Sensor",
+      "sensor_0": "Temperatursensor (DS18b20)",
+      "sensor_1": "BME680 (Temperatur+Luftfeuchtigkeit+Luftdruck+Qualität)",
+      "sensor_2": "Gewichtssensor (A/D: HX711)",
+      "sensor_3": "Luftfeuchtigkeit und Temperatur (DHT)",
+      "sensor_4": "Temperatursensor (MAX6675/MAX31855)",
+      "sensors": "Sensoren",
+      "temperature": "Temperatur",
+      "title": "Angeschlossene Sensoren",
+      "weightcell": "Wägezelle"
+    },
+    "thingspeak": {
+      "field": "Feld",
+      "title": "ThingSpeak Einstellungen"
+    },
+    "wittypi": {
+      "empty": "Leeres Feld",
+      "enableWitty": "Witty Pi Modul aktivieren",
+      "loadexample": "Beispiel Programm laden...",
+      "script": "Programmcode",
+      "title": "Zeit- und Energiemanagement"
     }
   },
   "title": "Wartungsmodus"

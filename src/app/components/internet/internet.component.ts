@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {AppService} from "../../services/app.service";
-import {InternetSettings} from "../../models/internet-settings.model";
+import {AppService} from '../../services/app.service';
+import {InternetSettings} from '../../models/internet-settings.model';
 
 import 'rxjs/add/operator/timeout';
 
@@ -38,8 +38,8 @@ export class InternetComponent implements OnInit {
         this.checkInternetResponse = <any>res;
       }, (err: any) => {
         console.log(err);
-        if(err.name && err.name === 'TimeoutError') {
-          this.checkInternetResponse = {connected: false, content: "Timeout nach 15 Sekunden."};
+        if (err.name && err.name === 'TimeoutError') {
+          this.checkInternetResponse = {connected: false, content: 'Timeout after 15 Seconds.'};
         } else {
           this.checkInternetResponse = {connected: false, content: err};
         }
