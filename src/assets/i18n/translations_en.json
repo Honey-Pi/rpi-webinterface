@@ -1,0 +1,14 @@
+{
+  "alerts": {},
+  "brand": "HoneyPi-EN",
+  "buttons": {
+    "reboot": "Reboot",
+    "save": "Save",
+    "tryagain": "Try again"
+  },
+  "settings": {
+    "confirm": {},
+    "connectionerror": {}
+  },
+  "title": "Maintenance"
+}

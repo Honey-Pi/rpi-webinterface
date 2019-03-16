@@ -24,14 +24,14 @@ export class LogComponent implements OnInit {
     this.appService.getLog()
       .subscribe(res => {
         this.log = res;
-      }, (err: any) => {console.log(err.status); console.log(err);});
+      }, (err: any) => {console.error(err);});
   }
 
   deleteLog(): void {
     this.appService.deleteLog()
       .subscribe(res => {
         this.log = res;
-      }, (err: any) => {console.log(err.status); console.log(err);});
+      }, (err: any) => {console.error(err);});
   }
 
   public onFileChanged(event) {
@@ -41,12 +41,18 @@ export class LogComponent implements OnInit {
       let reader = new FileReader();
       reader.readAsText(file, "UTF-8");
       reader.onload = (evt) => {
-        let newSettings: Settings = JSON.parse(evt.target.result);
+        let fileResult = <string>(<FileReader>event.target).result;
+        let newSettings: Settings = JSON.parse(fileResult);
         if (newSettings) {
-          if(window.confirm("Anschließend bitte die Webseite neu laden. Soll die Datei jetzt importiert werden?")) {
+          if(window.confirm("Soll die Datei jetzt importiert werden?")) {
             this.appService.setSettings(newSettings)
               .subscribe(res => {
-                console.log(res);
+                if (res) {
+                  console.log(res);
+                  if (window.confirm("Die Seite muss aktualisiert werden. Jetzt neuladen?")) {
+                    location.reload(true);
+                  }
+                }
               });
           }
         }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../services/app.service';
-import { Settings } from "../../models/settings.model";
+import {TranslateService} from '@ngx-translate/core';
 
+import { Settings } from '../../models/settings.model';
 import 'rxjs/add/operator/timeout';
 
 @Component({
@@ -11,21 +12,26 @@ import 'rxjs/add/operator/timeout';
 })
 export class SettingsComponent implements OnInit {
 
-  public settings: Settings = new Settings();
-  public settingsSaved: boolean = false;
-  public settingsError: boolean = false;
-  public isConnected: boolean = true;
+  constructor(private appService: AppService, private translate: TranslateService) {}
 
-  constructor(private appService: AppService) {}
+  public get isAccessPoint() {
+    const host: string = window.location.hostname;
+    return (host === '192.168.4.1');
+  }
+
+  public settings: Settings = new Settings();
+  public settingsSaved = false;
+  public settingsError = false;
+  public isConnected = true;
+
+  private n: any;
 
   ngOnInit() {
     /* initial load */
     this.getSettings();
   }
-
-  private n: any;
   hideAlertsTimer() {
-    //wait 4 Seconds and hide
+    // wait 4 Seconds and hide
     if (this.n) {
       clearTimeout(this.n);
     }
@@ -35,21 +41,16 @@ export class SettingsComponent implements OnInit {
     }, 4000);
   }
 
-  public get isAccessPoint() {
-    let host: string = window.location.hostname;
-    return (host === '192.168.4.1');
-  }
-
   getSettings(): void {
     this.appService.getSettings().timeout(3000)
       .subscribe(res => {
-        if(res) {
+        if (res) {
           this.settings = <Settings>res;
           this.isConnected = true;
         }
       }, (err: any) => {
-        console.log(err);
-        if(err.name && err.name === 'TimeoutError') {
+        console.error(err, err.name);
+        if (err.name && (err.name === 'TimeoutError' || err.name === 'HttpErrorResponse')) {
           this.isConnected = false;
         }
       });
@@ -59,21 +60,23 @@ export class SettingsComponent implements OnInit {
     this.appService.setSettings(this.settings).timeout(3000)
       .subscribe(res => {
         console.log(res);
-        if(res) {
+        if (res) {
           this.settings = <Settings>res;
         }
         this.settingsSaved = true;
         this.settingsError = false;
         this.hideAlertsTimer();
 
-        if(!this.isAccessPoint) {
-          if (window.confirm("Damit die Änderungen wirksam werden ist ein Neustart erforderlich. \nSoll das Gerät nun neugestartet werden?")) {
-            this.reboot();
-          }
+        if (!this.isAccessPoint) {
+          this.translate.get('settings.confirm.savedAP').subscribe((res: string) => {
+            if (window.confirm(res)) {
+              this.reboot();
+            }
+          });
         }
       }, (err: any) => {
-        console.log(err);
-        if(err.name && err.name === 'TimeoutError') {
+        console.error(err);
+        if (err.name && (err.name === 'TimeoutError' || err.name === 'HttpErrorResponse')) {
           this.isConnected = false;
         }
         this.settingsError = true;
@@ -82,9 +85,11 @@ export class SettingsComponent implements OnInit {
   }
 
   askForReboot(): void {
-    if (window.confirm("Alle ungespeicherten Änderungen gehen verloren. Die Verbindung wird sich vorübergehend trennen. \nDas Gerät wird nun neugestartet. Sicher?")) {
-      this.reboot();
-    }
+    this.translate.get('settings.confirm.reboot').subscribe((res: string) => {
+      if (window.confirm(res)) {
+        this.reboot();
+      }
+    });
   }
   reboot(): void {
     this.isConnected = false;
@@ -94,7 +99,7 @@ export class SettingsComponent implements OnInit {
         console.log(result);
       },
       error => {
-        console.log("Reboot: Connection timeout.");
+        console.log('Reboot: Connection timeout.');
       },
       () => {
         // 'onCompleted' callback.

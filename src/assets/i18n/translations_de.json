@@ -1,0 +1,24 @@
+{
+  "alerts": {
+    "errorSaving": "<strong>Fehler!</strong> Die Einstellungen konnten nicht gespeichert werden.",
+    "notAP": "<strong>Hinweis:</strong> Der Wartungsmodus wird nicht über den \"HoneyPi\"-AccessPoint aufgerufen. Änderungen werden daher erst nach einem Neustart aktiv (da der Tastendruck ausbleibt).",
+    "saved": "<strong>Gespeichert!</strong> Die Einstellungen wurden gespeichert."
+  },
+  "brand": "HoneyPi-DE",
+  "buttons": {
+    "reboot": "Neustarten",
+    "save": "Speichern",
+    "tryagain": "Erneut versuchen"
+  },
+  "settings": {
+    "confirm": {
+      "reboot": "Alle ungespeicherten Änderungen gehen verloren. Die Verbindung wird sich vorübergehend trennen. \nDas Gerät wird nun neugestartet. Sicher?",
+      "savedAP": "Damit die Änderungen wirksam werden ist ein Neustart erforderlich. \nSoll das Gerät nun neugestartet werden?"
+    },
+    "connectionerror": {
+      "body": "<p>\n          Die Bienenstockwaage ist gerade nicht erreichbar, vermutlich wurde das System neu gestartet, dies kann bis zu 1 Minute dauern.\n        </p>\n        <p>\n          Stelle bitte sicher, dass du immernoch mit dem \"HoneyPi\"-WLAN verbunden bist. Die Verbindung könnte sich in der Zwischenzeit automatisch getrennt haben.\n        </p>",
+      "title": "Verbindung fehlgeschlagen"
+    }
+  },
+  "title": "Wartungsmodus"
+}

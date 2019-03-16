@@ -29,7 +29,7 @@ export class MeasurementComponent implements OnInit {
           this.measurement = <any>res;
         }
       }, (err: any) => {
-        console.log(err.status); console.log(err);
+        console.error(err);
       });
   }
 

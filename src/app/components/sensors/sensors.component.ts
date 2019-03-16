@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Sensor} from "../../models/sensor.model";
-import {AppService} from "../../services/app.service";
-import {Settings} from "../../models/settings.model";
+import {Sensor} from '../../models/sensor.model';
+import {AppService} from '../../services/app.service';
+import {Settings} from '../../models/settings.model';
 
 @Component({
   selector: 'app-sensors',
@@ -37,18 +37,18 @@ export class SensorsComponent implements OnInit {
   }
 
   removeSensor(index: number): void {
-    this.settings.sensors.splice(index,1);
+    this.settings.sensors.splice(index, 1);
   }
 
   /* Temperature Sensors */
-  filterTemperatureSensors(devices:Array<string>): Array<string> {
+  filterTemperatureSensors(devices: Array<string>): Array<string> {
     // 00-40000000000 und
     // 00-c0000000000
     // Array [ "00-500000000000", "00-900000000000" ]
     // Array [ "00-080000000000", "00-f00000000000" ]
     // [ "00-080000000000", "00-880000000000", "00-f00000000000" ]
     // Array(3) [ "00-080000000000", "00-480000000000", "00-880000000000" ]
-    const filteredDevices = devices.filter(function(value: string, index, arr){
+    const filteredDevices = devices.filter(function(value: string, index, arr) {
       return (value.indexOf('00000000') === -1);
     });
     this.temperatureSensorWasFiltered = devices.length !== filteredDevices.length;
@@ -63,7 +63,7 @@ export class SensorsComponent implements OnInit {
           this.temperatureSensors = this.filterTemperatureSensors(<any>res);
           console.log('filtered', this.temperatureSensors);
         }
-      }, (err: any) => {console.log(err.status); console.log(err);});
+      }, (err: any) => {console.error(err); });
   }
 
 }

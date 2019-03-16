@@ -2,23 +2,23 @@
   <div class="jumbotron">
     <div class="float-right">
       <div class="btn-group btn-group-sm" role="group" aria-label="Controls">
-        <button class="btn btn-sm btn-primary" type="button" (click)="saveSettings()">Speichern</button>
-        <button class="btn btn-sm btn-warning" type="button" (click)="askForReboot()">Neustarten</button>
+        <button class="btn btn-sm btn-primary" type="button" (click)="saveSettings()" [translate]="'buttons.save'">Speichern</button>
+        <button class="btn btn-sm btn-warning" type="button" (click)="askForReboot()" [translate]="'buttons.reboot'">Neustarten</button>
       </div>
     </div>
-    <h1 class="h1">Wartungsmodus</h1>
+    <h1 class="h1" [translate]="'title'">Wartungsmodus</h1>
     <div class="clearfix"></div>
     <div class="alert alert-warning" role="alert" *ngIf="!isAccessPoint" style="margin-top:5px">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      <strong>Hinweis:</strong> Der Wartungsmodus wird nicht über den "HoneyPi"-AccessPoint aufgerufen. Änderungen werden daher erst nach einem Neustart aktiv (da der Tastendruck ausbleibt).
+      <span [innerHTML]="'alerts.notAP' | translate"></span>
     </div>
     <div class="alert alert-success myAlert-top" role="alert" *ngIf="settingsSaved">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      <strong>Gespeichert!</strong> Die Einstellungen wurden gespeichert.
+      <span [innerHTML]="'alerts.saved' | translate"></span>
     </div>
     <div class="alert alert-danger myAlert-top" role="alert" *ngIf="settingsError">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      <strong>Fehler!</strong> Die Einstellungen konnten nicht gespeichert werden.
+      <span [innerHTML]="'alerts.errorsaving' | translate"></span>
     </div>
     <div id="accordion">
       <div class="card">
@@ -111,22 +111,19 @@
   </div>
 </main>
 <!-- Modal -->
-<div class="modal fade show" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" [ngStyle]="!isConnected && {'display':'block'}">
+<div class="modal fade show" tabindex="-1" role="dialog" [ngStyle]="!isConnected && {'display':'block'}">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Verbindung fehlgeschlagen</h5>
+        <h5 class="modal-title" [translate]="'settings.connectionerror.title'">Verbindung fehlgeschlagen</h5>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" [innerHTML]="'settings.connectionerror.body' | translate">
         <p>
-          Die Bienenstockwaage ist gerade nicht erreichbar, vermutlich wurde das System neu gestartet, dies kann bis zu 1 Minute dauern.
-        </p>
-        <p>
-          Stelle bitte sicher, dass du immernoch mit dem "HoneyPi"-WLAN verbunden bist. Die Verbindung könnte sich in der Zwischenzeit automatisch getrennt haben.
+          Die Bienenstockwaage ist gerade nicht erreichbar.
         </p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click)="getSettings()">Erneut versuchen</button>
+        <button type="button" class="btn btn-primary" (click)="getSettings()" [translate]="'buttons.tryagain'">Erneut versuchen</button>
       </div>
     </div>
   </div>
