@@ -41,7 +41,7 @@ export class LogComponent implements OnInit {
       const reader = new FileReader();
       reader.readAsText(file, 'UTF-8');
       reader.onload = (evt) => {
-        const fileResult = <string>(<FileReader>event.target).result;
+        const fileResult = <string>(<FileReader>evt.target).result;
         const newSettings: Settings = JSON.parse(fileResult);
         if (newSettings) {
           if (window.confirm('Soll die Datei jetzt importiert werden?')) {
