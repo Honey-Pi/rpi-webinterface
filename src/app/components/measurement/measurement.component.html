@@ -1,13 +1,14 @@
-<div class="alert alert-info">
-  Hier werden die Sensoren angezeigt, die im Reiter "<strong>Angeschlossene Sensoren</strong>" konfiguriert und gespeichert sind. Es erfolgt kein Upload der Messdaten an ThingSpeak. Messung dauert bis zu 1 Minute.
+<div class="alert alert-info" role="alert">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <span [innerHTML]="'settings.measurement.info' | translate: {tab: 'settings.sensors.title' | translate}"></span>
 </div>
 <ng-container *ngIf="measurement">
-  <pre class="pre-scrollable">{{measurement}}</pre>
+  <pre class="pre-scrollable" *ngIf="debugInfo">{{debugInfo}}</pre>
   <ul class="list-group" *ngIf="thingSpeakFields">
     <ng-container *ngFor="let i of [1,2,3,4,5,6,7,8]">
       <li *ngIf="thingSpeakFields['field' + i] || thingSpeakFields['field' + i] === 0.0"
           class="list-group-item">
-        <strong>Feld {{i}}</strong>: {{thingSpeakFields['field' + i]}}
+        <strong>{{'settings.thingspeak.field' | translate}} {{i}}</strong>: {{thingSpeakFields['field' + i]}}
       </li>
     </ng-container>
   </ul>
@@ -24,5 +25,6 @@
     </div>
   </div>
 </ng-container>
-<p>Diese Ansicht ist bisher nur provisorisch und soll in der nächsten Firmware Version ausgebaut werden.</p>
-<button class="btn btn-primary btn-sm" type="button" role="button" (click)="getMeasurement()" [disabled]="isLoading">Neue Messung abrufen</button>
+<p [translate]="'settings.measurement.construction'"></p>
+<button class="btn btn-primary btn-sm" type="button" role="button"
+        (click)="getMeasurement()" [disabled]="isLoading" [translate]="'settings.measurement.get'"></button>

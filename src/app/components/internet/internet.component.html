@@ -1,93 +1,90 @@
 <div class="alert alert-info" role="alert">
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  Die Änderungen in diesem Bereich werden nach einem Neustart aktiv.
+  {{ 'alerts.afterSave' | translate}}
 </div>
-<h5 class="h5">WLAN Internetzugang</h5>
+<h5 class="h5" [translate]="'settings.internet.wifi'"></h5>
 <div class="form-check">
   <input class="form-check-input" type="checkbox" [(ngModel)]="wifi.router.enabled" id="enabledWifi">
-  <label class="form-check-label" for="enabledWifi">
-    Mit vorhandenem WLAN-Netzwerk verbinden, wenn in Reichweite?
-  </label>
+  <label class="form-check-label" for="enabledWifi" [translate]="'settings.internet.connectWifi'"></label>
 </div>
 <div class="row" *ngIf="wifi.router.enabled">
   <div class="form-group col-6">
-    <label for="ssid">WLAN-Funknetz (SSID)</label>
-    <input type="text" class="form-control" [(ngModel)]="wifi.router.ssid" id="ssid" name="ssid" placeholder="WLAN-Netzwerkname"
+    <label for="ssid" [translate]="'settings.internet.ssid'"></label>
+    <input type="text" class="form-control" [(ngModel)]="wifi.router.ssid" id="ssid" name="ssid" placeholder="{{ 'settings.internet.ssid' | translate}}"
     required [maxlength]="32" #router_ssid="ngModel">
   </div>
   <div class="form-group col-6">
-    <label for="password">WLAN-Netzwerkschlüssel</label>
-    <input type="text" class="form-control" [(ngModel)]="wifi.router.password" id="password" name="password" placeholder="Passwort"
+    <label for="password" [translate]="'settings.internet.password'"></label>
+    <input type="text" class="form-control" [(ngModel)]="wifi.router.password" id="password" name="password" placeholder="{{ 'settings.internet.password' | translate}}"
     required [minlength]="8" [maxlength]="63" #router_password="ngModel">
   </div>
   <div *ngIf="(router_ssid?.value && router_ssid?.value?.indexOf(' ') !== -1)"
-       class="alert alert-warning" role="alert">
+       class="alert alert-warning col-12" role="alert">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    "WLAN-Funknetz (SSID)" enthält ein Leerzeichen. Ist das gewollt?
+    {{ 'error.spaces' | translate: { field: 'settings.internet.ssid' | translate} }}
   </div>
   <div *ngIf="(router_password?.value && router_password?.value?.indexOf(' ') !== -1)"
-       class="alert alert-warning" role="alert">
+       class="alert alert-warning col-12" role="alert">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    "WLAN-Netzwerkschlüssel" enthält ein Leerzeichen. Ist das gewollt?
+    {{ 'error.spaces' | translate: { field: 'settings.internet.password' | translate} }}
   </div>
   <div *ngIf="router_ssid.invalid && (router_ssid.dirty || router_ssid.touched)"
-       class="alert alert-danger">
+       class="alert alert-danger col-12" role="alert">
     <div *ngIf="router_ssid?.errors.required">
-      Das Feld "WLAN-Funknetz (SSID)" wird benötigt.
+      {{ 'error.required' | translate: { field: 'settings.internet.ssid' | translate} }}
     </div>
     <div *ngIf="router_ssid?.errors.maxlength">
-      "WLAN-Funknetz (SSID)" liegt außerhalb des gültigen Wertebereichs.
+      {{ 'error.length' | translate: { field: 'settings.internet.ssid' | translate} }}
     </div>
   </div>
   <div *ngIf="router_password.invalid && (router_password.dirty || router_password.touched)"
-       class="alert alert-danger">
+       class="alert alert-danger col-12" role="alert">
     <div *ngIf="router_password?.errors.required">
-      Das Feld "WLAN-Netzwerkschlüssel" wird benötigt.
+      {{ 'error.required' | translate: { field: 'settings.internet.password' | translate} }}
     </div>
     <div *ngIf="router_password?.errors.minlength || router_password?.errors.maxlength">
-      "WLAN-Netzwerkschlüssel" liegt außerhalb des gültigen Wertebereichs.
+      {{ 'error.length' | translate: { field: 'settings.internet.password' | translate} }}
     </div>
   </div>
 </div>
 <hr />
-<h5 class="h5">Mobilfunkverbindung vorhanden?</h5>
+<h5 class="h5" [translate]="'settings.internet.isMobileConnected'"></h5>
 <p>
-  <button type="button" role="button" class="btn btn-warning btn-sm" (click)="checkInternet()">Teste Internetverbindung</button>
+  <button type="button" role="button" class="btn btn-warning btn-sm" (click)="checkInternet()" [translate]="'settings.internet.testConnection'"></button>
 </p>
 <div *ngIf="checkInternetResponse">
   <div class="alert alert-success" role="alert" *ngIf="checkInternetResponse.connected">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>HoneyPi ist verbunden!</strong> Der Internet Test war erfolgreich.
+    <span [innerHTML]="'settings.internet.testSuccess' | translate"></span>
   </div>
   <div class="alert alert-danger" role="alert" *ngIf="!checkInternetResponse.connected">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <strong>Fehler!</strong> Verbindung ins Internet fehlgeschlagen.
+    <span [innerHTML]="'settings.internet.testError' | translate"></span>
   </div>
   <pre class="pre-scrollable" *ngIf="!checkInternetResponse.connected && checkInternetResponse.content">{{checkInternetResponse.content | json}}</pre>
+  <!--
   <div class="alert alert-info" role="alert">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    Hier im Wartungsmodus kann sich der Raspberry Pi <strong>nicht gleichzeitig</strong> auch mit einem WLAN-Netzwerk verbinden.
-    Daher kann nur die Internetverbindung des Surfsticks oder beim RPi 3B/3B+ auch der LAN-Anschluss getestet werden.
+    <span [innerHTML]="'settings.internet.infoConnection' | translate"></span>
   </div>
+  -->
 </div>
 <hr />
 <p>
-  <a class="text-danger" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-    Erweiterte Einstellungen für Nutzer, die wissen was sie tun »
-  </a>
+  <a class="text-danger" data-toggle="collapse" href="#collapseAP" role="button" aria-expanded="false" aria-controls="collapseAP" [translate]="'settings.internet.collapseAP'"></a>
 </p>
-<div class="collapse" id="collapseExample">
+<div class="collapse" id="collapseAP">
   <div class="card card-body">
-    <h5 class="h5">HoneyPi Wartungsmodus</h5>
-    <p>Ändere die SSID und das Passwort des AccessPoints.</p>
+    <h5 class="h5" [translate]="'settings.internet.honeypiAP'"></h5>
+    <p [translate]="'settings.internet.honeypiAPtext'"></p>
     <div class="row">
       <div class="form-group col-6">
-        <label for="honeypiWifissid">WLAN-Funknetz (SSID)</label>
-        <input type="text" class="form-control" [(ngModel)]="wifi.honeypi.ssid" id="honeypiWifissid" name="honeypiWifissid" placeholder="WLAN-Netzwerkname">
+        <label for="honeypiWifissid">{{ 'settings.internet.ssid' | translate}}</label>
+        <input type="text" class="form-control" [(ngModel)]="wifi.honeypi.ssid" id="honeypiWifissid" name="honeypiWifissid" placeholder="{{ 'settings.internet.ssid' | translate}}">
       </div>
       <div class="form-group col-6">
-        <label for="honeypiWifipassword">WLAN-Netzwerkschlüssel</label>
-        <input type="text" class="form-control" [(ngModel)]="wifi.honeypi.password" id="honeypiWifipassword" name="honeypiWifipassword" placeholder="Passwort">
+        <label for="honeypiWifipassword">{{ 'settings.internet.password' | translate}}</label>
+        <input type="text" class="form-control" [(ngModel)]="wifi.honeypi.password" id="honeypiWifipassword" name="honeypiWifipassword" placeholder="{{ 'settings.internet.password' | translate}}">
       </div>
     </div>
   </div>
