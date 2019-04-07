@@ -24,6 +24,8 @@ export class SettingsComponent implements OnInit {
   public settingsError = false;
   public isConnected = true;
 
+  public enableWittyPi = false;
+
   private n: any;
 
   ngOnInit() {
