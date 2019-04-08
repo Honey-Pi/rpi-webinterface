@@ -1,0 +1,119 @@
+{
+  "alerts": {
+    "afterSave": "The changes in this area become active after a restart.",
+    "deviceId": "<strong>Note:</strong> A sensor with an invalid device ID was detected.\nThis occurs with the DS18B20, for example, if a resistor is forgotten or an incorrect resistor is used.\nAnother cause could be a connected DHT sensor. <strong>In this case this message can be ignored.</strong>",
+    "errorSaving": "<strong>Error!</strong> The settings could not be saved.",
+    "gpio": "<b>GPIO:</b> The contact pins on the Raspberry Pi Board have two numberings. One physical from 1 to 40 and one for each freely programmable GPIO. Here in maintenance mode is always the GPIO numbering beeing used.",
+    "hx711": {
+      "offset": "<b>Offset:</b> Influences the measuring result by subtracting the offset from the measured value.\n<br />Can also be a negative number. Indication in grams. Default is \"0\".",
+      "scale": "<b>Scaling value:</b> Influences the measurement result by dividing (measured value-offset) by the scaling value.\n<br /> Four decimal places are allowed and the decimal places are separated by a dot and not by a comma. The default is \"1\"."
+    },
+    "noTempSensorFound": "No temperature sensor could be found on the device.",
+    "notAP": "<strong>Note:</strong> The maintenance mode is not called through the 'HoneyPi' AccessPoint. Changes are therefore only made after a restart (because the pushbutton is not being pressed).",
+    "saved": "<strong>Saved!</strong> The settings have been saved.",
+    "wittypi": "With the help of the additional Witty Pi module, the Raspberry Pi can be time-controlled.\nWe already offer three useful programs.\nThese can also be changed in the input field. Prerequisite is the <strong>Witty Pi Mini</strong> module."
+  },
+  "brand": "HoneyPi (en)",
+  "buttons": {
+    "add": "Add",
+    "reboot": "Reboot",
+    "refresh": "refresh",
+    "remove": "remove",
+    "save": "Save",
+    "select": "Please select a {{value}}",
+    "tryagain": "Try again"
+  },
+  "error": {
+    "length": "\"{{field}}\" is outside the valid value range.",
+    "required": "The field \"{{field}}\" is required.",
+    "spaces": "\"{{field}}\" contains a space character. Is that wanted?"
+  },
+  "settings": {
+    "confirm": {
+      "reboot": "All unsaved changes are lost. The connection will be temporarily disconnected. \nThe device will now restart. Are you sure?",
+      "savedAP": "A restart is required for the changes to take effect. \nShould the device now be restarted?"
+    },
+    "connectionerror": {
+      "body": "<p>The beehive scale is currently not available, probably the system has been restarted, this can take up to 1 minute.\n</p>\n<p>Please make sure you are still connected to the HoneyPi WiFi. The connection may have disconnected automatically in the meantime.\n</p>",
+      "title": "Connection failed"
+    },
+    "internet": {
+      "collapseAP": "Advanced settings for users who know what they're doing »",
+      "connectWifi": "Connect to existing WiFi network when reachable?",
+      "honeypiAP": "HoneyPi Maintenance Mode",
+      "honeypiAPtext": "Change the SSID and password of the AccessPoint.",
+      "infoConnection": "During the maintenance mode the Raspi can <strong>not simultaneously </strong> be connected to a WiFi network, since the WiFi chip already provides the access point.\nTherefore, only the Internet connection of a connected surf stick or the LAN connection can be tested.",
+      "isMobileConnected": "Mobile connection available?",
+      "password": "WiFi network password",
+      "ssid": "WiFi wireless network (SSID)",
+      "testConnection": "Test your internet connectivity",
+      "testError": "<strong>Error!</strong> Connection to the internet failed.",
+      "testSuccess": "<strong>HoneyPi is connected!</strong> The internet test was successful.",
+      "title": "Internet connection",
+      "wifi": "WiFi Internet access"
+    },
+    "log": {
+      "delete": "Clear log",
+      "empty": "The log on this device is empty.",
+      "export": "Export settings",
+      "get": "Refresh log",
+      "import": "Import",
+      "importSettings": "Import settings file:",
+      "nofile": "There is no log on this device.",
+      "title": "Log"
+    },
+    "measurement": {
+      "construction": "This view is only provisional so far and will be extended in the next firmware version.",
+      "get": "Recall new measurement",
+      "info": "The sensors configured and stored in the \"<strong>{{tab}}</strong>\" tab are displayed here. There is no upload of measurement data to ThingSpeak. Measurement takes up to 1 minute.",
+      "title": "Measurement data"
+    },
+    "sensors": {
+      "addSensor": "Add Sensor",
+      "advancedSettings": "Advanced Settings »",
+      "buttonPin": "Maintenance Mode Pushbutton GPIO",
+      "checkWires": "Please check the wires of the connected sensors and",
+      "checkWiresSuffix": "the list.",
+      "compensationSelectTemp": "Selection of the temperature sensor",
+      "compensationTemp": "Temperature during calibration",
+      "compensationTempPlaceholder": "Temperature value (e.g. 22°C)",
+      "compensationValue": "Correction value [grams per °C]",
+      "compensationValuePlaceholder": "compensation value",
+      "debug": "Enable debug mode <small>(no restarts, HDMI output on, successful transfers in the protocol)</small>",
+      "enableCompensation": "Temperature compensation for temperature-induced measurement drifts",
+      "humidity": "humidity",
+      "interval": "interval",
+      "invert": "invert weight result",
+      "measurementInterval": "measuring interval",
+      "measurementNone": "No measurement data transfer",
+      "measurementOnce": "One-time transfer after power-on",
+      "offset": "offset",
+      "pressure": "air pressure",
+      "quality": "indoor air quality",
+      "scale": "scale unit",
+      "selectType": "Select type of sensor",
+      "sensor": "sensor",
+      "sensor_0": "Temperature sensor (DS18b20)",
+      "sensor_1": "BME680 (temperature+humidity+pressure+quality)",
+      "sensor_2": "Weight sensor (A/D: HX711)",
+      "sensor_3": "Humidity and temperature (DHT)",
+      "sensor_4": "Temperature sensor (MAX6675/MAX31855)",
+      "sensors": "Sensors",
+      "temperature": "temperature",
+      "title": "Attached sensors",
+      "weightcell": "weight cell"
+    },
+    "thingspeak": {
+      "field": "Field",
+      "title": "ThingSpeak Settings"
+    },
+    "wittypi": {
+      "empty": "Empty field",
+      "enableWitty": "Enable Witty Pi module",
+      "loadexample": "Load an example schedule...",
+      "script": "schedule code",
+      "title": "Time and energy management"
+    }
+  },
+  "title": "Maintenance Mode"
+}
