@@ -36,9 +36,11 @@
     if (isset($_GET['setSettings']))
     {
         $postBody = file_get_contents("php://input");
-        file_put_contents($filename, $postBody);
-        
-		$postJson = json_decode($postBody, true);
+        $postJson = json_decode($postBody, true);
+
+        // write new settings to file
+        file_put_contents($filename, json_encode($postJson, JSON_PRETTY_PRINT));        
+		
         // WLAN-Router
         if (isset($postJson["internet"]["router"])) {
             $router = $postJson["internet"]["router"];
@@ -96,7 +98,7 @@
                 $postJson["wittyPi_enabled"] = false;
            }
 
-           // tranfer script to witty pi
+           // run WittyPi to tranfer .wpi to Module
            shell_exec("sudo sh home/pi/wittyPi/runScript.sh");
         }
         
