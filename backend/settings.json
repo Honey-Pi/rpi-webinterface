@@ -1,1 +1,18 @@
-{"sensors":[],"button_pin":17,"interval":300,"ts_channel_id":null,"ts_write_key":"","internet":{"router":{"ssid":"","password":"","enabled":false},"honeypi":{"ssid":"HoneyPi","password":"HoneyPi!"}}}
+{
+    "sensors": [],
+    "button_pin": 17,
+    "interval": 300,
+    "ts_channel_id": null,
+    "ts_write_key": "",
+    "internet": {
+        "router": {
+            "ssid": "",
+            "password": "",
+            "enabled": false
+        },
+        "honeypi": {
+            "ssid": "HoneyPi",
+            "password": "HoneyPi!"
+        }
+    }
+}

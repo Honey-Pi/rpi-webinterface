@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Settings } from "../models/settings.model";
+import { Settings } from '../models/settings.model';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from "rxjs/Observable";
-import "rxjs/add/operator/map";
-import {environment} from "../../environments/environment";
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class AppService {
   constructor(private http: HttpClient) { }
 
   getSettings(): Observable<Settings> {
-    let timestamp = "t=" + ((new Date()).getTime());
+    const timestamp = 't=' + ((new Date()).getTime());
     return this.http.get<Settings>(environment.apiURL + 'settings.php?getSettings&' + timestamp, {responseType: 'json'});
   }
 
@@ -24,8 +24,8 @@ export class AppService {
   }
 
   getTemperatureSensors(): Observable<Response> {
-    let timestamp = "t=" + ((new Date()).getTime());
-    return this.http.get(environment.apiURL + 'ds18b20.php?getSettings&' + timestamp)
+    const timestamp = 't=' + ((new Date()).getTime());
+    return this.http.get(environment.apiURL + 'ds18b20.php?' + timestamp)
       .map((response: Response) => {
         if (response) {
           return response;
@@ -34,17 +34,17 @@ export class AppService {
   }
 
   getLog(): Observable<string> {
-    let timestamp = "t=" + ((new Date()).getTime());
+    const timestamp = 't=' + ((new Date()).getTime());
     return this.http.get(environment.apiURL + 'log.php?' + timestamp, {responseType: 'text'});
   }
 
   deleteLog(): Observable<string> {
-    let timestamp = "t=" + ((new Date()).getTime());
+    const timestamp = 't=' + ((new Date()).getTime());
     return this.http.get(environment.apiURL + 'log.php?delete&' + timestamp, {responseType: 'text'});
   }
 
   getMeasurement(): Observable<Response> {
-    let timestamp = "t=" + ((new Date()).getTime());
+    const timestamp = 't=' + ((new Date()).getTime());
     return this.http.get(environment.apiURL + 'measurement.php?' + timestamp)
       .map((response: Response) => {
         if (response) {
@@ -54,7 +54,7 @@ export class AppService {
   }
 
   checkInternet(): Observable<Response> {
-    let timestamp = "t=" + ((new Date()).getTime());
+    const timestamp = 't=' + ((new Date()).getTime());
     return this.http.get(environment.apiURL + 'check_internet.php?' + timestamp)
       .map((response: Response) => {
         if (response) {
@@ -64,7 +64,7 @@ export class AppService {
   }
 
   reboot(): Observable<Object> {
-    let timestamp = "t=" + ((new Date()).getTime());
+    const timestamp = 't=' + ((new Date()).getTime());
     return this.http.get(environment.apiURL + 'reboot.php?' + timestamp);
   }
 

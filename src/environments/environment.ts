@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  apiURL: 'http://raspberrypi.fritz.box/backend/'
+  apiURL: 'http://honeypi.local/backend/'
 };

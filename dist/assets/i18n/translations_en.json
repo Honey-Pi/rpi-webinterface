@@ -99,6 +99,7 @@
       "sensor_3": "Humidity and temperature (DHT)",
       "sensor_4": "Temperature sensor (MAX6675/MAX31855)",
       "sensors": "Sensors",
+      "shutdownAfterTransfer": "Shut down Raspberry after single transfer",
       "temperature": "temperature",
       "title": "Attached sensors",
       "weightcell": "weight cell"

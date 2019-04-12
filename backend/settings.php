@@ -1,37 +1,22 @@
 <?php
-    
-    // enable CORS (only for testing)
-    header("Access-Control-Allow-Origin: *");
-    
+
+    include_once("headers.php");
+    require_once('vars.php');
     // json
     header('Content-type:application/json;charset=utf-8');
-    
-    // nocache
-    header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-    header("Cache-Control: post-check=0, pre-check=0", false);
-    header("Pragma: no-cache");
-    
-    // enable PHP error reporting
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
 
     function clean($string) {
        $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
        return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
     }
-    
-    // define vars
-    $filename = "settings.json";
-    $shellDir = "/var/www/html/backend/shell-scripts";
-    
+
     // check if file exists
-    if (!file_exists($filename))
+    if (!file_exists($settingsFile))
     {
         // create file
-        file_put_contents($filename, '');
+        file_put_contents($settingsFile, '');
     }
-    
+
     // save settings
     if (isset($_GET['setSettings']))
     {
@@ -39,8 +24,8 @@
         $postJson = json_decode($postBody, true);
 
         // write new settings to file
-        file_put_contents($filename, json_encode($postJson, JSON_PRETTY_PRINT));        
-		
+        file_put_contents($settingsFile, json_encode($postJson, JSON_PRETTY_PRINT));
+
         // WLAN-Router
         if (isset($postJson["internet"]["router"])) {
             $router = $postJson["internet"]["router"];
@@ -48,13 +33,13 @@
 				$escapedSsid = escapeshellarg($router["ssid"]);
 				$escapedPw = escapeshellarg($router["password"]);
 				shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_router_ssidpw.sh $escapedSsid $escapedPw;");
-                
+
             } else {
                 // disable connection
 				shell_exec('sudo sh '.$GLOBALS['shellDir'].'/change_router_ssidpw.sh fremderRouter WLANpasswort;');
             }
         }
-        
+
         // HoneyPi-AccessPoint
         if ($postJson["internet"]["honeypi"]) {
             $honeypi = $postJson["internet"]["honeypi"];
@@ -80,7 +65,7 @@
                 file_put_contents($wittyPiFile, '');
             }
 
-            if ($wittyPi_enabled === true 
+            if ($wittyPi_enabled === true
                 && isset($postJson["wittyPi_script"])
                     && strlen(trim($wittyPi_script)) >= 1) {
 
@@ -99,14 +84,13 @@
            }
 
            // run WittyPi to tranfer .wpi to Module
-           shell_exec("sudo sh home/pi/wittyPi/runScript.sh");
+           shell_exec("sudo sh $wittyPiPath/runScript.sh");
         }
-        
+
     }
-    
+
     // send settings
-    $settings = json_decode(file_get_contents($filename));
+    $settings = json_decode(file_get_contents($settingsFile));
     echo json_encode($settings);
 
-    
 ?>

@@ -99,6 +99,7 @@
       "sensor_3": "Luftfeuchtigkeit und Temperatur (DHT)",
       "sensor_4": "Temperatursensor (MAX6675/MAX31855)",
       "sensors": "Sensoren",
+      "shutdownAfterTransfer": "Nach einmaliger Übertragung Raspberry herunterfahren",
       "temperature": "Temperatur",
       "title": "Angeschlossene Sensoren",
       "weightcell": "Wägezelle"

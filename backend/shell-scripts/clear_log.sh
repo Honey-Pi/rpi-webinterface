@@ -1,3 +1,3 @@
 #! /bin/bash
 
-sudo /dev/null > /home/pi/rpi-scripts/error.log;
+sudo /dev/null > /home/pi/HoneyPi/rpi-scripts/error.log;
