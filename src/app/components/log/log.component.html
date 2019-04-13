@@ -5,17 +5,3 @@
   <button class="btn btn-primary btn-sm" type="button" role="button" (click)="getLog()" [translate]="'settings.log.get'"></button>
   <button class="btn btn-danger btn-sm" type="button" role="button" (click)="deleteLog()" [translate]="'settings.log.delete'"></button>
 </div>
-<hr />
-<div class="form-group">
-  <label for="settingsFile" [translate]="'settings.log.importSettings'"></label>
-  <input type="file"
-         id="settingsFile" name="settingsFile" class="form-control-file"
-         accept="application/json,.json"
-         (change)="onFileChanged($event)" #fileInput />
-</div>
-<div class="btn-group btn-group-sm" role="group">
-  <a href="./backend/settings.json" target="_blank" download="settings-backup.json" class="btn btn-primary btn-sm"
-     [translate]="'settings.log.export'"></a>
-  <button class="btn btn-warning btn-sm" type="button" role="button"
-          (click)="fileInput.click()" [translate]="'settings.log.import'"></button>
-</div>

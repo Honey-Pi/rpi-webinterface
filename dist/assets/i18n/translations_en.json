@@ -11,6 +11,7 @@
     "noTempSensorFound": "No temperature sensor could be found on the device.",
     "notAP": "<strong>Note:</strong> The maintenance mode is not called through the 'HoneyPi' AccessPoint. Changes are therefore only made after a restart (because the pushbutton is not being pressed).",
     "saved": "<strong>Saved!</strong> The settings have been saved.",
+    "updateInfo": "The system update can take quite a while. It is important that you have an Internet connection and power supply without interruption.\nThe Raspberry should be connected via a LAN cable or at least WiFi. \nThe settings will be lost (completely reset). Therefore export the settings file beforehand.",
     "wittypi": "With the help of the additional Witty Pi module, the Raspberry Pi can be time-controlled.\nWe already offer three useful programs.\nThese can also be changed in the input field. Prerequisite is the <strong>Witty Pi Mini</strong> module."
   },
   "brand": "HoneyPi (en)",
@@ -107,6 +108,12 @@
     "thingspeak": {
       "field": "Field",
       "title": "ThingSpeak Settings"
+    },
+    "update": {
+      "export": "Settings",
+      "install": "Reinstall system",
+      "title": "System update",
+      "update": "Update (version update)"
     },
     "wittypi": {
       "empty": "Empty field",

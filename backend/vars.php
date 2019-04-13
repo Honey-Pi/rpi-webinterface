@@ -1,5 +1,6 @@
 <?php
-    $scriptsFolder = '/home/pi/HoneyPi/rpi-scripts';
+    $honeyPiHome = '/home/pi/HoneyPi';
+    $scriptsFolder = $honeyPiHome . '/rpi-scripts';
     $backendFolder = '/var/www/html/backend';
     $shellDir = $backendFolder . '/shell-scripts';
     $logFile = $scriptsFolder . '/error.log';

@@ -91,6 +91,20 @@
           </div>
         </div>
       </div>
+      <div class="card">
+        <div class="card-header" id="headingSeven">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+              {{ 'settings.update.title' | translate}}
+            </button>
+          </h5>
+        </div>
+        <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordion">
+          <div class="card-body">
+            <app-update></app-update>
+          </div>
+        </div>
+      </div>
       <div class="card" *ngIf="enableWittyPi">
         <div class="card-header" id="headingSix">
           <h5 class="mb-0">

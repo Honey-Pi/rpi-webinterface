@@ -54,7 +54,7 @@
         if (isset($postJson["wittyPi_enabled"]) ){
 
             // path to schedule file
-            $wittyPiFile = "schedule.wpi"; // home/pi/wittyPi/
+            $wittyPiFile = $GLOBALS['wittyPiPath'] . "/schedule.wpi"; // /home/pi/wittyPi/
 
             $wittyPi_enabled = $postJson["wittyPi_enabled"];
             $wittyPi_script = $postJson["wittyPi_script"];
@@ -84,7 +84,7 @@
            }
 
            // run WittyPi to tranfer .wpi to Module
-           shell_exec("sudo sh $wittyPiPath/runScript.sh");
+           shell_exec("sudo sh ".$GLOBALS['wittyPiPath']."/runScript.sh");
         }
 
     }

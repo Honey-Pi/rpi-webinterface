@@ -11,6 +11,7 @@
     "noTempSensorFound": "Es konnte kein Temperatursensor am Gerät gefunden werden.",
     "notAP": "<strong>Hinweis:</strong> Der Wartungsmodus wird nicht über den \"HoneyPi\"-AccessPoint aufgerufen. Änderungen werden daher erst nach einem Neustart aktiv (da der Tastendruck ausbleibt).",
     "saved": "<strong>Gespeichert!</strong> Die Einstellungen wurden gespeichert.",
+    "updateInfo": "1. Das Systemupdate kann eine ganze Weile dauern. Es ist wichtig, dass ununterbrochen eine Internetverbindung und Stromversorgung besteht.<br>\n2. Der Raspberry sollte über ein LAN Kabel oder mindestens über WLAN verbunden sein. <br>\n3. Im Reiter \"Internetverbindung\" muss der Button \"Teste Internetverbindung\" einen Erfolg vermelden.<br>\n4. Die Einstellungen gehen dabei verloren (Reset). Daher vorher die Einstellungsdatei exportieren.",
     "wittypi": "Mit Hilfe des zusätzlichen Witty Pi Moduls kann der Raspberry Pi zeitgesteuert werden.\nWir bieten bereits drei nützliche Programme.\nDiese können im Eingabefeld auch verändert werden. Voraussetzung ist das <strong>Witty Pi Mini</strong>-Modul."
   },
   "brand": "HoneyPi",
@@ -107,6 +108,12 @@
     "thingspeak": {
       "field": "Feld",
       "title": "ThingSpeak Einstellungen"
+    },
+    "update": {
+      "export": "Einstellungen",
+      "install": "System neu installieren",
+      "title": "Systemupdate",
+      "update": "Aktualisieren (Versionsupdate)"
     },
     "wittypi": {
       "empty": "Leeres Feld",
