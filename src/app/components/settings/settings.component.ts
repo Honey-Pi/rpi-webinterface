@@ -24,7 +24,7 @@ export class SettingsComponent implements OnInit {
   public settingsError = false;
   public isConnected = true;
 
-  public enableWittyPi = false;
+  public enableWittyPi = true;
 
   private n: any;
 
@@ -59,7 +59,7 @@ export class SettingsComponent implements OnInit {
   }
 
   saveSettings(): void  {
-    this.appService.setSettings(this.settings).timeout(3000)
+    this.appService.setSettings(this.settings).timeout(5000)
       .subscribe(res => {
         console.log(res);
         if (res) {

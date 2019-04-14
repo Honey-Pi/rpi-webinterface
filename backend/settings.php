@@ -54,14 +54,14 @@
         if (isset($postJson["wittyPi_enabled"]) ){
 
             // path to schedule file
-            $wittyPiFile = $GLOBALS['wittyPiPath'] . "/schedule.wpi"; // /home/pi/wittyPi/
+            $wittyPiFile = "./schedule.wpi";
 
             $wittyPi_enabled = $postJson["wittyPi_enabled"];
             $wittyPi_script = $postJson["wittyPi_script"];
 
             if (!file_exists($wittyPiFile))
             {
-                // create file
+                // create empty file if not exists
                 file_put_contents($wittyPiFile, '');
             }
 
@@ -84,7 +84,7 @@
            }
 
            // run WittyPi to tranfer .wpi to Module
-           shell_exec("sudo sh ".$GLOBALS['wittyPiPath']."/runScript.sh");
+           shell_exec("sudo sh ".$GLOBALS['shellDir']."/wittypi.sh");
         }
 
     }

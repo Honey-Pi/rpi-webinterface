@@ -14,5 +14,8 @@
             "ssid": "HoneyPi",
             "password": "HoneyPi!"
         }
-    }
+    },
+    "debug": true,
+    "wittyPi_enabled": false,
+    "wittyPi_script": ""
 }
