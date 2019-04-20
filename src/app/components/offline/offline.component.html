@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-12">
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" name="offline" [(ngModel)]="settings.offline" id="offline">
+      <label class="form-check-label" for="offline" [innerHTML]="'settings.offline.offline' | translate"></label>
+    </div>
+  </div>
+</div>
+<hr />
+<h5 class="h5" [translate]="'settings.offline.export'"></h5>
+<a href="./backend/HoneyPi.csv" target="_blank" download="HoneyPi-export.csv" class="btn btn-primary btn-sm"
+   [translate]="'settings.offline.exportButton'"></a>
+

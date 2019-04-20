@@ -19,6 +19,7 @@ import { SensorsComponent } from './components/sensors/sensors.component';
 import { ThingspeakComponent } from './components/thingspeak/thingspeak.component';
 import { WittypiComponent } from './components/wittypi/wittypi.component';
 import { UpdateComponent } from './components/update/update.component';
+import { OfflineComponent } from './components/offline/offline.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/translations_', '.json');
@@ -42,7 +43,8 @@ const appRoutes: Routes = [
     SensorsComponent,
     ThingspeakComponent,
     WittypiComponent,
-    UpdateComponent
+    UpdateComponent,
+    OfflineComponent
   ],
   imports: [
     BrowserModule,

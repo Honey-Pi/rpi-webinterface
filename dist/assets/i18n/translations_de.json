@@ -69,6 +69,12 @@
       "info": "Hier werden die Sensoren angezeigt, die im Reiter \"<strong>{{tab}}</strong>\" konfiguriert und gespeichert sind. Es erfolgt kein Upload der Messdaten an ThingSpeak. Messung dauert bis zu 1 Minute.",
       "title": "Messdaten"
     },
+    "offline": {
+      "export": "Messdaten herunterladen",
+      "exportButton": "Herunterladen",
+      "offline": "Messdaten offline speichern ohne ThingSpeak",
+      "title": "Offline Messdaten"
+    },
     "sensors": {
       "addSensor": "Sensor hinzufügen",
       "advancedSettings": "Erweiterte Einstellungen »",

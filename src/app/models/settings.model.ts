@@ -18,4 +18,6 @@ export class Settings {
   shutdownAfterTransfer: boolean;
   wittyPi_enabled: boolean;
   wittyPi_script: string;
+  w1gpio: number;
+  offline: boolean;
 }

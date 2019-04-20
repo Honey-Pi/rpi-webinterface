@@ -1,6 +1,6 @@
 {
     "sensors": [],
-    "button_pin": 17,
+    "button_pin": 16,
     "interval": 300,
     "ts_channel_id": null,
     "ts_write_key": "",
@@ -17,5 +17,7 @@
     },
     "debug": true,
     "wittyPi_enabled": false,
-    "wittyPi_script": ""
+    "wittyPi_script": "",
+    "offline": false,
+    "w1gpio": 11
 }

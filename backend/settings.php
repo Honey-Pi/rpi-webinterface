@@ -10,21 +10,32 @@
        return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
     }
 
-    // check if file exists
-    if (!file_exists($settingsFile))
-    {
-        // create file
-        file_put_contents($settingsFile, '');
+    function createFileIfNotExists($file) {
+        // check if file exists
+        if (!file_exists($file))
+        {
+            // create file
+            file_put_contents($file, '');
+        }
     }
+
+    function emptyFile($file) {
+        // empty file
+        //open file to write
+        $fp = fopen($file, "r+");
+        // clear content to 0 bits
+        ftruncate($fp, 0);
+        //close file
+        fclose($fp);
+    }
+
+    createFileIfNotExists($settingsFile);
 
     // save settings
     if (isset($_GET['setSettings']))
     {
         $postBody = file_get_contents("php://input");
         $postJson = json_decode($postBody, true);
-
-        // write new settings to file
-        file_put_contents($settingsFile, json_encode($postJson, JSON_PRETTY_PRINT));
 
         // WLAN-Router
         if (isset($postJson["internet"]["router"])) {
@@ -50,6 +61,16 @@
             }
         }
 
+        // 1-Wire GPIO for Ds18b20 Temperature Sensor
+        if (isset($postJson["w1gpio"]) && is_numeric($postJson["w1gpio"]) && $postJson["w1gpio"] > 0) {
+            $w1gpio = (INT)$postJson["w1gpio"];
+        } else {
+            $w1gpio = 11; // default GPIO
+        }
+        $postJson["w1gpio"] = $w1gpio;
+        shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_w1gpio.sh $w1gpio;");
+
+
         // WittyPi Module ( time- & ernergy management)
         if (isset($postJson["wittyPi_enabled"]) ){
 
@@ -59,11 +80,7 @@
             $wittyPi_enabled = $postJson["wittyPi_enabled"];
             $wittyPi_script = $postJson["wittyPi_script"];
 
-            if (!file_exists($wittyPiFile))
-            {
-                // create empty file if not exists
-                file_put_contents($wittyPiFile, '');
-            }
+            createFileIfNotExists($wittyPiFile);
 
             if ($wittyPi_enabled === true
                 && isset($postJson["wittyPi_script"])
@@ -72,25 +89,21 @@
                 file_put_contents($wittyPiFile, $wittyPi_script);
             } else {
 
-                // empty file
-                //open file to write
-                $fp = fopen($wittyPiFile, "r+");
-                // clear content to 0 bits
-                ftruncate($fp, 0);
-                //close file
-                fclose($fp);
-
+                emptyFile($wittyPiFile);
                 $postJson["wittyPi_enabled"] = false;
            }
 
            // run WittyPi to tranfer .wpi to Module
-           shell_exec("sudo sh ".$GLOBALS['shellDir']."/wittypi.sh");
+           shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_wittypi.sh");
         }
+
+        // write new settings to file
+        file_put_contents($settingsFile, json_encode($postJson, JSON_PRETTY_PRINT));
 
     }
 
     // send settings
     $settings = json_decode(file_get_contents($settingsFile));
-    echo json_encode($settings);
+    echo json_encode($settings, JSON_PRETTY_PRINT);
 
 ?>

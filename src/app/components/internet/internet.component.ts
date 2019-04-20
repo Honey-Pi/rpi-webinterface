@@ -40,6 +40,8 @@ export class InternetComponent implements OnInit {
         console.log(err);
         if (err.name && err.name === 'TimeoutError') {
           this.checkInternetResponse = {connected: false, content: 'Timeout after 15 Seconds.'};
+        } else if (err.name && err.name === 'HttpErrorResponse') {
+          this.checkInternetResponse = {connected: false, content: null};
         } else {
           this.checkInternetResponse = {connected: false, content: err};
         }

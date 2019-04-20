@@ -78,6 +78,20 @@
         </div>
       </div>
       <div class="card">
+        <div class="card-header" id="headingEight">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+              {{ 'settings.offline.title' | translate}}
+            </button>
+          </h5>
+        </div>
+        <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordion">
+          <div class="card-body">
+            <app-offline [(settings)]="settings"></app-offline>
+          </div>
+        </div>
+      </div>
+      <div class="card">
         <div class="card-header" id="headingFive">
           <h5 class="mb-0">
             <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">

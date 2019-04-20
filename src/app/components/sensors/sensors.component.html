@@ -43,6 +43,12 @@
           </div>
         </div>
         <div class="row">
+          <div class="form-group col-6">
+            <label for="w1gpio">GPIO</label>
+            <input type="number" class="form-control" [(ngModel)]="settings.w1gpio" id="w1gpio" name="w1gpio" placeholder="1-WIRE" required>
+          </div>
+        </div>
+        <div class="row">
           <div class="col-12">
             <div class="alert alert-warning" *ngIf="temperatureSensorWasFiltered && temperatureSensors.length == 0" role="alert">
               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>

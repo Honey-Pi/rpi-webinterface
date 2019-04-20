@@ -20,13 +20,18 @@
 
     // function for shell script
     function updateGit() {
-        return shell_exec("sudo git pull");
+        return shell_exec("sudo git pull --rebase origin master");
     }
     function update() {
         return shell_exec("sudo sh ".$GLOBALS['honeyPiHome']."/update.sh");
     }
     function install() {
-        return shell_exec("sudo sh ".$GLOBALS['honeyPiHome']."/install.sh");
+        exec("sudo sh ".$GLOBALS['shellDir']."/web-install.sh", $out, $status);
+        if (0 === $status) {
+            var_dump($out);
+        } else {
+            echo "Command failed with status: $status";
+        }
     }
 
     // switch working dir
@@ -44,7 +49,7 @@
             echo update();
         } else if ($_GET['mode'] === 'install')
         {
-            echo install();
+            install();
         }
     }
 
