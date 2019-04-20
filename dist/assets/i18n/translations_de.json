@@ -72,6 +72,7 @@
     "offline": {
       "export": "Messdaten herunterladen",
       "exportButton": "Herunterladen",
+      "infoExport": "Die Messdaten werden in einer CSV-Datei abgespeichert. Diese Datei kann anschließend in den ThingSpeak Channel importiert werden. Ansonsten können die Messdaten auch mit der iOS-/Web-App visualisiert werden.",
       "offline": "Messdaten offline speichern ohne ThingSpeak",
       "title": "Offline Messdaten"
     },
@@ -119,7 +120,7 @@
       "export": "Einstellungen",
       "install": "System neu installieren",
       "title": "Systemupdate",
-      "update": "Aktualisieren (Versionsupdate)"
+      "update": "Update"
     },
     "wittypi": {
       "empty": "Leeres Feld",

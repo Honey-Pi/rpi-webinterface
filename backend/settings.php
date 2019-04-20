@@ -1,32 +1,13 @@
 <?php
 
-    include_once("headers.php");
-    require_once('vars.php');
+    include_once("_headers.php");
+    require_once('_vars.php');
     // json
     header('Content-type:application/json;charset=utf-8');
 
     function clean($string) {
        $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
        return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
-    }
-
-    function createFileIfNotExists($file) {
-        // check if file exists
-        if (!file_exists($file))
-        {
-            // create file
-            file_put_contents($file, '');
-        }
-    }
-
-    function emptyFile($file) {
-        // empty file
-        //open file to write
-        $fp = fopen($file, "r+");
-        // clear content to 0 bits
-        ftruncate($fp, 0);
-        //close file
-        fclose($fp);
     }
 
     createFileIfNotExists($settingsFile);

@@ -1,5 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Settings} from '../../models/settings.model';
+import {environment} from '../../../environments/environment';
+
 
 @Component({
   selector: 'app-offline',
@@ -23,7 +25,10 @@ export class OfflineComponent implements OnInit {
 
   constructor() { }
 
+  public apiURL;
+
   ngOnInit() {
+    this.apiURL = environment.apiURL;
   }
 
 }

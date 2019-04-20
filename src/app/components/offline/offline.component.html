@@ -6,8 +6,12 @@
     </div>
   </div>
 </div>
+<div class="alert alert-info" role="alert">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <span [innerHTML]="'settings.offline.infoExport' | translate"></span>
+</div>
 <hr />
 <h5 class="h5" [translate]="'settings.offline.export'"></h5>
-<a href="./backend/HoneyPi.csv" target="_blank" download="HoneyPi-export.csv" class="btn btn-primary btn-sm"
+<a href="{{apiURL}}offlinecsv.php" target="_blank" download="HoneyPi-export.csv" class="btn btn-primary btn-sm"
    [translate]="'settings.offline.exportButton'"></a>
 

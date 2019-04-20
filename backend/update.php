@@ -1,5 +1,5 @@
 <?php
-    include_once("headers.php");
+    include_once("_headers.php");
 
     // make script run forever
     ini_set('max_execution_time', 0);
@@ -14,7 +14,7 @@
     ob_end_flush(); // Stop buffer
     ob_implicit_flush(1); // Implicit flush at each output command
 
-    require_once('vars.php');
+    require_once('_vars.php');
     // text
     header('Content-type:text/plain;charset=utf-8');
 

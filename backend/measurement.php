@@ -1,6 +1,6 @@
 <?php
-    include_once("headers.php");
-    require_once('vars.php');
+    include_once("_headers.php");
+    require_once('_vars.php');
     // json
     header('Content-type:application/json;charset=utf-8');
 

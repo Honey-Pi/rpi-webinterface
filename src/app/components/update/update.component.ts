@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Settings} from '../../models/settings.model';
 import 'rxjs/Rx' ;
 import {AppService} from '../../services/app.service';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-update',
@@ -15,7 +16,10 @@ export class UpdateComponent implements OnInit {
 
   constructor(private appService: AppService) { }
 
+  public apiURL;
+
   ngOnInit() {
+    this.apiURL = environment.apiURL;
   }
 
   update(mode): void {

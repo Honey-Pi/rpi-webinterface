@@ -72,6 +72,7 @@
     "offline": {
       "export": "Download measurement data",
       "exportButton": "Download",
+      "infoExport": "The measurement data is stored in a CSV file. This file can then be imported into the ThingSpeak Channel. Otherwise, the measurement data can also be visualized with the iOS/Web app.",
       "offline": "Offline Measurement without ThingSpeak",
       "title": "Offline Measurement data"
     },
