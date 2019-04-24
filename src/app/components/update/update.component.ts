@@ -11,8 +11,10 @@ import {environment} from '../../../environments/environment';
 })
 export class UpdateComponent implements OnInit {
 
-  public log: string = null;
+  public log = null;
   public isLoading = false;
+
+  public versionInfo = null;
 
   constructor(private appService: AppService) { }
 
@@ -20,6 +22,11 @@ export class UpdateComponent implements OnInit {
 
   ngOnInit() {
     this.apiURL = environment.apiURL;
+  }
+
+  public get isAccessPoint() {
+    const host: string = window.location.hostname;
+    return (host === '192.168.4.1');
   }
 
   update(mode): void {
@@ -30,6 +37,30 @@ export class UpdateComponent implements OnInit {
       .subscribe(res => {
         console.log(res);
         this.log = res;
+        if (window.confirm('Erfolgreich aktualisiert. Die Seite muss aktualisiert werden. Jetzt neuladen?')) {
+          location.reload(true);
+        }
+      }, (err: any) => {console.error(err); });
+  }
+
+  getVersionInfo(): void {
+    this.versionInfo = null;
+    this.log = null;
+    this.isLoading = true;
+    this.appService.update('versionInfo')
+      .finally(() => this.isLoading = false)
+      .subscribe(res => {
+        try {
+          this.versionInfo = <any>res;
+          this.log = null;
+          if (this.versionInfo.error) {
+            throw new Error('Exception occured: ' + this.versionInfo.error);
+          }
+        } catch (e) {
+          console.error(e);
+          this.log = e;
+          this.versionInfo = null;
+        }
       }, (err: any) => {console.error(err); });
   }
 

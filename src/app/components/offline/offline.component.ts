@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Settings} from '../../models/settings.model';
 import {environment} from '../../../environments/environment';
+import {AppService} from '../../services/app.service';
 
 
 @Component({
@@ -23,12 +24,18 @@ export class OfflineComponent implements OnInit {
   @Output()
   settingsChange: EventEmitter<Settings> = new EventEmitter<Settings>();
 
-  constructor() { }
+  constructor(private appService: AppService) { }
 
   public apiURL;
 
   ngOnInit() {
     this.apiURL = environment.apiURL;
+  }
+
+  deleteCsv(): void {
+    this.appService.deleteCsv()
+      .subscribe(res => {
+      }, (err: any) => {console.error(err); });
   }
 
 }

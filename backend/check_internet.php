@@ -8,13 +8,17 @@
         // see https://superuser.com/a/769248
         $filename = "http://www.msftncsi.com/ncsi.txt";
         $check = "Microsoft NCSI";
-        $content = file_get_contents($filename);
+        try {
+            $content = file_get_contents($filename);
+        } catch (Exception $e) {
+            $content = $e->getMessage();
+        }
         if($content === $check)
         {
             return ['connected' => true,
             'content' => null];
         } else {
-            $obj = ['connected' => false,
+            return ['connected' => false,
             'content' => $content];
         }
 

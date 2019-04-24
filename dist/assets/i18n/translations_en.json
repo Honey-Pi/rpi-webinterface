@@ -11,7 +11,9 @@
     "noTempSensorFound": "No temperature sensor could be found on the device.",
     "notAP": "<strong>Note:</strong> The maintenance mode is not called through the 'HoneyPi' AccessPoint. Changes are therefore only made after a restart (because the pushbutton is not being pressed).",
     "saved": "<strong>Saved!</strong> The settings have been saved.",
-    "updateInfo": "The system update can take quite a while. It is important that you have an Internet connection and power supply without interruption.\nThe Raspberry should be connected via a LAN cable or at least WiFi. \nThe settings will be lost (completely reset). Therefore export the settings file beforehand.",
+    "updateAP": "<b>Note:</b> The maintenance mode is called by you via the \"HoneyPi\"-AccessPoint. As a result, no Internet connection is established via WiFi during maintenance mode. You can enter a WLAN network of your choice in the \"Internet connection\" tab. With a Raspberry 3, a LAN cable can be connected for system updates. <b>Please note step 3. We recommend using the IP/Hostname of the Raspberry in the home network.</b>",
+    "updateInfo": "1. The data volume of the surf stick can be used up. <br>\n2. It is therefore recommended to disconnect the Raspberry Zero from the Surfstick for the system update and connect it to an existing WiFi network.<br>\n3. Afterwards, the maintenance mode should not be called via the \"HoneyPi\" AccessPoint, but via the IP address of the Raspberry. <br>\n4. The settings will be lost (reset). Therefore export the settings file beforehand.",
+    "updateNotAP": "<b>Successfully connected!</b> You call the Raspberry not via the \"HoneyPi\" AccessPoint, but via the IP address in the home network. <b>You can skip step 3.</b>",
     "wittypi": "With the help of the additional Witty Pi module, the Raspberry Pi can be time-controlled.\nWe already offer three useful programs.\nThese can also be changed in the input field. Prerequisite is the <strong>Witty Pi Mini</strong> module."
   },
   "brand": "HoneyPi (en)",
@@ -70,10 +72,15 @@
       "title": "Measurement data"
     },
     "offline": {
+      "delete": "Delete",
       "export": "Download measurement data",
       "exportButton": "Download",
       "infoExport": "The measurement data is stored in a CSV file. This file can then be imported into the ThingSpeak Channel. Otherwise, the measurement data can also be visualized with the iOS/Web app.",
       "offline": "Offline Measurement without ThingSpeak",
+      "radio0": "Online: Transfer exclusively online to ThingSpeak",
+      "radio1": "Both: Transfer to ThingSpeak and save to CSV file",
+      "radio2": "Errors: Write to CSV file only for Internet connection errors",
+      "radio3": "Offline: Write only offline to CSV file",
       "title": "Offline Measurement data"
     },
     "sensors": {
@@ -119,8 +126,9 @@
     "update": {
       "export": "Settings",
       "install": "Reinstall system",
+      "preupdate": "Check for new version",
       "title": "System update",
-      "update": "Update"
+      "update": "Update now"
     },
     "wittypi": {
       "empty": "Empty field",

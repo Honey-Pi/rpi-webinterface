@@ -3,6 +3,14 @@
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   <span [innerHTML]="'alerts.updateInfo' | translate"></span>
 </div>
+<div class="alert alert-warning" role="alert" *ngIf="isAccessPoint">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <span [innerHTML]="'alerts.updateAP' | translate"></span>
+</div>
+<div class="alert alert-success" role="alert" *ngIf="!isAccessPoint">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <span [innerHTML]="'alerts.updateNotAP' | translate"></span>
+</div>
 <ng-container *ngIf="isLoading">
   <div id="circle">
     <div class="loader">
@@ -15,9 +23,19 @@
     </div>
   </div>
 </ng-container>
-<pre class="pre-scrollable" *ngIf="log">{{log}}</pre>
+<pre class="pre-scrollable" *ngIf="log">{{log | json}}</pre>
+<ng-container *ngIf="versionInfo">
+  • <b>Wartungsmodus: </b> <i>{{versionInfo['mode']['webinterface'].tag_name}}</i>
+  <pre class="pre-scrollable" *ngIf="versionInfo['mode'].scripts.body && versionInfo['mode'].webinterface.body != ''">Changelog:
+{{versionInfo['mode'].webinterface.body}}</pre>
+  <br>
+  • <b>Messskripte: </b> <i>{{versionInfo['mode']['scripts'].tag_name}}</i>
+  <pre class="pre-scrollable" *ngIf="versionInfo['mode'].scripts.body && versionInfo['mode'].scripts.body != ''">Changelog:
+{{versionInfo['mode'].scripts.body}}</pre>
+</ng-container>
 <p>
-  <button class="btn btn-primary btn-sm" type="button" role="button" (click)="update('update')" [disabled]="isLoading" [translate]="'settings.update.update'"></button>
+  <button *ngIf="!versionInfo" class="btn btn-secondary btn-sm" type="button" role="button" (click)="getVersionInfo()" [disabled]="isLoading" [translate]="'settings.update.preupdate'"></button>
+  <button *ngIf="versionInfo" class="btn btn-primary btn-sm" type="button" role="button" (click)="update('update')" [disabled]="isLoading" [translate]="'settings.update.update'"></button>
 </p>
 <!--
 <p>

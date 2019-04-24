@@ -1,17 +1,38 @@
 <div class="row">
   <div class="col-12">
+    <div class="alert alert-info" role="alert">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <span [innerHTML]="'settings.offline.infoExport' | translate"></span>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="offline" id="offline0" [value]="0" [(ngModel)]="settings.offline" [checked]="settings.offline==0 || settings.offline==undefined">
+      <label class="form-check-label" for="offline0" [translate]="'settings.offline.radio0'"></label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="offline" id="offline1" [value]="1" [(ngModel)]="settings.offline" [checked]="settings.offline==1">
+      <label class="form-check-label" for="offline1" [translate]="'settings.offline.radio1'"></label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="offline" id="offline2" [value]="2" [(ngModel)]="settings.offline" [checked]="settings.offline==2">
+      <label class="form-check-label" for="offline2" [translate]="'settings.offline.radio2'"></label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="offline" id="offline3" [value]="3" [(ngModel)]="settings.offline" [checked]="settings.offline==3">
+      <label class="form-check-label" for="offline3" [translate]="'settings.offline.radio3'"></label>
+    </div>
+    <!--Alt:
     <div class="form-group form-check">
       <input type="checkbox" class="form-check-input" name="offline" [(ngModel)]="settings.offline" id="offline">
       <label class="form-check-label" for="offline" [innerHTML]="'settings.offline.offline' | translate"></label>
     </div>
+    -->
   </div>
-</div>
-<div class="alert alert-info" role="alert">
-  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  <span [innerHTML]="'settings.offline.infoExport' | translate"></span>
 </div>
 <hr />
 <h5 class="h5" [translate]="'settings.offline.export'"></h5>
-<a href="{{apiURL}}offlinecsv.php" target="_blank" download="HoneyPi-export.csv" class="btn btn-primary btn-sm"
-   [translate]="'settings.offline.exportButton'"></a>
+<div class="btn-group btn-group-sm" role="group">
+  <a href="{{apiURL}}offlinecsv.php" target="_blank" download="HoneyPi-export.csv" class="btn btn-primary btn-sm"
+     [translate]="'settings.offline.exportButton'"></a>
+  <button class="btn btn-danger btn-sm" type="button" role="button" (click)="deleteCsv()" [translate]="'settings.offline.delete'"></button>
+</div>
 

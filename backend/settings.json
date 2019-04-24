@@ -18,6 +18,6 @@
     "debug": true,
     "wittyPi_enabled": false,
     "wittyPi_script": "",
-    "offline": false,
+    "offline": 0,
     "w1gpio": 11
 }

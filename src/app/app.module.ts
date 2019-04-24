@@ -20,6 +20,7 @@ import { ThingspeakComponent } from './components/thingspeak/thingspeak.componen
 import { WittypiComponent } from './components/wittypi/wittypi.component';
 import { UpdateComponent } from './components/update/update.component';
 import { OfflineComponent } from './components/offline/offline.component';
+import { GpioFieldComponent } from './components/settings/gpio-field/gpio-field.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/translations_', '.json');
@@ -44,7 +45,8 @@ const appRoutes: Routes = [
     ThingspeakComponent,
     WittypiComponent,
     UpdateComponent,
-    OfflineComponent
+    OfflineComponent,
+    GpioFieldComponent
   ],
   imports: [
     BrowserModule,

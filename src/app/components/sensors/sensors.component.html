@@ -44,8 +44,12 @@
         </div>
         <div class="row">
           <div class="form-group col-6">
-            <label for="w1gpio">GPIO</label>
-            <input type="number" class="form-control" [(ngModel)]="settings.w1gpio" id="w1gpio" name="w1gpio" placeholder="1-WIRE" required>
+            <settings-gpio-field [label]="'1-WIRE GPIO'"
+                                 [field_id]="'w1gpio'"
+                                 (fieldChanged)="settings.w1gpio = $event"
+                                 [field]="settings.w1gpio"
+                                 [required]="true"
+                                 [disabled_pins]="[21,settings.button_pin]"></settings-gpio-field>
           </div>
         </div>
         <div class="row">
@@ -102,12 +106,20 @@
       <td colspan="2">
         <div class="row">
           <div class="form-group col-6">
-            <label for="pin_dt">GPIO DT</label>
-            <input type="number" class="form-control" [(ngModel)]="sensor.pin_dt" id="pin_dt" name="pin_dt" placeholder="DT" required>
+            <settings-gpio-field [label]="'GPIO DT'"
+                                 [field_id]="'pin_dt'"
+                                 (fieldChanged)="sensor.pin_dt = $event"
+                                 [field]="sensor.pin_dt"
+                                 [required]="true"
+                                 [disabled_pins]="[21,settings.button_pin,settings.w1gpio]"></settings-gpio-field>
           </div>
           <div class="form-group col-6">
-            <label for="pin_sck">GPIO SCK</label>
-            <input type="number" class="form-control" [(ngModel)]="sensor.pin_sck" id="pin_sck" name="pin_sck" placeholder="SCK" required>
+            <settings-gpio-field [label]="'GPIO SCK'"
+                                 [field_id]="'pin_sck'"
+                                 (fieldChanged)="sensor.pin_sck = $event"
+                                 [field]="sensor.pin_sck"
+                                 [required]="true"
+                                 [disabled_pins]="[21,settings.button_pin,settings.w1gpio]"></settings-gpio-field>
           </div>
         </div>
         <div class="row">
@@ -214,8 +226,12 @@
         </div>
         <div class="row">
           <div class="form-group col-6">
-            <label for="pin">GPIO</label>
-            <input type="number" class="form-control" [(ngModel)]="sensor.pin" id="pin" name="pin" placeholder="GPIO" required/>
+            <settings-gpio-field [label]="'GPIO'"
+                                 [field_id]="'pin'"
+                                 (fieldChanged)="sensor.pin = $event"
+                                 [field]="sensor.pin"
+                                 [required]="true"
+                                 [disabled_pins]="[21,settings.button_pin,settings.w1gpio]"></settings-gpio-field>
           </div>
           <div class="form-group col-6">
             <label for="dht_type" [translate]="'settings.sensors.selectType'"></label>
@@ -233,18 +249,30 @@
       <td colspan="2">
         <div class="row">
           <div class="form-group col-6">
-            <label for="pin_cs">Chip-Select (CS)-GPIO</label>
-            <input type="number" class="form-control" [(ngModel)]="sensor.pin_cs" id="pin_cs" name="pin_cs" placeholder="GPIO" required/>
+            <settings-gpio-field [label]="'Chip-Select (CS)-GPIO'"
+                                 [field_id]="'pin_cs'"
+                                 (fieldChanged)="sensor.pin_cs = $event"
+                                 [field]="sensor.pin_cs"
+                                 [required]="true"
+                                 [disabled_pins]="[21,settings.button_pin,settings.w1gpio]"></settings-gpio-field>
           </div>
           <div class="form-group col-6">
-            <label for="pin_clock">Clock (CLK)-GPIO</label>
-            <input type="number" class="form-control" [(ngModel)]="sensor.pin_clock" id="pin_clock" name="pin_clock" placeholder="GPIO" required/>
+            <settings-gpio-field [label]="'Clock (CLK)-GPIO'"
+                                 [field_id]="'pin_clock'"
+                                 (fieldChanged)="sensor.pin_clock = $event"
+                                 [field]="sensor.pin_clock"
+                                 [required]="true"
+                                 [disabled_pins]="[21,settings.button_pin,settings.w1gpio]"></settings-gpio-field>
           </div>
         </div>
         <div class="row">
           <div class="form-group col-6">
-            <label for="pin_miso">Daten (MISO)-GPIO</label>
-            <input type="number" class="form-control" [(ngModel)]="sensor.pin" id="pin_miso" name="pin_miso" placeholder="GPIO" required/>
+            <settings-gpio-field [label]="'Daten (MISO)-GPIO'"
+                                 [field_id]="'pin_miso'"
+                                 (fieldChanged)="sensor.pin = $event"
+                                 [field]="sensor.pin"
+                                 [required]="true"
+                                 [disabled_pins]="[21,settings.button_pin,settings.w1gpio]"></settings-gpio-field>
           </div>
           <div class="form-group col-6">
             <label for="dht_type" [translate]="'settings.sensors.selectType'"></label>
@@ -321,8 +349,12 @@
     </div>
     <hr />
     <div class="form-group">
-      <label for="button_pin">{{'settings.sensors.buttonPin' | translate}}</label>
-      <input type="number" class="form-control" [(ngModel)]="settings.button_pin" id="button_pin" name="button_pin" placeholder="GPIO" required>
+      <settings-gpio-field [label]="'settings.sensors.buttonPin' | translate"
+                           [field_id]="'button_pin'"
+                           (fieldChanged)="settings.button_pin = $event"
+                           [field]="settings.button_pin"
+                           [required]="true"
+                           [disabled_pins]="[21,settings.w1gpio]"></settings-gpio-field>
     </div>
     <div class="alert alert-info" role="alert">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>

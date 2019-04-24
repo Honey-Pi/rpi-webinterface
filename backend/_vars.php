@@ -1,12 +1,12 @@
 <?php
-    $honeyPiHome = '/home/pi/HoneyPi';
-    $scriptsFolder = $honeyPiHome . '/rpi-scripts';
-    $backendFolder = '/var/www/html/backend';
-    $shellDir = $backendFolder . '/shell-scripts';
-    $logFile = $scriptsFolder . '/error.log';
-    $settingsFile = $backendFolder . '/settings.json';
-    $csvFile = $scriptsFolder + '/offline.csv';
-    $wittyPiPath = '/home/pi/wittyPi';
+    $honeyPiHome = "/home/pi/HoneyPi";
+    $scriptsFolder = $honeyPiHome . "/rpi-scripts";
+    $backendFolder = "/var/www/html/backend";
+    $shellDir = $backendFolder . "/shell-scripts";
+    $logFile = $scriptsFolder . "/error.log";
+    $settingsFile = $backendFolder . "/settings.json";
+    $csvFile = $scriptsFolder . "/offline.csv";
+    $wittyPiPath = "/home/pi/wittyPi";
 
     // function to clear files
     function clear_file($file) {

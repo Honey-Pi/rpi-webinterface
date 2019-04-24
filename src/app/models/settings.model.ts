@@ -19,5 +19,5 @@ export class Settings {
   wittyPi_enabled: boolean;
   wittyPi_script: string;
   w1gpio: number;
-  offline: boolean;
+  offline: number;
 }

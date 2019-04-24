@@ -25,6 +25,7 @@ export class SettingsComponent implements OnInit {
   public isConnected = true;
 
   public enableWittyPi = true;
+  public modalEnabled = true;
 
   private n: any;
 

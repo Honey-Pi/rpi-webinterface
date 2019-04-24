@@ -15,12 +15,12 @@
     ob_implicit_flush(1); // Implicit flush at each output command
 
     require_once('_vars.php');
-    // text
-    header('Content-type:text/plain;charset=utf-8');
+    // json
+    header('Content-type:application/json;charset=utf-8');
 
     // function for shell script
     function updateGit() {
-        return shell_exec("sudo git pull --rebase origin master");
+        return shell_exec("sudo git pull");
     }
     function update() {
         return shell_exec("sudo sh ".$GLOBALS['honeyPiHome']."/update.sh");
@@ -28,29 +28,61 @@
     function install() {
         exec("sudo sh ".$GLOBALS['shellDir']."/web-install.sh", $out, $status);
         if (0 === $status) {
-            var_dump($out);
+            return var_dump($out);
         } else {
-            echo "Command failed with status: $status";
+            return "Command failed with status: $status";
         }
     }
 
+    function getVersionInfo() {
+        $obj = new \stdClass();
+        $context = stream_context_create(
+                        array(
+                            "http" => array(
+                                "header" => "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36"
+                            )
+                        )
+                    );
+        try {
+            $urlScripts = "https://api.github.com/repos/Honey-Pi/rpi-scripts/releases/latest";
+            $contentScripts = file_get_contents($urlScripts, false, $context);
+
+            $urlWebinterface = "https://api.github.com/repos/Honey-Pi/rpi-webinterface/releases/latest";
+            $contentWebinterface = file_get_contents($urlWebinterface, false, $context);
+
+            $obj->scripts = json_decode($contentScripts);
+            $obj->webinterface = json_decode($contentWebinterface);
+
+            return $obj;
+        } catch (Exception $e) {
+            $obj->error = 'Exception: '.  $e->getMessage(). "\n";
+        }
+        return $obj;
+    }
+
+    $output = new \stdClass();
     // switch working dir
-    echo "Changed working dir from ";
-    echo getcwd() . "\n";
+    $output->chdir = "Changed working dir from ";
+    $output->chdir .= getcwd() . "\n";
     chdir($GLOBALS['honeyPiHome']);
-    echo " to " . getcwd() . "\n";
+    $output->chdir .= " to " . getcwd() . "\n";
 
     if (isset($_GET['mode']))
     {
-        echo "Update " . $GLOBALS['honeyPiHome'] . " git:" . "\n";
-        echo updateGit();
+        $output->git = "Update " . $GLOBALS['honeyPiHome'] . " git:" . "\n";
+        $output->git .= updateGit();
 
         if ($_GET['mode'] === 'update') {
-            echo update();
+            $output->mode = update();
         } else if ($_GET['mode'] === 'install')
         {
-            install();
+            $output->mode = install();
+        } else if ($_GET['mode'] === 'versionInfo')
+        {
+            $output->mode = getVersionInfo();
         }
     }
+
+    echo json_encode($output, JSON_PRETTY_PRINT);
 
 ?>

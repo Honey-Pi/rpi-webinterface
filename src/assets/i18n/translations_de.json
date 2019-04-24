@@ -5,13 +5,15 @@
     "errorSaving": "<strong>Fehler!</strong> Die Einstellungen konnten nicht gespeichert werden.",
     "gpio": "<b>GPIO:</b> Die Kontaktstifte auf dem Raspberry Pi Board haben zwei Nummerierungen. Eine physische von 1 bis 40 und eine für jeden frei programmierbaren GPIO. Bei der Angabe des Kontaktstiftes wird hier im Wartungsmodus immer die GPIO Nummerierung angegeben.",
     "hx711": {
-      "offset": "<b>Offset:</b> Beeinflusst das Messergebnis indem das Offset vom Messwert abgezogen wird.\n<br />Kann auch eine negative Zahl sein. Angabe in Gramm. Standard ist \"0\".",
-      "scale": "<b>Skalierungswert:</b> Beeinflusst das Messergebnis indem (Messwert-Offset) durch den Skalierungswert geteilt wird.\n<br />Es sind vier Nachkommastellen erlaubt und die Nachkommastellen werden mit Punkt und nicht mit Komma getrennt. Standard ist \"1\"."
+      "offset": "<b>Offset:</b> Beeinflusst das Messergebnis indem das Offset vom Messwert abgezogen wird.\n<br />Kann auch eine negative Zahl sein. <b>Angabe in Gramm.</b> Standard ist \"0\".",
+      "scale": "<b>Skalierungswert:</b> Beeinflusst das Messergebnis indem (Messwert-Offset) durch den Skalierungswert geteilt wird.\n<br />Es sind vier Nachkommastellen erlaubt und die <b>Nachkommastellen werden mit Punkt</b> und nicht mit Komma getrennt. Standard ist \"1\"."
     },
     "noTempSensorFound": "Es konnte kein Temperatursensor am Gerät gefunden werden.",
     "notAP": "<strong>Hinweis:</strong> Der Wartungsmodus wird nicht über den \"HoneyPi\"-AccessPoint aufgerufen. Änderungen werden daher erst nach einem Neustart aktiv (da der Tastendruck ausbleibt).",
     "saved": "<strong>Gespeichert!</strong> Die Einstellungen wurden gespeichert.",
-    "updateInfo": "1. Das Systemupdate kann eine ganze Weile dauern. Es ist wichtig, dass ununterbrochen eine Internetverbindung und Stromversorgung besteht.<br>\n2. Der Raspberry sollte über ein LAN Kabel oder mindestens über WLAN verbunden sein. <br>\n3. Im Reiter \"Internetverbindung\" muss der Button \"Teste Internetverbindung\" einen Erfolg vermelden.<br>\n4. Die Einstellungen gehen dabei verloren (Reset). Daher vorher die Einstellungsdatei exportieren.",
+    "updateAP": "<b>Hinweis:</b> Der Wartungsmodus wird von Dir über den \"HoneyPi\"-AccessPoint aufgerufen. Dies hat zur Folge, dass während des Wartungsmodus keine Internetverbindung über WLAN hergestellt wird. Du kannst im Reiter \"Internetverbindung\" ein WLAN-Netzwerk deiner Wahl eintragen. Bei einem Raspberry 3 kann zum Systemupdate ein LAN Kabel angeschlossen werden. <b>Bitte beachte Schritt 3. Wir empfehlen den Aufruf über die IP/Hostname des Raspberrys im Heimnetzwerk.</b>",
+    "updateInfo": "1. Das Datenvolumen des Surfsticks kann dabei verbraucht werden. <br>\n2. Es empfiehlt sich daher, den Raspberry Zero für das Systemupdate vom Surfstick zu trennen und ihn mit einem vorhandenen WLAN-Netzwerk zu verbinden.<br>\n3. Anschließend sollte der Wartungsmodus nicht über den \"HoneyPi\"-AccessPoint, sondern über die IP-Adresse des Raspberrys aufgerufen werden. <br>\n4. Die Einstellungen gehen dabei verloren (Reset). Daher vorher die Einstellungsdatei exportieren.",
+    "updateNotAP": "<b>Erfolgreich verbunden!</b> Du rufst den Raspberry nicht über den \"HoneyPi\"-AccessPoint auf, sondern über die IP-Adresse im Heimnetzwerk. <b>Du kannst Schritt 3 überspringen.</b>",
     "wittypi": "Mit Hilfe des zusätzlichen Witty Pi Moduls kann der Raspberry Pi zeitgesteuert werden.\nWir bieten bereits drei nützliche Programme.\nDiese können im Eingabefeld auch verändert werden. Voraussetzung ist das <strong>WittyPi 2 oder  Mini</strong>-Modul."
   },
   "brand": "HoneyPi",
@@ -70,10 +72,15 @@
       "title": "Messdaten"
     },
     "offline": {
+      "delete": "Löschen",
       "export": "Messdaten herunterladen",
       "exportButton": "Herunterladen",
       "infoExport": "Die Messdaten werden in einer CSV-Datei abgespeichert. Diese Datei kann anschließend in den ThingSpeak Channel importiert werden. Ansonsten können die Messdaten auch mit der iOS-/Web-App visualisiert werden.",
       "offline": "Messdaten offline speichern ohne ThingSpeak",
+      "radio0": "Online: Ausschließlich Online an ThingSpeak übertragen",
+      "radio1": "Beides: Zu ThingSpeak übertragen und in CSV-Datei ablegen",
+      "radio2": "Bei Fehlern: Nur bei Internet-Verbindungsfehlern in CSV-Datei schreiben",
+      "radio3": "Offline: Ausschließlich Offline in CSV-Datei schreiben",
       "title": "Offline Messdaten"
     },
     "sensors": {
@@ -119,8 +126,9 @@
     "update": {
       "export": "Einstellungen",
       "install": "System neu installieren",
+      "preupdate": "Nach neuster Version suchen",
       "title": "Systemupdate",
-      "update": "Update"
+      "update": "Jetzt aktualisieren"
     },
     "wittypi": {
       "empty": "Leeres Feld",

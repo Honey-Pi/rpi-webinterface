@@ -1,6 +1,7 @@
 <?php
     include_once("_headers.php");
-    require_once('_vars.php');
+    require_once("_vars.php");
+
     // csv
     header('Content-Type: text/csv; charset=utf-8');
     // ie no sniff
