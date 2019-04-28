@@ -73,7 +73,7 @@ export class SettingsComponent implements OnInit {
         if (!this.isAccessPoint) {
           this.translate.get('settings.confirm.savedAP').subscribe((res: string) => {
             if (window.confirm(res)) {
-              this.reboot();
+              this.boot('reboot');
             }
           });
         }
@@ -90,19 +90,30 @@ export class SettingsComponent implements OnInit {
   askForReboot(): void {
     this.translate.get('settings.confirm.reboot').subscribe((res: string) => {
       if (window.confirm(res)) {
-        this.reboot();
+        this.boot('reboot');
       }
     });
   }
-  reboot(): void {
+  askForShutdown(): void {
+    this.translate.get('settings.confirm.shutdown').subscribe((res: string) => {
+      if (window.confirm(res)) {
+        this.boot('shutdown');
+      }
+    });
+  }
+  boot(mode = 'reboot'): void {
     this.isConnected = false;
-    this.appService.reboot().timeout(3000).subscribe(
+    this.appService.boot(mode).timeout(3000).subscribe(
       result => {
         // Handle result
         console.log(result);
       },
-      error => {
-        console.log('Reboot: Connection timeout.');
+      err => {
+        console.error(err, err.name);
+        if (err.name && (err.name === 'TimeoutError' || err.name === 'HttpErrorResponse')) {
+          console.log('Boot: Connection timeout.');
+          this.isConnected = false;
+        }
       },
       () => {
         // 'onCompleted' callback.

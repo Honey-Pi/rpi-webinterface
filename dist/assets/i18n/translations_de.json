@@ -13,7 +13,7 @@
     "saved": "<strong>Gespeichert!</strong> Die Einstellungen wurden gespeichert.",
     "updateAP": "<b>Hinweis:</b> Der Wartungsmodus wird von Dir über den \"HoneyPi\"-AccessPoint aufgerufen. Dies hat zur Folge, dass während des Wartungsmodus keine Internetverbindung über WLAN hergestellt wird. Du kannst im Reiter \"Internetverbindung\" ein WLAN-Netzwerk deiner Wahl eintragen. Bei einem Raspberry 3 kann zum Systemupdate ein LAN Kabel angeschlossen werden. <b>Bitte beachte Schritt 3. Wir empfehlen den Aufruf über die IP/Hostname des Raspberrys im Heimnetzwerk.</b>",
     "updateInfo": "1. Das Datenvolumen des Surfsticks kann dabei verbraucht werden. <br>\n2. Es empfiehlt sich daher, den Raspberry Zero für das Systemupdate vom Surfstick zu trennen und ihn mit einem vorhandenen WLAN-Netzwerk zu verbinden.<br>\n3. Anschließend sollte der Wartungsmodus nicht über den \"HoneyPi\"-AccessPoint, sondern über die IP-Adresse des Raspberrys aufgerufen werden. <br>\n4. Die Einstellungen gehen dabei verloren (Reset). Daher vorher die Einstellungsdatei exportieren.",
-    "updateNotAP": "<b>Erfolgreich verbunden!</b> Du rufst den Raspberry nicht über den \"HoneyPi\"-AccessPoint auf, sondern über die IP-Adresse im Heimnetzwerk. <b>Du kannst Schritt 3 überspringen.</b>",
+    "updateNotAP": "Du rufst den Raspberry nicht über den \"HoneyPi\"-AccessPoint auf, sondern über die IP-Adresse im Heimnetzwerk. <b>Du kannst Schritt 3 überspringen.</b>",
     "wittypi": "Mit Hilfe des zusätzlichen Witty Pi Moduls kann der Raspberry Pi zeitgesteuert werden.\nWir bieten bereits drei nützliche Programme.\nDiese können im Eingabefeld auch verändert werden. Voraussetzung ist das <strong>WittyPi 2 oder  Mini</strong>-Modul."
   },
   "brand": "HoneyPi",
@@ -24,6 +24,7 @@
     "remove": "Entfernen",
     "save": "Speichern",
     "select": "Bitte {{value}} auswählen...",
+    "shutdown": "Ausschalten",
     "tryagain": "Erneut versuchen"
   },
   "error": {
@@ -34,7 +35,8 @@
   "settings": {
     "confirm": {
       "reboot": "Alle ungespeicherten Änderungen gehen verloren. Die Verbindung wird sich vorübergehend trennen. \nDas Gerät wird nun neugestartet. Sicher?",
-      "savedAP": "Damit die Änderungen wirksam werden ist ein Neustart erforderlich. \nSoll das Gerät nun neugestartet werden?"
+      "savedAP": "Damit die Änderungen wirksam werden ist ein Neustart erforderlich. \nSoll das Gerät nun neugestartet werden?",
+      "shutdown": "Alle ungespeicherten Änderungen gehen verloren. Das Gerät fährt herunter. \nSicher?"
     },
     "connectionerror": {
       "body": "<p>Die Bienenstockwaage ist gerade nicht erreichbar, vermutlich wurde das System neu gestartet, dies kann bis zu 1 Minute dauern.\n</p>\n<p>Stelle bitte sicher, dass du immernoch mit dem \"HoneyPi\"-WLAN verbunden bist. Die Verbindung könnte sich auch in der Zwischenzeit automatisch getrennt haben.\n</p>",

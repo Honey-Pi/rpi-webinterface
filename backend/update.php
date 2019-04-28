@@ -14,7 +14,7 @@
     ob_end_flush(); // Stop buffer
     ob_implicit_flush(1); // Implicit flush at each output command
 
-    require_once('_vars.php');
+    require_once("_vars.php");
     // json
     header('Content-type:application/json;charset=utf-8');
 
@@ -50,8 +50,12 @@
             $urlWebinterface = "https://api.github.com/repos/Honey-Pi/rpi-webinterface/releases/latest";
             $contentWebinterface = file_get_contents($urlWebinterface, false, $context);
 
+            // get future updates
             $obj->scripts = json_decode($contentScripts);
             $obj->webinterface = json_decode($contentWebinterface);
+
+            // read current versionInfo
+            $obj->versionInfo = file_get_contents("/var/www/html/version.txt");
 
             return $obj;
         } catch (Exception $e) {

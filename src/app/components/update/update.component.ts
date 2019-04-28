@@ -47,7 +47,7 @@ export class UpdateComponent implements OnInit {
     this.versionInfo = null;
     this.log = null;
     this.isLoading = true;
-    this.appService.update('versionInfo')
+    this.appService.update('versionInfo').timeout(15000)
       .finally(() => this.isLoading = false)
       .subscribe(res => {
         try {
@@ -61,7 +61,16 @@ export class UpdateComponent implements OnInit {
           this.log = e;
           this.versionInfo = null;
         }
-      }, (err: any) => {console.error(err); });
+      }, (err: any) => {
+        this.versionInfo = null;
+        console.error(err);
+        this.log = err;
+        if (err.name && err.name === 'TimeoutError') {
+          this.log = 'Timeout after 15 Seconds.';
+        } else if (err.name && err.name === 'HttpErrorResponse') {
+          this.log = 'Connection failed.';
+        }
+      });
   }
 
   public onFileChanged(event) {

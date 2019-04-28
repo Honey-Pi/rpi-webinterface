@@ -1,10 +1,4 @@
 <table class="table table-bordered table-sm table-responsive-md">
-  <!--<thead>
-  <tr>
-    <th colspan="2" [translate]="'settings.sensors.sensors'">Sensoren</th>
-  </tr>
-  </thead>
-  -->
   <tbody id="sensors">
   <ng-container *ngFor="let sensor of settings.sensors; let i = index">
     <tr [ngClass]="{'my-bg': (i%2 == 0)}">
@@ -169,7 +163,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-6">
+          <div class="col-12">
             <div class="form-group form-check">
               <input type="checkbox" class="form-check-input" name="invert" [(ngModel)]="sensor.invert" id="invert">
               <label class="form-check-label" for="invert" [translate]="'settings.sensors.invert'"></label>
@@ -284,11 +278,11 @@
           </div>
         </div>
         <div class="row">
-          <div class="form-group col-6">
+          <div class="form-group col-12">
             <label for="offset_max" [translate]="'settings.sensors.offset'"></label>
             <input type="number" step="1" class="form-control" [(ngModel)]="sensor.offset" id="offset_max" name="offset" placeholder="{{'settings.sensors.offset' | translate }}" />
           </div>
-          <div class="form-group col-6">
+          <div class="form-group col-12">
             <settings-ts-field [label]="'ThingSpeak ' + ('settings.thingspeak.field' | translate)"
                                [ts_field_id]="'ts_field'"
                                (ts_fieldChanged)="sensor.ts_field = $event"
@@ -340,7 +334,7 @@
 <div class="collapse" id="collapseSensor">
   <div class="card card-body">
     <div class="row">
-      <div class="col-6">
+      <div class="col-12">
         <div class="form-group form-check">
           <input type="checkbox" class="form-check-input" name="debug" [(ngModel)]="settings.debug" id="debug">
           <label class="form-check-label" for="debug" [innerHTML]="'settings.sensors.debug' | translate"></label>

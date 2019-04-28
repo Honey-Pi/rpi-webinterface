@@ -7,7 +7,14 @@
     function reboot() {
         shell_exec("sudo reboot");
     }
+    function shutdown() {
+        shell_exec("sudo shutdown -h 0");
+    }
 
-    reboot();
+    if (isset($_GET['reboot'])) {
+        reboot();
+    } else if (isset($_GET['shutdown'])) {
+        shutdown();
+    }
 
 ?>

@@ -73,9 +73,9 @@ export class AppService {
       });
   }
 
-  reboot(): Observable<Object> {
+  boot(mode): Observable<Object> {
     const timestamp = 't=' + ((new Date()).getTime());
-    return this.http.get(environment.apiURL + 'reboot.php?' + timestamp);
+    return this.http.get(environment.apiURL + 'boot.php?' + mode + '&' + timestamp);
   }
 
 }

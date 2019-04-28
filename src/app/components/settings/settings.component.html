@@ -2,8 +2,9 @@
   <div class="jumbotron">
     <div class="float-right">
       <div class="btn-group btn-group-sm" role="group" aria-label="Controls">
+        <button class="btn btn-sm btn-secondary" type="button" (click)="askForReboot()" [translate]="'buttons.reboot'">Neustarten</button>
+        <button class="btn btn-sm btn-warning" type="button" (click)="askForShutdown()" [translate]="'buttons.shutdown'">Ausschalten</button>
         <button class="btn btn-sm btn-primary" type="button" (click)="saveSettings()" [translate]="'buttons.save'">Speichern</button>
-        <button class="btn btn-sm btn-warning" type="button" (click)="askForReboot()" [translate]="'buttons.reboot'">Neustarten</button>
       </div>
     </div>
     <h1 class="h1" [translate]="'title'">Wartungsmodus</h1>

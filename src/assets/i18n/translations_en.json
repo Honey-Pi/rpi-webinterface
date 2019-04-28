@@ -13,7 +13,7 @@
     "saved": "<strong>Saved!</strong> The settings have been saved.",
     "updateAP": "<b>Note:</b> The maintenance mode is called by you via the \"HoneyPi\"-AccessPoint. As a result, no Internet connection is established via WiFi during maintenance mode. You can enter a WLAN network of your choice in the \"Internet connection\" tab. With a Raspberry 3, a LAN cable can be connected for system updates. <b>Please note step 3. We recommend using the IP/Hostname of the Raspberry in the home network.</b>",
     "updateInfo": "1. The data volume of the surf stick can be used up. <br>\n2. It is therefore recommended to disconnect the Raspberry Zero from the Surfstick for the system update and connect it to an existing WiFi network.<br>\n3. Afterwards, the maintenance mode should not be called via the \"HoneyPi\" AccessPoint, but via the IP address of the Raspberry. <br>\n4. The settings will be lost (reset). Therefore export the settings file beforehand.",
-    "updateNotAP": "<b>Successfully connected!</b> You call the Raspberry not via the \"HoneyPi\" AccessPoint, but via the IP address in the home network. <b>You can skip step 3.</b>",
+    "updateNotAP": "You call the Raspberry not via the \"HoneyPi\" AccessPoint, but via the IP address in the home network. <b>You can skip step 3.</b>",
     "wittypi": "With the help of the additional Witty Pi module, the Raspberry Pi can be time-controlled.\nWe already offer three useful programs.\nThese can also be changed in the input field. Prerequisite is the <strong>Witty Pi Mini</strong> module."
   },
   "brand": "HoneyPi (en)",
@@ -24,6 +24,7 @@
     "remove": "remove",
     "save": "Save",
     "select": "Please select a {{value}}",
+    "shutdown": "Shutdown",
     "tryagain": "Try again"
   },
   "error": {
@@ -34,7 +35,8 @@
   "settings": {
     "confirm": {
       "reboot": "All unsaved changes are lost. The connection will be temporarily disconnected. \nThe device will now restart. Are you sure?",
-      "savedAP": "A restart is required for the changes to take effect. \nShould the device now be restarted?"
+      "savedAP": "A restart is required for the changes to take effect. \nShould the device now be restarted?",
+      "shutdown": "All unsaved changes are lost. The device will now shutdown. \nAre you sure?"
     },
     "connectionerror": {
       "body": "<p>The beehive scale is currently not available, probably the system has been restarted, this can take up to 1 minute.\n</p>\n<p>Please make sure you are still connected to the HoneyPi WiFi. The connection may have disconnected automatically in the meantime.\n</p>",
