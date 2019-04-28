@@ -58,10 +58,10 @@
       "wifi": "WLAN Internetzugang"
     },
     "log": {
-      "delete": "Protokoll löschen",
+      "delete": "Löschen",
       "empty": "Das Protokoll auf diesem Gerät ist leer.",
       "export": "Einstellungen exportieren",
-      "get": "Protokoll aktualisieren",
+      "get": "Aktualisieren",
       "import": "Importieren",
       "importSettings": "Einstellungsdatei importieren:",
       "nofile": "Auf diesem Gerät befindet sich kein Protokoll.",

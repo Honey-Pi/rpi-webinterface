@@ -21,7 +21,7 @@
     <tr *ngIf="sensor.type == 0" [ngClass]="{'my-bg': (i%2 == 0)}">
       <td colspan="2">
         <div class="row">
-          <div class="form-group col-6">
+          <div class="form-group col-12 col-sm-6">
             <label for="device_id">Sensor Device-ID</label>
             <select [(ngModel)]="sensor.device_id" id="device_id" name="device_id" class="custom-select" required>
               <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'Device-ID'}"></option>
@@ -30,14 +30,14 @@
               </ng-container>
             </select>
           </div>
-          <div class="form-group col-6">
+          <div class="form-group col-12 col-sm-6">
             <settings-ts-field [label]="'ThingSpeak ' + ('settings.thingspeak.field' | translate)"
                                (ts_fieldChanged)="sensor.ts_field = $event"
                                [ts_field]="sensor.ts_field" ></settings-ts-field>
           </div>
         </div>
         <div class="row">
-          <div class="form-group col-6">
+          <div class="form-group col-12 col-sm-6">
             <settings-gpio-field [label]="'1-WIRE GPIO'"
                                  [field_id]="'w1gpio'"
                                  (fieldChanged)="settings.w1gpio = $event"
@@ -67,13 +67,13 @@
     <tr *ngIf="sensor.type == 1" [ngClass]="{'my-bg': (i%2 == 0)}">
       <td colspan="2">
         <div class="row">
-          <div class="form-group col-6">
+          <div class="form-group col-12 col-sm-6">
             <settings-ts-field [label]="'ThingSpeak ' + ('settings.sensors.temperature' | translate)"
                                [ts_field_id]="'ts_field_temperature'"
                                (ts_fieldChanged)="sensor.ts_field_temperature = $event"
                                [ts_field]="sensor.ts_field_temperature" ></settings-ts-field>
           </div>
-          <div class="form-group col-6">
+          <div class="form-group col-12 col-sm-6">
             <settings-ts-field [label]="'ThingSpeak ' + ('settings.sensors.humidity' | translate)"
                                [ts_field_id]="'ts_field_humidity'"
                                (ts_fieldChanged)="sensor.ts_field_humidity = $event"
@@ -81,13 +81,13 @@
           </div>
         </div>
         <div class="row">
-          <div class="form-group col-6">
+          <div class="form-group col-12 col-sm-6">
             <settings-ts-field [label]="'ThingSpeak ' + ('settings.sensors.pressure' | translate)"
                                [ts_field_id]="'ts_field_air_pressure'"
                                (ts_fieldChanged)="sensor.ts_field_air_pressure = $event"
                                [ts_field]="sensor.ts_field_air_pressure" ></settings-ts-field>
           </div>
-          <div class="form-group col-6">
+          <div class="form-group col-12 col-sm-6">
             <settings-ts-field [label]="'ThingSpeak ' + ('settings.sensors.quality' | translate)"
                                [ts_field_id]="'ts_field_air_quality'"
                                (ts_fieldChanged)="sensor.ts_field_air_quality = $event"
@@ -99,7 +99,7 @@
     <tr *ngIf="sensor.type == 2" [ngClass]="{'my-bg': (i%2 == 0)}">
       <td colspan="2">
         <div class="row">
-          <div class="form-group col-6">
+          <div class="form-group col-12 col-sm-6">
             <settings-gpio-field [label]="'GPIO DT'"
                                  [field_id]="'pin_dt'"
                                  (fieldChanged)="sensor.pin_dt = $event"
@@ -107,7 +107,7 @@
                                  [required]="true"
                                  [disabled_pins]="[21,settings.button_pin,settings.w1gpio]"></settings-gpio-field>
           </div>
-          <div class="form-group col-6">
+          <div class="form-group col-12 col-sm-6">
             <settings-gpio-field [label]="'GPIO SCK'"
                                  [field_id]="'pin_sck'"
                                  (fieldChanged)="sensor.pin_sck = $event"
@@ -117,7 +117,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="form-group col-6">
+          <div class="form-group col-12 col-sm-6">
             <label for="channel">HX711 Channel</label>
             <select [(ngModel)]="sensor.channel" name="channel" id="channel" class="custom-select" required>
               <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'Channel'}"></option>
@@ -125,18 +125,18 @@
               <option [ngValue]="'B'">Channel B</option>
             </select>
           </div>
-          <div class="form-group col-6">
+          <div class="form-group col-12 col-sm-6">
             <settings-ts-field [label]="'ThingSpeak ' + ('settings.thingspeak.field' | translate)"
                                (ts_fieldChanged)="sensor.ts_field = $event"
                                [ts_field]="sensor.ts_field" ></settings-ts-field>
           </div>
         </div>
         <div class="row">
-          <div class="form-group col-6">
+          <div class="form-group col-12 col-sm-6">
             <label for="offset">{{'settings.sensors.weightcell' | translate }} {{'settings.sensors.offset' | translate }}</label>
             <input type="number" step="1" class="form-control" [(ngModel)]="sensor.offset" id="offset" name="offset" placeholder="{{'settings.sensors.offset' | translate }}" required>
           </div>
-          <div class="form-group col-6">
+          <div class="form-group col-12 col-sm-6">
             <label for="reference_unit">{{'settings.sensors.weightcell' | translate }} {{'settings.sensors.scale' | translate }}</label>
             <input type="number" step="0.0001" class="form-control"
                    [ngModel]="sensor.reference_unit | number:'1.0-4'"
@@ -155,10 +155,10 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-6">
+          <div class="col-12 col-md-6">
             <div class="alert alert-info" [innerHTML]="'alerts.hx711.offset' | translate"></div>
           </div>
-          <div class="col-6">
+          <div class="col-12 col-md-6">
             <div class="alert alert-info" [innerHTML]="'alerts.hx711.scale' | translate"></div>
           </div>
         </div>
@@ -180,17 +180,17 @@
           <div class="col-12">
           <div class="card card-body" *ngIf="sensor.compensation">
             <div class="row">
-              <div class="form-group col-6">
+              <div class="form-group col-12 col-sm-6">
                 <label for="compensation_value" [translate]="'settings.sensors.compensationValue'"></label>
                 <input type="number" step="0.01" class="form-control" [(ngModel)]="sensor.compensation_value" id="compensation_value" name="compensation_value" placeholder="{{'settings.sensors.compensationValuePlaceholder'|translate}}" required />
               </div>
-              <div class="form-group col-6">
+              <div class="form-group col-12 col-sm-6">
                 <label for="compensation_temp" [translate]="'settings.sensors.compensationTemp'"></label>
                 <input type="number" step="0.01" class="form-control" [(ngModel)]="sensor.compensation_temp" id="compensation_temp" name="compensation_temp" placeholder="{{'settings.sensors.compensationTempPlaceholder'|translate}}" required />
               </div>
             </div>
             <div class="row">
-              <div class="col-6">
+              <div class="col-12 col-sm-6">
                 <settings-ts-field [label]="'settings.sensors.compensationSelectTemp' | translate"
                                    [ts_field_id]="'ts_field_temperature'"
                                    (ts_fieldChanged)="sensor.ts_field_temperature = $event"
@@ -205,13 +205,13 @@
     <tr *ngIf="sensor.type == 3" [ngClass]="{'my-bg': (i%2 == 0)}">
       <td colspan="2">
         <div class="row">
-          <div class="form-group col-6">
+          <div class="form-group col-12 col-sm-6">
             <settings-ts-field [label]="'ThingSpeak ' + ('settings.sensors.temperature' | translate)"
                                [ts_field_id]="'ts_field_temperature'"
                                (ts_fieldChanged)="sensor.ts_field_temperature = $event"
                                [ts_field]="sensor.ts_field_temperature" ></settings-ts-field>
           </div>
-          <div class="form-group col-6">
+          <div class="form-group col-12 col-sm-6">
             <settings-ts-field [label]="'ThingSpeak ' + ('settings.sensors.humidity' | translate)"
                                [ts_field_id]="'ts_field_humidity'"
                                (ts_fieldChanged)="sensor.ts_field_humidity = $event"
@@ -219,7 +219,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="form-group col-6">
+          <div class="form-group col-12 col-sm-6">
             <settings-gpio-field [label]="'GPIO'"
                                  [field_id]="'pin'"
                                  (fieldChanged)="sensor.pin = $event"
@@ -227,7 +227,7 @@
                                  [required]="true"
                                  [disabled_pins]="[21,settings.button_pin,settings.w1gpio]"></settings-gpio-field>
           </div>
-          <div class="form-group col-6">
+          <div class="form-group col-12 col-sm-6">
             <label for="dht_type" [translate]="'settings.sensors.selectType'"></label>
             <select [(ngModel)]="sensor.dht_type" id="dht_type" name="dht_type" class="custom-select" required>
               <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'DHT'}"></option>
@@ -242,7 +242,7 @@
     <tr *ngIf="sensor.type == 4" [ngClass]="{'my-bg': (i%2 == 0)}">
       <td colspan="2">
         <div class="row">
-          <div class="form-group col-6">
+          <div class="form-group col-12 col-sm-6">
             <settings-gpio-field [label]="'Chip-Select (CS)-GPIO'"
                                  [field_id]="'pin_cs'"
                                  (fieldChanged)="sensor.pin_cs = $event"
@@ -250,7 +250,7 @@
                                  [required]="true"
                                  [disabled_pins]="[21,settings.button_pin,settings.w1gpio]"></settings-gpio-field>
           </div>
-          <div class="form-group col-6">
+          <div class="form-group col-12 col-sm-6">
             <settings-gpio-field [label]="'Clock (CLK)-GPIO'"
                                  [field_id]="'pin_clock'"
                                  (fieldChanged)="sensor.pin_clock = $event"
@@ -260,7 +260,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="form-group col-6">
+          <div class="form-group col-12 col-sm-6">
             <settings-gpio-field [label]="'Daten (MISO)-GPIO'"
                                  [field_id]="'pin_miso'"
                                  (fieldChanged)="sensor.pin = $event"
@@ -268,7 +268,7 @@
                                  [required]="true"
                                  [disabled_pins]="[21,settings.button_pin,settings.w1gpio]"></settings-gpio-field>
           </div>
-          <div class="form-group col-6">
+          <div class="form-group col-12 col-sm-6">
             <label for="dht_type" [translate]="'settings.sensors.selectType'"></label>
             <select [(ngModel)]="sensor.max_type" id="max_type" name="max_type" class="custom-select" required>
               <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'MAX'}"></option>
@@ -278,11 +278,11 @@
           </div>
         </div>
         <div class="row">
-          <div class="form-group col-12">
+          <div class="form-group col-12 col-sm-6">
             <label for="offset_max" [translate]="'settings.sensors.offset'"></label>
             <input type="number" step="1" class="form-control" [(ngModel)]="sensor.offset" id="offset_max" name="offset" placeholder="{{'settings.sensors.offset' | translate }}" />
           </div>
-          <div class="form-group col-12">
+          <div class="form-group col-12 col-sm-6">
             <settings-ts-field [label]="'ThingSpeak ' + ('settings.thingspeak.field' | translate)"
                                [ts_field_id]="'ts_field'"
                                (ts_fieldChanged)="sensor.ts_field = $event"

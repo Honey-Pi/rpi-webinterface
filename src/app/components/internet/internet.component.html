@@ -8,12 +8,12 @@
   <label class="form-check-label" for="enabledWifi" [translate]="'settings.internet.connectWifi'"></label>
 </div>
 <div class="row" *ngIf="wifi.router.enabled">
-  <div class="form-group col-6">
+  <div class="form-group col-12 col-sm-6">
     <label for="ssid" [translate]="'settings.internet.ssid'"></label>
     <input type="text" class="form-control" [(ngModel)]="wifi.router.ssid" id="ssid" name="ssid" placeholder="{{ 'settings.internet.ssid' | translate}}"
     required [maxlength]="32" #router_ssid="ngModel">
   </div>
-  <div class="form-group col-6">
+  <div class="form-group col-12 col-sm-6">
     <label for="password" [translate]="'settings.internet.password'"></label>
     <input type="text" class="form-control" [(ngModel)]="wifi.router.password" id="password" name="password" placeholder="{{ 'settings.internet.password' | translate}}"
     required [minlength]="8" [maxlength]="63" #router_password="ngModel">
@@ -78,11 +78,11 @@
     <h5 class="h5" [translate]="'settings.internet.honeypiAP'"></h5>
     <p [translate]="'settings.internet.honeypiAPtext'"></p>
     <div class="row">
-      <div class="form-group col-6">
+      <div class="form-group col-12 col-sm-6">
         <label for="honeypiWifissid">{{ 'settings.internet.ssid' | translate}}</label>
         <input type="text" class="form-control" [(ngModel)]="wifi.honeypi.ssid" id="honeypiWifissid" name="honeypiWifissid" placeholder="{{ 'settings.internet.ssid' | translate}}">
       </div>
-      <div class="form-group col-6">
+      <div class="form-group col-12 col-sm-6">
         <label for="honeypiWifipassword">{{ 'settings.internet.password' | translate}}</label>
         <input type="text" class="form-control" [(ngModel)]="wifi.honeypi.password" id="honeypiWifipassword" name="honeypiWifipassword" placeholder="{{ 'settings.internet.password' | translate}}">
       </div>
