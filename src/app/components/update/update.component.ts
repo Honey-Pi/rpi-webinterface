@@ -66,9 +66,9 @@ export class UpdateComponent implements OnInit {
         console.error(err);
         this.log = err;
         if (err.name && err.name === 'TimeoutError') {
-          this.log = 'Timeout.';
+          this.log = 'TimeoutError.';
         } else if (err.name && err.name === 'HttpErrorResponse') {
-          this.log = 'Connection failed.';
+          this.log = 'HttpErrorResponse.';
         }
       });
   }

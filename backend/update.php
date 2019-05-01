@@ -55,7 +55,11 @@
             $obj->webinterface = json_decode($contentWebinterface);
 
             // read current versionInfo
-            $obj->versionInfo = file_get_contents("/var/www/html/version.txt");
+            $versionInfo_file = "/var/www/html/version.txt";
+            if (file_exists($versionInfo_file)) {
+                $obj->versionInfo = file_get_contents($versionInfo_file);
+            }
+
 
             return $obj;
         } catch (Exception $e) {
