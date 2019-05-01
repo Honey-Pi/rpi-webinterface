@@ -7,6 +7,7 @@
           <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.sensors.sensor' | translate}"></option>
           <option [ngValue]="0" [translate]="'settings.sensors.sensor_0'">Temperatursensor (DS18b20)</option>
           <option [ngValue]="1" [translate]="'settings.sensors.sensor_1'">BME680 (Temperatur+Luftfeuchtigkeit+Luftdruck+Qualität)</option>
+          <option [ngValue]="5" [translate]="'settings.sensors.sensor_5'">BME280 (Temperatur+Luftfeuchtigkeit+Luftdruck)</option>
           <option [ngValue]="2" [translate]="'settings.sensors.sensor_2'">Gewichtssensor (A/D: HX711)</option>
           <option [ngValue]="3" [translate]="'settings.sensors.sensor_3'">Luftfeuchtigkeit und Temperatur (DHT)</option>
           <option [ngValue]="4" [translate]="'settings.sensors.sensor_4'">Temperatursensor (MAX6675/MAX31855)</option>
@@ -287,6 +288,32 @@
                                [ts_field_id]="'ts_field'"
                                (ts_fieldChanged)="sensor.ts_field = $event"
                                [ts_field]="sensor.ts_field" ></settings-ts-field>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr *ngIf="sensor.type == 5" [ngClass]="{'my-bg': (i%2 == 0)}">
+      <td colspan="2">
+        <div class="row">
+          <div class="form-group col-12 col-sm-6">
+            <settings-ts-field [label]="'ThingSpeak ' + ('settings.sensors.temperature' | translate)"
+                               [ts_field_id]="'ts_field_temperature'"
+                               (ts_fieldChanged)="sensor.ts_field_temperature = $event"
+                               [ts_field]="sensor.ts_field_temperature" ></settings-ts-field>
+          </div>
+          <div class="form-group col-12 col-sm-6">
+            <settings-ts-field [label]="'ThingSpeak ' + ('settings.sensors.humidity' | translate)"
+                               [ts_field_id]="'ts_field_humidity'"
+                               (ts_fieldChanged)="sensor.ts_field_humidity = $event"
+                               [ts_field]="sensor.ts_field_humidity" ></settings-ts-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-12 col-sm-6">
+            <settings-ts-field [label]="'ThingSpeak ' + ('settings.sensors.pressure' | translate)"
+                               [ts_field_id]="'ts_field_air_pressure'"
+                               (ts_fieldChanged)="sensor.ts_field_air_pressure = $event"
+                               [ts_field]="sensor.ts_field_air_pressure" ></settings-ts-field>
           </div>
         </div>
       </td>

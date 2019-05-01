@@ -7,6 +7,7 @@ export class Sensor {
   Type 2: HX711
   Type 3: DHT11/DHT22
   Type 4: MAX6675/MAX31855
+  Type 5: BME280
    */
 
   type: number;

@@ -23,6 +23,7 @@ export class SettingsComponent implements OnInit {
   public settingsSaved = false;
   public settingsError = false;
   public isConnected = true;
+  public isLoading = false;
 
   public enableWittyPi = true;
   public modalEnabled = true;
@@ -45,7 +46,9 @@ export class SettingsComponent implements OnInit {
   }
 
   getSettings(): void {
+    this.isLoading = true;
     this.appService.getSettings().timeout(3000)
+      .finally(() => this.isLoading = false)
       .subscribe(res => {
         if (res) {
           this.settings = <Settings>res;

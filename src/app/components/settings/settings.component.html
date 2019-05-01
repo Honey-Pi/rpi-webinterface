@@ -151,7 +151,7 @@
           </p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" (click)="getSettings()" [translate]="'buttons.tryagain'">Erneut versuchen</button>
+          <button type="button" class="btn btn-primary" (click)="getSettings()" [disabled]="isLoading" [translate]="'buttons.tryagain'">Erneut versuchen</button>
         </div>
       </div>
     </div>

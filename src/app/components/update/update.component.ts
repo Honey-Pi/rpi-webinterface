@@ -47,7 +47,7 @@ export class UpdateComponent implements OnInit {
     this.versionInfo = null;
     this.log = null;
     this.isLoading = true;
-    this.appService.update('versionInfo').timeout(30000)
+    this.appService.update('versionInfo')
       .finally(() => this.isLoading = false)
       .subscribe(res => {
         try {
@@ -66,7 +66,7 @@ export class UpdateComponent implements OnInit {
         console.error(err);
         this.log = err;
         if (err.name && err.name === 'TimeoutError') {
-          this.log = 'Timeout after 30 Seconds.';
+          this.log = 'Timeout.';
         } else if (err.name && err.name === 'HttpErrorResponse') {
           this.log = 'Connection failed.';
         }
