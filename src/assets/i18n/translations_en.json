@@ -11,6 +11,7 @@
     "noTempSensorFound": "No temperature sensor could be found on the device.",
     "notAP": "<strong>Note:</strong> The maintenance mode is not called through the 'HoneyPi' AccessPoint. Changes are therefore only made after a restart (because the pushbutton is not being pressed).",
     "saved": "<strong>Saved!</strong> The settings have been saved.",
+    "shutdownAfterTransfer": "You have to be quick to get into maintenance mode.",
     "updateAP": "<b>Note:</b> The maintenance mode is called by you via the \"HoneyPi\"-AccessPoint. As a result, no Internet connection is established via WiFi during maintenance mode. You can enter a WLAN network of your choice in the \"Internet connection\" tab. With a Raspberry 3, a LAN cable can be connected for system updates. <b>Please note step 3. We recommend using the IP/Hostname of the Raspberry in the home network.</b>",
     "updateInfo": "1. The data volume of the surf stick can be used up. <br>\n2. It is therefore recommended to disconnect the Raspberry Zero from the Surfstick for the system update and connect it to an existing WiFi network.<br>\n3. Afterwards, the maintenance mode should not be called via the \"HoneyPi\" AccessPoint, but via the IP address of the Raspberry. <br>\n4. The settings will be lost (reset). Therefore export the settings file beforehand.",
     "updateNotAP": "You call the Raspberry not via the \"HoneyPi\" AccessPoint, but via the IP address in the home network. <b>You can skip step 3.</b>",

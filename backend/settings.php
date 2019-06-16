@@ -68,14 +68,19 @@
                     && strlen(trim($wittyPi_script)) >= 1) {
 
                 file_put_contents($wittyPiFile, $wittyPi_script);
+
+                // set WittyPi (dont wait exec to finish)
+                shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_wittypi.sh 1 > /dev/null 2>&1 &");
             } else {
 
                 emptyFile($wittyPiFile);
                 $postJson["wittyPi_enabled"] = false;
+
+                // reset wittyPi schedule
+                shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_wittypi.sh 0 > /dev/null 2>&1 &");
            }
 
-           // run WittyPi to tranfer .wpi to Module
-           shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_wittypi.sh");
+
         }
 
         // write new settings to file

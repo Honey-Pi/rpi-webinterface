@@ -26,7 +26,7 @@
         return shell_exec("sudo sh ".$GLOBALS['honeyPiHome']."/update.sh");
     }
     function install() {
-        exec("sudo sh ".$GLOBALS['shellDir']."/web-install.sh", $out, $status);
+        exec("sudo sh ".$GLOBALS['shellDir']."/web-install.sh > /dev/null 2>&1 &", $out, $status);
         if (0 === $status) {
             return var_dump($out);
         } else {
