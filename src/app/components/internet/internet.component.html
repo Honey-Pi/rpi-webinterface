@@ -16,7 +16,7 @@
   <div class="form-group col-12 col-sm-6">
     <label for="password" [translate]="'settings.internet.password'"></label>
     <input type="text" class="form-control" [(ngModel)]="wifi.router.password" id="password" name="password" placeholder="{{ 'settings.internet.password' | translate}}"
-    required [minlength]="8" [maxlength]="63" #router_password="ngModel">
+    required [minlength]="8" [maxlength]="63" [pattern]="disallowedChars" #router_password="ngModel">
   </div>
   <div *ngIf="(router_ssid?.value && router_ssid?.value?.indexOf(' ') !== -1)"
        class="alert alert-warning col-12" role="alert">
@@ -45,12 +45,15 @@
     <div *ngIf="router_password?.errors.minlength || router_password?.errors.maxlength">
       {{ 'error.length' | translate: { field: 'settings.internet.password' | translate} }}
     </div>
+    <div *ngIf="router_password?.errors.pattern">
+      {{ 'error.specialchar' | translate: { field: 'settings.internet.password' | translate} }}
+    </div>
   </div>
 </div>
 <hr />
 <h5 class="h5" [translate]="'settings.internet.isMobileConnected'"></h5>
 <p>
-  <button type="button" role="button" class="btn btn-warning btn-sm" (click)="checkInternet()" [translate]="'settings.internet.testConnection'"></button>
+  <button type="button" role="button" class="btn btn-warning btn-sm" (click)="checkInternet()" [disabled]="isLoading"  [class.spinner]="isLoading"  [translate]="'settings.internet.testConnection'"></button>
 </p>
 <div *ngIf="checkInternetResponse">
   <div class="alert alert-success" role="alert" *ngIf="checkInternetResponse.connected">

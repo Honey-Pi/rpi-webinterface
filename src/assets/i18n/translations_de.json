@@ -31,7 +31,8 @@
   "error": {
     "length": "\"{{field}}\" liegt außerhalb des gültigen Wertebereichs.",
     "required": "Das Feld \"{{field}}\" wird benötigt.",
-    "spaces": "\"{{field}}\" enthält ein Leerzeichen. Ist das gewollt?"
+    "spaces": "\"{{field}}\" enthält ein Leerzeichen. Ist das gewollt?",
+    "specialchar": "\"{{field}}\" enthält nichterlaubte Sonderzeichen."
   },
   "settings": {
     "confirm": {

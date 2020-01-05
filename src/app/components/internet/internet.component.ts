@@ -12,6 +12,8 @@ import 'rxjs/add/operator/timeout';
 export class InternetComponent implements OnInit {
 
   public checkInternetResponse: {connected: boolean, content: string};
+  public isLoading = false;
+  public disallowedChars = '[^/]+';
 
   /* two-way databinding for settings*/
   _wifi: InternetSettings;
@@ -32,8 +34,10 @@ export class InternetComponent implements OnInit {
   }
 
   checkInternet(): void {
+    this.isLoading = true;
     this.checkInternetResponse = null;
     this.appService.checkInternet().timeout(15000)
+      .finally(() => this.isLoading = false)
       .subscribe(res => {
         this.checkInternetResponse = <any>res;
       }, (err: any) => {

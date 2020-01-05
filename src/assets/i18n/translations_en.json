@@ -31,7 +31,8 @@
   "error": {
     "length": "\"{{field}}\" is outside the valid value range.",
     "required": "The field \"{{field}}\" is required.",
-    "spaces": "\"{{field}}\" contains a space character. Is that wanted?"
+    "spaces": "\"{{field}}\" contains a space character. Is that wanted?",
+    "specialchar": "\"{{field}}\" contains forbidden special characters."
   },
   "settings": {
     "confirm": {
