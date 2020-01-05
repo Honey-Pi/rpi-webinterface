@@ -352,10 +352,10 @@
 <div class="form-group form-check" *ngIf="settings.interval === 1">
   <input type="checkbox" class="form-check-input" name="shutdownAfterTransfer" [(ngModel)]="settings.shutdownAfterTransfer" id="shutdownAfterTransfer">
   <label class="form-check-label" for="shutdownAfterTransfer" [innerHTML]="'settings.sensors.shutdownAfterTransfer' | translate"></label>
-  <div class="alert alert-info" role="alert">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <span [innerHTML]="'alerts.shutdownAfterTransfer' | translate"></span>
-  </div>
+</div>
+<div class="alert alert-info" role="alert" *ngIf="settings.interval === 1">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <span [innerHTML]="'alerts.shutdownAfterTransfer' | translate"></span>
 </div>
 <p>
   <a class="text-danger" data-toggle="collapse" href="#collapseSensor" role="button" aria-expanded="false" aria-controls="collapseSensor">
