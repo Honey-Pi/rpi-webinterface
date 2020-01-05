@@ -145,13 +145,16 @@
         <div class="modal-header">
           <h5 class="modal-title" [translate]="'settings.connectionerror.title'">Verbindung fehlgeschlagen</h5>
         </div>
-        <div class="modal-body" [innerHTML]="'settings.connectionerror.body' | translate">
-          <p>
+        <div class="modal-body">
+          <div [innerHTML]="'settings.connectionerror.body' | translate">
             Die Bienenstockwaage ist gerade nicht erreichbar.
+          </div>
+          <p *ngIf="getMobileOperatingSystem() === 'Android'">
+            <img src="assets/images/screenshot-stayconnected-android.png" alt="Screenshot" class="rounded img-fluid" />
           </p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" (click)="getSettings()" [disabled]="isLoading" [translate]="'buttons.tryagain'">Erneut versuchen</button>
+          <button type="button" class="btn btn-primary" (click)="getSettings()" [disabled]="isLoading" [class.spinner]="isLoading" [translate]="'buttons.tryagain'">Erneut versuchen</button>
         </div>
       </div>
     </div>

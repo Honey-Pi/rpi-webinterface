@@ -4,6 +4,7 @@ import {TranslateService} from '@ngx-translate/core';
 
 import { Settings } from '../../models/settings.model';
 import 'rxjs/add/operator/timeout';
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-settings',
@@ -26,7 +27,7 @@ export class SettingsComponent implements OnInit {
   public isLoading = false;
 
   public enableWittyPi = true;
-  public modalEnabled = true;
+  public modalEnabled = (false && (!environment.production));
 
   private n: any;
 
@@ -124,6 +125,30 @@ export class SettingsComponent implements OnInit {
         window.location.reload(true);
       }
     );
+  }
+
+  /**
+   * Determine the mobile operating system.
+   * This function returns one of 'iOS', 'Android', 'Windows Phone', or 'unknown'.
+   */
+  public getMobileOperatingSystem(): string {
+    const userAgent = navigator.userAgent || navigator.vendor || window['opera'];
+
+    // Windows Phone must come first because its UA also contains "Android"
+    if (/windows phone/i.test(userAgent)) {
+      return 'Windows Phone';
+    }
+
+    if (/android/i.test(userAgent)) {
+      return 'Android';
+    }
+
+    // iOS detection from: http://stackoverflow.com/a/9039885/177710
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window['MSStream']) {
+      return 'iOS';
+    }
+
+    return 'unknown';
   }
 
 }
