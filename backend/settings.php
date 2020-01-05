@@ -22,13 +22,17 @@
         if (isset($postJson["internet"]["router"])) {
             $router = $postJson["internet"]["router"];
             if (isset($router["enabled"]) && $router["enabled"] === true && isset($router["ssid"]) && isset($router["password"]) && strlen($router["password"]) >= 8) {
-				$escapedSsid = escapeshellarg($router["ssid"]);
-				$escapedPw = escapeshellarg($router["password"]);
-				shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_router_ssidpw.sh $escapedSsid $escapedPw;");
+                // password did not change
+                if ($router["password"] != "********") {
+                    $escapedSsid = escapeshellarg($router["ssid"]);
+    				$escapedPw = escapeshellarg($router["password"]);
+				    shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_router_ssidpw.sh $escapedSsid $escapedPw;");
+                }
 
             } else {
                 // disable connection
 				shell_exec('sudo sh '.$GLOBALS['shellDir'].'/change_router_ssidpw.sh fremderRouter WLANpasswort;');
+                $postJson["internet"]["router"]["enabled"] = false;
             }
         }
 
@@ -90,6 +94,8 @@
 
     // send settings
     $settings = json_decode(file_get_contents($settingsFile));
+    // anonymize wifi password
+    $settings['internet']['router']['password'] = "********";
     echo json_encode($settings, JSON_PRETTY_PRINT);
 
 ?>
