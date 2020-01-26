@@ -73,6 +73,15 @@ export class AppService {
       });
   }
 
+  checkThingSpeakChannel(thingspeakdata: {ts_channel_id: number, ts_write_key: string}): Observable<Response> {
+    return this.http.post(environment.apiURL + 'check_thingspeak.php', thingspeakdata)
+      .map((response: Response) => {
+        if (response) {
+          return response;
+        }
+      });
+  }
+
   boot(mode): Observable<Object> {
     const timestamp = 't=' + ((new Date()).getTime());
     return this.http.get(environment.apiURL + 'boot.php?' + mode + '&' + timestamp);
