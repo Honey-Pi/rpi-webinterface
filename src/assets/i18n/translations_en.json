@@ -41,7 +41,9 @@
       "shutdown": "All unsaved changes are lost. The device will now shutdown. \nAre you sure?"
     },
     "connectionerror": {
-      "body": "<p>The beehive scale is currently not available, probably the system has been restarted, this can take up to 1 minute.\n</p>\n<p>Please make sure you are still connected to the HoneyPi WiFi. The connection may have disconnected automatically in the meantime.\n</p>",
+      "body": "<p>The beehive scale is currently not available, probably the system has been restarted, this can take up to 1 minute.\n</p>\n<p>Another reason could be: Please make sure you are still connected to the HoneyPi WiFi. The connection may have disconnected automatically in the meantime.\n</p>",
+      "stayconnectedAP": "Since the \"HoneyPi\" access point does not provide an Internet connection, devices tend to use mobile networks for the Internet, even though they have WiFi connected. To be stil able to connect to the HoneyPi web interface it might help: Activate flight mode and then activate only the WiFi. Connect to the \"HoneyPi\" access point again.",
+      "stayconnectedNotAP": "Obviously you do not seem to call up the HoneyPi via the access point. Another reason could be that the IP address of the device in your home network has changed. Clear the browser cache.",
       "title": "Connection failed"
     },
     "internet": {
@@ -125,7 +127,11 @@
       "weightcell": "weight cell"
     },
     "thingspeak": {
+      "addChannel": "Add more",
+      "checkConnection": "Check connection to ThingSpeak",
+      "confirmCheck": "You are about to test if the ThingSpeak connection information you entered is correct.\nNote: This function only works if the Raspberry Pi is connected to the Internet. To check the Internet connection, click on the tab and the button \"Check Internet Connection\".",
       "field": "Field",
+      "removeChannel": "Remove Channel from list",
       "title": "ThingSpeak Settings"
     },
     "update": {
