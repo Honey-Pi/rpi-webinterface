@@ -5,38 +5,62 @@
          id="ts_server_url" name="ts_server_url" placeholder="Server URL"
          required #ts_server_url="ngModel">
 </div>-->
-<div class="form-group">
-  <label for="ts_channel_id">ThingSpeak Channel-ID</label>
-  <input type="number" class="form-control" [(ngModel)]="settings.ts_channel_id"
-         id="ts_channel_id" name="ts_channel_id" placeholder="Channel-ID"
-         required [min]="0" [max]="9999999" #ts_channel_id="ngModel">
-</div>
-<div class="form-group">
-  <label for="ts_write_key">ThingSpeak <strong>Write</strong>-API-Key</label>
-  <input type="text" class="form-control" [(ngModel)]="settings.ts_write_key"
-         id="ts_write_key" name="ts_write_key" placeholder="Write-API-Key"
-         required minlength="16" maxlength="16" #ts_write_key="ngModel">
-</div>
-<div *ngIf="(ts_write_key?.value && ts_write_key?.value?.indexOf(' ') !== -1)"
-     class="alert alert-warning" role="alert">
-  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  {{ 'error.spaces' | translate: { field: 'Write-API-Key'} }}
-</div>
-<div *ngIf="ts_channel_id.invalid && (ts_channel_id.dirty || ts_channel_id.touched)"
-     class="alert alert-danger">
-  <div *ngIf="ts_channel_id?.errors.required">
-    {{ 'error.required' | translate: { field: 'Channel-ID'} }}
+
+<div *ngFor="let channel of settings.channels; let i=index; let last=last;let first=first; let isOk = undefined;" class="rounded row">
+  <div class="col-12"  [ngClass]="{'my-bg-ts': (i%2 != 0)}">
+    <br *ngIf="!first">
+    <button type="button" (click)="removeChannel(i)" class="btn btn-danger btn-sm float-right" style="margin-bottom:10px" [disabled]="isRemovingDisabled" title="{{ 'settings.thingspeak.removeChannel' | translate}}">&#x232b;</button>
+    <button type="button" #checkElement (click)="isOk = checkThingSpeakChannel(channel.ts_channel_id, channel.ts_write_key, checkElement);" [class.spinner]="checkElement.disabled" class="btn btn-sm btn-warning float-right" style="margin-bottom:10px" title="{{ 'settings.thingspeak.checkConnection' | translate}}">&#x2713;</button>
+    <h5 class="h5">ThingSpeak Channel #{{i+1}}</h5>
+    <div class="form-group">
+      <label for="ts_name">Channel-Name <i>(optional)</i></label>
+      <input type="text" class="form-control" [(ngModel)]="channel.name"
+             id="ts_name" name="ts_name" placeholder="Name"
+             #ts_name="ngModel">
+    </div>
+    <div class="form-group">
+      <label for="ts_channel_id">ThingSpeak Channel-ID</label>
+      <input type="number" class="form-control" [(ngModel)]="channel.ts_channel_id"
+             id="ts_channel_id" name="ts_channel_id" placeholder="Channel-ID"
+             required [min]="0" [max]="9999999" #ts_channel_id="ngModel">
+    </div>
+    <div class="form-group">
+      <label for="ts_write_key">ThingSpeak <strong>Write</strong>-API-Key</label>
+      <input type="text" class="form-control" [(ngModel)]="channel.ts_write_key"
+             id="ts_write_key" name="ts_write_key" placeholder="Write-API-Key"
+             required minlength="16" maxlength="16" #ts_write_key="ngModel">
+    </div>
+    <div *ngIf="(ts_write_key?.value && ts_write_key?.value?.indexOf(' ') !== -1)"
+         class="alert alert-warning" role="alert">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      {{ 'error.spaces' | translate: { field: 'Write-API-Key'} }}
+    </div>
+    <div *ngIf="ts_channel_id.invalid && (ts_channel_id.dirty || ts_channel_id.touched)"
+         class="alert alert-danger">
+      <div *ngIf="ts_channel_id?.errors.required">
+        {{ 'error.required' | translate: { field: 'Channel-ID'} }}
+      </div>
+      <div *ngIf="ts_channel_id?.errors.min || ts_channel_id?.errors.max">
+        {{ 'error.length' | translate: { field: 'Channel-ID'} }}
+      </div>
+    </div>
+    <div *ngIf="ts_write_key.invalid && (ts_write_key.dirty || ts_write_key.touched)"
+         class="alert alert-danger">
+      <div *ngIf="ts_write_key?.errors.required">
+        {{ 'error.required' | translate: { field: 'Write-API-Key'} }}
+      </div>
+      <div *ngIf="ts_write_key?.errors.minlength || ts_write_key?.errors.maxlength">
+        {{ 'error.length' | translate: { field: 'Write-API-Key'} }}
+      </div>
+    </div>
+    <br *ngIf="!last">
   </div>
-  <div *ngIf="ts_channel_id?.errors.min || ts_channel_id?.errors.max">
-    {{ 'error.length' | translate: { field: 'Channel-ID'} }}
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <br>
+    <button type="button" (click)="addChannel()" class="btn btn-primary btn-sm float-left shadow-sm" [disabled]="isAddingDisabled">&#x2b; {{ 'settings.thingspeak.addChannel' | translate}}</button>
   </div>
 </div>
-<div *ngIf="ts_write_key.invalid && (ts_write_key.dirty || ts_write_key.touched)"
-     class="alert alert-danger">
-  <div *ngIf="ts_write_key?.errors.required">
-    {{ 'error.required' | translate: { field: 'Write-API-Key'} }}
-  </div>
-  <div *ngIf="ts_write_key?.errors.minlength || ts_write_key?.errors.maxlength">
-    {{ 'error.length' | translate: { field: 'Write-API-Key'} }}
-  </div>
-</div>
+

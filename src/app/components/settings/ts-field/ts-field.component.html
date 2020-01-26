@@ -1,12 +1,7 @@
 <label for="{{ ts_field_id }}">{{ label }}</label>
 <select [(ngModel)]="ts_field" id="{{ ts_field_id }}" name="{{ ts_field_id }}" (ngModelChange)="onChange($event)" class="custom-select" [required]="required">
   <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.thingspeak.field' | translate}"></option>
-  <option value="field1">{{'settings.thingspeak.field' | translate}} 1</option>
-  <option value="field2">{{'settings.thingspeak.field' | translate}} 2</option>
-  <option value="field3">{{'settings.thingspeak.field' | translate}} 3</option>
-  <option value="field4">{{'settings.thingspeak.field' | translate}} 4</option>
-  <option value="field5">{{'settings.thingspeak.field' | translate}} 5</option>
-  <option value="field6">{{'settings.thingspeak.field' | translate}} 6</option>
-  <option value="field7">{{'settings.thingspeak.field' | translate}} 7</option>
-  <option value="field8">{{'settings.thingspeak.field' | translate}} 8</option>
+  <optgroup *ngFor="let channel of channels; let c = index"  label="ThingSpeak Channel #{{c+1}} {{channel.name}}">
+    <option value="field{{f*(c+1)}}" *ngFor="let f of [1,2,3,4,5,6,7,8]">{{'settings.thingspeak.field' | translate}} {{f}}</option>
+  </optgroup>
 </select>
