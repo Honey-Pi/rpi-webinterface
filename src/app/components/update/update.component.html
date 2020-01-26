@@ -1,3 +1,4 @@
+<!-- Update Instructions -->
 <div class="alert alert-info" role="alert">
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   <span [innerHTML]="'alerts.updateInfo' | translate"></span>
@@ -11,26 +12,34 @@
   <span [innerHTML]="'alerts.updateNotAP' | translate"></span>
 </div>
 <h5 class="h5" [translate]="'settings.update.title'"></h5>
-<pre class="pre-scrollable" *ngIf="log">Log: {{log | json}}</pre>
-<ng-container *ngIf="versionInfo">
-  <ng-container *ngIf="versionInfo['mode']['versionInfo']">
-    <b>Aktuelle Version: </b>
-    <pre class="pre-scrollable">{{versionInfo['mode']['versionInfo']}}</pre><br>
-  </ng-container>
-  • <b>Wartungsmodus: </b> <i>{{versionInfo['mode']['webinterface'].tag_name}}</i>
-  <pre class="pre-scrollable" *ngIf="versionInfo['mode'].scripts.body && versionInfo['mode'].webinterface.body != ''">Changelog:
-{{versionInfo['mode'].webinterface.body}}</pre>
-  <br>
-  • <b>Messskripte: </b> <i>{{versionInfo['mode']['scripts'].tag_name}}</i>
-  <pre class="pre-scrollable" *ngIf="versionInfo['mode'].scripts.body && versionInfo['mode'].scripts.body != ''">Changelog:
-{{versionInfo['mode'].scripts.body}}</pre>
-</ng-container>
 
+<!-- Version Informations -->
+<pre class="pre-scrollable" *ngIf="log">Log: {{log | json}}</pre>
+<div *ngIf="versionInfo" class="row">
+  <div class="col-12 col-sm-6">
+    <b>Vefügbare Versionen:</b><br>
+    Messskripte <i>{{versionInfo['mode']['scripts'].tag_name}}</i>
+    <pre class="pre-scrollable" *ngIf="versionInfo['mode'].scripts.body && versionInfo['mode'].scripts.body != ''">Changelog:
+{{versionInfo['mode'].scripts.body}}</pre>
+    Wartungsmodus <i>{{versionInfo['mode']['webinterface'].tag_name}}</i>
+    <pre class="pre-scrollable" *ngIf="versionInfo['mode'].scripts.body && versionInfo['mode'].webinterface.body != ''">Changelog:
+{{versionInfo['mode'].webinterface.body}}</pre>
+  </div>
+  <div class="col-12 col-sm-6">
+    <b>Derzeit installierte Version:</b>
+    <ng-container *ngIf="versionInfo['mode']['versionInfo']">
+      <pre class="pre-scrollable">{{versionInfo['mode']['versionInfo']}}</pre><br>
+    </ng-container>
+  </div>
+</div>
+
+<!-- Update Buttons -->
 <p>
   <button class="btn btn-primary btn-sm mr-1 mt-1" type="button" role="button" (click)="getVersionInfo()" [disabled]="isLoading" [translate]="'settings.update.preupdate'"></button>
   <button class="btn btn-warning btn-sm mt-1" *ngIf="versionInfo" type="button" role="button" (click)="update('update')" [disabled]="isLoading" [translate]="'settings.update.update'"></button>
 </p>
 
+<!-- Export/Import Settings -->
 <hr />
 <h5 class="h5" [translate]="'settings.update.export'"></h5>
 <div class="form-group">
@@ -46,6 +55,7 @@
   <button class="btn btn-warning btn-sm" type="button" role="button"
           (click)="fileInput.click()" [translate]="'settings.log.import'"></button>
 </div>
+<!-- Loading Spinner -->
 <ng-container *ngIf="isLoading">
   <div id="circle">
     <div class="loader">

@@ -13,7 +13,6 @@ export class UpdateComponent implements OnInit {
 
   public log = null;
   public isLoading = false;
-
   public versionInfo = null;
 
   constructor(private appService: AppService) { }
