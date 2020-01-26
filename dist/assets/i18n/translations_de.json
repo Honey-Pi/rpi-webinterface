@@ -11,6 +11,7 @@
     "noTempSensorFound": "Es konnte kein Temperatursensor am Gerät gefunden werden.",
     "notAP": "<strong>Hinweis:</strong> Der Wartungsmodus wird nicht über den \"HoneyPi\"-AccessPoint aufgerufen. Änderungen werden daher erst nach einem Neustart aktiv (da der Tastendruck ausbleibt).",
     "saved": "<strong>Gespeichert!</strong> Die Einstellungen wurden gespeichert.",
+    "shutdownAfterTransfer": "Man muss dann schnell sein um in den Wartungsmodus zu kommen.",
     "updateAP": "<b>Hinweis:</b> Der Wartungsmodus wird von Dir über den \"HoneyPi\"-AccessPoint aufgerufen. Dies hat zur Folge, dass während des Wartungsmodus keine Internetverbindung über WLAN hergestellt wird. Du kannst im Reiter \"Internetverbindung\" ein WLAN-Netzwerk deiner Wahl eintragen. Bei einem Raspberry 3 kann zum Systemupdate ein LAN Kabel angeschlossen werden. <b>Bitte beachte Schritt 3. Wir empfehlen den Aufruf über die IP/Hostname des Raspberrys im Heimnetzwerk.</b>",
     "updateInfo": "1. Das Datenvolumen des Surfsticks kann dabei verbraucht werden. <br>\n2. Es empfiehlt sich daher, den Raspberry Zero für das Systemupdate vom Surfstick zu trennen und ihn mit einem vorhandenen WLAN-Netzwerk zu verbinden.<br>\n3. Anschließend sollte der Wartungsmodus nicht über den \"HoneyPi\"-AccessPoint, sondern über die IP-Adresse des Raspberrys aufgerufen werden. <br>\n4. Die Einstellungen gehen dabei verloren (Reset). Daher vorher die Einstellungsdatei exportieren.",
     "updateNotAP": "Du rufst den Raspberry nicht über den \"HoneyPi\"-AccessPoint auf, sondern über die IP-Adresse im Heimnetzwerk. <b>Du kannst Schritt 3 überspringen.</b>",
@@ -30,7 +31,8 @@
   "error": {
     "length": "\"{{field}}\" liegt außerhalb des gültigen Wertebereichs.",
     "required": "Das Feld \"{{field}}\" wird benötigt.",
-    "spaces": "\"{{field}}\" enthält ein Leerzeichen. Ist das gewollt?"
+    "spaces": "\"{{field}}\" enthält ein Leerzeichen. Ist das gewollt?",
+    "specialchar": "\"{{field}}\" enthält nichterlaubte Sonderzeichen."
   },
   "settings": {
     "confirm": {
@@ -39,7 +41,9 @@
       "shutdown": "Alle ungespeicherten Änderungen gehen verloren. Das Gerät fährt herunter. \nSicher?"
     },
     "connectionerror": {
-      "body": "<p>Die Bienenstockwaage ist gerade nicht erreichbar, vermutlich wurde das System neu gestartet, dies kann bis zu 1 Minute dauern.\n</p>\n<p>Stelle bitte sicher, dass du immernoch mit dem \"HoneyPi\"-WLAN verbunden bist. Die Verbindung könnte sich auch in der Zwischenzeit automatisch getrennt haben.\n</p>",
+      "body": "<p>Die Bienenstockwaage ist gerade nicht erreichbar, vermutlich wurde das System neu gestartet, dies kann bis zu 1 Minute dauern.\n</p>\n<p>Ein anderer Grund kann sein: Stelle bitte sicher, dass du immernoch mit dem \"HoneyPi\"-WLAN verbunden bist. Die Verbindung könnte sich in der Zwischenzeit automatisch getrennt haben.\n</p>",
+      "stayconnectedAP": "Da der \"HoneyPi\"-AccessPoint keine Internetverbindung liefert, neigen Geräte dazu, trotz verbundenen Wlan, dann den Mobilfunk fürs Internet zu nutzen. Um sich dennoch mit dem HoneyPi-Webinterface zu verbinden kann helfen: Aktiviere den Flugmodus und anschließend aktiviere nur das Wlan. Verbinde dich erneut mit dem \"HoneyPi\"-AccessPoint.",
+      "stayconnectedNotAP": "Augenscheinlich scheinst du den HoneyPi nicht über den AccessPoint aufzurufen. Ein weiterer Grund könnte daher sein, dass sich die IP-Adresse des Geräts in deinem Heimnetzwerk geändert hat. Lösche den Browser Cache.",
       "title": "Verbindung fehlgeschlagen"
     },
     "internet": {
@@ -123,7 +127,11 @@
       "weightcell": "Wägezelle"
     },
     "thingspeak": {
+      "addChannel": "Weitere Channel hinzufügen",
+      "checkConnection": "Verbindung zu ThingSpeak überprüfen",
+      "confirmCheck": "Du bist dabei zu testen, ob die eingegebenen ThingSpeak Verbindungsdaten richtig sind.\nHinweis: Diese Funktion geht nur, wenn der Raspberry mit dem Internet verbunden bist. Um die Internetverbindung zu prüfen gibt es unterhalb den Reiter und den Button \"Internetverbindung prüfen\".",
       "field": "Feld",
+      "removeChannel": "Channel aus der Liste Entfernen",
       "title": "ThingSpeak Einstellungen"
     },
     "update": {
