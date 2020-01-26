@@ -149,9 +149,19 @@
           <div [innerHTML]="'settings.connectionerror.body' | translate">
             Die Bienenstockwaage ist gerade nicht erreichbar.
           </div>
-          <p *ngIf="getMobileOperatingSystem() === 'Android'">
-            <img src="assets/images/screenshot-stayconnected-android.png" alt="Screenshot" class="rounded img-fluid" />
-          </p>
+          <ng-container *ngIf="isAccessPoint">
+            <p [innerHTML]="'settings.connectionerror.stayconnectedAP' | translate">
+            </p>
+            <p *ngIf="getMobileOperatingSystem() === 'Android'">
+              <img src="assets/images/screenshot-stayconnected-Android.png" alt="Screenshot" class="rounded img-fluid" />
+            </p>
+            <p *ngIf="getMobileOperatingSystem() === 'iOS'">
+              <img src="assets/images/screenshot-stayconnected-iOS.jpeg" alt="Screenshot" class="rounded img-fluid" />
+            </p>
+          </ng-container>
+          <ng-container *ngIf="!isAccessPoint">
+            <p [innerHTML]="'settings.connectionerror.stayconnectedNotAP' | translate">
+          </ng-container>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" (click)="getSettings()" [disabled]="isLoading" [class.spinner]="isLoading" [translate]="'buttons.tryagain'">Erneut versuchen</button>
