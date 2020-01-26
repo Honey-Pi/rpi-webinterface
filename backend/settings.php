@@ -93,7 +93,7 @@
     }
 
     // send settings
-    $settings = json_decode(file_get_contents($settingsFile));
+    $settings = json_decode(file_get_contents($settingsFile), true);
     // anonymize wifi password
     $settings['internet']['router']['password'] = "********";
     echo json_encode($settings, JSON_PRETTY_PRINT);
