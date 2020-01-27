@@ -1,5 +1,5 @@
 export class Wifi {
-  enabled: boolean;
+  enabled?: boolean;
   ssid: string;
   password: string;
 }

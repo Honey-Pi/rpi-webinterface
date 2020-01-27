@@ -34,7 +34,7 @@
           <div class="form-group col-12 col-sm-6">
             <settings-ts-field [label]="'ThingSpeak ' + ('settings.thingspeak.field' | translate)"
                                (ts_fieldChanged)="sensor.ts_field = $event"
-                               [ts_field]="sensor.ts_field" [channels]="settings.channels" ></settings-ts-field>
+                               [ts_field]="sensor.ts_field" [channels]="settings.ts_channels" ></settings-ts-field>
           </div>
         </div>
         <div class="row">
@@ -72,13 +72,13 @@
             <settings-ts-field [label]="'ThingSpeak ' + ('settings.sensors.temperature' | translate)"
                                [ts_field_id]="'ts_field_temperature'"
                                (ts_fieldChanged)="sensor.ts_field_temperature = $event"
-                               [ts_field]="sensor.ts_field_temperature" [channels]="settings.channels"></settings-ts-field>
+                               [ts_field]="sensor.ts_field_temperature" [channels]="settings.ts_channels"></settings-ts-field>
           </div>
           <div class="form-group col-12 col-sm-6">
             <settings-ts-field [label]="'ThingSpeak ' + ('settings.sensors.humidity' | translate)"
                                [ts_field_id]="'ts_field_humidity'"
                                (ts_fieldChanged)="sensor.ts_field_humidity = $event"
-                               [ts_field]="sensor.ts_field_humidity" [channels]="settings.channels"></settings-ts-field>
+                               [ts_field]="sensor.ts_field_humidity" [channels]="settings.ts_channels"></settings-ts-field>
           </div>
         </div>
         <div class="row">
@@ -86,13 +86,13 @@
             <settings-ts-field [label]="'ThingSpeak ' + ('settings.sensors.pressure' | translate)"
                                [ts_field_id]="'ts_field_air_pressure'"
                                (ts_fieldChanged)="sensor.ts_field_air_pressure = $event"
-                               [ts_field]="sensor.ts_field_air_pressure" [channels]="settings.channels" ></settings-ts-field>
+                               [ts_field]="sensor.ts_field_air_pressure" [channels]="settings.ts_channels" ></settings-ts-field>
           </div>
           <div class="form-group col-12 col-sm-6">
             <settings-ts-field [label]="'ThingSpeak ' + ('settings.sensors.quality' | translate)"
                                [ts_field_id]="'ts_field_air_quality'"
                                (ts_fieldChanged)="sensor.ts_field_air_quality = $event"
-                               [ts_field]="sensor.ts_field_air_quality" [channels]="settings.channels" ></settings-ts-field>
+                               [ts_field]="sensor.ts_field_air_quality" [channels]="settings.ts_channels" ></settings-ts-field>
           </div>
         </div>
       </td>
@@ -129,7 +129,7 @@
           <div class="form-group col-12 col-sm-6">
             <settings-ts-field [label]="'ThingSpeak ' + ('settings.thingspeak.field' | translate)"
                                (ts_fieldChanged)="sensor.ts_field = $event"
-                               [ts_field]="sensor.ts_field" [channels]="settings.channels" ></settings-ts-field>
+                               [ts_field]="sensor.ts_field" [channels]="settings.ts_channels" ></settings-ts-field>
           </div>
         </div>
         <div class="row">
@@ -195,7 +195,7 @@
                 <settings-ts-field [label]="'settings.sensors.compensationSelectTemp' | translate"
                                    [ts_field_id]="'ts_field_temperature'"
                                    (ts_fieldChanged)="sensor.ts_field_temperature = $event"
-                                   [ts_field]="sensor.ts_field_temperature" [channels]="settings.channels" [required]="true"></settings-ts-field>
+                                   [ts_field]="sensor.ts_field_temperature" [channels]="settings.ts_channels" [required]="true"></settings-ts-field>
               </div>
             </div>
           </div>
@@ -210,13 +210,13 @@
             <settings-ts-field [label]="'ThingSpeak ' + ('settings.sensors.temperature' | translate)"
                                [ts_field_id]="'ts_field_temperature'"
                                (ts_fieldChanged)="sensor.ts_field_temperature = $event"
-                               [ts_field]="sensor.ts_field_temperature" [channels]="settings.channels" ></settings-ts-field>
+                               [ts_field]="sensor.ts_field_temperature" [channels]="settings.ts_channels" ></settings-ts-field>
           </div>
           <div class="form-group col-12 col-sm-6">
             <settings-ts-field [label]="'ThingSpeak ' + ('settings.sensors.humidity' | translate)"
                                [ts_field_id]="'ts_field_humidity'"
                                (ts_fieldChanged)="sensor.ts_field_humidity = $event"
-                               [ts_field]="sensor.ts_field_humidity" [channels]="settings.channels" ></settings-ts-field>
+                               [ts_field]="sensor.ts_field_humidity" [channels]="settings.ts_channels" ></settings-ts-field>
           </div>
         </div>
         <div class="row">
@@ -287,7 +287,7 @@
             <settings-ts-field [label]="'ThingSpeak ' + ('settings.thingspeak.field' | translate)"
                                [ts_field_id]="'ts_field'"
                                (ts_fieldChanged)="sensor.ts_field = $event"
-                               [ts_field]="sensor.ts_field" [channels]="settings.channels" ></settings-ts-field>
+                               [ts_field]="sensor.ts_field" [channels]="settings.ts_channels" ></settings-ts-field>
           </div>
         </div>
       </td>
@@ -299,13 +299,13 @@
             <settings-ts-field [label]="'ThingSpeak ' + ('settings.sensors.temperature' | translate)"
                                [ts_field_id]="'ts_field_temperature'"
                                (ts_fieldChanged)="sensor.ts_field_temperature = $event"
-                               [ts_field]="sensor.ts_field_temperature" [channels]="settings.channels" ></settings-ts-field>
+                               [ts_field]="sensor.ts_field_temperature" [channels]="settings.ts_channels" ></settings-ts-field>
           </div>
           <div class="form-group col-12 col-sm-6">
             <settings-ts-field [label]="'ThingSpeak ' + ('settings.sensors.humidity' | translate)"
                                [ts_field_id]="'ts_field_humidity'"
                                (ts_fieldChanged)="sensor.ts_field_humidity = $event"
-                               [ts_field]="sensor.ts_field_humidity" [channels]="settings.channels" ></settings-ts-field>
+                               [ts_field]="sensor.ts_field_humidity" [channels]="settings.ts_channels" ></settings-ts-field>
           </div>
         </div>
         <div class="row">
@@ -313,7 +313,7 @@
             <settings-ts-field [label]="'ThingSpeak ' + ('settings.sensors.pressure' | translate)"
                                [ts_field_id]="'ts_field_air_pressure'"
                                (ts_fieldChanged)="sensor.ts_field_air_pressure = $event"
-                               [ts_field]="sensor.ts_field_air_pressure" [channels]="settings.channels" ></settings-ts-field>
+                               [ts_field]="sensor.ts_field_air_pressure" [channels]="settings.ts_channels" ></settings-ts-field>
           </div>
         </div>
       </td>

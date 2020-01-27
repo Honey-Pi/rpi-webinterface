@@ -6,7 +6,7 @@
          required #ts_server_url="ngModel">
 </div>-->
 
-<div *ngFor="let channel of settings.channels; let i=index; let last=last;let first=first; let isOk = undefined;" class="rounded row">
+<div *ngFor="let channel of settings.ts_channels; let i=index; let last=last;let first=first; let isOk = undefined;" class="rounded row">
   <div class="col-12"  [ngClass]="{'my-bg-ts': (i%2 != 0)}">
     <br *ngIf="!first">
     <button type="button" (click)="removeChannel(i)" class="btn btn-danger btn-sm float-right" style="margin-bottom:10px" [disabled]="isRemovingDisabled" title="{{ 'settings.thingspeak.removeChannel' | translate}}">&#x232b;</button>

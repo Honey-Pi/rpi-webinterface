@@ -4,12 +4,12 @@ import {InternetSettings} from './internet-settings.model';
 export class Settings {
 
   constructor() {
-    this.channels = [];
-    this.channels.push({ts_channel_id: undefined, ts_write_key: ''});
+    this.ts_channels = [];
+    this.ts_channels.push({ts_channel_id: undefined, ts_write_key: ''});
     this.sensors = [];
     this.internet = new InternetSettings();
   }
-  channels: {
+  ts_channels: {
     name?: string;
     ts_channel_id: number;
     ts_write_key: string;

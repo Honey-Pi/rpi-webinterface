@@ -27,23 +27,22 @@ export class ThingspeakComponent {
   constructor(private appService: AppService, private translate: TranslateService) { }
 
   addChannel() {
-    this.settings.channels.push({ts_channel_id: undefined, ts_write_key: ''});
+    this.settings.ts_channels.push({ts_channel_id: undefined, ts_write_key: ''});
   }
 
   removeChannel(index: number): void {
-    this.settings.channels.splice(index, 1);
+    this.settings.ts_channels.splice(index, 1);
   }
 
   get isAddingDisabled(): boolean {
-    return (this.settings.channels.length >= 10);
+    return (this.settings.ts_channels.length >= 10);
   }
 
   get isRemovingDisabled(): boolean {
-    return (this.settings.channels.length <= 1);
+    return (this.settings.ts_channels.length <= 1);
   }
 
   checkThingSpeakChannel(ts_channel_id: number, ts_write_key: string, el: HTMLButtonElement): void {
-    let isOk;
     this.translate.get('settings.thingspeak.confirmCheck').subscribe((translated: string) => {
       if (window.confirm(translated)) {
         el.setAttribute('disabled', 'disabled');
