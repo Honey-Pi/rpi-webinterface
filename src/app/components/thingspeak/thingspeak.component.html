@@ -7,7 +7,7 @@
 </div>-->
 
 <div *ngFor="let channel of settings.ts_channels; let i=index; let last=last;let first=first; let isOk = undefined;" class="rounded row">
-  <div class="col-12"  [ngClass]="{'my-bg-ts': (i%2 != 0)}">
+  <div class="col-12" [ngClass]="{'my-bg-ts': (i%2 != 0)}">
     <br *ngIf="!first">
     <button type="button" (click)="removeChannel(i)" class="btn btn-danger btn-sm float-right" style="margin-bottom:10px" [disabled]="isRemovingDisabled" title="{{ 'settings.thingspeak.removeChannel' | translate}}">&#x232b;</button>
     <button type="button" #checkElement (click)="isOk = checkThingSpeakChannel(channel.ts_channel_id, channel.ts_write_key, checkElement);" [class.spinner]="checkElement.disabled" class="btn btn-sm btn-warning float-right" style="margin-bottom:10px" title="{{ 'settings.thingspeak.checkConnection' | translate}}">&#x2713;</button>
