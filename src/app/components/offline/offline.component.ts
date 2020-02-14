@@ -32,8 +32,8 @@ export class OfflineComponent implements OnInit {
     this.apiURL = environment.apiURL;
   }
 
-  deleteCsv(): void {
-    this.appService.deleteCsv()
+  deleteCsv(channelId): void {
+    this.appService.deleteCsv(channelId)
       .subscribe(res => {
       }, (err: any) => {console.error(err); });
   }

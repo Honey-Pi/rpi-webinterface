@@ -30,9 +30,13 @@
 </div>
 <hr />
 <h5 class="h5" [translate]="'settings.offline.export'"></h5>
-<div class="btn-group btn-group-sm" role="group">
-  <a href="{{apiURL}}offlinecsv.php" target="_blank" download="HoneyPi-export.csv" class="btn btn-primary btn-sm"
-     [translate]="'settings.offline.exportButton'"></a>
-  <button class="btn btn-danger btn-sm" type="button" role="button" (click)="deleteCsv()" [translate]="'settings.offline.delete'"></button>
+<div *ngFor="let channel of settings.ts_channels;" class="row">
+  <div class="col-12" style="padding-bottom:15px;">
+    <div class="btn-group btn-group-sm" role="group">
+      <a href="{{apiURL}}offlinecsv.php?channelId={{channel.ts_channel_id}}" target="_blank" download="HoneyPi-{{channel.ts_channel_id}}-export.csv" class="btn btn-primary btn-sm">
+        {{'settings.offline.exportButton' | translate}} #{{channel.ts_channel_id}} {{channel.name}}
+      </a>
+      <button class="btn btn-danger btn-sm" type="button" role="button" (click)="deleteCsv(channel.ts_channel_id)" [translate]="'settings.offline.delete'"></button>
+    </div>
+  </div>
 </div>
-
