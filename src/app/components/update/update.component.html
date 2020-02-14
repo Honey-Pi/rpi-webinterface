@@ -18,12 +18,16 @@
 <div *ngIf="versionInfo" class="row">
   <div class="col-12 col-sm-6">
     <b>Vefügbare Versionen:</b><br>
-    Messskripte <i>{{versionInfo['mode']['scripts'].tag_name}}</i>
-    <pre class="pre-scrollable" *ngIf="versionInfo['mode'].scripts.body && versionInfo['mode'].scripts.body != ''">Changelog:
-{{versionInfo['mode'].scripts.body}}</pre>
-    Wartungsmodus <i>{{versionInfo['mode']['webinterface'].tag_name}}</i>
-    <pre class="pre-scrollable" *ngIf="versionInfo['mode'].scripts.body && versionInfo['mode'].webinterface.body != ''">Changelog:
-{{versionInfo['mode'].webinterface.body}}</pre>
+<pre class="pre-scrollable">
+rpi-scripts {{versionInfo['mode']['scripts'].tag_name}}
+<ng-container *ngIf="versionInfo['mode'].scripts.body && versionInfo['mode'].scripts.body != ''">
+Changelog:
+{{versionInfo['mode'].scripts.body}}</ng-container>
+rpi-webinterface {{versionInfo['mode']['webinterface'].tag_name}}
+<ng-container *ngIf="versionInfo['mode'].scripts.body && versionInfo['mode'].webinterface.body != ''">
+Changelog:
+{{versionInfo['mode'].webinterface.body}}</ng-container>
+</pre>
   </div>
   <div class="col-12 col-sm-6">
     <b>Derzeit installierte Version:</b>
