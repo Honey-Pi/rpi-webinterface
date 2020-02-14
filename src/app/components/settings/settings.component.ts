@@ -27,7 +27,7 @@ export class SettingsComponent implements OnInit {
   public isLoading = false;
 
   public enableWittyPi = true;
-  public modalEnabled = true;
+  public modalEnabled = false;
 
   private n: any;
 

@@ -11,6 +11,7 @@
           <option [ngValue]="2" [translate]="'settings.sensors.sensor_2'">Gewichtssensor (A/D: HX711)</option>
           <option [ngValue]="3" [translate]="'settings.sensors.sensor_3'">Luftfeuchtigkeit und Temperatur (DHT)</option>
           <option [ngValue]="4" [translate]="'settings.sensors.sensor_4'">Temperatursensor (MAX6675/MAX31855)</option>
+          <option [ngValue]="6" [translate]="'settings.sensors.sensor_6'">Voltmeter (A/D: YL-40 PFC8591)</option>
         </select>
       </td>
       <td>
@@ -93,6 +94,12 @@
                                [ts_field_id]="'ts_field_air_quality'"
                                (ts_fieldChanged)="sensor.ts_field_air_quality = $event"
                                [ts_field]="sensor.ts_field_air_quality" [channels]="settings.ts_channels" ></settings-ts-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-12 col-sm-6">
+            <label for="offset_bme680">{{'settings.sensors.temperature' | translate}} {{'settings.sensors.offset' | translate }} [°C]</label>
+            <input type="number" step="1" class="form-control" [(ngModel)]="sensor.offset" id="offset_bme680" name="offset_bme680" placeholder="{{'settings.sensors.offset' | translate }}" />
           </div>
         </div>
       </td>
@@ -314,6 +321,18 @@
                                [ts_field_id]="'ts_field_air_pressure'"
                                (ts_fieldChanged)="sensor.ts_field_air_pressure = $event"
                                [ts_field]="sensor.ts_field_air_pressure" [channels]="settings.ts_channels" ></settings-ts-field>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr *ngIf="sensor.type == 6" [ngClass]="{'my-bg': (i%2 == 0)}">
+      <td colspan="2">
+        <div class="row">
+          <div class="form-group col-12 col-sm-6">
+            <settings-ts-field [label]="'ThingSpeak ' + ('settings.thingspeak.field' | translate)"
+                               [ts_field_id]="'ts_field'"
+                               (ts_fieldChanged)="sensor.ts_field = $event"
+                               [ts_field]="sensor.ts_field" [channels]="settings.ts_channels" ></settings-ts-field>
           </div>
         </div>
       </td>

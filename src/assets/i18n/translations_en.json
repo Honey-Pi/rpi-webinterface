@@ -120,6 +120,7 @@
       "sensor_3": "Humidity and temperature (DHT)",
       "sensor_4": "Temperature sensor (MAX6675/MAX31855)",
       "sensor_5": "BME280 (temperature+humidity+pressure+quality)",
+      "sensor_6": "Voltmeter for Battery (A/D: YL-40 PFC8591)",
       "sensors": "Sensors",
       "shutdownAfterTransfer": "Shut down Raspberry after single transfer",
       "temperature": "temperature",
