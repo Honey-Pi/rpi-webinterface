@@ -140,6 +140,12 @@
           </div>
         </div>
         <div class="row">
+          <div class="form-group col-12">
+            <button class="btn btn-sm btn-outline-primary" (click)="showCalibration=true;" style="width:100%" [disabled]="!(sensor.pin_dt && sensor.pin_sck && sensor.channel)">
+               Geführte Kalibrierung der Waage
+            </button>
+          </div>
+          <sensors-weight-calibration *ngIf="showCalibration" (closeModal)="showCalibration=$event" [sensor]="sensor" (calibrationChange)="sensor.offset = $event['offset'];sensor.reference_unit = $event['reference_unit']"></sensors-weight-calibration>
           <div class="form-group col-12 col-sm-6">
             <label for="offset">{{'settings.sensors.weightcell' | translate }} {{'settings.sensors.offset' | translate }}</label>
             <input type="number" step="1" class="form-control" [(ngModel)]="sensor.offset" id="offset" name="offset" placeholder="{{'settings.sensors.offset' | translate }}" required>

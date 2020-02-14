@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import {environment} from '../../environments/environment';
+import {Sensor} from "../models/sensor.model";
 
 @Injectable({
   providedIn: 'root'
@@ -79,6 +80,14 @@ export class AppService {
         if (response) {
           return response;
         }
+      });
+  }
+
+  getWeight(sensor: Sensor): Observable<number> {
+    return this.http.post(environment.apiURL + 'measurement_weight.php', sensor)
+      .map((response: number) => {
+        console.log(response);
+        return response;
       });
   }
 
