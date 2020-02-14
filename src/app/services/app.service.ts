@@ -43,9 +43,9 @@ export class AppService {
     return this.http.get(environment.apiURL + 'log.php?delete&' + timestamp, {responseType: 'text'});
   }
 
-  deleteCsv(): Observable<string> {
+  deleteCsv(channelId): Observable<string> {
     const timestamp = 't=' + ((new Date()).getTime());
-    return this.http.get(environment.apiURL + 'offlinecsv.php?delete&' + timestamp, {responseType: 'text'});
+    return this.http.get(environment.apiURL + 'offlinecsv.php?delete&channelId=' + channelId + '&' + timestamp, {responseType: 'text'});
   }
 
   update(mode= 'update'): Observable<Object> {
