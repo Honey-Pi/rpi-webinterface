@@ -30,6 +30,13 @@ export class WeightCalibrationComponent implements OnInit {
   ngOnInit() {
   }
 
+  round(number: number, precision: number) {
+    const factor = Math.pow(10, precision);
+    const tempNumber = number * factor;
+    const roundedTempNumber = Math.round(tempNumber);
+    return roundedTempNumber / factor;
+  }
+
   step_back() {
     this.step--;
     if (this.step <= 0 ) {
@@ -62,16 +69,23 @@ export class WeightCalibrationComponent implements OnInit {
         this.step++;
       })
       .subscribe(res => {
+        const weight = res ? <number>res * 1000 : 0;
         if (this.step === 1) {
 
-          this.weight1 = <number>res * 1000;
+          this.weight1 = weight;
           this.offset = this.weight1;
 
         } else if (this.step === 2) {
 
-          this.weight2 = <number>res * 1000;
-          this.reference_unit = (this.weight2 - this.offset) / (this.weight1 - this.offset - this.calibration_weight);
+          this.weight2 = weight;
+          this.reference_unit = this.round((this.weight2 - this.offset) / this.calibration_weight, 4);
+          if (!this.reference_unit) {
+            // shoudn't be 0
+            this.reference_unit = 1;
+          }
         }
+        console.log('weight:' + weight + ' calibration_weight:' + this.calibration_weight
+          + ' offset:' + this.offset + ' reference_unit:' + this.reference_unit);
 
       }, (err: any) => {
         console.error(err);
