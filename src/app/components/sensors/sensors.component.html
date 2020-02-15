@@ -99,7 +99,7 @@
         <div class="row">
           <div class="form-group col-12 col-sm-6">
             <label for="offset_bme680">{{'settings.sensors.temperature' | translate}} {{'settings.sensors.offset' | translate }} [°C]</label>
-            <input type="number" step="1" class="form-control" [(ngModel)]="sensor.offset" id="offset_bme680" name="offset_bme680" placeholder="{{'settings.sensors.offset' | translate }}" />
+            <input type="number" step="0.1" class="form-control" [(ngModel)]="sensor.offset" id="offset_bme680" name="offset_bme680" placeholder="{{'settings.sensors.offset' | translate }}" />
           </div>
         </div>
       </td>
