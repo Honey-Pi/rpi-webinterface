@@ -38,4 +38,8 @@ export class OfflineComponent implements OnInit {
       }, (err: any) => {console.error(err); });
   }
 
+  get isThingSpeakDefined() {
+    return (this.settings.ts_channels.filter(x => x.ts_channel_id > 0).length === 0);
+  }
+
 }

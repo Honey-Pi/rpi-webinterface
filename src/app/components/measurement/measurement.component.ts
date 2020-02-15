@@ -11,6 +11,7 @@ export class MeasurementComponent implements OnInit {
 
   public measurement;
   public isLoading = false;
+  public noData = false;
 
   constructor(private appService: AppService) { }
 
@@ -27,6 +28,9 @@ export class MeasurementComponent implements OnInit {
         console.log(res);
         if (res) {
           this.measurement = <any>res;
+          this.noData = false;
+        } else {
+          this.noData = true;
         }
       }, (err: any) => {
         console.error(err);
