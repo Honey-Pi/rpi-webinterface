@@ -75,6 +75,7 @@
       "construction": "This view is only provisional so far and will be extended in the next firmware version.",
       "get": "Recall new measurement",
       "info": "The sensors configured and stored in the \"<strong>{{tab}}</strong>\" tab are displayed here. There is no upload of measurement data to ThingSpeak. Measurement takes up to 1 minute.",
+      "noData": "No measurement data measured. Were the sensors configured in the \"<strong>{{{tab}}</strong>\" tab?",
       "title": "Measurement data"
     },
     "offline": {
@@ -82,6 +83,7 @@
       "export": "Download measurement data",
       "exportButton": "Download",
       "infoExport": "The measurement data is stored in a CSV file. This file can then be imported into the ThingSpeak Channel. Otherwise, the measurement data can also be visualized with the iOS/Web app.",
+      "noData": "Specify at least one channel in the tab \"<strong>{{tab}}</strong>\".",
       "offline": "Offline Measurement without ThingSpeak",
       "radio0": "Online: Transfer exclusively online to ThingSpeak",
       "radio1": "Both: Transfer to ThingSpeak and save to CSV file",
