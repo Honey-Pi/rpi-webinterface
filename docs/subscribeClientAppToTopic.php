@@ -21,7 +21,7 @@ header('Access-Control-Allow-Origin: *');
 		$topicName = filter_var($_GET['topicName'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
 		$registrationToken = filter_var($_GET['registrationToken'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
 		$url = "https://iid.googleapis.com/iid/v1/" . $registrationToken . "/rel/topics/" . $topicName;
-	    $serverKey = 'AAAA4cHxnYE:APA91bFRz0nXwHSEUav07ccOEP76oP8MVxHf9fZdjTJ6ZhX2vP2CYhvXggA2hBRALjVtX9QyU-PUb698QEUd0UJl3u5Ffz27siHdlhY_9BOTkyAzgmeX8okBiBMFCHSwEPliL2xayawA';
+	    $serverKey = '';
 	    $json = json_encode(null);
 	    $headers = array();
 	    $headers[] = 'Content-Type: application/json';
