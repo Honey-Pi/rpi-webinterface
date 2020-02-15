@@ -84,9 +84,8 @@ export class AppService {
   }
 
   getWeight(sensor: Sensor): Observable<number> {
-    return this.http.post(environment.apiURL + 'measurement_weight.php', sensor)
+    return this.http.post(environment.apiURL + 'weight.php', sensor)
       .map((response: number) => {
-        console.log(response);
         return response;
       });
   }
