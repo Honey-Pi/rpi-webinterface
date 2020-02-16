@@ -18,15 +18,13 @@
 <div *ngIf="versionInfo" class="row">
   <div class="col-12 col-sm-6">
     <b>Vefügbare Versionen:</b><br>
-<pre class="pre-scrollable">
-rpi-scripts {{versionInfo['mode']['scripts'].tag_name}}
-<ng-container *ngIf="versionInfo['mode'].scripts.body && versionInfo['mode'].scripts.body != ''">
+<pre class="pre-scrollable"><ng-container *ngIf="versionInfo['mode']['scripts']">rpi-scripts {{versionInfo['mode']['scripts'].tag_name}}
 Changelog:
-{{versionInfo['mode'].scripts.body}}</ng-container>
+{{versionInfo['mode']['scripts'].body}}</ng-container>
+<ng-container *ngIf="versionInfo['mode']['webinterface']">
 rpi-webinterface {{versionInfo['mode']['webinterface'].tag_name}}
-<ng-container *ngIf="versionInfo['mode'].scripts.body && versionInfo['mode'].webinterface.body != ''">
 Changelog:
-{{versionInfo['mode'].webinterface.body}}</ng-container>
+{{versionInfo['mode']['webinterface'].body}}</ng-container>
 </pre>
   </div>
   <div class="col-12 col-sm-6">
