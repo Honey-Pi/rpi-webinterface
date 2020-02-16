@@ -63,14 +63,14 @@
             $wittyPiFile = "./schedule.wpi";
 
             $wittyPi_enabled = $postJson["wittyPi_enabled"];
-            $wittyPi_script = $postJson["wittyPi_script"];
 
             createFileIfNotExists($wittyPiFile);
 
             if ($wittyPi_enabled === true
                 && isset($postJson["wittyPi_script"])
-                    && strlen(trim($wittyPi_script)) >= 1) {
+                    && strlen(trim($postJson["wittyPi_script"])) >= 1) {
 
+                $wittyPi_script = $postJson["wittyPi_script"];
                 file_put_contents($wittyPiFile, $wittyPi_script);
 
                 // set WittyPi (dont wait exec to finish)
