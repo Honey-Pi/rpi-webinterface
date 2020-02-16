@@ -58,9 +58,9 @@
             $obj->webinterface = json_decode($contentWebinterface);
 
             // read current versionInfo
-            $versionInfo_file = "/var/www/html/version.txt";
-            if (file_exists($versionInfo_file)) {
-                $obj->versionInfo = file_get_contents($versionInfo_file);
+            $version_file = "/var/www/html/version.txt";
+            if (file_exists($version_file)) {
+                $obj->currentVersion = file_get_contents($version_file);
             }
 
 
@@ -84,13 +84,13 @@
         $output->git .= updateGit();
 
         if ($_GET['mode'] === 'update') {
-            $output->mode = update();
+            $output->result = update();
         } else if ($_GET['mode'] === 'install')
         {
-            $output->mode = install();
+            $output->result = install();
         } else if ($_GET['mode'] === 'versionInfo')
         {
-            $output->mode = getVersionInfo();
+            $output->result = getVersionInfo();
         }
     }
 

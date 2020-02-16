@@ -18,19 +18,19 @@
 <div *ngIf="versionInfo" class="row">
   <div class="col-12 col-sm-6">
     <b>Vefügbare Versionen:</b><br>
-<pre class="pre-scrollable"><ng-container *ngIf="versionInfo['mode']['scripts']">rpi-scripts {{versionInfo['mode']['scripts'].tag_name}}
+<pre class="pre-scrollable"><ng-container *ngIf="versionInfo['result']['scripts']">rpi-scripts {{versionInfo['result']['scripts'].tag_name}}
 Changelog:
-{{versionInfo['mode']['scripts'].body}}</ng-container>
-<ng-container *ngIf="versionInfo['mode']['webinterface']">
-rpi-webinterface {{versionInfo['mode']['webinterface'].tag_name}}
+{{versionInfo['result']['scripts'].body}}</ng-container>
+<ng-container *ngIf="versionInfo['result']['webinterface']">
+rpi-webinterface {{versionInfo['result']['webinterface'].tag_name}}
 Changelog:
-{{versionInfo['mode']['webinterface'].body}}</ng-container>
+{{versionInfo['result']['webinterface'].body}}</ng-container>
 </pre>
   </div>
-  <div class="col-12 col-sm-6">
+  <div class="col-12 col-sm-6" *ngIf="versionInfo['result']['currentVersion']">
     <b>Derzeit installierte Version:</b>
-    <ng-container *ngIf="versionInfo['mode']['versionInfo']">
-      <pre class="pre-scrollable">{{versionInfo['mode']['versionInfo']}}</pre><br>
+    <ng-container *ngIf="versionInfo['result']['currentVersion']">
+      <pre class="pre-scrollable">{{versionInfo['result']['currentVersion']}}</pre><br>
     </ng-container>
   </div>
 </div>
