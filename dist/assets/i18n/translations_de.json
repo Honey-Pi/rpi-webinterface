@@ -75,6 +75,7 @@
       "construction": "Diese Ansicht ist bisher nur provisorisch und soll in der nächsten Firmware Version ausgebaut werden.",
       "get": "Neue Messung abrufen",
       "info": "Hier werden die Sensoren angezeigt, die im Reiter \"<strong>{{tab}}</strong>\" konfiguriert und gespeichert sind. Es erfolgt kein Upload der Messdaten an ThingSpeak. Messung dauert bis zu 1 Minute.",
+      "noData": "Keine Messdaten gemessen. Wurden die Sensoren im Reiter \"<strong>{{tab}}</strong>\" konfiguriert?",
       "title": "Messdaten"
     },
     "offline": {
@@ -82,6 +83,7 @@
       "export": "Messdaten herunterladen",
       "exportButton": "Herunterladen",
       "infoExport": "Die Messdaten werden in einer CSV-Datei abgespeichert. Diese Datei kann anschließend in den ThingSpeak Channel importiert werden. Ansonsten können die Messdaten auch mit der iOS-/Web-App visualisiert werden.",
+      "noData": "Gebe im Reiter \"<strong>{{tab}}</strong>\" mindestens einen Channel an.",
       "offline": "Messdaten offline speichern ohne ThingSpeak",
       "radio0": "Online: Ausschließlich Online an ThingSpeak übertragen",
       "radio1": "Beides: Zu ThingSpeak übertragen und in CSV-Datei ablegen",
