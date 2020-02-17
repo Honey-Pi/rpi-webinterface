@@ -5,7 +5,6 @@
          id="ts_server_url" name="ts_server_url" placeholder="Server URL"
          required #ts_server_url="ngModel">
 </div>-->
-
 <div *ngFor="let channel of settings.ts_channels; let i=index; let last=last;let first=first;" class="rounded row">
   <div class="col-12" [ngClass]="{'my-bg-ts': (i%2 != 0)}" [class.spinner]="checkElement.disabled">
     <br *ngIf="!first">

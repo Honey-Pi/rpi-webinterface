@@ -5,6 +5,7 @@ import {TranslateService} from '@ngx-translate/core';
 import { Settings } from '../../models/settings.model';
 import 'rxjs/add/operator/timeout';
 import {environment} from "../../../environments/environment";
+import {InternetSettings} from "../../models/internet-settings.model";
 
 @Component({
   selector: 'app-settings',
@@ -46,13 +47,24 @@ export class SettingsComponent implements OnInit {
     }, 4000);
   }
 
+  validateSettings(settings: Settings): Settings {
+    if (!settings.ts_channels) {
+      settings.ts_channels = [];
+      settings.ts_channels.push({ts_channel_id: undefined, ts_write_key: ''});
+    }
+    if (!settings.internet) {
+      settings.internet = new InternetSettings();
+    }
+    return settings;
+  }
+
   getSettings(): void {
     this.isLoading = true;
     this.appService.getSettings().timeout(3000)
       .finally(() => this.isLoading = false)
       .subscribe(res => {
         if (res) {
-          this.settings = <Settings>res;
+          this.settings = this.validateSettings(<Settings>res);
           this.isConnected = true;
         }
       }, (err: any) => {
