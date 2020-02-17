@@ -12,8 +12,12 @@ export class MeasurementComponent implements OnInit {
   public measurement;
   public isLoading = false;
   public noData = false;
+  public numbers;
 
-  constructor(private appService: AppService) { }
+  constructor(private appService: AppService) {
+    const maxLength = 8 * 10;
+    this.numbers = Array(maxLength).fill(0).map((x, i) => i);
+  }
 
   ngOnInit() {
   //  this.getMeasurement();

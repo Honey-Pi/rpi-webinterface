@@ -55,6 +55,9 @@ export class SettingsComponent implements OnInit {
     if (!settings.internet) {
       settings.internet = new InternetSettings();
     }
+    if (!settings.sensors) {
+      settings.sensors = [];
+    }
     return settings;
   }
 

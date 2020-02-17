@@ -5,10 +5,10 @@
 <ng-container *ngIf="measurement">
   <pre class="pre-scrollable" *ngIf="debugInfo">{{debugInfo}}</pre>
   <ul class="list-group" *ngIf="thingSpeakFields">
-    <ng-container *ngFor="let i of [1,2,3,4,5,6,7,8]">
-      <li *ngIf="thingSpeakFields['field' + i] || thingSpeakFields['field' + i] === 0.0"
+    <ng-container *ngFor="let n of numbers; let i = index">
+      <li *ngIf="thingSpeakFields['field' + (i+1)] || thingSpeakFields['field' + (i+1)] === 0.0" id="abc_{{n}}"
           class="list-group-item">
-        <strong>{{'settings.thingspeak.field' | translate}} {{i}}</strong>: {{thingSpeakFields['field' + i]}}
+        <strong>{{'settings.thingspeak.field' | translate}} {{(i+1)}}</strong>: {{thingSpeakFields['field' + (i+1)]}}
       </li>
     </ng-container>
   </ul>
