@@ -30,7 +30,7 @@ else
             (sleep 6; echo 10; echo 6; echo 11) | sudo ./wittyPi.sh
         fi
     elif [ $mode -eq 1 ] ; then
-        # mode=1: transfer to local schedule to the wittyPi module and run it
+        # mode=1: transfer local schedule to the wittyPi module and run it
         sudo cp /var/www/html/backend/schedule.wpi $path/schedule.wpi
         # Sync time
         sudo ./syncTime.sh
@@ -39,5 +39,6 @@ else
     fi
 
     exit 1
+fi
 
 exit 0
