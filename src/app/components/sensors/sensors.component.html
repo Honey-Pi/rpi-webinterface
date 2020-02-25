@@ -329,6 +329,12 @@
                                [ts_field]="sensor.ts_field_air_pressure" [channels]="settings.ts_channels" ></settings-ts-field>
           </div>
         </div>
+        <div class="row">
+          <div class="form-group col-12 col-sm-6">
+            <label for="offset_bme280">{{'settings.sensors.temperature' | translate}} {{'settings.sensors.offset' | translate }} [°C]</label>
+            <input type="number" step="0.1" class="form-control" [(ngModel)]="sensor.offset" id="offset_bme280" name="offset_bme280" placeholder="{{'settings.sensors.offset' | translate }}" />
+          </div>
+        </div>
       </td>
     </tr>
     <tr *ngIf="sensor.type == 6" [ngClass]="{'my-bg': (i%2 == 0)}">
