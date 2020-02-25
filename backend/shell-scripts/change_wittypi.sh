@@ -13,7 +13,7 @@ else
 	elif [ -e /home/pi/wittypi ] ; then
         # WittyPi 3 or 3 Mini
         wittyPi=3
-        path='/home/pi/wittyPi'
+        path='/home/pi/wittypi'
     else
         echo "Error: No WittyPi installation found."
         exit 0
