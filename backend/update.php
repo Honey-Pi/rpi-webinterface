@@ -33,6 +33,14 @@
             return "Command failed with status: $status";
         }
     }
+    function installWittyPi($version) {
+        exec("sudo sh ".$GLOBALS['shellDir']."/installWittyPi.sh ".(INT)$version." > /dev/null 2>&1 &", $out, $status);
+        if (0 === $status) {
+            return var_dump($out);
+        } else {
+            return "Command failed with status: $status";
+        }
+    }
 
     function getVersionInfo() {
         $obj = new \stdClass();
@@ -91,6 +99,12 @@
         } else if ($_GET['mode'] === 'versionInfo')
         {
             $output->result = getVersionInfo();
+        } else if ($_GET['mode'] === 'installWittyPi')
+        {
+            $output->result = installWittyPi($_GET['version']);
+        } else
+        {
+            $output->result = "Unknown mode";
         }
     }
 
