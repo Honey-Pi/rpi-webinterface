@@ -45,7 +45,7 @@
                                  (fieldChanged)="settings.w1gpio = $event"
                                  [field]="settings.w1gpio"
                                  [required]="true"
-                                 [disabled_pins]="[21,settings.button_pin]"></settings-gpio-field>
+                                 [disabled_pins]="[settings.led_pin,settings.button_pin]"></settings-gpio-field>
           </div>
         </div>
         <div class="row">
@@ -113,7 +113,7 @@
                                  (fieldChanged)="sensor.pin_dt = $event"
                                  [field]="sensor.pin_dt"
                                  [required]="true"
-                                 [disabled_pins]="[21,settings.button_pin,settings.w1gpio]"></settings-gpio-field>
+                                 [disabled_pins]="[settings.led_pin,settings.button_pin,settings.w1gpio]"></settings-gpio-field>
           </div>
           <div class="form-group col-12 col-sm-6">
             <settings-gpio-field [label]="'GPIO SCK'"
@@ -121,7 +121,7 @@
                                  (fieldChanged)="sensor.pin_sck = $event"
                                  [field]="sensor.pin_sck"
                                  [required]="true"
-                                 [disabled_pins]="[21,settings.button_pin,settings.w1gpio]"></settings-gpio-field>
+                                 [disabled_pins]="[settings.led_pin,settings.button_pin,settings.w1gpio]"></settings-gpio-field>
           </div>
         </div>
         <div class="row">
@@ -239,7 +239,7 @@
                                  (fieldChanged)="sensor.pin = $event"
                                  [field]="sensor.pin"
                                  [required]="true"
-                                 [disabled_pins]="[21,settings.button_pin,settings.w1gpio]"></settings-gpio-field>
+                                 [disabled_pins]="[settings.led_pin,settings.button_pin,settings.w1gpio]"></settings-gpio-field>
           </div>
           <div class="form-group col-12 col-sm-6">
             <label for="dht_type" [translate]="'settings.sensors.selectType'"></label>
@@ -262,7 +262,7 @@
                                  (fieldChanged)="sensor.pin_cs = $event"
                                  [field]="sensor.pin_cs"
                                  [required]="true"
-                                 [disabled_pins]="[21,settings.button_pin,settings.w1gpio]"></settings-gpio-field>
+                                 [disabled_pins]="[settings.led_pin,settings.button_pin,settings.w1gpio]"></settings-gpio-field>
           </div>
           <div class="form-group col-12 col-sm-6">
             <settings-gpio-field [label]="'Clock (CLK)-GPIO'"
@@ -270,7 +270,7 @@
                                  (fieldChanged)="sensor.pin_clock = $event"
                                  [field]="sensor.pin_clock"
                                  [required]="true"
-                                 [disabled_pins]="[21,settings.button_pin,settings.w1gpio]"></settings-gpio-field>
+                                 [disabled_pins]="[settings.led_pin,settings.button_pin,settings.w1gpio]"></settings-gpio-field>
           </div>
         </div>
         <div class="row">
@@ -280,7 +280,7 @@
                                  (fieldChanged)="sensor.pin = $event"
                                  [field]="sensor.pin"
                                  [required]="true"
-                                 [disabled_pins]="[21,settings.button_pin,settings.w1gpio]"></settings-gpio-field>
+                                 [disabled_pins]="[settings.led_pin,settings.button_pin,settings.w1gpio]"></settings-gpio-field>
           </div>
           <div class="form-group col-12 col-sm-6">
             <label for="dht_type" [translate]="'settings.sensors.selectType'"></label>
@@ -344,7 +344,17 @@
             <settings-ts-field [label]="'ThingSpeak ' + ('settings.thingspeak.field' | translate)"
                                [ts_field_id]="'ts_field'"
                                (ts_fieldChanged)="sensor.ts_field = $event"
-                               [ts_field]="sensor.ts_field" [channels]="settings.ts_channels" ></settings-ts-field>
+                               [ts_field]="sensor.ts_field" [channels]="settings.ts_channels"></settings-ts-field>
+          </div>
+          <div class="form-group col-12 col-sm-6">
+            <label for="pcf8591_pin" [translate]="'settings.sensors.selectPin'"></label>
+            <select [(ngModel)]="sensor.pin" id="pcf8591_pin" name="pcf8591_pin" class="custom-select" required>
+              <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'PIN'}" disabled></option>
+              <option [ngValue]="0">AIN0</option>
+              <option [ngValue]="1">AIN1</option>
+              <option [ngValue]="2" [selected]="(!sensor.pin && sensor.pin !== 0)">AIN2 (default)</option>
+              <option [ngValue]="3">AIN3</option>
+            </select>
           </div>
         </div>
       </td>
@@ -363,31 +373,6 @@
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   <span [innerHTML]="'alerts.gpio' | translate"></span>
 </div>
-<div class="form-group">
-  <label for="interval" [translate]="'settings.sensors.measurementInterval'">></label>
-  <select [(ngModel)]="settings.interval" id="interval" name="interval" class="custom-select" required>
-    <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.sensors.interval' | translate}"></option>
-    <option [ngValue]="60">1min</option>
-    <option [ngValue]="300">5min</option>
-    <option [ngValue]="600">10min</option>
-    <option [ngValue]="900">15min</option>
-    <option [ngValue]="1800">30min</option>
-    <option [ngValue]="3600">60min</option>
-    <option [ngValue]="7200">2h</option>
-    <option [ngValue]="10800">3h</option>
-    <option [ngValue]="14400">4h</option>
-    <option [ngValue]="1">{{'settings.sensors.measurementOnce' | translate}}</option>
-    <option [ngValue]="0">{{'settings.sensors.measurementNone' | translate}}</option>
-  </select>
-</div>
-<div class="form-group form-check" *ngIf="settings.interval === 1">
-  <input type="checkbox" class="form-check-input" name="shutdownAfterTransfer" [(ngModel)]="settings.shutdownAfterTransfer" id="shutdownAfterTransfer">
-  <label class="form-check-label" for="shutdownAfterTransfer" [innerHTML]="'settings.sensors.shutdownAfterTransfer' | translate"></label>
-</div>
-<div class="alert alert-info" role="alert" *ngIf="settings.interval === 1">
-  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  <span [innerHTML]="'alerts.shutdownAfterTransfer' | translate"></span>
-</div>
 <p>
   <a class="text-danger" data-toggle="collapse" href="#collapseSensor" role="button" aria-expanded="false" aria-controls="collapseSensor">
     {{'settings.sensors.advancedSettings' | translate}}
@@ -405,12 +390,20 @@
     </div>
     <hr />
     <div class="form-group">
+      <settings-gpio-field [label]="'settings.sensors.ledPin' | translate"
+                           [field_id]="'led_pin'"
+                           (fieldChanged)="settings.led_pin = $event"
+                           [field]="settings.led_pin"
+                           [required]="true"
+                           [disabled_pins]="[settings.button_pin,settings.w1gpio]"></settings-gpio-field>
+    </div>
+    <div class="form-group">
       <settings-gpio-field [label]="'settings.sensors.buttonPin' | translate"
                            [field_id]="'button_pin'"
                            (fieldChanged)="settings.button_pin = $event"
                            [field]="settings.button_pin"
                            [required]="true"
-                           [disabled_pins]="[21,settings.w1gpio]"></settings-gpio-field>
+                           [disabled_pins]="[settings.led_pin,settings.w1gpio]"></settings-gpio-field>
     </div>
     <div class="alert alert-info" role="alert">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>

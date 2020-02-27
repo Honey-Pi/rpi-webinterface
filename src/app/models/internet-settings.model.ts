@@ -1,4 +1,3 @@
-import {Wifi} from "./wifi.model";
 
 export class InternetSettings {
   constructor() {
@@ -7,4 +6,9 @@ export class InternetSettings {
   }
   router: Wifi;
   honeypi: Wifi;
+}
+export class Wifi {
+  enabled?: boolean;
+  ssid: string;
+  password: string;
 }

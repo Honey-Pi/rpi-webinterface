@@ -18,7 +18,7 @@ export class Sensor {
   // HX711
   reference_unit: number;
   channel: string;
-  offset: number; // HX711, BME680 & MAX6675/MAX31855
+  offset: number; // HX711, BME680, BME280 & MAX6675/MAX31855
   pin_dt: number;
   pin_sck: number;
   invert: boolean;
@@ -34,7 +34,7 @@ export class Sensor {
   // DS18b20
   device_id: string;
   // DHT22/DHT11
-  pin: number; // & MAX6775
+  pin: number; // & MAX6775 & PCF8591
   dht_type: number;
   // MAX6675/MAX31855
   pin_cs: number;

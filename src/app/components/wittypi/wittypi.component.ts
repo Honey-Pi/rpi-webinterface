@@ -1,5 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Settings} from "../../models/settings.model";
+import {Settings} from '../../models/settings.model';
+import {AppService} from '../../services/app.service';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-wittypi',
@@ -8,19 +10,17 @@ import {Settings} from "../../models/settings.model";
 })
 export class WittypiComponent implements OnInit {
 
-  public script: string = '';
-
-  public exampleScripts: {name, script}[] =
+  public exampleScripts: {name: string, script: string}[] =
     [
       {
         name: 'Anschalten alle 30Minuten',
-        script:'BEGIN 2015-08-01 08:00:00\n' +
+        script: 'BEGIN 2015-08-01 08:00:00\n' +
           'END   2025-07-31 18:00:00\n' +
           'ON    M5\n' +
           'OFF   M25'
       },{
         name: 'Anschalten alle 15min',
-        script:'BEGIN 2015-08-01 00:00:00 \n' +
+        script: 'BEGIN 2015-08-01 00:00:00 \n' +
           'END   2025-07-31 23:59:59 \n' +
           'ON   M5\n' +
           'OFF   M10'
@@ -106,6 +106,7 @@ export class WittypiComponent implements OnInit {
     ];
 
   public selectedExample: string = null;
+  private isLoading: boolean;
 
   /* two-way databinding for settings*/
   _settings: Settings;
@@ -120,13 +121,25 @@ export class WittypiComponent implements OnInit {
   @Output()
   settingsChange: EventEmitter<Settings> = new EventEmitter<Settings>();
 
-  constructor() { }
+  constructor(private appService: AppService, private translate: TranslateService) { }
 
   ngOnInit() {
   }
 
-  saveWittypi(): void {
-
+  installWittyPi(version: number): void {
+    this.translate.get('settings.confirm.installWittyPi').subscribe((res: string) => {
+      if (window.confirm(res)) {
+        this.isLoading = true;
+        this.appService.update('installWittyPi', '&version=' + version)
+          .finally(() => this.isLoading = false)
+          .subscribe(res2 => {
+            console.log(res2);
+            if (window.confirm('Erfolgreich. Die Seite muss aktualisiert werden. Jetzt neuladen?')) {
+              location.reload(true);
+            }
+          }, (err: any) => {console.error(err); });
+      }
+    });
   }
 
 }
