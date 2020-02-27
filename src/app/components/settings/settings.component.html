@@ -1,4 +1,4 @@
-<main role="main" class="container">
+<main role="main" [ngClass]="{'container' : (innerWidth > 600)}">
   <div class="jumbotron">
     <div class="float-right">
       <div class="btn-group btn-group-sm" role="group" aria-label="Controls">

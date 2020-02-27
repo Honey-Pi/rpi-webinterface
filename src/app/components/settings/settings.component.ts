@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import { AppService } from '../../services/app.service';
 import {TranslateService} from '@ngx-translate/core';
 
-import { Settings } from '../../models/settings.model';
+import {Channel, Settings} from '../../models/settings.model';
 import 'rxjs/add/operator/timeout';
-import {environment} from "../../../environments/environment";
-import {InternetSettings} from "../../models/internet-settings.model";
+import {InternetSettings} from '../../models/internet-settings.model';
 
 @Component({
   selector: 'app-settings',
@@ -16,7 +15,7 @@ export class SettingsComponent implements OnInit {
 
   constructor(private appService: AppService, private translate: TranslateService) {}
 
-  public get isAccessPoint() {
+  get isAccessPoint() {
     const host: string = window.location.hostname;
     return (host === '192.168.4.1');
   }
@@ -32,9 +31,50 @@ export class SettingsComponent implements OnInit {
 
   private n: any;
 
+  static validateSettings(settings: Settings): Settings {
+    if (!settings.ts_channels) {
+      settings.ts_channels = [];
+      settings.ts_channels.push(new Channel());
+    }
+    if (!settings.internet) {
+      settings.internet = new InternetSettings();
+    }
+    if (!settings.sensors) {
+      settings.sensors = [];
+    }
+    return settings;
+  }
+
+  /**
+   * Determine the mobile operating system.
+   * This function returns one of 'iOS', 'Android', 'Windows Phone', or 'unknown'.
+   */
+  public getMobileOperatingSystem(): string {
+    const userAgent = navigator.userAgent || navigator.vendor || window['opera'];
+
+    // Windows Phone must come first because its UA also contains "Android"
+    if (/windows phone/i.test(userAgent)) {
+      return 'Windows Phone';
+    }
+
+    if (/android/i.test(userAgent)) {
+      return 'Android';
+    }
+
+    // iOS detection from: http://stackoverflow.com/a/9039885/177710
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window['MSStream']) {
+      return 'iOS';
+    }
+
+    return 'unknown';
+  }
+
+  public innerWidth: any;
+
   ngOnInit() {
     /* initial load */
     this.getSettings();
+    this.innerWidth = window.innerWidth;
   }
   hideAlertsTimer() {
     // wait 4 Seconds and hide
@@ -47,27 +87,13 @@ export class SettingsComponent implements OnInit {
     }, 4000);
   }
 
-  validateSettings(settings: Settings): Settings {
-    if (!settings.ts_channels) {
-      settings.ts_channels = [];
-      settings.ts_channels.push({ts_channel_id: undefined, ts_write_key: ''});
-    }
-    if (!settings.internet) {
-      settings.internet = new InternetSettings();
-    }
-    if (!settings.sensors) {
-      settings.sensors = [];
-    }
-    return settings;
-  }
-
   getSettings(): void {
     this.isLoading = true;
     this.appService.getSettings().timeout(3000)
       .finally(() => this.isLoading = false)
       .subscribe(res => {
         if (res) {
-          this.settings = this.validateSettings(<Settings>res);
+          this.settings = SettingsComponent.validateSettings(<Settings>res);
           this.isConnected = true;
         }
       }, (err: any) => {
@@ -142,28 +168,9 @@ export class SettingsComponent implements OnInit {
     );
   }
 
-  /**
-   * Determine the mobile operating system.
-   * This function returns one of 'iOS', 'Android', 'Windows Phone', or 'unknown'.
-   */
-  public getMobileOperatingSystem(): string {
-    const userAgent = navigator.userAgent || navigator.vendor || window['opera'];
-
-    // Windows Phone must come first because its UA also contains "Android"
-    if (/windows phone/i.test(userAgent)) {
-      return 'Windows Phone';
-    }
-
-    if (/android/i.test(userAgent)) {
-      return 'Android';
-    }
-
-    // iOS detection from: http://stackoverflow.com/a/9039885/177710
-    if (/iPad|iPhone|iPod/.test(userAgent) && !window['MSStream']) {
-      return 'iOS';
-    }
-
-    return 'unknown';
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.innerWidth = window.innerWidth;
   }
 
 }
