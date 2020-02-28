@@ -16,11 +16,11 @@
     <option [ngValue]="0">{{'settings.sensors.measurementNone' | translate}}</option>
   </select>
 </div>
-<div class="form-group form-check" *ngIf="settings.wittyPi.normal.shutdownAfterTransfer === true">
+<div class="form-group form-check" *ngIf="settings.wittyPi.normal.interval === 1">
   <input type="checkbox" class="form-check-input" name="shutdownAfterTransfer" [(ngModel)]="settings.wittyPi.normal.shutdownAfterTransfer" id="shutdownAfterTransfer">
   <label class="form-check-label" for="shutdownAfterTransfer" [innerHTML]="'settings.sensors.shutdownAfterTransfer' | translate"></label>
 </div>
-<div class="alert alert-info" role="alert" *ngIf="settings.wittyPi.normal.interval === 1">
+<div class="alert alert-info" role="alert" *ngIf="settings.wittyPi.normal.shutdownAfterTransfer === true">
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   <span [innerHTML]="'alerts.shutdownAfterTransfer' | translate"></span>
 </div>
