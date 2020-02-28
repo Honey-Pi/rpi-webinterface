@@ -15,7 +15,7 @@
     "updateAP": "<b>Hinweis:</b> Der Wartungsmodus wird von Dir über den \"HoneyPi\"-AccessPoint aufgerufen. Dies hat zur Folge, dass während des Wartungsmodus keine Internetverbindung über WLAN hergestellt wird. Du kannst im Reiter \"Internetverbindung\" ein WLAN-Netzwerk deiner Wahl eintragen. Bei einem Raspberry 3 kann zum Systemupdate ein LAN Kabel angeschlossen werden. <b>Bitte beachte Schritt 3. Wir empfehlen den Aufruf über die IP/Hostname des Raspberrys im Heimnetzwerk.</b>",
     "updateInfo": "1. Das Datenvolumen des Surfsticks kann dabei verbraucht werden. <br>\n2. Es empfiehlt sich daher, den Raspberry Zero für das Systemupdate vom Surfstick zu trennen und ihn mit einem vorhandenen WLAN-Netzwerk zu verbinden.<br>\n3. Anschließend sollte der Wartungsmodus nicht über den \"HoneyPi\"-AccessPoint, sondern über die IP-Adresse des Raspberrys aufgerufen werden. <br>\n4. Die Einstellungen gehen dabei verloren (Reset). Daher vorher die Einstellungsdatei exportieren.",
     "updateNotAP": "Du rufst den Raspberry nicht über den \"HoneyPi\"-AccessPoint auf, sondern über die IP-Adresse im Heimnetzwerk. <b>Du kannst Schritt 3 überspringen.</b>",
-    "wittypi": "Mit Hilfe des zusätzlichen Witty Pi Moduls kann der Raspberry Pi zeitgesteuert werden.\nWir bieten bereits drei nützliche Programme.\nDiese können im Eingabefeld auch verändert werden. Voraussetzung ist das <strong>WittyPi 2 oder  Mini</strong>-Modul."
+    "wittypi": "Mit Hilfe des zusätzlichen Witty Pi Moduls kann der Raspberry Pi zeitgesteuert werden.\nWir bieten bereits drei nützliche Programme.\nDiese können im Eingabefeld auch verändert werden. Voraussetzung ist das <strong>WittyPi</strong>-Modul."
   },
   "brand": "HoneyPi",
   "buttons": {
@@ -36,6 +36,7 @@
   },
   "settings": {
     "confirm": {
+      "installWittyPi": "Du bist dabei auf deinem HoneyPi die Software für das WittyPi Modul zu installieren. Dazu muss zwingend eine Internetverbindung (bspw. über WLAN) bestehen.",
       "reboot": "Alle ungespeicherten Änderungen gehen verloren. Die Verbindung wird sich vorübergehend trennen. \nDas Gerät wird nun neugestartet. Sicher?",
       "savedAP": "Damit die Änderungen wirksam werden ist ein Neustart erforderlich. \nSoll das Gerät nun neugestartet werden?",
       "shutdown": "Alle ungespeicherten Änderungen gehen verloren. Das Gerät fährt herunter. \nSicher?"
@@ -119,6 +120,7 @@
       "humidity": "Luftfeuchtigkeit",
       "interval": "Intervall",
       "invert": "Vorzeichen umkehren",
+      "ledPin": "Externe LED GPIO",
       "measurementInterval": "Messintervall",
       "measurementNone": "Keine Messdatenübertragung",
       "measurementOnce": "Einmalige Übertragung nach dem Anschalten",
@@ -126,6 +128,7 @@
       "pressure": "Luftdruck",
       "quality": "Luftgüte",
       "scale": "Skalierungswert",
+      "selectPin": "PIN des PCF8591 auswählen",
       "selectType": "Auswahl des Sensormodells",
       "sensor": "Sensor",
       "sensor_0": "Temperatursensor (DS18b20)",
@@ -158,10 +161,17 @@
     },
     "wittypi": {
       "empty": "Leeres Feld",
+      "enableLowMode": "Aktiviere einen energiesparsamen Zeitplan",
+      "enableNormalMode": "Aktiviere einen Zeitplan",
+      "enableVoltageCheck": "Wechsel zwischen verschiedenen Zeitplänen bei angeschlossenem Voltmeter (PCF8591)",
       "enableWitty": "Witty Pi Modul aktivieren",
-      "loadexample": "Beispiel Programm laden...",
-      "script": "Programmcode",
-      "title": "Zeit- und Energiemanagement"
+      "loadexample": "Beispiel Zeitplan laden...",
+      "script": "Zeitplan für den WittyPi",
+      "title": "Zeit- und Energiemanagement",
+      "voltage": "Volt",
+      "voltageLow": "Grenzwert für die Aktivierung des energiesparenden Zeitplanes",
+      "voltageLowInterval": "Messintervall während des energiesparsamen Modus",
+      "voltageNormal": "Grenzwert für die Rückkehr zum normalen Zeitplan"
     }
   },
   "title": "Wartungsmodus"

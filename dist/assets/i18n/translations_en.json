@@ -15,7 +15,7 @@
     "updateAP": "<b>Note:</b> The maintenance mode is called by you via the \"HoneyPi\"-AccessPoint. As a result, no Internet connection is established via WiFi during maintenance mode. You can enter a WLAN network of your choice in the \"Internet connection\" tab. With a Raspberry 3, a LAN cable can be connected for system updates. <b>Please note step 3. We recommend using the IP/Hostname of the Raspberry in the home network.</b>",
     "updateInfo": "1. The data volume of the surf stick can be used up. <br>\n2. It is therefore recommended to disconnect the Raspberry Zero from the Surfstick for the system update and connect it to an existing WiFi network.<br>\n3. Afterwards, the maintenance mode should not be called via the \"HoneyPi\" AccessPoint, but via the IP address of the Raspberry. <br>\n4. The settings will be lost (reset). Therefore export the settings file beforehand.",
     "updateNotAP": "You call the Raspberry not via the \"HoneyPi\" AccessPoint, but via the IP address in the home network. <b>You can skip step 3.</b>",
-    "wittypi": "With the help of the additional Witty Pi module, the Raspberry Pi can be time-controlled.\nWe already offer three useful programs.\nThese can also be changed in the input field. Prerequisite is the <strong>Witty Pi Mini</strong> module."
+    "wittypi": "With the help of the additional Witty Pi module, the Raspberry Pi can be time-controlled.\nWe already offer three useful programs.\nThese can also be changed in the input field. Prerequisite is the <strong>WittyPi</strong> module."
   },
   "brand": "HoneyPi (en)",
   "buttons": {
@@ -36,6 +36,7 @@
   },
   "settings": {
     "confirm": {
+      "installWittyPi": "You are about to install the software for the WittyPi module on your HoneyPi. For this an internet connection (e.g. via WiFi) must be available.",
       "reboot": "All unsaved changes are lost. The connection will be temporarily disconnected. \nThe device will now restart. Are you sure?",
       "savedAP": "A restart is required for the changes to take effect. \nShould the device now be restarted?",
       "shutdown": "All unsaved changes are lost. The device will now shutdown. \nAre you sure?"
@@ -119,6 +120,7 @@
       "humidity": "humidity",
       "interval": "interval",
       "invert": "invert weight result",
+      "ledPin": "External LED GPIO",
       "measurementInterval": "measuring interval",
       "measurementNone": "No measurement data transfer",
       "measurementOnce": "One-time transfer after power-on",
@@ -126,6 +128,7 @@
       "pressure": "air pressure",
       "quality": "indoor air quality",
       "scale": "scale unit",
+      "selectPin": "Select PIN of the PCF8591",
       "selectType": "Select type of sensor",
       "sensor": "sensor",
       "sensor_0": "Temperature sensor (DS18b20)",
@@ -158,10 +161,17 @@
     },
     "wittypi": {
       "empty": "Empty field",
+      "enableLowMode": "Activate an energy-saving schedule",
+      "enableNormalMode": "Activate a schedule",
+      "enableVoltageCheck": "Switching between different schedules with connected voltmeter (PCF8591)",
       "enableWitty": "Enable Witty Pi module",
       "loadexample": "Load an example schedule...",
       "script": "schedule code",
-      "title": "Time and energy management"
+      "title": "Time and energy management",
+      "voltage": "Voltage",
+      "voltageLow": "Limit value for activation of the energy-saving schedule",
+      "voltageLowInterval": "Measuring interval during the energy-saving mode",
+      "voltageNormal": "Limit for returning to the normal schedule"
     }
   },
   "title": "Maintenance Mode"
