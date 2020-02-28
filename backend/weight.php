@@ -1,8 +1,8 @@
 <?php
     include_once("_headers.php");
     require_once('_vars.php');
-    // json
-    header('Content-type:application/json;charset=utf-8');
+    // text
+    header('Content-type:text/plain;charset=utf-8');
 
     $postBody = file_get_contents("php://input");
     $_POST = json_decode($postBody, true);

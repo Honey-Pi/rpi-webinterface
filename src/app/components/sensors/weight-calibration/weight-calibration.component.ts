@@ -24,6 +24,7 @@ export class WeightCalibrationComponent implements OnInit {
   calibrationChange: EventEmitter<{offset: number; reference_unit: number}> = new EventEmitter<{offset: number; reference_unit: number}>();
   @Output()
   closeModal: EventEmitter<boolean> = new EventEmitter<boolean>();
+  private result: any;
 
   constructor(private appService: AppService) { }
 
@@ -42,9 +43,11 @@ export class WeightCalibrationComponent implements OnInit {
     if (this.step <= 0 ) {
       this.step = 0;
     }
+    this.result = null;
   }
 
   next_step() {
+    this.result = null;
     if (this.step <= 0) {
       this.step++;
     } else if (this.step === 1) {
@@ -62,6 +65,7 @@ export class WeightCalibrationComponent implements OnInit {
 
   measure_weight() {
     this.isLoading = true;
+    this.result = null;
 
     this.appService.getWeight(this.sensor).timeout(120000)
       .finally(() => {
@@ -69,7 +73,9 @@ export class WeightCalibrationComponent implements OnInit {
         this.step++;
       })
       .subscribe(res => {
-        const weight = res ? <number>res * 1000 : 0;
+        this.result = res;
+        let weight = parseInt(res, 4);
+        weight =  !isNaN(weight) ? weight * 1000 : 0;
         if (this.step === 1) {
 
           this.weight1 = weight;
@@ -79,10 +85,15 @@ export class WeightCalibrationComponent implements OnInit {
 
           this.weight2 = weight;
           this.reference_unit = this.round((this.weight2 - this.offset) / this.calibration_weight, 4);
-          if (!this.reference_unit) {
-            // shoudn't be 0
-            this.reference_unit = 1;
-          }
+
+        }
+        if (!this.reference_unit) {
+          // shoudn't be 0
+          this.reference_unit = 1;
+        }
+        if (!this.offset) {
+          // shoudn't be 0
+          this.offset = 0;
         }
         console.log('weight:' + weight + ' calibration_weight:' + this.calibration_weight
           + ' offset:' + this.offset + ' reference_unit:' + this.reference_unit);

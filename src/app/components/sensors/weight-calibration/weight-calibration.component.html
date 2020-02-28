@@ -35,9 +35,13 @@
             &#x2B46; {{'settings.sensors.calibration.btnFinish' | translate}}
           </button>
         </div>
+        <ng-container *ngIf="result">
+          <br>Output:
+          <pre class="pre-scrollable">{{result}}</pre>
+        </ng-container>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-sm btn-primary" (click)="step_back()" [disabled]="isLoading">&#x2B45; {{'settings.sensors.calibration.btnBack' | translate}}</button>
+        <button type="button" class="btn btn-sm btn-primary" (click)="step_back()" [disabled]="isLoading" *ngIf="step > 0">&#x2B45; {{'settings.sensors.calibration.btnBack' | translate}}</button>
         <button type="button" class="btn btn-sm btn-primary" (click)="next_step()" [disabled]="isLoading">{{'settings.sensors.calibration.btnNext' | translate}} &#x2B46;</button>
         <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal" (click)="close_modal()">Close</button>
       </div>

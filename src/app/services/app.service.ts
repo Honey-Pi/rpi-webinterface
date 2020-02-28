@@ -83,9 +83,9 @@ export class AppService {
       });
   }
 
-  getWeight(sensor: Sensor): Observable<number> {
-    return this.http.post(environment.apiURL + 'weight.php', sensor)
-      .map((response: number) => {
+  getWeight(sensor: Sensor): Observable<string> {
+    return this.http.post(environment.apiURL + 'weight.php', sensor, {responseType: 'text'})
+      .map((response: string) => {
         return response;
       });
   }

@@ -65,8 +65,7 @@
 
             // reset voltage check to defaults
             $voltageStateFile = $GLOBALS['scriptsFolder']."/.isLowVoltage";
-            emptyFile($voltageStateFile);
-
+            clear_file($voltageStateFile);
 
             if ($postJson["wittyPi"]["enabled"] === true
                 && isset($postJson["wittyPi"]["normal"]["enabled"])
