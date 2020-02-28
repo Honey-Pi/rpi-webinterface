@@ -10,6 +10,7 @@ import {AppService} from '../../../services/app.service';
 export class WeightCalibrationComponent implements OnInit {
 
   isLoading = false;
+  public result: any;
   step = 0;
   calibration_weight = 5000;
   weight1 = 0;
@@ -24,7 +25,6 @@ export class WeightCalibrationComponent implements OnInit {
   calibrationChange: EventEmitter<{offset: number; reference_unit: number}> = new EventEmitter<{offset: number; reference_unit: number}>();
   @Output()
   closeModal: EventEmitter<boolean> = new EventEmitter<boolean>();
-  private result: any;
 
   constructor(private appService: AppService) { }
 

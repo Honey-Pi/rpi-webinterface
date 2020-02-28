@@ -16,7 +16,7 @@
     <option [ngValue]="0">{{'settings.sensors.measurementNone' | translate}}</option>
   </select>
 </div>
-<div class="form-group form-check" *ngIf="settings.wittyPi.normal.interval === 1">
+<div class="form-group form-check" *ngIf="settings.wittyPi.normal.shutdownAfterTransfer === true">
   <input type="checkbox" class="form-check-input" name="shutdownAfterTransfer" [(ngModel)]="settings.wittyPi.normal.shutdownAfterTransfer" id="shutdownAfterTransfer">
   <label class="form-check-label" for="shutdownAfterTransfer" [innerHTML]="'settings.sensors.shutdownAfterTransfer' | translate"></label>
 </div>
@@ -36,7 +36,7 @@
     <span [innerHTML]="'alerts.wittypi' | translate"></span>
   </div>
   <!-- Installation Buttons -->
-  <div class="clearfix">
+  <div class="clearfix" [class.spinner]="isLoading">
     <div class="btn-group btn-group-sm float-right" role="group">
       <button class="btn btn-outline-warning btn-sm" type="button" role="button" (click)="installWittyPi(2)">WittyPi 2 installieren</button>
       <button class="btn btn-outline-warning btn-sm" type="button" role="button" (click)="installWittyPi(3)">WittyPi 3 installieren</button>
@@ -129,7 +129,7 @@
         <input type="checkbox" class="form-check-input" name="low_shutdownAfterTransfer" [(ngModel)]="settings.wittyPi.low.shutdownAfterTransfer" id="low_shutdownAfterTransfer">
         <label class="form-check-label" for="low_shutdownAfterTransfer" [innerHTML]="'settings.sensors.shutdownAfterTransfer' | translate"></label>
       </div>
-      <div class="alert alert-info" role="alert" *ngIf="settings.wittyPi.low.interval === 1">
+      <div class="alert alert-info" role="alert" *ngIf="settings.wittyPi.low.shutdownAfterTransfer === true">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <span [innerHTML]="'alerts.shutdownAfterTransfer' | translate"></span>
       </div>

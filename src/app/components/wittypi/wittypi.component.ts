@@ -127,14 +127,14 @@ export class WittypiComponent implements OnInit {
   }
 
   installWittyPi(version: number): void {
+    this.isLoading = true;
     this.translate.get('settings.confirm.installWittyPi').subscribe((res: string) => {
       if (window.confirm(res)) {
-        this.isLoading = true;
         this.appService.update('installWittyPi', '&version=' + version)
           .finally(() => this.isLoading = false)
           .subscribe(res2 => {
             console.log(res2);
-            if (window.confirm('Erfolgreich. Die Seite muss aktualisiert werden. Jetzt neuladen?')) {
+            if (window.confirm('Erfolgreich. Das System muss jetzt von dir neugestartet werden.')) {
               location.reload(true);
             }
           }, (err: any) => {console.error(err); });
