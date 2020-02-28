@@ -28,7 +28,7 @@
     function install() {
         exec("sudo sh ".$GLOBALS['shellDir']."/web-install.sh > /dev/null 2>&1 &", $out, $status);
         if (0 === $status) {
-            return var_dump($out);
+            return $out;
         } else {
             return "Command failed with status: $status";
         }
@@ -36,7 +36,7 @@
     function installWittyPi($version) {
         exec("sudo sh ".$GLOBALS['shellDir']."/installWittyPi.sh ".(INT)$version." > /dev/null 2>&1 &", $out, $status);
         if (0 === $status) {
-            return var_dump($out);
+            return $out;
         } else {
             return "Command failed with status: $status";
         }

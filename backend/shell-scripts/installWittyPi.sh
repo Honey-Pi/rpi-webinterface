@@ -11,12 +11,13 @@ else
     # update to latest wiringpi version (required for raspbian buster)
     wget https://project-downloads.drogon.net/wiringpi-latest.deb
     sudo dpkg -i wiringpi-latest.deb
+	rm wiringpi-latest.deb
 
     # Run the installer provided from WittyPi
     if [ $wittyPi -eq 2 ] ; then
-        sudo sh /var/www/html/backend/installWittyPi2.sh
+        sudo sh /var/www/html/backend/shell-scripts/installWittyPi2.sh
     elif [ $wittyPi -eq 3 ] ; then
-        sudo sh /var/www/html/backend/installWittyPi3.sh
+        sudo sh /var/www/html/backend/shell-scripts/installWittyPi3.sh
     fi
 
 fi
