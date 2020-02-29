@@ -74,12 +74,13 @@ export class WeightCalibrationComponent implements OnInit {
       })
       .subscribe(res => {
         this.result = res;
-        let weight = parseInt(res, 4);
-        weight =  !isNaN(weight) ? weight * 1000 : 0;
+        // weight in gramms
+        let weight = parseFloat(res);
+        weight =  !isNaN(weight) ? weight : 0;
         if (this.step === 1) {
 
           this.weight1 = weight;
-          this.offset = this.weight1;
+          this.offset = this.round(this.weight1, 0);
 
         } else if (this.step === 2) {
 
@@ -90,6 +91,10 @@ export class WeightCalibrationComponent implements OnInit {
         if (!this.reference_unit) {
           // shoudn't be 0
           this.reference_unit = 1;
+        }
+        if (this.reference_unit < 0) {
+          // shoudn't be -
+          this.reference_unit = this.reference_unit * -1;
         }
         if (!this.offset) {
           // shoudn't be 0
