@@ -140,12 +140,12 @@
 <!-- Modal -->
 <ng-container *ngIf="modalEnabled">
   <div class="modal fade show" tabindex="0" role="dialog" [ngStyle]="!isConnected && {'display':'block'}">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog" role="document" style="overflow-y: initial">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" [translate]="'settings.connectionerror.title'">Verbindung fehlgeschlagen</h5>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" style="max-height:250px;overflow-y:auto">
           <div [innerHTML]="'settings.connectionerror.body' | translate">
             Die Bienenstockwaage ist gerade nicht erreichbar.
           </div>
