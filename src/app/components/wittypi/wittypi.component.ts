@@ -138,6 +138,8 @@ export class WittypiComponent implements OnInit {
               location.reload(true);
             }
           }, (err: any) => {console.error(err); });
+      } else {
+        this.isLoading = false;
       }
     });
   }
