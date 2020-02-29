@@ -1,7 +1,5 @@
-<!-- Modal for HX711 calibration -->
-<sensors-weight-calibration *ngIf="showCalibration" (closeModal)="showCalibration=$event" [sensor]="sensor" (calibrationChange)="sensor.offset = $event['offset'];sensor.reference_unit = $event['reference_unit']"></sensors-weight-calibration>
 <!-- Table with sensors -->
-<table class="table table-bordered table-sm table-responsive-md">
+<table class="table table-bordered table-sm" style="position:relative;overflow-x:hidden;overflow-y:auto">
   <tbody id="sensors">
   <ng-container *ngFor="let sensor of settings.sensors; let i = index">
     <tr [ngClass]="{'my-bg': (i%2 == 0)}">
@@ -148,6 +146,8 @@
                {{'settings.sensors.calibration.guidedTour' | translate}}
             </button>
           </div>
+          <!-- Modal for HX711 calibration -->
+          <sensors-weight-calibration style="z-index:9999;position:absolute" *ngIf="showCalibration" (closeModal)="showCalibration=$event" [sensor]="sensor" (calibrationChange)="sensor.offset = $event['offset'];sensor.reference_unit = $event['reference_unit']"></sensors-weight-calibration>
           <div class="form-group col-12 col-sm-6">
             <label for="offset">{{'settings.sensors.weightcell' | translate }} {{'settings.sensors.offset' | translate }}</label>
             <input type="number" step="1" class="form-control" [(ngModel)]="sensor.offset" id="offset" name="offset" placeholder="{{'settings.sensors.offset' | translate }}" required>
