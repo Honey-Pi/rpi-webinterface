@@ -69,7 +69,7 @@
 
             if ($postJson["wittyPi"]["enabled"] === true
                 && isset($postJson["wittyPi"]["normal"]["enabled"])
-                    && $postJson["wittyPi"]["normal"]["schedule"] === true
+                    && $postJson["wittyPi"]["normal"]["enabled"] === true
                         && isset($postJson["wittyPi"]["normal"]["schedule"])
                             && strlen(trim($postJson["wittyPi"]["normal"]["schedule"])) >= 1) {
 
