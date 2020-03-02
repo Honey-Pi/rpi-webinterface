@@ -1,7 +1,7 @@
 {
   "alerts": {
     "afterSave": "Die Änderungen in diesem Bereich werden nach einem Neustart aktiv.",
-    "afterSaveOrManualStart": "Die Änderungen am Zeitplan werden nach einem Neustart aktiv oder nachdem der Messmodus mit dem Taster gestoppt und wieder gestartet wird.",
+    "afterSaveOrManualStart": "Die Änderungen am Zeitplan werden nach einem Neustart aktiv oder nachdem der Messmodus mit dem Taster gestoppt und wieder gestartet wird. Ob der WittyPi im energiesparsamen Zeitplan läuft wird nämlich in der Messroutine entschieden, wenn auch die Batteriespannung (Volt) gemessen wurde.",
     "deviceId": "<strong>Hinweis:</strong> Es wurde ein Sensor mit einer ungültigen Device-ID festgestellt.\nDies tritt unter anderem beim DS18B20 dann auf, wenn ein Widerstand vergessen wurde oder ein falscher Widerstand verwendet wurde.\nEine weitere Ursache könnte ein angeschlossener DHT-Sensor sein. <strong>In diesem Fall kann dieser Hinweis ignoriert werden.</strong>",
     "errorSaving": "<strong>Fehler!</strong> Die Einstellungen konnten nicht gespeichert werden.",
     "gpio": "<b>GPIO:</b> Die Kontaktstifte auf dem Raspberry Pi Board haben zwei Nummerierungen. Eine physische von 1 bis 40 und eine für jeden frei programmierbaren GPIO. Bei der Angabe des Kontaktstiftes wird hier im Wartungsmodus immer die GPIO Nummerierung angegeben.",
