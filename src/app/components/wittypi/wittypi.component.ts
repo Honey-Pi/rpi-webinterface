@@ -23,7 +23,7 @@ export class WittypiComponent implements OnInit {
         name: 'Anschalten alle 15min',
         script: 'BEGIN 2015-08-01 00:00:00 \n' +
           'END   2025-07-31 23:59:59 \n' +
-          'ON   M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M10'
       },
       {
