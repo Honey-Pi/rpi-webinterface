@@ -1,6 +1,7 @@
 {
   "alerts": {
     "afterSave": "Die Änderungen in diesem Bereich werden nach einem Neustart aktiv.",
+    "afterSaveOrManualStart": "Die Änderungen am Zeitplan werden nach einem Neustart aktiv oder nachdem der Messmodus mit dem Taster gestoppt und wieder gestartet wird. Ob der WittyPi im energiesparsamen Zeitplan läuft wird nämlich in der Messroutine entschieden, wenn auch die Batteriespannung (Volt) gemessen wurde.",
     "deviceId": "<strong>Hinweis:</strong> Es wurde ein Sensor mit einer ungültigen Device-ID festgestellt.\nDies tritt unter anderem beim DS18B20 dann auf, wenn ein Widerstand vergessen wurde oder ein falscher Widerstand verwendet wurde.\nEine weitere Ursache könnte ein angeschlossener DHT-Sensor sein. <strong>In diesem Fall kann dieser Hinweis ignoriert werden.</strong>",
     "errorSaving": "<strong>Fehler!</strong> Die Einstellungen konnten nicht gespeichert werden.",
     "gpio": "<b>GPIO:</b> Die Kontaktstifte auf dem Raspberry Pi Board haben zwei Nummerierungen. Eine physische von 1 bis 40 und eine für jeden frei programmierbaren GPIO. Bei der Angabe des Kontaktstiftes wird hier im Wartungsmodus immer die GPIO Nummerierung angegeben.",
@@ -12,10 +13,10 @@
     "notAP": "<strong>Hinweis:</strong> Der Wartungsmodus wird nicht über den \"HoneyPi\"-AccessPoint aufgerufen. Änderungen werden daher erst nach einem Neustart aktiv (da der Tastendruck ausbleibt).",
     "saved": "<strong>Gespeichert!</strong> Die Einstellungen wurden gespeichert.",
     "shutdownAfterTransfer": "Man muss dann schnell sein um in den Wartungsmodus zu kommen.",
-    "updateAP": "<b>Hinweis:</b> Der Wartungsmodus wird von Dir über den \"HoneyPi\"-AccessPoint aufgerufen. Dies hat zur Folge, dass während des Wartungsmodus keine Internetverbindung über WLAN hergestellt wird. Du kannst im Reiter \"Internetverbindung\" ein WLAN-Netzwerk deiner Wahl eintragen. Bei einem Raspberry 3 kann zum Systemupdate ein LAN Kabel angeschlossen werden. <b>Bitte beachte Schritt 3. Wir empfehlen den Aufruf über die IP/Hostname des Raspberrys im Heimnetzwerk.</b>",
-    "updateInfo": "1. Das Datenvolumen des Surfsticks kann dabei verbraucht werden. <br>\n2. Es empfiehlt sich daher, den Raspberry Zero für das Systemupdate vom Surfstick zu trennen und ihn mit einem vorhandenen WLAN-Netzwerk zu verbinden.<br>\n3. Anschließend sollte der Wartungsmodus nicht über den \"HoneyPi\"-AccessPoint, sondern über die IP-Adresse des Raspberrys aufgerufen werden. <br>\n4. Die Einstellungen gehen dabei verloren (Reset). Daher vorher die Einstellungsdatei exportieren.",
-    "updateNotAP": "Du rufst den Raspberry nicht über den \"HoneyPi\"-AccessPoint auf, sondern über die IP-Adresse im Heimnetzwerk. <b>Du kannst Schritt 3 überspringen.</b>",
-    "wittypi": "Mit Hilfe des zusätzlichen Witty Pi Moduls kann der Raspberry Pi zeitgesteuert werden.\nWir bieten bereits drei nützliche Programme.\nDiese können im Eingabefeld auch verändert werden. Voraussetzung ist das <strong>WittyPi</strong>-Modul."
+    "updateAP": "<b>Hinweis:</b> Der Wartungsmodus wird von Dir über den \"HoneyPi\"-AccessPoint aufgerufen. Du kannst im Reiter \"Internetverbindung\" ein WLAN-Netzwerk deiner Wahl eintragen. Bei einem Raspberry 3 oder 4 kann zum Systemupdate ein LAN Kabel angeschlossen werden.",
+    "updateInfo": "1. Das Datenvolumen des Surfsticks kann dabei verbraucht werden. <br>\n2. Es empfiehlt sich daher, den Raspberry Pi für das Systemupdate vom Surfstick zu trennen und ihn mit einem vorhandenen WLAN-Netzwerk zu verbinden.",
+    "updateNotAP": "<b> Gut so! </b> Du rufst den Raspberry nicht über den \"HoneyPi\"-AccessPoint auf, sondern über die IP-Adresse im Heimnetzwerk.",
+    "wittypi": "Mit Hilfe des zusätzlichen Witty Pi Moduls kann der Raspberry Pi zeitgesteuert werden.\nWir bieten bereits drei nützliche Zeitpläne. Diese können im Eingabefeld verändert werden. Voraussetzung ist das optionale <strong>WittyPi</strong>-Modul. \nBeim Speichern sollte eine \"Internetverbindung\" (bspw. über einen Surfstick oder WiFi) bestehen, damit die aktuelle Systemzeit aktualisiert werden kann."
   },
   "brand": "HoneyPi",
   "buttons": {
@@ -32,7 +33,9 @@
     "length": "\"{{field}}\" liegt außerhalb des gültigen Wertebereichs.",
     "required": "Das Feld \"{{field}}\" wird benötigt.",
     "spaces": "\"{{field}}\" enthält ein Leerzeichen. Ist das gewollt?",
-    "specialchar": "\"{{field}}\" enthält nichterlaubte Sonderzeichen."
+    "specialchar": "\"{{field}}\" enthält nichterlaubte Sonderzeichen.",
+    "wittypinotwait": "Der WittyPi wird vom Raspberry nach erfolgreicher Messübertragung heruntergefahren. Daher sollte dein Zeitplan angepasst werden. Denn durch das fehlende \"WAIT\" hinter dem \"ON M5\" würde das WittyPi-Modul den Raspberry zum Herunterfahren nochmal hochfahren.",
+    "wittypiwait": "Durch das vorhandene \"WAIT\" hinter dem \"ON M5\" wird das WittyP-Modul den Raspberry nicht selbstsbtändig herunterfahren. Aktiviere das \"Herunterfahren nach erfolgreicher Übertragung\" oder entferne das \"WAIT\"."
   },
   "settings": {
     "confirm": {
@@ -42,8 +45,8 @@
       "shutdown": "Alle ungespeicherten Änderungen gehen verloren. Das Gerät fährt herunter. \nSicher?"
     },
     "connectionerror": {
-      "body": "<p>Die Bienenstockwaage ist gerade nicht erreichbar, vermutlich wurde das System neu gestartet, dies kann bis zu 1 Minute dauern.\n</p>\n<p>Ein anderer Grund kann sein: Stelle bitte sicher, dass du immernoch mit dem \"HoneyPi\"-WLAN verbunden bist. Die Verbindung könnte sich in der Zwischenzeit automatisch getrennt haben.\n</p>",
-      "stayconnectedAP": "Da der \"HoneyPi\"-AccessPoint keine Internetverbindung liefert, neigen Geräte dazu, trotz verbundenen Wlan, dann den Mobilfunk fürs Internet zu nutzen. Um sich dennoch mit dem HoneyPi-Webinterface zu verbinden kann helfen: Aktiviere den Flugmodus und anschließend aktiviere nur das Wlan. Verbinde dich erneut mit dem \"HoneyPi\"-AccessPoint.",
+      "body": "<p>Die Bienenstockwaage ist gerade nicht erreichbar, vermutlich wurde das System neu gestartet, dies kann bis zu 1 Minute dauern.\n</p>",
+      "stayconnectedAP": "Stelle bitte sicher, dass du immernoch mit dem \"HoneyPi\"-WLAN verbunden bist. Die Verbindung könnte sich in der Zwischenzeit automatisch getrennt haben. Da der \"HoneyPi\"-AccessPoint keine Internetverbindung liefert, neigen Geräte dazu, trotz verbundenen Wlan, dann den Mobilfunk fürs Internet zu nutzen. Um sich dennoch mit dem HoneyPi-Webinterface zu verbinden kann helfen: Aktiviere den Flugmodus und anschließend aktiviere nur das Wlan. Verbinde dich erneut mit dem \"HoneyPi\"-AccessPoint.",
       "stayconnectedNotAP": "Augenscheinlich scheinst du den HoneyPi nicht über den AccessPoint aufzurufen. Ein weiterer Grund könnte daher sein, dass sich die IP-Adresse des Geräts in deinem Heimnetzwerk geändert hat. Lösche den Browser Cache.",
       "title": "Verbindung fehlgeschlagen"
     },
@@ -123,7 +126,7 @@
       "ledPin": "Externe LED GPIO",
       "measurementInterval": "Messintervall",
       "measurementNone": "Keine Messdatenübertragung",
-      "measurementOnce": "Einmalige Übertragung nach dem Anschalten",
+      "measurementOnce": "Einmalige Übertragung nach dem Anschalten (empfohlen für das WittyPi-Modul)",
       "offset": "Offset",
       "pressure": "Luftdruck",
       "quality": "Luftgüte",
