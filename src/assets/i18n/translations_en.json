@@ -15,7 +15,7 @@
     "shutdownAfterTransfer": "You have to be quick to get into maintenance mode.",
     "updateAP": "<b>Note:</b> The maintenance mode is called by you via the \"HoneyPi\"-AccessPoint. You can enter a WLAN network of your choice in the \"Internet connection\" tab. With a Raspberry 3 or 4, a LAN cable can be connected for system updates.",
     "updateInfo": "1. The data volume of the surf stick can be used up. <br>\n2. It is therefore recommended to disconnect the Raspberry Pi from the Surfstick for the system update and connect it to an existing WiFi network.",
-    "updateNotAP": "You call the Raspberry not via the \"HoneyPi\" AccessPoint, but via the IP address in the home network. <b>You can skip step 3.</b>",
+    "updateNotAP": "<b>Success!</b> You call the Raspberry not via the \"HoneyPi\" AccessPoint, but via the IP address in the home network.",
     "wittypi": "With the help of the additional Witty Pi module, the Raspberry Pi can be time-controlled.\nWe already offer three useful schedule programs. These can also be changed in the input field. Prerequisite is the <strong>WittyPi</strong> module. \nWhen saving, there should be an \"Internet connection\" (e.g. via a surfstick or WiFi) so that the current system time can be updated."
   },
   "brand": "HoneyPi (en)",
@@ -45,8 +45,8 @@
       "shutdown": "All unsaved changes are lost. The device will now shutdown. \nAre you sure?"
     },
     "connectionerror": {
-      "body": "<p>The beehive scale is currently not available, probably the system has been restarted, this can take up to 1 minute.\n</p>\n<p>Another reason could be: Please make sure you are still connected to the HoneyPi WiFi. The connection may have disconnected automatically in the meantime.\n</p>",
-      "stayconnectedAP": "Since the \"HoneyPi\" access point does not provide an Internet connection, devices tend to use mobile networks for the Internet, even though they have WiFi connected. To be stil able to connect to the HoneyPi web interface it might help: Activate flight mode and then activate only the WiFi. Connect to the \"HoneyPi\" access point again.",
+      "body": "<p>The beehive scale is currently not available, probably the system has been restarted, this can take up to 1 minute.\n</p>",
+      "stayconnectedAP": "Another reason could be: Please make sure you are still connected to the HoneyPi WiFi. The connection may have disconnected automatically in the meantime. Since the \"HoneyPi\" access point does not provide an Internet connection, devices tend to use mobile networks for the Internet, even though they have WiFi connected. To be stil able to connect to the HoneyPi web interface it might help: Activate flight mode and then activate only the WiFi. Connect to the \"HoneyPi\" access point again.",
       "stayconnectedNotAP": "Obviously you do not seem to call up the HoneyPi via the access point. Another reason could be that the IP address of the device in your home network has changed. Clear the browser cache.",
       "title": "Connection failed"
     },
