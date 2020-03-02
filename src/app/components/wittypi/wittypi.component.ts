@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Settings} from '../../models/settings.model';
 import {AppService} from '../../services/app.service';
 import {TranslateService} from '@ngx-translate/core';
-import {WittyPi} from "../../models/wittypi.model";
+import {WittyPi} from '../../models/wittypi.model';
 
 @Component({
   selector: 'app-wittypi',
@@ -17,7 +17,7 @@ export class WittypiComponent implements OnInit {
         name: 'Anschalten alle 30Minuten',
         script: 'BEGIN 2015-08-01 08:00:00\n' +
           'END   2025-07-31 18:00:00\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25'
       }, {
         name: 'Anschalten alle 15min',
@@ -31,77 +31,77 @@ export class WittypiComponent implements OnInit {
         script:
           'BEGIN 2015-08-01 07:00:00\n' +
           'END   2025-07-31 23:59:59\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M55\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M55\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M55\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M55\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M55\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M55\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M55\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M55\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M55\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M55\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M55\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M55\n'
       }
     ];
@@ -112,17 +112,17 @@ export class WittypiComponent implements OnInit {
         name: 'Täglich um 6 Uhr anschalten',
         script: 'BEGIN 2020-03-01 06:00:00\n' +
           'END   2025-12-31 00:00:00\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   H23 M55'
       }, {
       name: 'Alle 8h anschalten',
       script: 'BEGIN 2020-03-01 06:00:00\n' +
         'END   2025-12-31 00:00:00\n' +
-        'ON    M5\n' +
+        'ON    M5 WAIT\n' +
         'OFF   H7 M55\n' +
-        'ON    M5\n' +
+        'ON    M5 WAIT\n' +
         'OFF   H7 M55\n' +
-        'ON    M5\n' +
+        'ON    M5 WAIT\n' +
         'OFF   H7 M55'
     }
     ];
