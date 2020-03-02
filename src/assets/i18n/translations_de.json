@@ -1,6 +1,7 @@
 {
   "alerts": {
     "afterSave": "Die Änderungen in diesem Bereich werden nach einem Neustart aktiv.",
+    "afterSaveOrManualStart": "Die Änderungen am Zeitplan werden nach einem Neustart aktiv oder nachdem der Messmodus mit dem Taster gestoppt und wieder gestartet wird.",
     "deviceId": "<strong>Hinweis:</strong> Es wurde ein Sensor mit einer ungültigen Device-ID festgestellt.\nDies tritt unter anderem beim DS18B20 dann auf, wenn ein Widerstand vergessen wurde oder ein falscher Widerstand verwendet wurde.\nEine weitere Ursache könnte ein angeschlossener DHT-Sensor sein. <strong>In diesem Fall kann dieser Hinweis ignoriert werden.</strong>",
     "errorSaving": "<strong>Fehler!</strong> Die Einstellungen konnten nicht gespeichert werden.",
     "gpio": "<b>GPIO:</b> Die Kontaktstifte auf dem Raspberry Pi Board haben zwei Nummerierungen. Eine physische von 1 bis 40 und eine für jeden frei programmierbaren GPIO. Bei der Angabe des Kontaktstiftes wird hier im Wartungsmodus immer die GPIO Nummerierung angegeben.",
@@ -32,7 +33,9 @@
     "length": "\"{{field}}\" liegt außerhalb des gültigen Wertebereichs.",
     "required": "Das Feld \"{{field}}\" wird benötigt.",
     "spaces": "\"{{field}}\" enthält ein Leerzeichen. Ist das gewollt?",
-    "specialchar": "\"{{field}}\" enthält nichterlaubte Sonderzeichen."
+    "specialchar": "\"{{field}}\" enthält nichterlaubte Sonderzeichen.",
+    "wittypinotwait": "Der WittyPi wird vom Raspberry nach erfolgreicher Messübertragung heruntergefahren. Daher sollte dein Zeitplan angepasst werden. Denn durch das fehlende \"WAIT\" hinter dem \"ON M5\" würde das WittyPi-Modul den Raspberry zum Herunterfahren nochmal hochfahren.",
+    "wittypiwait": "Durch das vorhandene \"WAIT\" hinter dem \"ON M5\" wird das WittyP-Modul den Raspberry nicht selbstsbtändig herunterfahren. Aktiviere das \"Herunterfahren nach erfolgreicher Übertragung\" oder entferne das \"WAIT\"."
   },
   "settings": {
     "confirm": {

@@ -1,6 +1,7 @@
 {
   "alerts": {
     "afterSave": "The changes in this area become active after a restart.",
+    "afterSaveOrManualStart": "The changes in this area become active after a restart or after the measurements have been stopped and started again with the button.",
     "deviceId": "<strong>Note:</strong> A sensor with an invalid device ID was detected.\nThis occurs with the DS18B20, for example, if a resistor is forgotten or an incorrect resistor is used.\nAnother cause could be a connected DHT sensor. <strong>In this case this message can be ignored.</strong>",
     "errorSaving": "<strong>Error!</strong> The settings could not be saved.",
     "gpio": "<b>GPIO:</b> The contact pins on the Raspberry Pi Board have two numberings. One physical from 1 to 40 and one for each freely programmable GPIO. Here in maintenance mode is always the GPIO numbering beeing used.",
@@ -32,7 +33,9 @@
     "length": "\"{{field}}\" is outside the valid value range.",
     "required": "The field \"{{field}}\" is required.",
     "spaces": "\"{{field}}\" contains a space character. Is that wanted?",
-    "specialchar": "\"{{field}}\" contains forbidden special characters."
+    "specialchar": "\"{{field}}\" contains forbidden special characters.",
+    "wittypinotwait": "The WittyPi is shut down by the Raspberry after successful measurement transmission. Therefore your schedule should be adjusted. Because of the missing \"WAIT\" behind the \"ON M5\" the WittyPi module would reboot the Raspberry for shutdown.",
+    "wittypiwait": "Due to the existing \"WAIT\" behind the \"ON M5\", the WittyP module will not shut down the Raspberry on its own. Activate the \"Shutdown after successful transfer\" or remove the \"WAIT\"."
   },
   "settings": {
     "confirm": {

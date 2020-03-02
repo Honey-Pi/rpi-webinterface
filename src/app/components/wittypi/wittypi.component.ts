@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Settings} from '../../models/settings.model';
 import {AppService} from '../../services/app.service';
 import {TranslateService} from '@ngx-translate/core';
+import {WittyPi} from "../../models/wittypi.model";
 
 @Component({
   selector: 'app-wittypi',
@@ -10,7 +11,7 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class WittypiComponent implements OnInit {
 
-  public exampleScripts: {name: string, script: string}[] =
+  public exampleScriptsNormal: {name: string, script: string}[] =
     [
       {
         name: 'Anschalten alle 30Minuten',
@@ -18,7 +19,7 @@ export class WittypiComponent implements OnInit {
           'END   2025-07-31 18:00:00\n' +
           'ON    M5\n' +
           'OFF   M25'
-      },{
+      }, {
         name: 'Anschalten alle 15min',
         script: 'BEGIN 2015-08-01 00:00:00 \n' +
           'END   2025-07-31 23:59:59 \n' +
@@ -105,7 +106,29 @@ export class WittypiComponent implements OnInit {
       }
     ];
 
-  public selectedExample: string = null;
+  public exampleScriptsLow: {name: string, script: string}[] =
+    [
+      {
+        name: 'Täglich um 6 Uhr anschalten',
+        script: 'BEGIN 2020-03-01 06:00:00\n' +
+          'END   2025-12-31 00:00:00\n' +
+          'ON    M5\n' +
+          'OFF   H23 M55'
+      }, {
+      name: 'Alle 8h anschalten',
+      script: 'BEGIN 2020-03-01 06:00:00\n' +
+        'END   2025-12-31 00:00:00\n' +
+        'ON    M5\n' +
+        'OFF   H7 M55\n' +
+        'ON    M5\n' +
+        'OFF   H7 M55\n' +
+        'ON    M5\n' +
+        'OFF   H7 M55'
+    }
+    ];
+
+  public selectedExampleNormal: string = null;
+  public selectedExampleLow: string = null;
   private isLoading: boolean;
 
   /* two-way databinding for settings*/
@@ -142,6 +165,18 @@ export class WittypiComponent implements OnInit {
         this.isLoading = false;
       }
     });
+  }
+
+  public showWarningForMissingWait(wittyPiPlan: WittyPi): boolean {
+
+    return (wittyPiPlan.interval === 1 && wittyPiPlan.shutdownAfterTransfer === true && wittyPiPlan.schedule.indexOf('WAIT') === -1);
+
+  }
+
+  public showWarningForWait(wittyPiPlan: WittyPi): boolean {
+
+    return (wittyPiPlan.interval !== 1 && wittyPiPlan.schedule.indexOf('WAIT') !== -1);
+
   }
 
 }
