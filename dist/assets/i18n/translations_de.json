@@ -39,9 +39,9 @@
   },
   "settings": {
     "confirm": {
-      "installWittyPi": "Du bist dabei auf deinem HoneyPi die Software für das WittyPi Modul zu installieren. Dazu muss zwingend eine Internetverbindung (bspw. über WLAN) bestehen.",
+      "installWittyPi": "Du bist dabei auf deinem HoneyPi die Software für das WittyPi Modul zu installieren. Dazu muss zwingend eine Internetverbindung (bspw. über WLAN) bestehen. Teste das bitte zuvor im Reiter \"Internetverbindung testen\". Vergiss auch nicht deine aktuellen Einstellungen vorher zu Speichern.",
       "reboot": "Alle ungespeicherten Änderungen gehen verloren. Die Verbindung wird sich vorübergehend trennen. \nDas Gerät wird nun neugestartet. Sicher?",
-      "savedAP": "Damit die Änderungen wirksam werden ist ein Neustart erforderlich. \nSoll das Gerät nun neugestartet werden?",
+      "savedAP": "Damit alle Änderungen wirksam werden ist meist ein Neustart erforderlich. \nSoll das Gerät nun neugestartet werden?",
       "shutdown": "Alle ungespeicherten Änderungen gehen verloren. Das Gerät fährt herunter. \nSicher?"
     },
     "connectionerror": {

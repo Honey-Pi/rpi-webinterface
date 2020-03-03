@@ -39,9 +39,9 @@
   },
   "settings": {
     "confirm": {
-      "installWittyPi": "You are about to install the software for the WittyPi module on your HoneyPi. For this an internet connection (e.g. via WiFi) must be available.",
+      "installWittyPi": "You are about to install the software for the WittyPi module on your HoneyPi. For this an internet connection (e.g. via WiFi) must be available. Please test this first in the tab \"Test Internet connection\". Also don't forget to save your current settings first.",
       "reboot": "All unsaved changes are lost. The connection will be temporarily disconnected. \nThe device will now restart. Are you sure?",
-      "savedAP": "A restart is required for the changes to take effect. \nShould the device now be restarted?",
+      "savedAP": "A restart is required for the most changes to take effect. \nShould the device now be restarted?",
       "shutdown": "All unsaved changes are lost. The device will now shutdown. \nAre you sure?"
     },
     "connectionerror": {
