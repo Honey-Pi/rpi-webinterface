@@ -34,7 +34,7 @@
         }
     }
     function installWittyPi($version) {
-        exec("sudo sh ".$GLOBALS['shellDir']."/installWittyPi.sh ".(INT)$version." > /dev/null 2>&1 &", $out, $status);
+        exec("sudo sh ".$GLOBALS['shellDir']."/installWittyPi.sh ".(INT)$version."", $out, $status);
         if (0 === $status) {
             return $out;
         } else {

@@ -153,14 +153,29 @@ export class WittypiComponent implements OnInit {
     this.isLoading = true;
     this.translate.get('settings.confirm.installWittyPi').subscribe((res: string) => {
       if (window.confirm(res)) {
-        this.appService.update('installWittyPi', '&version=' + version)
-          .finally(() => this.isLoading = false)
-          .subscribe(res2 => {
-            console.log(res2);
-            if (window.confirm('Erfolgreich. Das System muss jetzt von dir neugestartet werden.')) {
-              location.reload(true);
+        this.appService.checkInternet().timeout(15000)
+          .subscribe(resInternet => {
+            const checkInternetResponse = <any>resInternet;
+            if (checkInternetResponse.connected === true) {
+              this.appService.update('installWittyPi', '&version=' + version)
+               .finally(() => this.isLoading = false)
+               .subscribe(resUpdate => {
+                 console.log(resUpdate);
+                 alert('Erfolgreich. Der Raspberry muss jetzt von dir neugestartet werden.');
+               }, (err: any) => {
+                 console.error(err);
+                 alert('Error while installing WittyPi. Try again.');
+               });
+            } else {
+              this.isLoading = false;
+              alert('No internet connection. Try again with internet connection.');
             }
-          }, (err: any) => {console.error(err); });
+          }, (err: any) => {
+            console.log(err);
+            this.isLoading = false;
+            alert('No internet connection. Try again with internet connection.');
+          });
+
       } else {
         this.isLoading = false;
       }
@@ -175,7 +190,7 @@ export class WittypiComponent implements OnInit {
 
   public showWarningForWait(wittyPiPlan: WittyPi): boolean {
 
-    return (wittyPiPlan.interval !== 1 && wittyPiPlan.schedule.indexOf('WAIT') !== -1);
+    return ((wittyPiPlan.shutdownAfterTransfer !== true || wittyPiPlan.interval !== 1 ) && wittyPiPlan.schedule.indexOf('WAIT') !== -1);
 
   }
 
