@@ -13,7 +13,7 @@ if [ "$(id -u)" != 0 ]; then
 fi
 
 # target directory
-DIR="/home/pi/wittypi"
+DIR="/home/pi/wittyPi"
 
 # error counter
 ERR=0
