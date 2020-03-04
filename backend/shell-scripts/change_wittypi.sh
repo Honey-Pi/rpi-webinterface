@@ -2,6 +2,7 @@
 
 if [ -z "$1" ] ; then
 	echo "Missing argument."
+	exit 1
 else
 	mode=$1
 
@@ -16,7 +17,7 @@ else
         path='/home/pi/wittypi'
     else
         echo "Error: No WittyPi installation found."
-        exit 0
+        exit 1
 	fi
 
     # change path to wittyPi folder
@@ -38,7 +39,6 @@ else
         sudo ./runScript.sh
     fi
 
-    exit 1
 fi
 
 exit 0
