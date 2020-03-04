@@ -13,7 +13,7 @@ if [ "$(id -u)" != 0 ]; then
 fi
 
 # target directory
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/wittyPi"
+DIR="/home/pi/wittypi"
 
 # error counter
 ERR=0

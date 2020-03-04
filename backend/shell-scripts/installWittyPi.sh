@@ -3,7 +3,6 @@
 # install WittyPi into home directory
 export PWD=/home/pi
 cd /home/pi
-exec bash
 
 if [ -z "$1" ] ; then
 	echo "Missing argument wittyPi."
@@ -25,9 +24,9 @@ else
 
     # Run the installer provided from WittyPi
     if [ $wittyPi -eq 2 ] ; then
-        cd /home/pi && sh /var/www/html/backend/shell-scripts/installWittyPi2.sh
+        sh /var/www/html/backend/shell-scripts/installWittyPi2.sh
     elif [ $wittyPi -eq 3 ] ; then
-        cd /home/pi && sh /var/www/html/backend/shell-scripts/installWittyPi3.sh
+        sh /var/www/html/backend/shell-scripts/installWittyPi3.sh
     fi
 
 fi
