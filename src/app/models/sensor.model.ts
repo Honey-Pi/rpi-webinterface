@@ -1,5 +1,7 @@
 export class Sensor {
   constructor(type: number = 0) {
+    this.offset = 0;
+    this.reference_unit = 1;
   }
   /*
   Type 0: DS18b20
@@ -8,15 +10,15 @@ export class Sensor {
   Type 3: DHT11/DHT22
   Type 4: MAX6675/MAX31855
   Type 5: BME280
+  Type 6: YL-40 PCF8591
    */
-
   type: number;
   name: string;
   ts_field: string;
   // HX711
   reference_unit: number;
   channel: string;
-  offset: number; // & MAX6675
+  offset: number; // HX711, BME680, BME280 & MAX6675/MAX31855
   pin_dt: number;
   pin_sck: number;
   invert: boolean;
@@ -32,7 +34,7 @@ export class Sensor {
   // DS18b20
   device_id: string;
   // DHT22/DHT11
-  pin: number; // & MAX6775
+  pin: number; // & MAX6775 & PCF8591
   dht_type: number;
   // MAX6675/MAX31855
   pin_cs: number;

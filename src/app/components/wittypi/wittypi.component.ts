@@ -1,5 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Settings} from "../../models/settings.model";
+import {Settings} from '../../models/settings.model';
+import {AppService} from '../../services/app.service';
+import {TranslateService} from '@ngx-translate/core';
+import {WittyPi} from '../../models/wittypi.model';
 
 @Component({
   selector: 'app-wittypi',
@@ -8,21 +11,19 @@ import {Settings} from "../../models/settings.model";
 })
 export class WittypiComponent implements OnInit {
 
-  public script: string = '';
-
-  public exampleScripts: {name, script}[] =
+  public exampleScriptsNormal: {name: string, script: string}[] =
     [
       {
         name: 'Anschalten alle 30Minuten',
-        script:'BEGIN 2015-08-01 08:00:00\n' +
+        script: 'BEGIN 2015-08-01 08:00:00\n' +
           'END   2025-07-31 18:00:00\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25'
-      },{
+      }, {
         name: 'Anschalten alle 15min',
-        script:'BEGIN 2015-08-01 00:00:00 \n' +
+        script: 'BEGIN 2015-08-01 00:00:00 \n' +
           'END   2025-07-31 23:59:59 \n' +
-          'ON   M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M10'
       },
       {
@@ -30,82 +31,105 @@ export class WittypiComponent implements OnInit {
         script:
           'BEGIN 2015-08-01 07:00:00\n' +
           'END   2025-07-31 23:59:59\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M25\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M55\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M55\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M55\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M55\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M55\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M55\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M55\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M55\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M55\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M55\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M55\n' +
-          'ON    M5\n' +
+          'ON    M5 WAIT\n' +
           'OFF   M55\n'
       }
     ];
 
-  public selectedExample: string = null;
+  public exampleScriptsLow: {name: string, script: string}[] =
+    [
+      {
+        name: 'Täglich um 6 Uhr anschalten',
+        script: 'BEGIN 2020-03-01 06:00:00\n' +
+          'END   2025-12-31 00:00:00\n' +
+          'ON    M5 WAIT\n' +
+          'OFF   H23 M55'
+      }, {
+      name: 'Alle 8h anschalten',
+      script: 'BEGIN 2020-03-01 06:00:00\n' +
+        'END   2025-12-31 00:00:00\n' +
+        'ON    M5 WAIT\n' +
+        'OFF   H7 M55\n' +
+        'ON    M5 WAIT\n' +
+        'OFF   H7 M55\n' +
+        'ON    M5 WAIT\n' +
+        'OFF   H7 M55'
+    }
+    ];
+
+  public selectedExampleNormal: string = null;
+  public selectedExampleLow: string = null;
+  private isLoading: boolean;
 
   /* two-way databinding for settings*/
   _settings: Settings;
@@ -120,12 +144,53 @@ export class WittypiComponent implements OnInit {
   @Output()
   settingsChange: EventEmitter<Settings> = new EventEmitter<Settings>();
 
-  constructor() { }
+  constructor(private appService: AppService, private translate: TranslateService) { }
 
   ngOnInit() {
   }
 
-  saveWittypi(): void {
+  installWittyPi(version: number): void {
+    this.isLoading = true;
+    this.translate.get('settings.confirm.installWittyPi').subscribe((res: string) => {
+      if (window.confirm(res)) {
+        this.appService.checkInternet().timeout(15000)
+          .subscribe(resInternet => {
+            const checkInternetResponse = <any>resInternet;
+            if (checkInternetResponse.connected === true) {
+              this.appService.update('installWittyPi', '&version=' + version)
+               .finally(() => this.isLoading = false)
+               .subscribe(resUpdate => {
+                 console.log(resUpdate);
+                 alert('Erfolgreich. Der Raspberry muss jetzt von dir neugestartet werden.');
+               }, (err: any) => {
+                 console.error(err);
+                 alert('Error while installing WittyPi. Try again.');
+               });
+            } else {
+              this.isLoading = false;
+              alert('No internet connection. Try again with internet connection.');
+            }
+          }, (err: any) => {
+            console.log(err);
+            this.isLoading = false;
+            alert('No internet connection. Try again with internet connection.');
+          });
+
+      } else {
+        this.isLoading = false;
+      }
+    });
+  }
+
+  public showWarningForMissingWait(wittyPiPlan: WittyPi): boolean {
+
+    return (wittyPiPlan.interval === 1 && wittyPiPlan.shutdownAfterTransfer === true && wittyPiPlan.schedule.indexOf('WAIT') === -1);
+
+  }
+
+  public showWarningForWait(wittyPiPlan: WittyPi): boolean {
+
+    return ((wittyPiPlan.shutdownAfterTransfer !== true || wittyPiPlan.interval !== 1 ) && wittyPiPlan.schedule.indexOf('WAIT') !== -1);
 
   }
 

@@ -32,10 +32,14 @@ export class OfflineComponent implements OnInit {
     this.apiURL = environment.apiURL;
   }
 
-  deleteCsv(): void {
-    this.appService.deleteCsv()
+  deleteCsv(channelId): void {
+    this.appService.deleteCsv(channelId)
       .subscribe(res => {
       }, (err: any) => {console.error(err); });
+  }
+
+  get isThingSpeakDefined() {
+    return (this.settings.ts_channels.filter(x => x.ts_channel_id > 0).length === 0);
   }
 
 }

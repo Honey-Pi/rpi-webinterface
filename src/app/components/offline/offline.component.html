@@ -30,9 +30,19 @@
 </div>
 <hr />
 <h5 class="h5" [translate]="'settings.offline.export'"></h5>
-<div class="btn-group btn-group-sm" role="group">
-  <a href="{{apiURL}}offlinecsv.php" target="_blank" download="HoneyPi-export.csv" class="btn btn-primary btn-sm"
-     [translate]="'settings.offline.exportButton'"></a>
-  <button class="btn btn-danger btn-sm" type="button" role="button" (click)="deleteCsv()" [translate]="'settings.offline.delete'"></button>
+<div *ngIf="isThingSpeakDefined" class="alert alert-warning" role="alert">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <span [innerHTML]="'settings.offline.noData' | translate: {tab: 'settings.thingspeak.title' | translate}"></span>
 </div>
-
+<ng-container *ngFor="let channel of settings.ts_channels;">
+  <div class="row" *ngIf="channel.ts_channel_id">
+    <div class="col-12" style="padding-bottom:15px;">
+      <div class="btn-group btn-group-sm" role="group">
+        <a href="{{apiURL}}offlinecsv.php?channelId={{channel.ts_channel_id}}" target="_blank" download="HoneyPi-{{channel.ts_channel_id}}-export.csv" class="btn btn-primary btn-sm">
+          {{'settings.offline.exportButton' | translate}} #{{channel.ts_channel_id}} {{channel.name}}
+        </a>
+        <button class="btn btn-danger btn-sm" type="button" role="button" (click)="deleteCsv(channel.ts_channel_id)" [translate]="'settings.offline.delete'"></button>
+      </div>
+    </div>
+  </div>
+</ng-container>

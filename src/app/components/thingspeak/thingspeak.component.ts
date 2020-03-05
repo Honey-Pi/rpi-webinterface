@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Settings} from "../../models/settings.model";
 import {AppService} from "../../services/app.service";
 import {FormControl} from "@angular/forms";
@@ -9,7 +9,7 @@ import {TranslateService} from "@ngx-translate/core";
   templateUrl: './thingspeak.component.html',
   styleUrls: ['./thingspeak.component.css']
 })
-export class ThingspeakComponent {
+export class ThingspeakComponent implements OnInit {
 
   /* two-way databinding for settings*/
   _settings: Settings;
@@ -25,6 +25,9 @@ export class ThingspeakComponent {
   settingsChange: EventEmitter<Settings> = new EventEmitter<Settings>();
 
   constructor(private appService: AppService, private translate: TranslateService) { }
+
+  ngOnInit() {
+  }
 
   addChannel() {
     this.settings.ts_channels.push({ts_channel_id: undefined, ts_write_key: ''});

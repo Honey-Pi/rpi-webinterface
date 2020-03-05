@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import {environment} from '../../environments/environment';
+import {Sensor} from '../models/sensor.model';
 
 @Injectable({
   providedIn: 'root'
@@ -43,14 +44,14 @@ export class AppService {
     return this.http.get(environment.apiURL + 'log.php?delete&' + timestamp, {responseType: 'text'});
   }
 
-  deleteCsv(): Observable<string> {
+  deleteCsv(channelId): Observable<string> {
     const timestamp = 't=' + ((new Date()).getTime());
-    return this.http.get(environment.apiURL + 'offlinecsv.php?delete&' + timestamp, {responseType: 'text'});
+    return this.http.get(environment.apiURL + 'offlinecsv.php?delete&channelId=' + channelId + '&' + timestamp, {responseType: 'text'});
   }
 
-  update(mode= 'update'): Observable<Object> {
+  update(mode= 'update', params: string = ''): Observable<Object> {
     const timestamp = 't=' + ((new Date()).getTime());
-    return this.http.get(environment.apiURL + 'update.php?mode=' + mode + '&' + timestamp, {responseType: 'json'});
+    return this.http.get(environment.apiURL + 'update.php?mode=' + mode + params + '&' + timestamp, {responseType: 'json'});
   }
 
   getMeasurement(): Observable<Response> {
@@ -79,6 +80,13 @@ export class AppService {
         if (response) {
           return response;
         }
+      });
+  }
+
+  getWeight(sensor: Sensor): Observable<string> {
+    return this.http.post(environment.apiURL + 'weight.php', sensor, {responseType: 'text'})
+      .map((response: string) => {
+        return response;
       });
   }
 

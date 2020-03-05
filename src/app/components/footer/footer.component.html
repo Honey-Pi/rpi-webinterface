@@ -1,5 +1,10 @@
 <footer class="footer">
   <div class="container">
-    <span class="text-muted">&copy; <a href="https://www.honey-pi.de" target="_blank">HoneyPi.de</a></span>
+    <span class="text-muted">&copy; <a href="https://www.honey-pi.de" target="_blank">HoneyPi.de</a> 2018-{{currentYear}}</span>
+    <span class="float-right text-muted" style="padding-left:10px">
+      <a routerLink="" (click)="useLanguage('de')">Deutsch</a> |
+      <a routerLink="" (click)="useLanguage('en')">English</a> |
+      <a routerLink="" (click)="useLanguage('el_GR')">Greek</a>
+    </span>
   </div>
 </footer>

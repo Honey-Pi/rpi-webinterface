@@ -5,12 +5,13 @@
          id="ts_server_url" name="ts_server_url" placeholder="Server URL"
          required #ts_server_url="ngModel">
 </div>-->
-
-<div *ngFor="let channel of settings.ts_channels; let i=index; let last=last;let first=first; let isOk = undefined;" class="rounded row">
-  <div class="col-12"  [ngClass]="{'my-bg-ts': (i%2 != 0)}">
+<div *ngFor="let channel of settings.ts_channels; let i=index; let last=last;let first=first;" class="rounded row">
+  <div class="col-12" [ngClass]="{'my-bg-ts': (i%2 != 0)}" [class.spinner]="checkElement.disabled">
     <br *ngIf="!first">
-    <button type="button" (click)="removeChannel(i)" class="btn btn-danger btn-sm float-right" style="margin-bottom:10px" [disabled]="isRemovingDisabled" title="{{ 'settings.thingspeak.removeChannel' | translate}}">&#x232b;</button>
-    <button type="button" #checkElement (click)="isOk = checkThingSpeakChannel(channel.ts_channel_id, channel.ts_write_key, checkElement);" [class.spinner]="checkElement.disabled" class="btn btn-sm btn-warning float-right" style="margin-bottom:10px" title="{{ 'settings.thingspeak.checkConnection' | translate}}">&#x2713;</button>
+    <div class="btn-group btn-group-sm float-right" role="group">
+      <button type="button" #checkElement (click)="checkThingSpeakChannel(channel.ts_channel_id, channel.ts_write_key, checkElement);" [class.disabled]="!channel.ts_channel_id || !channel.ts_write_key" class="btn btn-sm btn-warning" style="margin-bottom:10px" title="{{ 'settings.thingspeak.checkConnection' | translate}}">&#x2713;</button>
+      <button type="button" (click)="removeChannel(i)" class="btn btn-danger btn-sm" style="margin-bottom:10px" [disabled]="isRemovingDisabled" title="{{ 'settings.thingspeak.removeChannel' | translate}}">&#x232b;</button>
+    </div>
     <h5 class="h5">ThingSpeak Channel #{{i+1}}</h5>
     <div class="form-group">
       <label for="ts_name">Channel-Name <i>(optional)</i></label>

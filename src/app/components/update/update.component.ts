@@ -31,15 +31,30 @@ export class UpdateComponent implements OnInit {
   update(mode): void {
     this.log = null;
     this.isLoading = true;
-    this.appService.update(mode)
-      .finally(() => this.isLoading = false)
-      .subscribe(res => {
-        console.log(res);
-        this.log = res;
-        if (window.confirm('Erfolgreich aktualisiert. Die Seite muss aktualisiert werden. Jetzt neuladen?')) {
-          location.reload(true);
+
+    this.appService.checkInternet().timeout(15000)
+      .subscribe(resInternet => {
+        const checkInternetResponse = <any>resInternet;
+        if (checkInternetResponse.connected === true) {
+          this.appService.update(mode)
+            .finally(() => this.isLoading = false)
+            .subscribe(res => {
+              console.log(res);
+              this.log = res;
+              if (window.confirm('Erfolgreich aktualisiert. Die Seite muss aktualisiert werden. Jetzt neuladen?')) {
+                location.reload(true);
+              }
+            }, (err: any) => {console.error(err); });
+        } else {
+          this.isLoading = false;
+          alert('No internet connection. Try again with internet connection.');
         }
-      }, (err: any) => {console.error(err); });
+      }, (err: any) => {
+        console.log(err);
+        this.isLoading = false;
+        alert('No internet connection. Try again with internet connection.');
+      });
+
   }
 
   getVersionInfo(): void {

@@ -5,9 +5,17 @@
 
     // function for shell script
     function reboot() {
+        shell_exec("sudo systemctl stop hostapd.service");
+        shell_exec("sudo systemctl disable hostapd.service");
+        shell_exec("sudo systemctl stop dnsmasq.service");
+        shell_exec("sudo systemctl disable dnsmasq.service");
         shell_exec("sudo reboot");
     }
     function shutdown() {
+        shell_exec("sudo systemctl stop hostapd.service");
+        shell_exec("sudo systemctl disable hostapd.service");
+        shell_exec("sudo systemctl stop dnsmasq.service");
+        shell_exec("sudo systemctl disable dnsmasq.service");
         shell_exec("sudo shutdown -h 0");
     }
 

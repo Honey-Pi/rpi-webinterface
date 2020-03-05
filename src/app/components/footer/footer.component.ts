@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TranslateService} from "@ngx-translate/core";
 
 declare function require(moduleName: string): any;
 const { version: appVersion } = require('../../../../package.json')
@@ -12,11 +13,19 @@ export class FooterComponent implements OnInit {
 
   public appVersion;
 
-  constructor() {
+  constructor(private translate: TranslateService) {
     this.appVersion = appVersion;
   }
 
   ngOnInit() {
+  }
+
+  useLanguage(language: string) {
+    this.translate.use(language);
+  }
+
+  get currentYear() {
+    return (new Date().getFullYear());
   }
 
 }

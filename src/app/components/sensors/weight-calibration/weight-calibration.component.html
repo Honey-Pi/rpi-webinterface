@@ -1,0 +1,51 @@
+<div class="modal fade show" tabindex="0" role="dialog" style="display:block;">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{'settings.sensors.calibration.title' | translate}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close_modal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" [class.spinner]="isLoading">
+        <div *ngIf="step===0">
+          <div [innerHTML]="'settings.sensors.calibration.step0' | translate"></div>
+          <button class="btn btn-primary" (click)="next_step()">
+            &#x2B46; {{'settings.sensors.calibration.btnNext' | translate}}
+          </button>
+        </div>
+        <div *ngIf="step===1">
+          <div [innerHTML]="'settings.sensors.calibration.step1' | translate"></div>
+          <button class="btn btn-primary" (click)="next_step()" [disabled]="isLoading">
+            &#x2B46; {{'settings.sensors.calibration.btnNext' | translate}}
+          </button>
+        </div>
+        <div *ngIf="step===2">
+          <div [innerHTML]="'settings.sensors.calibration.step2' | translate"></div>
+          <p>
+            <input type="number" step="1" [min]="0" [max]="300000" [(ngModel)]="calibration_weight" placeholder="{{'settings.sensors.calibration.weightPlaceholder' | translate}}" class="form-control" style="max-width:200px" required />
+          </p>
+          <button class="btn btn-primary" (click)="next_step()" [disabled]="isLoading">
+            &#x2B46; {{'settings.sensors.calibration.btnNext' | translate}}
+          </button>
+        </div>
+        <div *ngIf="step===3">
+          <div [innerHTML]="'settings.sensors.calibration.step3' | translate"></div>
+          <button class="btn btn-primary" (click)="next_step()">
+            &#x2B46; {{'settings.sensors.calibration.btnFinish' | translate}}
+          </button>
+        </div>
+        <ng-container *ngIf="result">
+          <br>Output:
+          <pre class="pre-scrollable">{{result}}</pre>
+        </ng-container>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-primary" (click)="step_back()" [disabled]="isLoading" *ngIf="step > 0">&#x2B45; {{'settings.sensors.calibration.btnBack' | translate}}</button>
+        <button type="button" class="btn btn-sm btn-primary" (click)="next_step()" [disabled]="isLoading">{{'settings.sensors.calibration.btnNext' | translate}} &#x2B46;</button>
+        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal" (click)="close_modal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-backdrop fade show"></div>

@@ -57,28 +57,32 @@
 
 
         // WittyPi Module ( time- & ernergy management)
-        if (isset($postJson["wittyPi_enabled"]) ){
+        if (isset($postJson["wittyPi"]["enabled"])){
 
             // path to schedule file
             $wittyPiFile = "./schedule.wpi";
-
-            $wittyPi_enabled = $postJson["wittyPi_enabled"];
-            $wittyPi_script = $postJson["wittyPi_script"];
-
             createFileIfNotExists($wittyPiFile);
 
-            if ($wittyPi_enabled === true
-                && isset($postJson["wittyPi_script"])
-                    && strlen(trim($wittyPi_script)) >= 1) {
+            // reset voltage check to defaults
+            $voltageStateFile = $GLOBALS['scriptsFolder']."/.isLowVoltage";
+            clear_file($voltageStateFile);
 
-                file_put_contents($wittyPiFile, $wittyPi_script);
+            if ($postJson["wittyPi"]["enabled"] === true
+                && isset($postJson["wittyPi"]["normal"]["enabled"])
+                    && $postJson["wittyPi"]["normal"]["enabled"] === true
+                        && isset($postJson["wittyPi"]["normal"]["schedule"])
+                            && strlen(trim($postJson["wittyPi"]["normal"]["schedule"])) >= 1) {
+
+                // change schedule.wpi
+                file_put_contents($wittyPiFile, $postJson["wittyPi"]["normal"]["schedule"]);
 
                 // set WittyPi (dont wait exec to finish)
                 shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_wittypi.sh 1 > /dev/null 2>&1 &");
             } else {
 
+                // clear schedule.wpi
                 emptyFile($wittyPiFile);
-                $postJson["wittyPi_enabled"] = false;
+                $postJson["wittyPi"]["normal"]["enabled"] = false;
 
                 // reset wittyPi schedule
                 shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_wittypi.sh 0 > /dev/null 2>&1 &");
