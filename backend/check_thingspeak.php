@@ -5,7 +5,7 @@
 
     function is_channel_correct($writeKey)
     {
-        $filename = 'https://api.thingspeak.com/update?api_key='.$writeKey.'&field1=0';
+        $filename = 'http://api.thingspeak.com/update?api_key='.$writeKey.'&field1=0';
         $check = "0";
         try {
             $content = @file_get_contents($filename);
