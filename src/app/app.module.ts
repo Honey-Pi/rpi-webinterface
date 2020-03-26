@@ -28,7 +28,8 @@ export function createTranslateLoader(http: HttpClient) {
 }
 
 const appRoutes: Routes = [
-  { path: '', component: SettingsComponent }
+  { path: '', component: SettingsComponent },
+  { path: '**', redirectTo: '/' } // PageNotFound
 ];
 
 
