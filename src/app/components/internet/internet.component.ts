@@ -12,6 +12,7 @@ import 'rxjs/add/operator/timeout';
 export class InternetComponent implements OnInit {
 
   public checkInternetResponse: {connected: boolean, content: string};
+  public checkSurfstickResponse: string;
   public isLoading = false;
   public disallowedChars = '[^/]+';
 
@@ -49,6 +50,19 @@ export class InternetComponent implements OnInit {
         } else {
           this.checkInternetResponse = {connected: false, content: err};
         }
+      });
+  }
+
+  checkDiag(): void {
+    this.isLoading = true;
+    this.checkSurfstickResponse = null;
+    this.appService.checkDiag().timeout(15000)
+      .finally(() => this.isLoading = false)
+      .subscribe(res => {
+        this.checkSurfstickResponse = <string>res;
+      }, (err: any) => {
+        console.error(err);
+        this.checkSurfstickResponse = JSON.stringify(err);
       });
   }
 

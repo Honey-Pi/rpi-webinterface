@@ -90,5 +90,11 @@
         <input type="text" class="form-control" [(ngModel)]="wifi.honeypi.password" id="honeypiWifipassword" name="honeypiWifipassword" placeholder="{{ 'settings.internet.password' | translate}}">
       </div>
     </div>
+    <hr />
+    <h5 class="h5" [translate]="'settings.internet.isSurfstickConnected'"></h5>
+    <p>
+      <button type="button" role="button" class="btn btn-warning btn-sm" (click)="checkDiag()" [disabled]="isLoading"  [class.spinner]="isLoading"  [translate]="'settings.internet.testDiag'"></button>
+    </p>
+    <pre class="pre-scrollable" *ngIf="checkSurfstickResponse">{{checkSurfstickResponse}}</pre>
   </div>
 </div>

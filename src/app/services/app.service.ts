@@ -74,6 +74,14 @@ export class AppService {
       });
   }
 
+  checkDiag(): Observable<string> {
+    const timestamp = 't=' + ((new Date()).getTime());
+    return this.http.get(environment.apiURL + 'check_diag.php?' + timestamp, {responseType: 'text'})
+      .map((response: string) => {
+        return response;
+      });
+  }
+
   checkThingSpeakChannel(thingspeakdata: {ts_channel_id: number, ts_write_key: string}): Observable<Response> {
     return this.http.post(environment.apiURL + 'check_thingspeak.php', thingspeakdata)
       .map((response: Response) => {
