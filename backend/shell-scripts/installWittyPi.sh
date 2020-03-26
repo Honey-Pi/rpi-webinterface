@@ -25,8 +25,12 @@ else
     # Run the installer provided from WittyPi
     if [ $wittyPi -eq 2 ] ; then
         sh /var/www/html/backend/shell-scripts/installWittyPi2.sh
+		# make sure the schedule script gets executed after the time synchronization is fully done
+		sed -i 's/sleep 3/sleep 17/g' /home/pi/wittyPi/daemon.sh
     elif [ $wittyPi -eq 3 ] ; then
         sh /var/www/html/backend/shell-scripts/installWittyPi3.sh
+		# make sure the schedule script gets executed after the time synchronization is fully done
+		sed -i 's/sleep 3/sleep 17/g' /home/pi/wittypi/daemon.sh
     fi
 
 fi
