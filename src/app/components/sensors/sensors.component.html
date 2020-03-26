@@ -48,6 +48,10 @@
                                  [required]="true"
                                  [disabled_pins]="[settings.led_pin,settings.button_pin]"></settings-gpio-field>
           </div>
+          <div class="form-group col-12 col-sm-6">
+            <label for="offset_ds18b20">{{'settings.sensors.temperature' | translate}} {{'settings.sensors.offset' | translate }} [°C]</label>
+            <input type="number" step="0.1" class="form-control" [(ngModel)]="sensor.offset" id="offset_ds18b20" name="offset_ds18b20" placeholder="{{'settings.sensors.offset' | translate }}" />
+          </div>
         </div>
         <div class="row">
           <div class="col-12">
@@ -253,6 +257,12 @@
             </select>
           </div>
         </div>
+        <div class="row">
+          <div class="form-group col-12 col-sm-6">
+            <label for="offset_dht">{{'settings.sensors.temperature' | translate}} {{'settings.sensors.offset' | translate }} [°C]</label>
+            <input type="number" step="0.1" class="form-control" [(ngModel)]="sensor.offset" id="offset_dht" name="offset_dht" placeholder="{{'settings.sensors.offset' | translate }}" />
+          </div>
+        </div>
       </td>
     </tr>
     <tr *ngIf="sensor.type == 4" [ngClass]="{'my-bg': (i%2 == 0)}">
@@ -295,8 +305,8 @@
         </div>
         <div class="row">
           <div class="form-group col-12 col-sm-6">
-            <label for="offset_max" [translate]="'settings.sensors.offset'"></label>
-            <input type="number" step="1" class="form-control" [(ngModel)]="sensor.offset" id="offset_max" name="offset" placeholder="{{'settings.sensors.offset' | translate }}" />
+            <label for="offset_max">{{'settings.sensors.temperature' | translate}} {{'settings.sensors.offset' | translate }} [°C]</label>
+            <input type="number" step="0.1" class="form-control" [(ngModel)]="sensor.offset" id="offset_max" name="offset" placeholder="{{'settings.sensors.offset' | translate }}" />
           </div>
           <div class="form-group col-12 col-sm-6">
             <settings-ts-field [label]="'ThingSpeak ' + ('settings.thingspeak.field' | translate)"

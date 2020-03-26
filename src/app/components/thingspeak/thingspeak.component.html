@@ -9,7 +9,6 @@
   <div class="col-12" [ngClass]="{'my-bg-ts': (i%2 != 0)}" [class.spinner]="checkElement.disabled">
     <br *ngIf="!first">
     <div class="btn-group btn-group-sm float-right" role="group">
-      <button type="button" #checkElement (click)="checkThingSpeakChannel(channel.ts_channel_id, channel.ts_write_key, checkElement);" [class.disabled]="!channel.ts_channel_id || !channel.ts_write_key" class="btn btn-sm btn-warning" style="margin-bottom:10px" title="{{ 'settings.thingspeak.checkConnection' | translate}}">&#x2713;</button>
       <button type="button" (click)="removeChannel(i)" class="btn btn-danger btn-sm" style="margin-bottom:10px" [disabled]="isRemovingDisabled" title="{{ 'settings.thingspeak.removeChannel' | translate}}">&#x232b;</button>
     </div>
     <h5 class="h5">ThingSpeak Channel #{{i+1}}</h5>
@@ -27,9 +26,14 @@
     </div>
     <div class="form-group">
       <label for="ts_write_key">ThingSpeak <strong>Write</strong>-API-Key</label>
-      <input type="text" class="form-control" [(ngModel)]="channel.ts_write_key"
-             id="ts_write_key" name="ts_write_key" placeholder="Write-API-Key"
-             required minlength="16" maxlength="16" #ts_write_key="ngModel">
+      <div class="input-group">
+        <input type="text" class="form-control" [(ngModel)]="channel.ts_write_key"
+               id="ts_write_key" name="ts_write_key" placeholder="Write-API-Key"
+               required minlength="16" maxlength="16" #ts_write_key="ngModel">
+        <span class="input-group-btn">
+          <button type="button" #checkElement (click)="checkThingSpeakChannel(channel.ts_channel_id, channel.ts_write_key, checkElement);" [class.disabled]="!channel.ts_channel_id || !channel.ts_write_key" class="btn btn-warning" title="{{ 'settings.thingspeak.checkConnection' | translate}}">&#x2713;</button>
+        </span>
+      </div>
     </div>
     <div *ngIf="(ts_write_key?.value && ts_write_key?.value?.indexOf(' ') !== -1)"
          class="alert alert-warning" role="alert">
