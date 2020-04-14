@@ -147,6 +147,7 @@
       "shutdownAfterTransfer": "Shut down Raspberry after single transfer",
       "temperature": "temperature",
       "title": "Attached sensors",
+      "use3V": "Using a GPIO as 3.3V power supply source",
       "weightcell": "weight cell"
     },
     "thingspeak": {

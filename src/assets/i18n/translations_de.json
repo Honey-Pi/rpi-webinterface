@@ -147,6 +147,7 @@
       "shutdownAfterTransfer": "Nach einmaliger Übertragung Raspberry herunterfahren",
       "temperature": "Temperatur",
       "title": "Angeschlossene Sensoren",
+      "use3V": "Einen GPIO als 3,3V Quelle vewenden",
       "weightcell": "Wägezelle"
     },
     "thingspeak": {

@@ -54,6 +54,22 @@
           </div>
         </div>
         <div class="row">
+          <div class="form-group col-12 col-sm-6">
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" [checked]="isChecked(sensor)" (change)="sensor.pin = changeCheck($event)" id="use_3V" name="use_3V">
+              <label class="form-check-label" for="use_3V" [translate]="'settings.sensors.use3V'"></label>
+            </div>
+            <ng-container *ngIf="isChecked(sensor)">
+              <settings-gpio-field [label]="'3.3V GPIO'"
+                                   [field_id]="'ds18b20_3Vpin'"
+                                   (fieldChanged)="sensor.pin = $event"
+                                   [field]="sensor.pin"
+                                   [required]="false"
+                                   [disabled_pins]="[settings.w1gpio,settings.led_pin,settings.button_pin]"></settings-gpio-field>
+            </ng-container>
+          </div>
+        </div>
+        <div class="row">
           <div class="col-12">
             <div class="alert alert-warning" *ngIf="temperatureSensorWasFiltered && temperatureSensors.length == 0" role="alert">
               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>

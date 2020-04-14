@@ -67,4 +67,16 @@ export class SensorsComponent implements OnInit {
       }, (err: any) => {console.error(err); });
   }
 
+  isChecked(sensor: Sensor) {
+    return sensor.pin > 0;
+  }
+
+  changeCheck(evt): number {
+    let isChecked:boolean = evt.target.checked;
+    if (isChecked)
+      return 9;
+    else
+      return 0;
+  }
+
 }
