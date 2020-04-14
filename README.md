@@ -2,11 +2,11 @@
 
 A modern and responsive webinterface to make settings for the Raspberry [measurement scripts](https://github.com/Honey-Pi/rpi-scripts).
 
-## Requirements
 
-```
-NodeJS, NPM, Angular
-```
+## First start
+1. install `Node.js` together with `npm`
+2. run ``npm install`` in ``rpi-webinterface/``
+3. run ``ng serve``
 
 
 ## Development server
