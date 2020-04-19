@@ -2,6 +2,7 @@
   "alerts": {
     "afterSave": "Die Änderungen in diesem Bereich werden nach einem Neustart aktiv.",
     "afterSaveOrManualStart": "Die Änderungen am Zeitplan werden nach einem Neustart aktiv oder nachdem der Messmodus mit dem Taster gestoppt und wieder gestartet wird. Ob der WittyPi im energiesparsamen Zeitplan läuft wird nämlich in der Messroutine entschieden, wenn auch die Batteriespannung (Volt) gemessen wurde.",
+    "changedSettings": "Du hast ungespeicherte Änderungen vorgenommen.",
     "deviceId": "<strong>Hinweis:</strong> Es wurde ein Sensor mit einer ungültigen Device-ID festgestellt.\nDies tritt unter anderem beim DS18B20 dann auf, wenn ein Widerstand vergessen wurde oder ein falscher Widerstand verwendet wurde.\nEine weitere Ursache könnte ein angeschlossener DHT-Sensor sein. <strong>In diesem Fall kann dieser Hinweis ignoriert werden.</strong>",
     "errorSaving": "<strong>Fehler!</strong> Die Einstellungen konnten nicht gespeichert werden.",
     "gpio": "<b>GPIO:</b> Die Kontaktstifte auf dem Raspberry Pi Board haben zwei Nummerierungen. Eine physische von 1 bis 40 und eine für jeden frei programmierbaren GPIO. Bei der Angabe des Kontaktstiftes wird hier im Wartungsmodus immer die GPIO Nummerierung angegeben.",
@@ -27,7 +28,8 @@
     "save": "Speichern",
     "select": "Bitte {{value}} auswählen...",
     "shutdown": "Ausschalten",
-    "tryagain": "Erneut versuchen"
+    "tryagain": "Erneut versuchen",
+    "undo": "Änderungen verwerfen"
   },
   "error": {
     "length": "\"{{field}}\" liegt außerhalb des gültigen Wertebereichs.",
@@ -47,7 +49,7 @@
     "connectionerror": {
       "body": "<p>Die Bienenstockwaage ist gerade nicht erreichbar, vermutlich wurde das System neu gestartet, dies kann bis zu 1 Minute dauern.\n</p>",
       "stayconnectedAP": "Stelle bitte sicher, dass du immernoch mit dem \"HoneyPi\"-WLAN verbunden bist. Die Verbindung könnte sich in der Zwischenzeit automatisch getrennt haben. Da der \"HoneyPi\"-AccessPoint keine Internetverbindung liefert, neigen Geräte dazu, trotz verbundenen Wlan, dann den Mobilfunk fürs Internet zu nutzen. Um sich dennoch mit dem HoneyPi-Webinterface zu verbinden kann helfen: Aktiviere den Flugmodus und anschließend aktiviere nur das Wlan. Verbinde dich erneut mit dem \"HoneyPi\"-AccessPoint.",
-      "stayconnectedNotAP": "Augenscheinlich scheinst du den HoneyPi nicht über den AccessPoint aufzurufen. Ein weiterer Grund könnte daher sein, dass sich die IP-Adresse des Geräts in deinem Heimnetzwerk geändert hat. Lösche den Browser Cache.",
+      "stayconnectedNotAP": "Offenbar scheinst du den HoneyPi nicht über den AccessPoint aufzurufen. Ein weiterer Grund könnte daher sein, dass sich die IP-Adresse des Geräts in deinem Heimnetzwerk geändert hat. Lösche den Browser Cache.",
       "title": "Verbindung fehlgeschlagen"
     },
     "internet": {
@@ -147,6 +149,7 @@
       "shutdownAfterTransfer": "Nach einmaliger Übertragung Raspberry herunterfahren",
       "temperature": "Temperatur",
       "title": "Angeschlossene Sensoren",
+      "use3V": "Einen GPIO als 3,3V Quelle vewenden",
       "weightcell": "Wägezelle"
     },
     "thingspeak": {
@@ -162,7 +165,8 @@
       "install": "System neu installieren",
       "preupdate": "Nach neuster Version suchen",
       "title": "Systemupdate",
-      "update": "Jetzt aktualisieren"
+      "update": "Jetzt aktualisieren",
+      "usePreVersion": "Installiere auch Vorab-Versionen (Betatest)"
     },
     "wittypi": {
       "empty": "Leeres Feld",
