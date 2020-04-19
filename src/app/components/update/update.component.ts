@@ -14,6 +14,7 @@ export class UpdateComponent implements OnInit {
   public log = null;
   public isLoading = false;
   public versionInfo = null;
+  public usePreVersion: boolean = false;
 
   constructor(private appService: AppService) { }
 
@@ -36,7 +37,7 @@ export class UpdateComponent implements OnInit {
       .subscribe(resInternet => {
         const checkInternetResponse = <any>resInternet;
         if (checkInternetResponse.connected === true) {
-          this.appService.update(mode)
+          this.appService.update(mode, this.usePreVersion)
             .finally(() => this.isLoading = false)
             .subscribe(res => {
               console.log(res);
@@ -61,29 +62,43 @@ export class UpdateComponent implements OnInit {
     this.versionInfo = null;
     this.log = null;
     this.isLoading = true;
-    this.appService.update('versionInfo')
-      .finally(() => this.isLoading = false)
-      .subscribe(res => {
-        try {
-          this.versionInfo = <any>res;
-          this.log = null;
-          if (this.versionInfo.error) {
-            throw new Error('Exception occured: ' + this.versionInfo.error);
-          }
-        } catch (e) {
-          console.error(e);
-          this.log = e;
-          this.versionInfo = null;
+
+    this.appService.checkInternet().timeout(15000)
+      .subscribe(resInternet => {
+        const checkInternetResponse = <any>resInternet;
+        if (checkInternetResponse.connected === true) {
+          this.appService.update('versionInfo', this.usePreVersion)
+            .finally(() => this.isLoading = false)
+            .subscribe(res => {
+              try {
+                this.versionInfo = <any>res;
+                this.log = null;
+                if (this.versionInfo.error) {
+                  throw new Error('Exception occured: ' + this.versionInfo.error);
+                }
+              } catch (e) {
+                console.error(e);
+                this.log = e;
+                this.versionInfo = null;
+              }
+            }, (err: any) => {
+              this.versionInfo = null;
+              console.error(err);
+              this.log = err;
+              if (err.name && err.name === 'TimeoutError') {
+                this.log = 'TimeoutError.';
+              } else if (err.name && err.name === 'HttpErrorResponse') {
+                this.log = 'HttpErrorResponse.';
+              }
+            });
+        } else {
+          this.isLoading = false;
+          alert('No internet connection. Try again with internet connection.');
         }
       }, (err: any) => {
-        this.versionInfo = null;
-        console.error(err);
-        this.log = err;
-        if (err.name && err.name === 'TimeoutError') {
-          this.log = 'TimeoutError.';
-        } else if (err.name && err.name === 'HttpErrorResponse') {
-          this.log = 'HttpErrorResponse.';
-        }
+        console.log(err);
+        this.isLoading = false;
+        alert('No internet connection. Try again with internet connection.');
       });
   }
 

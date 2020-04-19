@@ -157,7 +157,7 @@ export class WittypiComponent implements OnInit {
           .subscribe(resInternet => {
             const checkInternetResponse = <any>resInternet;
             if (checkInternetResponse.connected === true) {
-              this.appService.update('installWittyPi', '&version=' + version)
+              this.appService.update('installWittyPi', false, '&version=' + version)
                .finally(() => this.isLoading = false)
                .subscribe(resUpdate => {
                  console.log(resUpdate);

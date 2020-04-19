@@ -13,6 +13,14 @@
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
       <span [innerHTML]="'alerts.notAP' | translate"></span>
     </div>
+    <div class="alert alert-info" role="alert" *ngIf="isSettingsChanged">
+      {{'alerts.changedSettings' | translate}}
+      <div class="btn-group btn-group-sm float-right" role="group" aria-label="Controls">
+        <button class="btn btn-sm btn-primary" type="button" (click)="saveSettings()" [translate]="'buttons.save'">Speichern</button>
+        <button class="btn btn-sm btn-info" type="button" (click)="undoChanges()" [translate]="'buttons.undo'">Änderungen verwerfen</button>
+      </div>
+      <div class="clearfix"></div>
+    </div>
     <div class="alert alert-success myAlert-top" role="alert" *ngIf="settingsSaved">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
       <span [innerHTML]="'alerts.saved' | translate"></span>

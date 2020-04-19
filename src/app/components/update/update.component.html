@@ -36,6 +36,14 @@ Changelog:
 </div>
 
 <!-- Update Buttons -->
+<div class="row">
+  <div class="col-12">
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" name="usePreVersion" [(ngModel)]="usePreVersion" id="usePreVersion">
+      <label class="form-check-label" for="usePreVersion" [translate]="'settings.update.usePreVersion'"></label>
+    </div>
+  </div>
+</div>
 <p>
   <button class="btn btn-primary btn-sm mr-1 mt-1" type="button" role="button" (click)="getVersionInfo()" [disabled]="isLoading" [translate]="'settings.update.preupdate'"></button>
   <button class="btn btn-warning btn-sm mt-1" *ngIf="versionInfo" type="button" role="button" (click)="update('update')" [disabled]="isLoading" [translate]="'settings.update.update'"></button>

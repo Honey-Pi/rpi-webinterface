@@ -18,12 +18,13 @@
     // json
     header('Content-type:application/json;charset=utf-8');
 
+
     // function for shell script
     function updateGit() {
         return shell_exec("sudo git pull");
     }
-    function update() {
-        return shell_exec("sudo sh ".$GLOBALS['honeyPiHome']."/update.sh");
+    function update($stable) {
+        return shell_exec("sudo sh ".$GLOBALS['honeyPiHome']."/update.sh ".(INT)$stable."");
     }
     function install() {
         exec("sudo sh ".$GLOBALS['shellDir']."/web-install.sh > /dev/null 2>&1 &", $out, $status);
@@ -42,7 +43,7 @@
         }
     }
 
-    function getVersionInfo() {
+    function getVersionInfo($stable) {
         $obj = new \stdClass();
         $arrContextOptions=stream_context_create(array(
             // disable ssl cert
@@ -55,15 +56,28 @@
             )
         ));
         try {
-            $urlScripts = "https://api.github.com/repos/Honey-Pi/rpi-scripts/releases/latest";
+            if ($stable) {
+              // the latest release is always a stable one
+              $urlAppendix = "/latest";
+            } else {
+              // we want to have pre-releases too so we check all releases
+              $urlAppendix = "";
+            }
+            $urlScripts = "https://api.github.com/repos/Honey-Pi/rpi-scripts/releases".$urlAppendix;
             $contentScripts = @file_get_contents($urlScripts, false, $arrContextOptions);
 
-            $urlWebinterface = "https://api.github.com/repos/Honey-Pi/rpi-webinterface/releases/latest";
+            $urlWebinterface = "https://api.github.com/repos/Honey-Pi/rpi-webinterface/releases".$urlAppendix;
             $contentWebinterface = @file_get_contents($urlWebinterface, false, $arrContextOptions);
 
             // get future updates
             $obj->scripts = json_decode($contentScripts);
             $obj->webinterface = json_decode($contentWebinterface);
+
+            if (!$stable) {
+              // if more than one release is provided we want to have the first element
+              $obj->scripts = $obj->scripts[0];
+              $obj->webinterface = $obj->webinterface[0];
+            }
 
             // read current versionInfo
             $version_file = "/var/www/html/version.txt";
@@ -88,17 +102,19 @@
 
     if (isset($_GET['mode']))
     {
+        $stable = (INT)$_GET['stable'];
+
         $output->git = "Update " . $GLOBALS['honeyPiHome'] . " git:" . "\n";
         $output->git .= updateGit();
 
         if ($_GET['mode'] === 'update') {
-            $output->result = update();
+            $output->result = update($stable);
         } else if ($_GET['mode'] === 'install')
         {
             $output->result = install();
         } else if ($_GET['mode'] === 'versionInfo')
         {
-            $output->result = getVersionInfo();
+            $output->result = getVersionInfo($stable);
         } else if ($_GET['mode'] === 'installWittyPi')
         {
             $output->result = installWittyPi($_GET['version']);

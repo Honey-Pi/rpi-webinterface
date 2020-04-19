@@ -21,6 +21,7 @@ export class SettingsComponent implements OnInit {
   }
 
   public settings: Settings = new Settings();
+  public settingsBackup: Settings;
   public settingsSaved = false;
   public settingsError = false;
   public isConnected = true;
@@ -30,6 +31,11 @@ export class SettingsComponent implements OnInit {
   public modalEnabled = true;
 
   private n: any;
+
+  private processSettings(settings: Settings) {
+    this.settings = SettingsComponent.validateSettings(<Settings>settings);
+    this.saveSettingsBackup(this.settings);
+  }
 
   static validateSettings(settings: Settings): Settings {
     if (!settings.ts_channels) {
@@ -43,6 +49,23 @@ export class SettingsComponent implements OnInit {
       settings.sensors = [];
     }
     return settings;
+  }
+
+  private static deepCopy<T>(obj: T): T {
+    return <T>JSON.parse(JSON.stringify(obj));
+  }
+
+  private saveSettingsBackup(settings: Settings) {
+    this.settingsBackup = SettingsComponent.deepCopy<Settings>(settings);
+    console.log(this.settingsBackup);
+  }
+
+  public get isSettingsChanged(): boolean {
+    return (JSON.stringify(this.settings) !== JSON.stringify(this.settingsBackup));
+  }
+
+  public undoChanges() {
+    this.settings = SettingsComponent.deepCopy<Settings>(this.settingsBackup);
   }
 
   /**
@@ -93,7 +116,7 @@ export class SettingsComponent implements OnInit {
       .finally(() => this.isLoading = false)
       .subscribe(res => {
         if (res) {
-          this.settings = SettingsComponent.validateSettings(<Settings>res);
+          this.processSettings(res);
           this.isConnected = true;
         }
       }, (err: any) => {
@@ -109,7 +132,7 @@ export class SettingsComponent implements OnInit {
       .subscribe(res => {
         console.log(res);
         if (res) {
-          this.settings = <Settings>res;
+          this.processSettings(res);
         }
         this.settingsSaved = true;
         this.settingsError = false;

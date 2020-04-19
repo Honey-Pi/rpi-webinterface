@@ -49,9 +49,10 @@ export class AppService {
     return this.http.get(environment.apiURL + 'offlinecsv.php?delete&channelId=' + channelId + '&' + timestamp, {responseType: 'text'});
   }
 
-  update(mode= 'update', params: string = ''): Observable<Object> {
+  update(mode= 'update', usePreVersion: boolean = false, params: string = ''): Observable<Object> {
     const timestamp = 't=' + ((new Date()).getTime());
-    return this.http.get(environment.apiURL + 'update.php?mode=' + mode + params + '&' + timestamp, {responseType: 'json'});
+    const stable: number = !usePreVersion ? 1 : 0;
+    return this.http.get(environment.apiURL + 'update.php?mode=' + mode + '&stable=' + stable + params + '&' + timestamp, {responseType: 'json'});
   }
 
   getMeasurement(): Observable<Response> {
