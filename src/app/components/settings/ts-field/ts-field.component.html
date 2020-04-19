@@ -2,6 +2,6 @@
 <select [(ngModel)]="ts_field" id="{{ ts_field_id }}" name="{{ ts_field_id }}" (ngModelChange)="onChange($event)" class="custom-select" [required]="required">
   <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.thingspeak.field' | translate}"></option>
   <optgroup *ngFor="let channel of channels; let c = index"  label="ThingSpeak Channel #{{c+1}} {{channel.name}}">
-    <option value="field{{(f+(8*c))}}" *ngFor="let f of [1,2,3,4,5,6,7,8]">{{'settings.thingspeak.field' | translate}} {{f}}</option>
+    <option value="field{{(f+(8*c))}}" *ngFor="let f of [1,2,3,4,5,6,7,8]">{{'settings.thingspeak.field' | translate}} {{f}} - Channel #{{c+1}}</option>
   </optgroup>
 </select>
