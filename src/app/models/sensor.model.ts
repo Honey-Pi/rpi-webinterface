@@ -40,5 +40,7 @@ export class Sensor {
   pin_cs: number;
   pin_clock: number;
   max_type: number;
+  // PCF8591
+  I2CVoltage: number;
 
 }

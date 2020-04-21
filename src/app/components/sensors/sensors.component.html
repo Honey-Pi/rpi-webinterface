@@ -380,8 +380,18 @@
               <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'PIN'}" disabled></option>
               <option [ngValue]="0">AIN0</option>
               <option [ngValue]="1">AIN1</option>
-              <option [ngValue]="2" [selected]="(!sensor.pin && sensor.pin !== 0)">AIN2 (default)</option>
+              <option [ngValue]="2">AIN2 (default)</option>
               <option [ngValue]="3">AIN3</option>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-12 col-sm-6">
+            <label for="ic2_voltage" [translate]="'settings.sensors.selectI2CVoltage'"></label>
+            <select [(ngModel)]="sensor.I2CVoltage" id="ic2_voltage" name="ic2_voltage" class="custom-select" required>
+              <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'VCC'}" disabled></option>
+              <option [ngValue]="3">3.3V</option>
+              <option [ngValue]="5">5V (default)</option>
             </select>
           </div>
         </div>
