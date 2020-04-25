@@ -102,7 +102,12 @@
 
     if (isset($_GET['mode']))
     {
-        $stable = (INT)$_GET['stable'];
+
+        if (isset($_GET['stable'])) {
+          $stable = (INT)$_GET['stable'];
+        } else {
+          $stable = 1;
+        }
 
         $output->git = "Update " . $GLOBALS['honeyPiHome'] . " git:" . "\n";
         $output->git .= updateGit();
