@@ -388,11 +388,23 @@
         <div class="row">
           <div class="form-group col-12 col-sm-6">
             <label for="ic2_voltage" [translate]="'settings.sensors.selectI2CVoltage'"></label>
-            <select [(ngModel)]="sensor.I2CVoltage" id="ic2_voltage" name="ic2_voltage" class="custom-select" required>
-              <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'VCC'}" disabled></option>
-              <option [ngValue]="3">3.3V</option>
-              <option [ngValue]="5">5V (default)</option>
+            <ng-container *ngIf="[undefined, 16.5, 25, 29.7].includes(sensor.I2CVoltage)">
+              <select [(ngModel)]="sensor.I2CVoltage" id="ic2_voltage" name="ic2_voltage" class="custom-select" required>
+                <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'VCC'}" disabled></option>
+                <option [ngValue]="16.5">Max. 16.5V 3.3V&#215;(30k&#8486;&#247;7.5k&#8486;+1) (default)</option>
+                <option [ngValue]="25">Max. 25V 5V&#215;(30k&#8486;&#247;7.5k&#8486;+1)</option>
+                <option [ngValue]="29.7">Max. 29.7V 3.3V&#215;(40k&#8486;&#247;5k&#8486;+1)</option>
+                <option [ngValue]="null" style="font-style:italic"><em>{{'settings.sensors.customValue' | translate }}</em></option>
             </select>
+            </ng-container>
+            <ng-container *ngIf="![undefined, 16.5, 25, 29.7].includes(sensor.I2CVoltage)">
+              <div class="input-group mb-3">
+                <input type="number" step="0.01" class="form-control" [(ngModel)]="sensor.I2CVoltage" id="ic2_voltage_c" name="ic2_voltage_c" placeholder="{{'settings.sensors.selectI2CVoltage_c' | translate }}" />
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" (click)="sensor.I2CVoltage=undefined" type="button">X</button>
+                </div>
+              </div>
+            </ng-container>
           </div>
         </div>
       </td>
