@@ -11,6 +11,7 @@ export class Sensor {
   Type 4: MAX6675/MAX31855
   Type 5: BME280
   Type 6: YL-40 PCF8591
+  Type 7: EE895
    */
   type: number;
   name: string;
