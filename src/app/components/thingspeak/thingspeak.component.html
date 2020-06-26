@@ -1,10 +1,10 @@
 
-<!--<div class="form-group">
-  <label for="ts_channel_id">ThingSpeak Server-URL</label>
+<div class="form-group">
+  <label for="ts_server_url">ThingSpeak Server-URL</label>
   <input type="text" class="form-control" [(ngModel)]="settings.ts_server_url"
-         id="ts_server_url" name="ts_server_url" placeholder="Server URL"
-         required #ts_server_url="ngModel">
-</div>-->
+         id="ts_server_url" name="ts_server_url" placeholder="http://api.thingspeak.com"
+         #ts_server_url="ngModel" [pattern]="thingspeakUrlPattern">
+</div>
 <div *ngFor="let channel of settings.ts_channels; let i=index; let last=last;let first=first;" class="rounded row">
   <div class="col-12" [ngClass]="{'my-bg-ts': (i%2 != 0)}" [class.spinner]="checkElement.disabled">
     <br *ngIf="!first">
