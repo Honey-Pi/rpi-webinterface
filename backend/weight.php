@@ -9,7 +9,7 @@
 
     $pin_dt = (INT)$_POST['pin_dt'];
     $pin_sck = (INT)$_POST['pin_sck'];
-    $channel = substr($_POST['channel'], 0, 1);
+    $channel = isset($_POST['channel']) ? substr($_POST['channel'], 0, 1) : 'A';
 
     $output = shell_exec("sudo python3 ".$GLOBALS['scriptsFolder']."/measurement_weight.py $pin_dt $pin_sck '$channel'");
     echo $output;
