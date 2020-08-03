@@ -82,7 +82,7 @@
     "measurement": {
       "construction": "Diese Ansicht ist bisher nur provisorisch und soll in der nächsten Firmware Version ausgebaut werden.",
       "get": "Neue Messung abrufen",
-      "info": "Hier werden die Sensoren angezeigt, die im Reiter \"<strong>{{tab}}</strong>\" konfiguriert und gespeichert sind. Es erfolgt kein Upload der Messdaten an ThingSpeak. Messung dauert bis zu 1 Minute.",
+      "info": "Hier werden die Sensoren angezeigt, die im Reiter \"<strong>{{tab}}</strong>\" konfiguriert und gespeichert sind. Die Messung ist lokal, es erfolgt kein Upload.",
       "noData": "Keine Messdaten gemessen. Wurden die Sensoren im Reiter \"<strong>{{tab}}</strong>\" konfiguriert?",
       "title": "Messdaten"
     },
