@@ -12,7 +12,7 @@ export class SensorsComponent implements OnInit {
 
   public temperatureSensors: Array<string> = [];
   public temperatureSensorWasFiltered = false;
-  public showCalibration = false;
+  public showCalibration: Array<any> = [];
 
   /* two-way databinding for settings*/
   _settings: Settings;
