@@ -19,9 +19,6 @@ export class Settings {
   sensors: Sensor[];
   internet: InternetSettings;
   debug: boolean;
-  shutdownAfterTransfer: boolean;
-  wittyPi_enabled?: boolean;
-  wittyPi_script?: string;
   wittyPi: WittyPiSettings;
   w1gpio: number;
   offline: number;

@@ -27,6 +27,8 @@
                     $escapedSsid = escapeshellarg($router["ssid"]);
     				$escapedPw = escapeshellarg($router["password"]);
 				    shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_router_ssidpw.sh $escapedSsid $escapedPw;");
+                } else {
+                    $postJson["internet"]["router"]["enabled"] = false;
                 }
 
             } else {
@@ -88,6 +90,14 @@
                 shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_wittypi.sh 0 > /dev/null 2>&1 &");
            }
 
+           // set WittyPi dummyload
+           if ($postJson["wittyPi"]["version"] === 3) {
+               if ($postJson["wittyPi"]["dummyload"] === true) {
+                   shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_wittypi.sh 2 > /dev/null 2>&1 &");
+               } else if ($postJson["wittyPi"]["dummyload"] === false) {
+                   shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_wittypi.sh 3 > /dev/null 2>&1 &");
+               }
+           }
 
         }
 

@@ -91,9 +91,28 @@
       </div>
     </div>
     <hr />
+    <h5 class="h5" [translate]="'settings.internet.honeypiModem'"></h5>
+    <p [translate]="'settings.internet.honeypiModemtext'"></p>
+    <div class="row">
+      <div class="form-group col-12 col-sm-6">
+        <label for="honeypiModemApn">{{ 'settings.internet.apn' | translate}}</label>
+        <input type="text" class="form-control" [(ngModel)]="wifi.modem.apn" id="honeypiModemApn" name="honeypiModemApn" placeholder="{{ 'settings.internet.apn' | translate}}">
+      </div>
+      <!-- ttyUSB number -->
+      <div class="form-group">
+        <label for="ttyUSB" [translate]="'settings.internet.ttyUSB'">></label>
+        <select [(ngModel)]="wifi.modem.ttyUSB" id="ttyUSB" name="ttyUSB" class="custom-select" required>
+          <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.internet.ttyUSB' | translate}"></option>
+          <option [ngValue]="0">ttyUSB0 (default)</option>
+          <option [ngValue]="1">ttyUSB1</option>
+          <option [ngValue]="2">ttyUSB2</option>
+        </select>
+      </div>
+    </div>
+    <hr />
     <h5 class="h5" [translate]="'settings.internet.isSurfstickConnected'"></h5>
     <p>
-      <button type="button" role="button" class="btn btn-warning btn-sm" (click)="checkDiag()" [disabled]="isLoading"  [class.spinner]="isLoading"  [translate]="'settings.internet.testDiag'"></button>
+      <button type="button" role="button" class="btn btn-warning btn-sm" (click)="checkDiag()" [disabled]="isLoadingAP"  [class.spinner]="isLoadingAP"  [translate]="'settings.internet.testDiag'"></button>
     </p>
     <pre class="pre-scrollable" *ngIf="checkSurfstickResponse">{{checkSurfstickResponse}}</pre>
   </div>

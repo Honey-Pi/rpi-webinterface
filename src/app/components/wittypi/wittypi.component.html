@@ -36,10 +36,18 @@
     <span [innerHTML]="'alerts.wittypi' | translate"></span>
   </div>
   <!-- Installation Buttons -->
+  <div class="form-group">
+    <label for="version" [translate]="'settings.wittypi.version'">></label>
+    <select [(ngModel)]="settings.wittyPi.version" id="version" name="version" class="custom-select" required>
+      <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.sensors.version' | translate}"></option>
+      <option [ngValue]="2">WittyPi Version 2</option>
+      <option [ngValue]="3">WittyPi Version 3</option>
+    </select>
+  </div>
   <div class="clearfix" [class.spinner]="isLoading">
     <div class="btn-group btn-group-sm float-right" role="group">
-      <button class="btn btn-outline-warning btn-sm" type="button" role="button" (click)="installWittyPi(2)">WittyPi 2 installieren</button>
-      <button class="btn btn-outline-warning btn-sm" type="button" role="button" (click)="installWittyPi(3)">WittyPi 3 installieren</button>
+      <button *ngIf="settings.wittyPi.version === 2" class="btn btn-outline-warning btn-sm" type="button" role="button" (click)="installWittyPi(2)">WittyPi 2 installieren</button>
+      <button *ngIf="settings.wittyPi.version === 3" class="btn btn-outline-warning btn-sm" type="button" role="button" (click)="installWittyPi(3)">WittyPi 3 installieren</button>
     </div>
   </div>
 
@@ -165,5 +173,13 @@
         {{ 'alerts.afterSaveOrManualStart' | translate}}
       </div>
     </div>
+  </div>
+  <div class="form-group form-check" *ngIf="settings.wittyPi.version === 3">
+    <input type="checkbox" class="form-check-input" name="dummyload" [(ngModel)]="settings.wittyPi.dummyload" id="dummyload">
+    <label class="form-check-label" for="dummyload" [innerHTML]="'settings.sensors.dummyload' | translate"></label>
+  </div>
+  <div class="alert alert-info" role="alert" *ngIf="settings.wittyPi.version === 3">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <span [innerHTML]="'alerts.dummyload' | translate"></span>
   </div>
 </div>

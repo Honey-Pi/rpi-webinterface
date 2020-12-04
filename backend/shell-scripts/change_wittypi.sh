@@ -37,6 +37,12 @@ else
         sudo ./syncTime.sh
         # set schedule script
         sudo ./runScript.sh
+	elif [ $mode -eq 2 ] ; then
+		# enable dummyload to keep powerbank alive (supported by wittyPi 3)
+		(sleep 6; echo 9; echo 5; echo 10) | sudo ./wittyPi.sh
+	elif [ $mode -eq 3 ] ; then
+		# reset dummyload to default
+		(sleep 6; echo 9; echo 5; echo 0) | sudo ./wittyPi.sh
     fi
 
 fi

@@ -4,6 +4,7 @@
     "afterSaveOrManualStart": "The changes in this area become active after a restart or after the measurements have been stopped and started again with the button. Whether the WittyPi runs in the energy-saving schedule is decided in the measuring routine, if the battery voltage was measured.",
     "changedSettings": "You have made unsaved changes.",
     "deviceId": "<strong>Note:</strong> A sensor with an invalid device ID was detected.\nThis occurs with the DS18B20, for example, if a resistor is forgotten or an incorrect resistor is used.\nAnother cause could be a connected DHT sensor. <strong>In this case this message can be ignored.</strong>",
+    "dummyload": "Dummyload is a function of the WittyPis to keep a Powerbank active. Some Powerbank models tend to switch off when no power is used for a longer period of time. To save battery power the dummyload should remain deactivated as long as no powerbank is used.",
     "errorSaving": "<strong>Error!</strong> The settings could not be saved.",
     "gpio": "<b>GPIO:</b> The contact pins on the Raspberry Pi Board have two numberings. One physical from 1 to 40 and one for each freely programmable GPIO. Here in maintenance mode is always the GPIO numbering beeing used.",
     "hx711": {
@@ -125,6 +126,7 @@
       "compensationValuePlaceholder": "compensation value",
       "customValue": "Edit custom value...",
       "debug": "Enable debug mode <small>(no restarts, HDMI output on, successful transfers in the protocol)</small>",
+      "dummyload": "Activate dummyload (only use together with a Powerbank)",
       "enableCompensation": "Temperature compensation for temperature-induced measurement drifts",
       "humidity": "humidity",
       "interval": "interval",
@@ -155,6 +157,7 @@
       "temperature": "temperature",
       "title": "Attached sensors",
       "use3V": "Using a GPIO as 3.3V power supply source",
+      "version": "Version",
       "weightcell": "weight cell"
     },
     "thingspeak": {
@@ -182,6 +185,7 @@
       "loadexample": "Load an example schedule...",
       "script": "schedule code",
       "title": "Time and energy management",
+      "version": "Select WittyPi version",
       "voltage": "Voltage",
       "voltageLow": "Limit value for activation of the energy-saving schedule",
       "voltageLowInterval": "Measuring interval during the energy-saving mode",

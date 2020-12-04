@@ -4,6 +4,7 @@
     "afterSaveOrManualStart": "Die Änderungen am Zeitplan werden nach einem Neustart aktiv oder nachdem der Messmodus mit dem Taster gestoppt und wieder gestartet wird. Ob der WittyPi im energiesparsamen Zeitplan läuft wird nämlich in der Messroutine entschieden, wenn auch die Batteriespannung (Volt) gemessen wurde.",
     "changedSettings": "Du hast ungespeicherte Änderungen vorgenommen.",
     "deviceId": "<strong>Hinweis:</strong> Es wurde ein Sensor mit einer ungültigen Device-ID festgestellt.\nDies tritt unter anderem beim DS18B20 dann auf, wenn ein Widerstand vergessen wurde oder ein falscher Widerstand verwendet wurde.\nEine weitere Ursache könnte ein angeschlossener DHT-Sensor sein. <strong>In diesem Fall kann dieser Hinweis ignoriert werden.</strong>",
+    "dummyload": "Dummyload ist eine Funktion des WittyPis, um eine Powerbank aktiv zu halten. Gewisse Powerbank Modelle neigen dazu abzuschalten, wenn über längere Zeit kein Strom gebraucht wird. Um Batterie zu sparen sollte der Dummyload deaktiviert bleiben solange keine Powerbank verwendet wird.",
     "errorSaving": "<strong>Fehler!</strong> Die Einstellungen konnten nicht gespeichert werden.",
     "gpio": "<b>GPIO:</b> Die Kontaktstifte auf dem Raspberry Pi Board haben zwei Nummerierungen. Eine physische von 1 bis 40 und eine für jeden frei programmierbaren GPIO. Bei der Angabe des Kontaktstiftes wird hier im Wartungsmodus immer die GPIO Nummerierung angegeben.",
     "hx711": {
@@ -125,6 +126,7 @@
       "compensationValuePlaceholder": "Kompensationswert",
       "customValue": "Eigenen Wert eingeben...",
       "debug": "Debug-Modus aktivieren <small>(keine Neustarts, HDMI-Ausgang an, erfolgreiche Übertragungen im Protokoll)</small>",
+      "dummyload": "Dummyload aktivieren (nur nutzen bei einer Powerbank)",
       "enableCompensation": "Temperaturkompensation bei temperaturbedingten Messabweichungen",
       "humidity": "Luftfeuchtigkeit",
       "interval": "Intervall",
@@ -155,6 +157,7 @@
       "temperature": "Temperatur",
       "title": "Angeschlossene Sensoren",
       "use3V": "Einen GPIO als 3,3V Quelle vewenden",
+      "version": "Version",
       "weightcell": "Wägezelle"
     },
     "thingspeak": {
@@ -182,6 +185,7 @@
       "loadexample": "Beispiel Zeitplan laden...",
       "script": "Zeitplan für den WittyPi",
       "title": "Zeit- und Energiemanagement",
+      "version": "WittyPi Version auswählen",
       "voltage": "Volt",
       "voltageLow": "Grenzwert für die Aktivierung des energiesparenden Zeitplanes",
       "voltageLowInterval": "Messintervall während des energiesparsamen Modus",

@@ -14,6 +14,7 @@ export class InternetComponent implements OnInit {
   public checkInternetResponse: {connected: boolean, content: string};
   public checkSurfstickResponse: string;
   public isLoading = false;
+  public isLoadingAP = false;
   public disallowedChars = '[^/]+';
 
   /* two-way databinding for settings*/
@@ -54,10 +55,10 @@ export class InternetComponent implements OnInit {
   }
 
   checkDiag(): void {
-    this.isLoading = true;
+    this.isLoadingAP = true;
     this.checkSurfstickResponse = null;
     this.appService.checkDiag().timeout(15000)
-      .finally(() => this.isLoading = false)
+      .finally(() => this.isLoadingAP = false)
       .subscribe(res => {
         this.checkSurfstickResponse = <string>res;
       }, (err: any) => {
