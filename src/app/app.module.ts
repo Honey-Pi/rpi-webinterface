@@ -64,9 +64,7 @@ const appRoutes: Routes = [
         deps: [HttpClient]
       }
     }),
-    RouterModule.forRoot(
-      appRoutes
-    )
+    RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' })
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
