@@ -54,10 +54,13 @@
       "title": "Verbindung fehlgeschlagen"
     },
     "internet": {
+      "apn": "APN",
       "collapseAP": "Erweiterte Einstellungen für Nutzer, die wissen was sie tun »",
+      "connectModem": "Surfstick verwenden?",
       "connectWifi": "Mit vorhandenem WLAN-Netzwerk verbinden, wenn in Reichweite?",
       "honeypiAP": "HoneyPi Wartungsmodus",
       "honeypiAPtext": "Ändere die SSID und das Passwort des AccessPoints.",
+      "honeypiModem": "Surfstick",
       "infoConnection": "Während des Wartungsmodus kann sich <strong>nicht gleichzeitig</strong> mit einem WLAN-Netzwerk verbunden werden, da der WLAN Chip ja bereits den AccessPoint bereitstellt.\nDaher kann nur die Internetverbindung eines angeschlossenen Surfsticks oder des LAN-Anschluss getestet werden.",
       "isMobileConnected": "Internetverbindung vorhanden?",
       "isSurfstickConnected": "Netzwerke verbunden?",
@@ -68,7 +71,9 @@
       "testError": "<strong>Fehler!</strong> Verbindung ins Internet fehlgeschlagen.",
       "testSuccess": "<strong>HoneyPi ist verbunden!</strong> Der Internet Test war erfolgreich.",
       "title": "Internetverbindung",
-      "wifi": "WLAN Internetzugang"
+      "ttyUSB": "ttyUSB Eingang",
+      "wifi": "WLAN Internetzugang",
+      "wpa_type": "WPA-Verschlüsselung"
     },
     "log": {
       "delete": "Löschen",

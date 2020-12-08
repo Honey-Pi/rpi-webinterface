@@ -18,5 +18,5 @@ export class Wifi {
 export class Modem {
   enabled?: boolean;
   apn: string;
-  ttyUSB: string;
+  ttyUSB: number;
 }

@@ -54,10 +54,13 @@
       "title": "Connection failed"
     },
     "internet": {
+      "apn": "APN",
       "collapseAP": "Advanced settings for users who know what they're doing »",
+      "connectModem": "Use of a internet modem (surfstick)?",
       "connectWifi": "Connect to existing WiFi network when reachable?",
       "honeypiAP": "HoneyPi Maintenance Mode",
       "honeypiAPtext": "Change the SSID and password of the AccessPoint.",
+      "honeypiModem": "Internet Modem",
       "infoConnection": "During the maintenance mode the Raspi can <strong>not simultaneously </strong> be connected to a WiFi network, since the WiFi chip already provides the access point.\nTherefore, only the Internet connection of a connected surf stick or the LAN connection can be tested.",
       "isMobileConnected": "Internet connection available?",
       "isSurfstickConnected": "Networks connected?",
@@ -68,7 +71,9 @@
       "testError": "<strong>Error!</strong> Connection to the internet failed.",
       "testSuccess": "<strong>HoneyPi is connected!</strong> The internet test was successful.",
       "title": "Internet connection",
-      "wifi": "WiFi Internet access"
+      "ttyUSB": "ttyUSB input",
+      "wifi": "WiFi Internet access",
+      "wpa_type": "WiFi-Encyrption"
     },
     "log": {
       "delete": "Clear log",
