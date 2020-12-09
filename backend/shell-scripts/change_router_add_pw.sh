@@ -1,5 +1,6 @@
 #! /bin/bash
 
-pw=$1;
+#sudo sed -i "s/#psk=.*/psk=\"$pw\"/" /etc/wpa_supplicant/wpa_supplicant.conf;
 
-sudo sed -i '/psk/s/^#psk*//' /etc/wpa_supplicant/wpa_supplicant.conf;
+pw=$1;
+sudo sed -i "/#nopsk/c\psk=\"$pw\"" /etc/wpa_supplicant/wpa_supplicant.conf;
