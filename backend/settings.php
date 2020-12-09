@@ -21,30 +21,55 @@
         // WLAN-Router
         if (isset($postJson["internet"]["router"])) {
             $router = $postJson["internet"]["router"];
-            if (isset($router["enabled"]) && $router["enabled"] === true && isset($router["ssid"]) && isset($router["password"]) && strlen($router["password"]) >= 8) {
-                // password did not change
-                if ($router["password"] != "********") {
-                    $escapedSsid = escapeshellarg($router["ssid"]);
-    				$escapedPw = escapeshellarg($router["password"]);
-				    shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_router_ssidpw.sh $escapedSsid $escapedPw;");
-                } else {
-                    $postJson["internet"]["router"]["enabled"] = false;
+            if (isset($router["enabled"]) && $router["enabled"] === true && isset($router["ssid"])) {
+                // a password is set
+                if (isset($router["password"]) && strlen($router["password"]) >= 8) {
+                    // wpa type WPA2
+                    if (isset($router["wpa_type"]) && $router["wpa_type"] === 0) {
+                        if ($router["password"] != "********") {
+                            $escapedPw = escapeshellarg($router["password"]);
+                            shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_router_add_pw.sh $escapedPw &");
+                        }
+                    }
+
+                    // password did not change
+                    if ($router["password"] != "********") {
+                        // bug: once wifi was disabled it cannot be enabled without re-entering the password.
+                        $escapedSsid = escapeshellarg($router["ssid"]);
+        				$escapedPw = escapeshellarg($router["password"]);
+    				    shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_router_ssidpw.sh $escapedSsid $escapedPw &");
+                    }
+                }
+
+                // wpa type no password
+                if (isset($router["wpa_type"]) && $router["wpa_type"] === 2) {
+                    shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_router_remove_pw.sh &");
                 }
 
             } else {
                 // disable connection
-				shell_exec('sudo sh '.$GLOBALS['shellDir'].'/change_router_ssidpw.sh fremderRouter WLANpasswort;');
+				shell_exec('sudo sh '.$GLOBALS['shellDir'].'/change_router_ssidpw.sh fremderRouter WLANpasswort &');
                 $postJson["internet"]["router"]["enabled"] = false;
             }
         }
 
         // HoneyPi-AccessPoint
-        if ($postJson["internet"]["honeypi"]) {
+        if (isset($postJson["internet"]["honeypi"])) {
             $honeypi = $postJson["internet"]["honeypi"];
             if (isset($honeypi['ssid']) && strlen($honeypi['ssid']) > 0 && isset($honeypi["password"]) && strlen($honeypi["password"]) >= 8) {
 				$escapedHoneypiSsid = clean($honeypi["ssid"]);
 				$escapedHoneypiPw = escapeshellarg($honeypi["password"]);
                 shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_honeypi_ssidpw.sh $escapedHoneypiSsid $escapedHoneypiPw;");
+            }
+        }
+
+        // Modem/Surfstick
+        if (isset($postJson["internet"]["modem"]) && isset($postJson["internet"]["modem"]["enabled"]) && $postJson["internet"]["modem"]["enabled"] == true) {
+            $modem = $postJson["internet"]["modem"];
+            if (isset($modem['apn']) && strlen($modem['apn']) > 0 && isset($modem["ttyUSB"])) {
+				$apn = escapeshellarg($modem["apn"]);
+                $ttyUSB = (INT)$modem["ttyUSB"];
+                shell_exec("sudo sh ".$GLOBALS['scriptsFolder']."/shell-scripts/connection.sh set-apn $apn $ttyUSB &");
             }
         }
 
@@ -55,7 +80,7 @@
             $w1gpio = 11; // default GPIO
         }
         $postJson["w1gpio"] = $w1gpio;
-        shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_w1gpio.sh $w1gpio;");
+        shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_w1gpio.sh $w1gpio &");
 
 
         // WittyPi Module ( time- & ernergy management)
@@ -91,10 +116,10 @@
            }
 
            // set WittyPi dummyload
-           if ($postJson["wittyPi"]["version"] === 3) {
+           if ($postJson["wittyPi"]["enabled"] == true && isset($postJson["wittyPi"]["version"]) && isset($postJson["wittyPi"]["dummyload"]) && $postJson["wittyPi"]["version"] === 3) {
                if ($postJson["wittyPi"]["dummyload"] === true) {
                    shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_wittypi.sh 2 > /dev/null 2>&1 &");
-               } else if ($postJson["wittyPi"]["dummyload"] === false) {
+               } else {
                    shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_wittypi.sh 3 > /dev/null 2>&1 &");
                }
            }
