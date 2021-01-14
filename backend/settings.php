@@ -117,8 +117,9 @@
 
            // set WittyPi dummyload
            if ($postJson["wittyPi"]["enabled"] == true && isset($postJson["wittyPi"]["version"]) && isset($postJson["wittyPi"]["dummyload"]) && $postJson["wittyPi"]["version"] === 3) {
-               if ($postJson["wittyPi"]["dummyload"] === true) {
-                   shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_wittypi.sh 2 > /dev/null 2>&1 &");
+               if ((INT)$postJson["wittyPi"]["dummyload"] > 0) {
+                   $dummyload = (INT)$postJson["wittyPi"]["dummyload"];
+                   shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_wittypi.sh 2 $dummyload > /dev/null 2>&1 &");
                } else {
                    shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_wittypi.sh 3 > /dev/null 2>&1 &");
                }

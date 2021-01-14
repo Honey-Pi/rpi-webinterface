@@ -112,14 +112,16 @@
           <label for="honeypiModemApn">{{ 'settings.internet.apn' | translate}}</label>
           <input type="text" class="form-control" [(ngModel)]="wifi.modem.apn" id="honeypiModemApn" name="honeypiModemApn" placeholder="{{ 'settings.internet.apn' | translate}}" required>
         </div>
-        <!-- ttyUSB number -->
+        <!-- ttyUSB path -->
         <div class="form-group col-12 col-sm-6">
-          <label for="ttyUSB" [translate]="'settings.internet.ttyUSB'">></label>
+          <label for="ttyUSB" [translate]="'settings.internet.ttyUSB'"></label>
           <select [(ngModel)]="wifi.modem.ttyUSB" id="ttyUSB" name="ttyUSB" class="custom-select" required>
             <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.internet.ttyUSB' | translate}"></option>
-            <option [ngValue]="0">ttyUSB0 (default)</option>
-            <option [ngValue]="1">ttyUSB1</option>
-            <option [ngValue]="2">ttyUSB2</option>
+            <option [ngValue]="'ttyUSB0'">ttyUSB0 (default)</option>
+            <option [ngValue]="'ttyUSB1'">ttyUSB1</option>
+            <option [ngValue]="'ttyUSB2'">ttyUSB2</option>
+            <option [ngValue]="'ttyS0'">ttyS0</option>
+            <option [ngValue]="'ttyS1'">ttyS1</option>
           </select>
         </div>
       </div>

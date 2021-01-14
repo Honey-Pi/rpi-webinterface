@@ -132,6 +132,7 @@
       "customValue": "Edit custom value...",
       "debug": "Enable debug mode <small>(no restarts, HDMI output on, successful transfers in the protocol)</small>",
       "dummyload": "Activate dummyload (only use together with a Powerbank)",
+      "dummyloadTimespan": "time duration of the dummy load",
       "enableCompensation": "Temperature compensation for temperature-induced measurement drifts",
       "humidity": "humidity",
       "interval": "interval",

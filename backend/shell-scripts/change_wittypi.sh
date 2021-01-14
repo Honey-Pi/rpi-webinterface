@@ -39,7 +39,13 @@ else
         sudo ./runScript.sh
 	elif [ $mode -eq 2 ] ; then
 		# enable dummyload to keep powerbank alive (supported by wittyPi 3)
-		(sleep 6; echo 9; echo 5; echo 15; echo 11) | sudo ./wittyPi.sh
+		if [ -z "$2" ] ; then
+			echo "Missing dummyload argument."
+			exit 1
+		else
+			dummyload=$2 # default: 10-15
+			(sleep 6; echo 9; echo 5; echo $dummyload; echo 11) | sudo ./wittyPi.sh
+		fi
 	elif [ $mode -eq 3 ] ; then
 		# reset dummyload to default
 		(sleep 6; echo 9; echo 5; echo 0; echo 11) | sudo ./wittyPi.sh
