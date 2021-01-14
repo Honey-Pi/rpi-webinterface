@@ -18,7 +18,8 @@ export class Settings {
   led_pin: number;
   sensors: Sensor[];
   internet: InternetSettings;
-  debug: boolean;
+  debug?: boolean; // replaced by debuglevel
+  debuglevel: number;
   wittyPi: WittyPiSettings;
   w1gpio: number;
   offline: number;

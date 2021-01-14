@@ -1,3 +1,24 @@
+<div class="row">
+  <div class="col-12">
+    <label for="debuglevel" [translate]="'settings.sensors.debugSelect'"></label>
+    <select [(ngModel)]="settings.debuglevel" id="debuglevel" name="debuglevel" class="custom-select">
+      <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.sensors.debuglevel' | translate}" disabled></option>
+      <option [ngValue]="0">NOTSET</option>
+      <option [ngValue]="10">DEBUG:   No restarts, all logs.</option>
+      <option [ngValue]="20">INFO:    Logging successfull connections.</option>
+      <option [ngValue]="30">WARNING: No HDMI output. (default)</option>
+      <option [ngValue]="40">ERROR</option>
+      <option [ngValue]="50">CRITICAL</option>
+    </select>
+    <!--
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" name="debug" [(ngModel)]="settings.debug" id="debug">
+      <label class="form-check-label" for="debug" [innerHTML]="'settings.sensors.debug' | translate"></label>
+    </div>
+    -->
+  </div>
+</div>
+<hr />
 <pre class="pre-scrollable" *ngIf="log && log !== 'NOFILE'">{{log}}</pre>
 <div class="alert alert-info" *ngIf="log === 'NOFILE'" [translate]="'settings.log.nofile'"></div>
 <div class="alert alert-info" *ngIf="log == ''" [translate]="'settings.log.empty'"></div>

@@ -30,6 +30,7 @@ export class Sensor {
   compensation_value: number;
   compensation_temp: number;
   // BME680
+  i2c_addr: string;
   ts_field_air_pressure: string;
   ts_field_air_quality: string;
   // BME680 & DHT11

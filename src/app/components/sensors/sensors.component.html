@@ -126,6 +126,14 @@
             <label for="offset_bme680">{{'settings.sensors.temperature' | translate}} {{'settings.sensors.offset' | translate }} [°C]</label>
             <input type="number" step="0.1" class="form-control" [(ngModel)]="sensor.offset" id="offset_bme680" name="offset_bme680" placeholder="{{'settings.sensors.offset' | translate }}" />
           </div>
+          <div class="form-group col-12 col-sm-6">
+            <label for="i2c_addr" [innerHTML]="'settings.sensors.i2c_addr' | translate"></label>
+            <select [(ngModel)]="sensor.i2c_addr" id="i2c_addr" name="i2c_addr" class="custom-select">
+              <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'I2C-Address'}"></option>
+              <option [ngValue]="'0x76'">0x76</option>
+              <option [ngValue]="'0x77'">0x77</option>
+            </select>
+          </div>
         </div>
       </td>
     </tr>
@@ -366,6 +374,14 @@
             <label for="offset_bme280">{{'settings.sensors.temperature' | translate}} {{'settings.sensors.offset' | translate }} [°C]</label>
             <input type="number" step="0.1" class="form-control" [(ngModel)]="sensor.offset" id="offset_bme280" name="offset_bme280" placeholder="{{'settings.sensors.offset' | translate }}" />
           </div>
+          <div class="form-group col-12 col-sm-6">
+            <label for="i2c_addr" [innerHTML]="'settings.sensors.i2c_addr' | translate"></label>
+            <select [(ngModel)]="sensor.i2c_addr" id="i2c_addr" name="i2c_addr" class="custom-select">
+              <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'I2C-Address'}"></option>
+              <option [ngValue]="'0x76'">0x76</option>
+              <option [ngValue]="'0x77'">0x77</option>
+            </select>
+          </div>
         </div>
       </td>
     </tr>
@@ -478,15 +494,6 @@
 </p>
 <div class="collapse" id="collapseSensor">
   <div class="card card-body">
-    <div class="row">
-      <div class="col-12">
-        <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" name="debug" [(ngModel)]="settings.debug" id="debug">
-          <label class="form-check-label" for="debug" [innerHTML]="'settings.sensors.debug' | translate"></label>
-        </div>
-      </div>
-    </div>
-    <hr />
     <div class="form-group">
       <settings-gpio-field [label]="'settings.sensors.ledPin' | translate"
                            [field_id]="'led_pin'"
