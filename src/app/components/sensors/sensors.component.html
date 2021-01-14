@@ -7,13 +7,16 @@
         <select [(ngModel)]="sensor.type" name="sensor-type" class="custom-select" required>
           <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.sensors.sensor' | translate}"></option>
           <option [ngValue]="0" [translate]="'settings.sensors.sensor_0'">Temperatursensor (DS18b20)</option>
-          <option [ngValue]="1" [translate]="'settings.sensors.sensor_1'">BME680 (Temperatur+Luftfeuchtigkeit+Luftdruck+Qualität)</option>
-          <option [ngValue]="5" [translate]="'settings.sensors.sensor_5'">BME280 (Temperatur+Luftfeuchtigkeit+Luftdruck)</option>
+          <option [ngValue]="1" [translate]="'settings.sensors.sensor_1'">Temperatur+Luftfeuchtigkeit+Luftdruck+Qualität (BME680)</option>
+          <option [ngValue]="5" [translate]="'settings.sensors.sensor_5'">Temperatur+Luftfeuchtigkeit+Luftdruck (BME280)</option>
           <option [ngValue]="2" [translate]="'settings.sensors.sensor_2'">Gewichtssensor (A/D: HX711)</option>
           <option [ngValue]="3" [translate]="'settings.sensors.sensor_3'">Luftfeuchtigkeit und Temperatur (DHT)</option>
           <option [ngValue]="4" [translate]="'settings.sensors.sensor_4'">Temperatursensor (MAX6675/MAX31855)</option>
           <option [ngValue]="6" [translate]="'settings.sensors.sensor_6'">Voltmeter (A/D: PCF8591)</option>
           <option [ngValue]="7" [translate]="'settings.sensors.sensor_7'">CO2, Temp, Luftdruck (EE895)</option>
+          <option [ngValue]="8" [translate]="'settings.sensors.sensor_8'">Luftfeuchtigkeit und Temperatur (HDC1008)</option>
+          <option [ngValue]="9" [translate]="'settings.sensors.sensor_9'">Luftfeuchtigkeit und Temperatur (SHT31)</option>
+          <option [ngValue]="10" [translate]="'settings.sensors.sensor_10'">Luftfeuchtigkeit und Temperatur (AHT10)</option>
         </select>
       </td>
       <td>
@@ -432,6 +435,24 @@
                                [ts_field_id]="'ts_field_air_pressure'"
                                (ts_fieldChanged)="sensor.ts_field_air_pressure = $event"
                                [ts_field]="sensor.ts_field_air_pressure" [channels]="settings.ts_channels" ></settings-ts-field>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr *ngIf="sensor.type == 8 || sensor.type == 9 || sensor.type == 10" [ngClass]="{'my-bg': (i%2 == 0)}">
+      <td colspan="2">
+        <div class="row">
+          <div class="form-group col-12 col-sm-6">
+            <settings-ts-field [label]="'ThingSpeak ' + ('settings.sensors.temperature' | translate)"
+                               [ts_field_id]="'ts_field_temperature'"
+                               (ts_fieldChanged)="sensor.ts_field_temperature = $event"
+                               [ts_field]="sensor.ts_field_temperature" [channels]="settings.ts_channels" ></settings-ts-field>
+          </div>
+          <div class="form-group col-12 col-sm-6">
+            <settings-ts-field [label]="'ThingSpeak ' + ('settings.sensors.humidity' | translate)"
+                               [ts_field_id]="'ts_field_humidity'"
+                               (ts_fieldChanged)="sensor.ts_field_humidity = $event"
+                               [ts_field]="sensor.ts_field_humidity" [channels]="settings.ts_channels" ></settings-ts-field>
           </div>
         </div>
       </td>

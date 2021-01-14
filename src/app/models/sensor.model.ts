@@ -10,8 +10,11 @@ export class Sensor {
   Type 3: DHT11/DHT22
   Type 4: MAX6675/MAX31855
   Type 5: BME280
-  Type 6: YL-40 PCF8591
+  Type 6: PCF8591
   Type 7: EE895
+  Type 8: HDC1008
+  Type 9: SHT31
+  Type 10: AHT10
    */
   type: number;
   name: string;

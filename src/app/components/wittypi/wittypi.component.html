@@ -177,11 +177,11 @@
   <div class="form-group col-6" *ngIf="settings.wittyPi.version === 3">
     <!-- dummy load select -->
       <label for="dummyload" [translate]="'settings.sensors.dummyload'"></label>
-      <select [(ngModel)]="settings.wittyPi.dummyload" id="dummyload" name="dummyload" class="custom-select" required>
+      <select [(ngModel)]="settings.wittyPi.dummyload" id="dummyload" name="dummyload" class="custom-select">
         <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.sensors.dummyloadTimespan' | translate}"></option>
-        <option [ngValue]="0">Disabled</option>
+        <option [ngValue]="0">No Dummyload - disabled (default)</option>
         <option [ngValue]="10">10ms</option>
-        <option [ngValue]="15">15ms (default)</option>
+        <option [ngValue]="15">15ms (most used)</option>
         <option [ngValue]="20">20ms</option>
         <option [ngValue]="50">50ms</option>
         <option [ngValue]="100">100ms</option>
