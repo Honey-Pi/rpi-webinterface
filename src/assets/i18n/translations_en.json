@@ -132,6 +132,7 @@
       "customValue": "Edit custom value...",
       "debug": "Enable debug mode <small>(no restarts, HDMI output on, successful transfers in the protocol)</small>",
       "debugSelect": "Select Debug-Level",
+      "debugSelectLogfile": "Select the type and amount of output to the log file.",
       "debuglevel": "Debuglevel",
       "dummyload": "Activate dummyload (only use together with a Powerbank)",
       "dummyloadTimespan": "time duration of the dummy load",

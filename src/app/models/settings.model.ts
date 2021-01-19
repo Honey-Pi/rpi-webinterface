@@ -20,6 +20,7 @@ export class Settings {
   internet: InternetSettings;
   debug?: boolean; // replaced by debuglevel
   debuglevel: number;
+  debuglevel_logfile: number;
   wittyPi: WittyPiSettings;
   w1gpio: number;
   offline: number;

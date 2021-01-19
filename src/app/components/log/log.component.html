@@ -1,14 +1,22 @@
 <div class="row">
-  <div class="col-12">
+  <div class="col-12 col-sm-6">
+    <label for="debuglevel_logfile" [translate]="'settings.sensors.debugSelectLogfile'"></label>
+    <select [(ngModel)]="settings.debuglevel_logfile" id="debuglevel_logfile" name="debuglevel_logfile" class="custom-select">
+      <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.sensors.debuglevel' | translate}" disabled></option>
+      <option [ngValue]="10">CRITICAL, ERROR, WARNING, INFO, DEBUG</option>
+      <option [ngValue]="20">CRITICAL, ERROR, WARNING, INFO (default)</option>
+      <option [ngValue]="30">CRITICAL, ERROR, WARNING</option>
+      <option [ngValue]="40">CRITICAL, ERROR</option>
+      <option [ngValue]="50">CRITICAL</option>
+    </select>
+  </div>
+  <div class="col-12 col-sm-6">
     <label for="debuglevel" [translate]="'settings.sensors.debugSelect'"></label>
     <select [(ngModel)]="settings.debuglevel" id="debuglevel" name="debuglevel" class="custom-select">
       <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.sensors.debuglevel' | translate}" disabled></option>
-      <option [ngValue]="0">NOTSET</option>
-      <option [ngValue]="10">DEBUG:   No restarts, all logs.</option>
-      <option [ngValue]="20">INFO:    Logging successfull connections.</option>
-      <option [ngValue]="30">WARNING: No HDMI output. (default)</option>
-      <option [ngValue]="40">ERROR</option>
-      <option [ngValue]="50">CRITICAL</option>
+      <option [ngValue]="10">Debug-Mode: HDMI On & Reboots Off</option>
+      <option [ngValue]="20">Info-Mode: HDMI On & Reboots On</option>
+      <option [ngValue]="30">Prod-Mode: HDMI Off & Reboots On (default)</option>
     </select>
     <!--
     <div class="form-group form-check">

@@ -132,6 +132,7 @@
       "customValue": "Eigenen Wert eingeben...",
       "debug": "Debug-Modus aktivieren <small>(keine Neustarts, HDMI-Ausgang an, erfolgreiche Übertragungen im Protokoll)</small>",
       "debugSelect": "Debug-Level auswählen",
+      "debugSelectLogfile": "Die Art und Menge der Ausgaben ins Logfile auswählen.",
       "debuglevel": "Debuglevel",
       "dummyload": "Zeitdauer des Dummyloads auswählen (nur nützlich mit einer Powerbank)",
       "dummyloadTimespan": "Zeitdauer des Dummyloads",
