@@ -30,7 +30,7 @@ export class SettingsComponent implements OnInit {
   public enableWittyPi = true;
 
   // Only set this flag to "false" if you are testing in development (hides the modal for "missing connection").
-  public modalEnabled = false;
+  public modalEnabled = true;
 
   private n: any;
 
