@@ -66,9 +66,9 @@
         // Modem/Surfstick
         if (isset($postJson["internet"]["modem"]) && isset($postJson["internet"]["modem"]["enabled"]) && $postJson["internet"]["modem"]["enabled"] == true) {
             $modem = $postJson["internet"]["modem"];
-            if (isset($modem['apn']) && strlen($modem['apn']) > 0 && isset($modem["ttyUSB"])) {
+            if (isset($modem['apn']) && strlen($modem['apn']) > 0 && isset($modem["ttyUSB"]) && strlen($modem['ttyUSB']) > 0 ) {
 				$apn = escapeshellarg($modem["apn"]);
-                $ttyUSB = (INT)$modem["ttyUSB"];
+                $ttyUSB = escapeshellarg($modem["ttyUSB"]);
                 shell_exec("sudo sh ".$GLOBALS['scriptsFolder']."/shell-scripts/connection.sh set-apn $apn $ttyUSB &");
             }
         }
