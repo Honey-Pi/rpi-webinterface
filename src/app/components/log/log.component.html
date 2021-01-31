@@ -15,8 +15,8 @@
     <select [(ngModel)]="settings.debuglevel" id="debuglevel" name="debuglevel" class="custom-select">
       <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.sensors.debuglevel' | translate}" disabled></option>
       <option [ngValue]="10">Debug-Mode: HDMI On & Reboots Off</option>
-      <option [ngValue]="20">Info-Mode: HDMI On & Reboots On</option>
-      <option [ngValue]="30">Prod-Mode: HDMI Off & Reboots On (default)</option>
+      <option [ngValue]="20">Info-Mode: HDMI On & Reboots On (default)</option>
+      <option [ngValue]="30">Prod-Mode: HDMI Off & Reboots On</option>
     </select>
     <!--
     <div class="form-group form-check">
