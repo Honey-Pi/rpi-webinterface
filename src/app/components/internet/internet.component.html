@@ -22,7 +22,7 @@
   <div class="form-group col-12 col-sm-4">
     <label for="wpa_type" [translate]="'settings.internet.wpa_type'"></label>
     <select [(ngModel)]="wifi.router.wpa_type" id="wpa_type" name="wpa_type" class="custom-select" required>
-      <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.internet.wpa_type' | translate}"></option>
+      <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.internet.wpa_type' | translate}" disabled></option>
       <option [ngValue]="0">WPA2 (default)</option>
       <!--<option [ngValue]="1">WEP</option>-->
       <option [ngValue]="2">No Password</option>
@@ -76,7 +76,7 @@
     <div class="form-group col-12 col-sm-6">
       <label for="ttyUSB" [translate]="'settings.internet.ttyUSB'"></label>
       <select [(ngModel)]="wifi.modem.ttyUSB" id="ttyUSB" name="ttyUSB" class="custom-select" required>
-        <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.internet.ttyUSB' | translate}"></option>
+        <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.internet.ttyUSB' | translate}" disabled></option>
         <option [ngValue]="'ttyUSB0'">ttyUSB0 (default)</option>
         <option [ngValue]="'ttyUSB1'">ttyUSB1</option>
         <option [ngValue]="'ttyUSB2'">ttyUSB2</option>
@@ -119,11 +119,13 @@
     <div class="row">
       <div class="form-group col-12 col-sm-6">
         <label for="honeypiWifissid">{{ 'settings.internet.ssid' | translate}}</label>
-        <input type="text" class="form-control" [(ngModel)]="wifi.honeypi.ssid" id="honeypiWifissid" name="honeypiWifissid" placeholder="{{ 'settings.internet.ssid' | translate}}">
+        <input type="text" class="form-control" [(ngModel)]="wifi.honeypi.ssid" id="honeypiWifissid" name="honeypiWifissid" placeholder="{{ 'settings.internet.ssid' | translate}}"
+               [maxlength]="32" required>
       </div>
       <div class="form-group col-12 col-sm-6">
         <label for="honeypiWifipassword">{{ 'settings.internet.password' | translate}}</label>
-        <input type="text" class="form-control" [(ngModel)]="wifi.honeypi.password" id="honeypiWifipassword" name="honeypiWifipassword" placeholder="{{ 'settings.internet.password' | translate}}">
+        <input type="text" class="form-control" [(ngModel)]="wifi.honeypi.password" id="honeypiWifipassword" name="honeypiWifipassword" placeholder="{{ 'settings.internet.password' | translate}}"
+               [minlength]="8" [maxlength]="63" [pattern]="disallowedChars" required>
       </div>
     </div>
     <hr />
