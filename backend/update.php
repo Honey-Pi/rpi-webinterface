@@ -21,7 +21,7 @@
 
     // function for shell script
     function updateGit() {
-        return shell_exec("sudo git pull");
+        return shell_exec("sudo git reset HEAD --hard && sudo git pull");
     }
     function update($stable) {
         return shell_exec("sudo sh ".$GLOBALS['honeyPiHome']."/update.sh ".(INT)$stable."");
