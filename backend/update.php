@@ -109,13 +109,13 @@
           $stable = 1;
         }
 
-        $output->git = "Update " . $GLOBALS['honeyPiHome'] . " git:" . "\n";
-        $output->git .= updateGit();
-
         if ($_GET['mode'] === 'update') {
             $output->result = update($stable);
         } else if ($_GET['mode'] === 'install')
         {
+            $output->git = "Update " . $GLOBALS['honeyPiHome'] . " git:" . "\n";
+            $output->git .= updateGit();
+            
             $output->result = install();
         } else if ($_GET['mode'] === 'versionInfo')
         {
