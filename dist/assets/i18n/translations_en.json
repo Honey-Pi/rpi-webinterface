@@ -67,7 +67,7 @@
       "password": "WiFi network password",
       "ssid": "WiFi wireless network (SSID)",
       "testConnection": "Test your internet connectivity",
-      "testDiag": "Fetch surfstick diagnosis",
+      "testDiag": "Show network diagnosis",
       "testError": "<strong>Error!</strong> Connection to the internet failed.",
       "testSuccess": "<strong>HoneyPi is connected!</strong> The internet test was successful.",
       "title": "Internet connection",
