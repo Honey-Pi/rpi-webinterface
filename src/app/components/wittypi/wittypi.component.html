@@ -1,36 +1,38 @@
-<!-- Interval for normal mode -->
-<div class="form-group">
-  <label for="interval" [translate]="'settings.sensors.measurementInterval'">></label>
-  <select [(ngModel)]="settings.wittyPi.normal.interval" id="interval" name="interval" class="custom-select" required>
-    <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.sensors.interval' | translate}"></option>
-    <option [ngValue]="60">1min</option>
-    <option [ngValue]="300">5min</option>
-    <option [ngValue]="600">10min</option>
-    <option [ngValue]="900">15min</option>
-    <option [ngValue]="1800">30min</option>
-    <option [ngValue]="3600">60min</option>
-    <option [ngValue]="7200">2h</option>
-    <option [ngValue]="10800">3h</option>
-    <option [ngValue]="14400">4h</option>
-    <option [ngValue]="1">{{'settings.sensors.measurementOnce' | translate}}</option>
-    <option [ngValue]="0">{{'settings.sensors.measurementNone' | translate}}</option>
-  </select>
-</div>
-<div class="form-group form-check" *ngIf="settings.wittyPi.normal.interval === 1">
-  <input type="checkbox" class="form-check-input" name="shutdownAfterTransfer" [(ngModel)]="settings.wittyPi.normal.shutdownAfterTransfer" id="shutdownAfterTransfer">
-  <label class="form-check-label" for="shutdownAfterTransfer" [innerHTML]="'settings.sensors.shutdownAfterTransfer' | translate"></label>
-</div>
-<div class="alert alert-info" role="alert" *ngIf="settings.wittyPi.normal.interval === 1 && settings.wittyPi.normal.shutdownAfterTransfer === true">
-  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-  <span [innerHTML]="'alerts.shutdownAfterTransfer' | translate"></span>
-</div>
+<ng-container *ngIf="!settings.wittyPi.enabled">
+  <!-- Interval for normal mode -->
+  <div class="form-group">
+    <label for="interval" [translate]="'settings.sensors.measurementInterval'"></label>
+    <select [(ngModel)]="settings.wittyPi.normal.interval" id="interval" name="interval" class="custom-select" required>
+      <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.sensors.interval' | translate}" disabled></option>
+      <option [ngValue]="60">1min</option>
+      <option [ngValue]="300">5min</option>
+      <option [ngValue]="600">10min</option>
+      <option [ngValue]="900">15min</option>
+      <option [ngValue]="1800">30min</option>
+      <option [ngValue]="3600">60min</option>
+      <option [ngValue]="7200">2h</option>
+      <option [ngValue]="10800">3h</option>
+      <option [ngValue]="14400">4h</option>
+      <option [ngValue]="1">{{'settings.sensors.measurementOnce' | translate}}</option>
+      <option [ngValue]="0">{{'settings.sensors.measurementNone' | translate}}</option>
+    </select>
+  </div>
+  <div class="form-group form-check" *ngIf="settings.wittyPi.normal.interval === 1">
+    <input type="checkbox" class="form-check-input" name="shutdownAfterTransfer" [(ngModel)]="settings.wittyPi.normal.shutdownAfterTransfer" id="shutdownAfterTransfer">
+    <label class="form-check-label" for="shutdownAfterTransfer" [innerHTML]="'settings.sensors.shutdownAfterTransfer' | translate"></label>
+  </div>
+  <div class="alert alert-info" role="alert" *ngIf="settings.wittyPi.normal.interval === 1 && settings.wittyPi.normal.shutdownAfterTransfer === true">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <span [innerHTML]="'alerts.shutdownAfterTransfer' | translate"></span>
+  </div>
+</ng-container>
 <!-- Checkbox: WittyPi? -->
 <div class="form-check">
   <input class="form-check-input" type="checkbox" [(ngModel)]="settings.wittyPi.enabled" id="wittyPi">
   <label class="form-check-label" for="wittyPi" [translate]="'settings.wittypi.enableWitty'"></label>
 </div>
 <!-- Content for WittyPi configuration -->
-<div *ngIf="settings.wittyPi.enabled">
+<ng-container *ngIf="settings.wittyPi.enabled">
   <div class="alert alert-info" role="alert">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
     <span [innerHTML]="'alerts.wittypi' | translate"></span>
@@ -38,8 +40,8 @@
   <!-- Installation Buttons -->
   <div class="form-group">
     <label for="version" [translate]="'settings.wittypi.version'">></label>
-    <select [(ngModel)]="settings.wittyPi.version" id="version" name="version" class="custom-select" required>
-      <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.sensors.version' | translate}"></option>
+    <select [(ngModel)]="settings.wittyPi.version" id="version" name="version" class="custom-select">
+      <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.sensors.version' | translate}" disabled></option>
       <option [ngValue]="2">WittyPi Version 2</option>
       <option [ngValue]="3">WittyPi Version 3</option>
     </select>
@@ -50,7 +52,33 @@
       <button *ngIf="settings.wittyPi.version === 3" class="btn btn-outline-warning btn-sm" type="button" role="button" (click)="installWittyPi(3)">WittyPi 3 installieren</button>
     </div>
   </div>
-
+  <!-- Interval for normal mode -->
+  <div class="form-group">
+    <label for="interval" [translate]="'settings.sensors.measurementInterval'"></label>
+    <select [(ngModel)]="settings.wittyPi.normal.interval" id="interval" name="interval" class="custom-select" required>
+      <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.sensors.interval' | translate}" disabled></option>
+      <option [ngValue]="60">1min</option>
+      <option [ngValue]="300">5min</option>
+      <option [ngValue]="600">10min</option>
+      <option [ngValue]="900">15min</option>
+      <option [ngValue]="1800">30min</option>
+      <option [ngValue]="3600">60min</option>
+      <option [ngValue]="7200">2h</option>
+      <option [ngValue]="10800">3h</option>
+      <option [ngValue]="14400">4h</option>
+      <option [ngValue]="1">{{'settings.sensors.measurementOnce' | translate}}</option>
+      <option [ngValue]="0">{{'settings.sensors.measurementNone' | translate}}</option>
+    </select>
+  </div>
+  <div class="form-group form-check" *ngIf="settings.wittyPi.normal.interval === 1">
+    <input type="checkbox" class="form-check-input" name="shutdownAfterTransfer" [(ngModel)]="settings.wittyPi.normal.shutdownAfterTransfer" id="shutdownAfterTransfer">
+    <label class="form-check-label" for="shutdownAfterTransfer" [innerHTML]="'settings.sensors.shutdownAfterTransfer' | translate"></label>
+  </div>
+  <div class="alert alert-info" role="alert" *ngIf="settings.wittyPi.normal.interval === 1 && settings.wittyPi.normal.shutdownAfterTransfer === true">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <span [innerHTML]="'alerts.shutdownAfterTransfer' | translate"></span>
+  </div>
+  <!-- enable wittypi schedule checkbox -->
   <div class="form-check">
     <input class="form-check-input" type="checkbox" [(ngModel)]="settings.wittyPi.normal.enabled" id="normal_enabled">
     <label class="form-check-label" for="normal_enabled" [translate]="'settings.wittypi.enableNormalMode'"></label>
@@ -86,6 +114,32 @@
   <!-- Content for different Voltage modes -->
   <div class="collapse show" id="collapseVolltageCheck" *ngIf="settings.wittyPi.voltagecheck_enabled">
     <div class="card card-body">
+      <!-- Special timing for low mode -->
+      <div class="form-group">
+        <label for="low_interval" [translate]="'settings.wittypi.voltageLowInterval'"></label>
+        <select [(ngModel)]="settings.wittyPi.low.interval" id="low_interval" name="low_interval" class="custom-select" required>
+          <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.sensors.interval' | translate}" disabled></option>
+          <option [ngValue]="60">1min</option>
+          <option [ngValue]="300">5min</option>
+          <option [ngValue]="600">10min</option>
+          <option [ngValue]="900">15min</option>
+          <option [ngValue]="1800">30min</option>
+          <option [ngValue]="3600">60min</option>
+          <option [ngValue]="7200">2h</option>
+          <option [ngValue]="10800">3h</option>
+          <option [ngValue]="14400">4h</option>
+          <option [ngValue]="1">{{'settings.sensors.measurementOnce' | translate}}</option>
+          <option [ngValue]="0">{{'settings.sensors.measurementNone' | translate}}</option>
+        </select>
+      </div>
+      <div class="form-group form-check" *ngIf="settings.wittyPi.low.interval === 1">
+        <input type="checkbox" class="form-check-input" name="low_shutdownAfterTransfer" [(ngModel)]="settings.wittyPi.low.shutdownAfterTransfer" id="low_shutdownAfterTransfer">
+        <label class="form-check-label" for="low_shutdownAfterTransfer" [innerHTML]="'settings.sensors.shutdownAfterTransfer' | translate"></label>
+      </div>
+      <div class="alert alert-info" role="alert" *ngIf="settings.wittyPi.low.interval === 1 && settings.wittyPi.low.shutdownAfterTransfer === true">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <span [innerHTML]="'alerts.shutdownAfterTransfer' | translate"></span>
+      </div>
       <div class="row">
         <div class="form-group col-12 col-sm-6">
           <label for="low_voltage">{{'settings.wittypi.voltageLow' | translate}} [V]</label>
@@ -141,60 +195,31 @@
           <span [innerHTML]="'error.wittypiwait' | translate"></span>
         </div>
       </ng-container>
-      <hr />
-      <!-- Special timing for low mode -->
-      <div class="form-group">
-        <label for="low_interval" [translate]="'settings.wittypi.voltageLowInterval'">></label>
-        <select [(ngModel)]="settings.wittyPi.low.interval" id="low_interval" name="low_interval" class="custom-select" required>
-          <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.sensors.interval' | translate}"></option>
-          <option [ngValue]="60">1min</option>
-          <option [ngValue]="300">5min</option>
-          <option [ngValue]="600">10min</option>
-          <option [ngValue]="900">15min</option>
-          <option [ngValue]="1800">30min</option>
-          <option [ngValue]="3600">60min</option>
-          <option [ngValue]="7200">2h</option>
-          <option [ngValue]="10800">3h</option>
-          <option [ngValue]="14400">4h</option>
-          <option [ngValue]="1">{{'settings.sensors.measurementOnce' | translate}}</option>
-          <option [ngValue]="0">{{'settings.sensors.measurementNone' | translate}}</option>
-        </select>
-      </div>
-      <div class="form-group form-check" *ngIf="settings.wittyPi.low.interval === 1">
-        <input type="checkbox" class="form-check-input" name="low_shutdownAfterTransfer" [(ngModel)]="settings.wittyPi.low.shutdownAfterTransfer" id="low_shutdownAfterTransfer">
-        <label class="form-check-label" for="low_shutdownAfterTransfer" [innerHTML]="'settings.sensors.shutdownAfterTransfer' | translate"></label>
-      </div>
-      <div class="alert alert-info" role="alert" *ngIf="settings.wittyPi.low.interval === 1 && settings.wittyPi.low.shutdownAfterTransfer === true">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <span [innerHTML]="'alerts.shutdownAfterTransfer' | translate"></span>
-      </div>
       <div class="alert alert-info" role="alert">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         {{ 'alerts.afterSaveOrManualStart' | translate}}
       </div>
     </div>
   </div>
-  <hr />
-  <div class="alert alert-info" role="alert" *ngIf="settings.wittyPi.version === 3">
-    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-    <span [innerHTML]="'alerts.dummyload' | translate"></span>
-  </div>
-  <div class="form-group" *ngIf="settings.wittyPi.version === 3">
-    <!-- dummy load select -->
-      <label for="dummyload" [translate]="'settings.sensors.dummyload'"></label>
-      <select [(ngModel)]="settings.wittyPi.dummyload" id="dummyload" name="dummyload" class="custom-select">
-        <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.sensors.dummyloadTimespan' | translate}" disabled></option>
-        <option [ngValue]="0">No Dummyload - disabled</option>
-        <option [ngValue]="10">10ms</option>
-        <option [ngValue]="15">15ms (most used)</option>
-        <option [ngValue]="20">20ms</option>
-        <option [ngValue]="50">50ms</option>
-        <option [ngValue]="100">100ms</option>
-      </select>
-    <!--
-    <input type="checkbox" class="form-check-input" name="dummyload" [(ngModel)]="settings.wittyPi.dummyload" id="dummyload">
-    <label class="form-check-label" for="dummyload" [innerHTML]="'settings.sensors.dummyload' | translate"></label>
-    -->
-  </div>
-
-</div>
+  <!-- dummyload -->
+  <ng-container *ngIf="settings.wittyPi.version === 3">
+    <hr />
+    <div class="form-group">
+      <!-- dummy load select -->
+        <label for="dummyload" [translate]="'settings.sensors.dummyload'"></label>
+        <select [(ngModel)]="settings.wittyPi.dummyload" id="dummyload" name="dummyload" class="custom-select">
+          <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.sensors.dummyloadTimespan' | translate}" disabled></option>
+          <option [ngValue]="0">No Dummyload - disabled</option>
+          <option [ngValue]="10">10ms</option>
+          <option [ngValue]="15">15ms (most used)</option>
+          <option [ngValue]="20">20ms</option>
+          <option [ngValue]="50">50ms</option>
+          <option [ngValue]="100">100ms</option>
+        </select>
+    </div>
+    <div class="alert alert-info" role="alert">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <span [innerHTML]="'alerts.dummyload' | translate"></span>
+    </div>
+  </ng-container>
+</ng-container>
