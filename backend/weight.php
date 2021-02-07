@@ -13,5 +13,3 @@
 
     $output = shell_exec("sudo python3 ".$GLOBALS['scriptsFolder']."/measurement_weight.py $pin_dt $pin_sck '$channel'");
     echo $output;
-
-?>

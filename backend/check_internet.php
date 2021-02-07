@@ -25,6 +25,4 @@
     }
 
     $obj = is_connected();
-
     echo json_encode($obj);
-?>

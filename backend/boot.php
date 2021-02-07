@@ -24,5 +24,3 @@
     } else if (isset($_GET['shutdown'])) {
         shutdown();
     }
-
-?>

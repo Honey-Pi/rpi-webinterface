@@ -30,4 +30,3 @@
 
     $obj = is_channel_correct($_POST['ts_write_key']);
     echo json_encode($obj);
-?>

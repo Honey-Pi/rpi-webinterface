@@ -115,7 +115,7 @@
         {
             $output->git = "Update " . $GLOBALS['honeyPiHome'] . " git:" . "\n";
             $output->git .= updateGit();
-            
+
             $output->result = install();
         } else if ($_GET['mode'] === 'versionInfo')
         {
@@ -130,5 +130,3 @@
     }
 
     echo json_encode($output, JSON_PRETTY_PRINT);
-
-?>

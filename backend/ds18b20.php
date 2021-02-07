@@ -15,5 +15,3 @@
 
   // send files
   echo json_encode($filtered_files);
-
-?>

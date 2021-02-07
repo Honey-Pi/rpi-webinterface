@@ -18,5 +18,3 @@
     } else {
         echo "NOFILE";
     }
-
-?>
