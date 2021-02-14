@@ -6,30 +6,30 @@
 <label for="{{ field_id }}">{{ label }}</label>
 <select [(ngModel)]="field" id="{{ field_id }}" name="{{ field_id }}" (ngModelChange)="onChange($event)" class="custom-select" [required]="required">
   <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'GPIO'}"></option>
-  <option [value]="2" disabled>GPIO2 (reserved I2C SDI/SDA)</option>
-  <option [value]="3" disabled>GPIO3 (reserved I2C SCL/SCK)</option>
-  <option [value]="4" [disabled]="disabled_pins.includes(4)">GPIO4 (reserved WittyPi)</option>
-  <option [value]="5" [disabled]="disabled_pins.includes(5)">GPIO5 (Default: HX711_1 DT)</option>
-  <option [value]="6" [disabled]="disabled_pins.includes(6)">GPIO6 (Default: HX711_1 SCK)</option>
-  <option [value]="7" [disabled]="disabled_pins.includes(7)">GPIO7</option>
-  <option [value]="8" [disabled]="disabled_pins.includes(8)">GPIO8</option>
-  <option [value]="9" [disabled]="disabled_pins.includes(9)">GPIO9 (Default: DHT22 / DS18b20 3.3V source)</option>
-  <option [value]="10" [disabled]="disabled_pins.includes(10)">GPIO10</option>
-  <option [value]="11" [disabled]="disabled_pins.includes(11)">GPIO11 (Default: DS18b20 1-Wire)</option>
-  <option [value]="12" [disabled]="disabled_pins.includes(12)">GPIO12 (Default: HX711_2 DT)</option>
-  <option [value]="13" [disabled]="disabled_pins.includes(13)">GPIO13 (Default: HX711_2 SCK)</option>
-  <option [value]="14" [disabled]="disabled_pins.includes(14)">GPIO14 (reserved UART TX)</option>
-  <option [value]="15" [disabled]="disabled_pins.includes(15)">GPIO15 (reserved UART RX)</option>
-  <option [value]="16" [disabled]="disabled_pins.includes(16)">GPIO16 (Default: Button)</option>
-  <option [value]="17" [disabled]="disabled_pins.includes(17)">GPIO17 (reserved WittyPi)</option>
-  <option [value]="18" [disabled]="disabled_pins.includes(18)">GPIO18 (Default: MAX CLK)</option>
-  <option [value]="19" [disabled]="disabled_pins.includes(19)">GPIO19 (Default: MAX MISO)</option>
-  <option [value]="20" [disabled]="disabled_pins.includes(20)">GPIO20</option>
-  <option [value]="21" [disabled]="disabled_pins.includes(21)">GPIO21 (Default: LED)</option>
-  <option [value]="22" [disabled]="disabled_pins.includes(22)">GPIO22 (Default: HX711_3 SCK)</option>
-  <option [value]="23" [disabled]="disabled_pins.includes(23)">GPIO23 (Default: HX711_4 DT)</option>
-  <option [value]="24" [disabled]="disabled_pins.includes(24)">GPIO24 (Default: HX711_4 SCK)</option>
-  <option [value]="25" [disabled]="disabled_pins.includes(25)">GPIO25 (Default: HX711_5 DT)</option>
-  <option [value]="26" [disabled]="disabled_pins.includes(26)">GPIO26 (Default: HX711_5 SCK / MAX CS)</option>
-  <option [value]="27" [disabled]="disabled_pins.includes(27)">GPIO27 (Default: HX711_3 DT / MAX CS2)</option>
+  <option [value]="2" disabled>GPIO2 (I2C SDI/SDA)</option>
+  <option [value]="3" disabled>GPIO3 (I2C SCL/SCK)</option>
+  <option [value]="4" [disabled]="disabled_pins.includes(4)">GPIO4 (WittyPi)</option>
+  <option [value]="5" [disabled]="disabled_pins.includes(5)">GPIO5 (HX711_1 DT)</option>
+  <option [value]="6" [disabled]="disabled_pins.includes(6)">GPIO6 (HX711_1 SCK)</option>
+  <option [value]="7" [disabled]="disabled_pins.includes(7)">GPIO7 (HX711_6 DT)</option>
+  <option [value]="8" [disabled]="disabled_pins.includes(8)">GPIO8 (HX711_6 SCK)</option>
+  <option [value]="9" [disabled]="disabled_pins.includes(9)">GPIO9 (HX711_8 DT / 1-Wire Power PCBv2)</option>
+  <option [value]="10" [disabled]="disabled_pins.includes(10)">GPIO10 (HX711_8 SCK)</option>
+  <option [value]="11" [disabled]="disabled_pins.includes(11)">GPIO11 (DS18b20 1-Wire)</option>
+  <option [value]="12" [disabled]="disabled_pins.includes(12)">GPIO12 (HX711_2 DT)</option>
+  <option [value]="13" [disabled]="disabled_pins.includes(13)">GPIO13 (HX711_2 SCK)</option>
+  <option [value]="14" [disabled]="disabled_pins.includes(14)">GPIO14 (UART TX)</option>
+  <option [value]="15" [disabled]="disabled_pins.includes(15)">GPIO15 (UART RX)</option>
+  <option [value]="16" [disabled]="disabled_pins.includes(16)">GPIO16 (Button)</option>
+  <option [value]="17" [disabled]="disabled_pins.includes(17)">GPIO17 (WittyPi)</option>
+  <option [value]="18" [disabled]="disabled_pins.includes(18)">GPIO18 (HX711_7 DT / MAX CLK)</option>
+  <option [value]="19" [disabled]="disabled_pins.includes(19)">GPIO19 (HX711_7 SCK / MAX MISO)</option>
+  <option [value]="20" [disabled]="disabled_pins.includes(20)">GPIO20 (1-Wire Power PCBv3)</option>
+  <option [value]="21" [disabled]="disabled_pins.includes(21)">GPIO21 (LED)</option>
+  <option [value]="22" [disabled]="disabled_pins.includes(22)">GPIO22 (HX711_3 SCK)</option>
+  <option [value]="23" [disabled]="disabled_pins.includes(23)">GPIO23 (HX711_4 DT)</option>
+  <option [value]="24" [disabled]="disabled_pins.includes(24)">GPIO24 (HX711_4 SCK)</option>
+  <option [value]="25" [disabled]="disabled_pins.includes(25)">GPIO25 (HX711_5 DT)</option>
+  <option [value]="26" [disabled]="disabled_pins.includes(26)">GPIO26 (HX711_5 SCK / MAX CS)</option>
+  <option [value]="27" [disabled]="disabled_pins.includes(27)">GPIO27 (HX711_3 DT / MAX CS2)</option>
 </select>
