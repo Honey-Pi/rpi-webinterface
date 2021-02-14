@@ -13,7 +13,7 @@
     </ng-container>
   </ul>
 </ng-container>
-<div *ngIf="noData && !measurement" class="alert alert-warning" role="alert">
+<div *ngIf="measurementStarted === true && thingSpeakFields === null" class="alert alert-warning" role="alert">
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   <span [innerHTML]="'settings.measurement.noData' | translate: {tab: 'settings.sensors.title' | translate}"></span>
 </div>

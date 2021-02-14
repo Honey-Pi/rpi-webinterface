@@ -11,7 +11,4 @@
     }
 
     $obj = run_measurement();
-
-    echo json_encode($obj);
-
-?>
+    echo $obj;

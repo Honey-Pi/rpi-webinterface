@@ -9,10 +9,10 @@ import 'rxjs-compat/add/operator/finally';
 })
 export class MeasurementComponent implements OnInit {
 
-  public measurement;
-  public isLoading = false;
-  public noData = false;
-  public numbers;
+  public measurement: any = null;
+  public isLoading: boolean = false;
+  public measurementStarted: boolean = false;
+  public numbers: number[];
 
   constructor(private appService: AppService) {
     const maxLength = 8 * 10;
@@ -25,16 +25,15 @@ export class MeasurementComponent implements OnInit {
 
   getMeasurement(): void {
     this.measurement = null;
+    this.measurementStarted = false;
     this.isLoading = true;
     this.appService.getMeasurement()
       .finally(() => this.isLoading = false)
       .subscribe(res => {
+        this.measurementStarted = true;
         console.log(res);
         if (res) {
           this.measurement = <any>res;
-          this.noData = false;
-        } else {
-          this.noData = true;
         }
       }, (err: any) => {
         console.error(err);
@@ -42,16 +41,19 @@ export class MeasurementComponent implements OnInit {
   }
 
   get debugInfo(): string {
-    if (this.measurement && this.measurement.includes('{')) {
-      const str = this.measurement.split('{')[0];
+    if (this.measurement && this.measurement.toString().includes('{')) {
+      const str = this.measurement.toString().split('{')[0];
       return str;
     }
     return null;
   }
 
   get thingSpeakFields(): JSON {
-    if (this.measurement && this.measurement.includes('{')) {
-      let str = this.measurement.split('{');
+    if (this.measurement && this.measurement.toString().includes('{')) {
+      let str = this.measurement.toString().split('{');
+      if (str.length <= 1) {
+        return null;
+      }
       str = '{' + str[str.length - 1];
       return JSON.parse(str);
     }
