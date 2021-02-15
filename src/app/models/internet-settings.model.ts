@@ -16,7 +16,7 @@ export class Wifi {
   wpa_type?: number;
 }
 export class Modem {
-  enabled?: boolean;
+  enabled: number;
   apn: string;
   ttyUSB: string;
 }

@@ -56,7 +56,11 @@
     "internet": {
       "apn": "APN",
       "collapseAP": "Advanced settings for users who know what they're doing »",
-      "connectModem": "Use of a internet modem (surfstick)?",
+      "connect": "Choose the type of your internet modem. Any connection problems that occur can thus be correctly noted in the log.",
+      "connectHiLink": "Connect surfstick in HiLink mode (most used)",
+      "connectModem": "Connect internet modem (surfstick) with Wvdial",
+      "connectNothing": "No surfstick connected",
+      "connectSelect": "Choose the type of your internet modem...",
       "connectWifi": "Connect to existing WiFi network when reachable?",
       "honeypiAP": "HoneyPi Maintenance Mode",
       "honeypiAPtext": "Change the SSID and password of the AccessPoint.",

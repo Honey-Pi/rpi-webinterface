@@ -62,11 +62,19 @@
 </div>
 <hr />
 <h5 class="h5" [translate]="'settings.internet.honeypiModem'"></h5>
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" [(ngModel)]="wifi.modem.enabled" id="enabledModem">
-  <label class="form-check-label" for="enabledModem" [translate]="'settings.internet.connectModem'"></label>
+<!-- type of modem -->
+<div class="row">
+  <div class="form-group col-12">
+    <label for="enabledModem" [translate]="'settings.internet.connect'"></label>
+    <select [(ngModel)]="wifi.modem.enabled" id="enabledModem" name="enabledModem" class="custom-select" required>
+      <option [ngValue]="undefined" [translate]="'settings.internet.connectSelect'" disabled></option>
+      <option [ngValue]="0" [translate]="'settings.internet.connectNothing'">none</option>
+      <option [ngValue]="1" [translate]="'settings.internet.connectHiLink'">hiLink</option>
+      <option [ngValue]="2" [translate]="'settings.internet.connectModem'">wvdial</option>
+    </select>
+  </div>
 </div>
-<div *ngIf="wifi.modem.enabled">
+<ng-container *ngIf="wifi.modem.enabled === 2">
   <div class="row">
     <div class="form-group col-12 col-sm-6">
       <label for="honeypiModemApn">{{ 'settings.internet.apn' | translate}}</label>
@@ -85,7 +93,7 @@
       </select>
     </div>
   </div>
-</div>
+</ng-container>
 <hr />
 <h5 class="h5" [translate]="'settings.internet.isMobileConnected'"></h5>
 <p>
