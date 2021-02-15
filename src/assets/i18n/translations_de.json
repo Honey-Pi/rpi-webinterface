@@ -58,7 +58,7 @@
       "collapseAP": "Erweiterte Einstellungen für Nutzer, die wissen was sie tun »",
       "connect": "Wähle die Art deines Surfsticks aus. Auftretende Verbindungsprobleme können dadurch korrekt im Protokoll vermerkt werden.",
       "connectHiLink": "Surfstick im HiLink Modus verbinden (meist verwendet)",
-      "connectModem": "Surfstick mit wvdial verwenden",
+      "connectModem": "Modem mit wvdial verwenden",
       "connectNothing": "Es ist kein Surfstick angeschlossen",
       "connectSelect": "Wähle die Art deines Surfsticks aus...",
       "connectWifi": "Mit vorhandenem WLAN-Netzwerk verbinden, wenn in Reichweite?",

@@ -58,7 +58,7 @@
       "collapseAP": "Advanced settings for users who know what they're doing »",
       "connect": "Choose the type of your internet modem. Any connection problems that occur can thus be correctly noted in the log.",
       "connectHiLink": "Connect surfstick in HiLink mode (most used)",
-      "connectModem": "Connect internet modem (surfstick) with Wvdial",
+      "connectModem": "Connect internet modem with Wvdial",
       "connectNothing": "No surfstick connected",
       "connectSelect": "Choose the type of your internet modem...",
       "connectWifi": "Connect to existing WiFi network when reachable?",
