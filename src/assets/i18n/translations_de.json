@@ -80,6 +80,7 @@
       "wpa_type": "WPA-Verschlüsselung"
     },
     "log": {
+      "copy": "In Zwischenablage kopieren",
       "delete": "Löschen",
       "empty": "Das Protokoll auf diesem Gerät ist leer.",
       "export": "Einstellungen exportieren",

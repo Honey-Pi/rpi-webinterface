@@ -26,11 +26,18 @@
     -->
   </div>
 </div>
-<hr />
+<div class="row">
+  <div class="col-12 col-sm-6">
+    <br>
+    <div class="btn-group btn-group-sm" role="group">
+      <button class="btn btn-primary btn-sm" type="button" role="button" (click)="getLog()" [translate]="'settings.log.get'"></button>
+      <button class="btn btn-danger btn-sm" type="button" role="button" (click)="deleteLog()" [translate]="'settings.log.delete'"></button>
+    </div>
+  </div>
+</div>
+<br>
 <pre class="pre-scrollable" *ngIf="log && log !== 'NOFILE'">{{log}}</pre>
+<button *ngIf="log && log !== 'NOFILE'" class="btn btn-light btn-sm" type="button" role="button" (click)="copyMessage(log)" [translate]="'settings.log.copy'"></button>
 <div class="alert alert-info" *ngIf="log === 'NOFILE'" [translate]="'settings.log.nofile'"></div>
 <div class="alert alert-info" *ngIf="log == ''" [translate]="'settings.log.empty'"></div>
-<div class="btn-group btn-group-sm" role="group">
-  <button class="btn btn-primary btn-sm" type="button" role="button" (click)="getLog()" [translate]="'settings.log.get'"></button>
-  <button class="btn btn-danger btn-sm" type="button" role="button" (click)="deleteLog()" [translate]="'settings.log.delete'"></button>
-</div>
+

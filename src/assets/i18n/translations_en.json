@@ -80,6 +80,7 @@
       "wpa_type": "WiFi-Encyrption"
     },
     "log": {
+      "copy": "Copy to Clipboard",
       "delete": "Clear log",
       "empty": "The log on this device is empty.",
       "export": "Export settings",

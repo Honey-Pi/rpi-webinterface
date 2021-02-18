@@ -144,5 +144,6 @@
       <button type="button" role="button" class="btn btn-warning btn-sm" (click)="checkDiag()" [disabled]="isLoadingAP"  [class.spinner]="isLoadingAP"  [translate]="'settings.internet.testDiag'"></button>
     </p>
     <pre class="pre-scrollable" *ngIf="checkSurfstickResponse">{{checkSurfstickResponse}}</pre>
+    <button *ngIf="checkSurfstickResponse" class="btn btn-light btn-sm" type="button" role="button" (click)="copyMessage(checkSurfstickResponse)" [translate]="'settings.log.copy'"></button>
   </div>
 </div>

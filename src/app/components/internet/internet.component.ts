@@ -67,4 +67,8 @@ export class InternetComponent implements OnInit {
       });
   }
 
+  copyMessage(text){
+    navigator.clipboard.writeText(text).then().catch(e => console.error(e));
+  }
+
 }

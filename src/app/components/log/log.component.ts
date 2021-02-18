@@ -45,4 +45,8 @@ export class LogComponent implements OnInit {
       }, (err: any) => {console.error(err); });
   }
 
+  copyMessage(text){
+    navigator.clipboard.writeText(text).then().catch(e => console.error(e));
+  }
+
 }
