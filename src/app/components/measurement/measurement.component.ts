@@ -20,7 +20,7 @@ export class MeasurementComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getMeasurement();
+    //this.getMeasurement();
   }
 
   getMeasurement(): void {
