@@ -59,7 +59,7 @@ export class SettingsComponent implements OnInit {
 
   private saveSettingsBackup(settings: Settings) {
     this.settingsBackup = SettingsComponent.deepCopy<Settings>(settings);
-    console.log(this.settingsBackup);
+    console.log("saveSettingsBackup", this.settingsBackup);
   }
 
   public get isSettingsChanged(): boolean {
@@ -132,7 +132,7 @@ export class SettingsComponent implements OnInit {
   saveSettings(): void  {
     this.appService.setSettings(this.settings).timeout(5000)
       .subscribe(res => {
-        console.log(res);
+        console.log("saveSettings", res);
         if (res) {
           this.processSettings(res);
         }

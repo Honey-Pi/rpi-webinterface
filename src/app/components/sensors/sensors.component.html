@@ -31,7 +31,7 @@
           <div class="form-group col-12 col-sm-6">
             <label for="device_id">Sensor Device-ID</label>
             <select [(ngModel)]="sensor.device_id" id="device_id" name="device_id" class="custom-select" required>
-              <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'Device-ID'}"></option>
+              <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'Device-ID'}" disabled></option>
               <ng-container *ngFor="let device of temperatureSensors">
                 <option [ngValue]="device">{{ device }}</option>
               </ng-container>
@@ -128,8 +128,8 @@
           </div>
           <div class="form-group col-12 col-sm-6">
             <label for="i2c_addr" [innerHTML]="'settings.sensors.i2c_addr' | translate"></label>
-            <select [(ngModel)]="sensor.i2c_addr" id="i2c_addr" name="i2c_addr" class="custom-select">
-              <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'I2C-Address'}"></option>
+            <select [(ngModel)]="sensor.i2c_addr" id="i2c_addr" name="i2c_addr" class="custom-select" required>
+              <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'I2C-Address'}" disabled></option>
               <option [ngValue]="'0x76'">0x76</option>
               <option [ngValue]="'0x77'">0x77</option>
             </select>
@@ -278,7 +278,7 @@
           <div class="form-group col-12 col-sm-6">
             <label for="dht_type" [translate]="'settings.sensors.selectType'"></label>
             <select [(ngModel)]="sensor.dht_type" id="dht_type" name="dht_type" class="custom-select" required>
-              <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'DHT'}"></option>
+              <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'DHT'}" disabled></option>
               <option [ngValue]="11">DHT11</option>
               <option [ngValue]="22">DHT22</option>
               <option [ngValue]="2302">AM2302</option>
@@ -325,7 +325,7 @@
           <div class="form-group col-12 col-sm-6">
             <label for="dht_type" [translate]="'settings.sensors.selectType'"></label>
             <select [(ngModel)]="sensor.max_type" id="max_type" name="max_type" class="custom-select" required>
-              <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'MAX'}"></option>
+              <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'MAX'}" disabled></option>
               <option [ngValue]="6675">MAX6675</option>
               <option [ngValue]="31855">MAX31855</option>
             </select>
@@ -376,8 +376,8 @@
           </div>
           <div class="form-group col-12 col-sm-6">
             <label for="i2c_addr" [innerHTML]="'settings.sensors.i2c_addr' | translate"></label>
-            <select [(ngModel)]="sensor.i2c_addr" id="i2c_addr" name="i2c_addr" class="custom-select">
-              <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'I2C-Address'}"></option>
+            <select [(ngModel)]="sensor.i2c_addr" id="i2c_addr" name="i2c_addr" class="custom-select" required>
+              <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'I2C-Address'}" disabled></option>
               <option [ngValue]="'0x76'">0x76</option>
               <option [ngValue]="'0x77'">0x77</option>
             </select>

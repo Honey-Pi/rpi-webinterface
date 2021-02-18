@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AppService} from '../../services/app.service';
 import 'rxjs-compat/add/operator/finally';
 
@@ -9,7 +9,7 @@ import 'rxjs-compat/add/operator/finally';
 })
 export class MeasurementComponent implements OnInit {
 
-  public measurement: any = null;
+  public measurement: string = null;
   public isLoading: boolean = false;
   public measurementStarted: boolean = false;
   public numbers: number[];
@@ -20,7 +20,7 @@ export class MeasurementComponent implements OnInit {
   }
 
   ngOnInit() {
-  //  this.getMeasurement();
+    this.getMeasurement();
   }
 
   getMeasurement(): void {
@@ -28,34 +28,39 @@ export class MeasurementComponent implements OnInit {
     this.measurementStarted = false;
     this.isLoading = true;
     this.appService.getMeasurement()
-      .finally(() => this.isLoading = false)
-      .subscribe(res => {
+      .finally(() => {
+        this.isLoading = false;
         this.measurementStarted = true;
-        console.log(res);
+        console.log("getMeasurement", this.measurement);
+      }).subscribe(res => {
         if (res) {
-          this.measurement = <any>res;
+          this.measurement = JSON.stringify(<any>res);
         }
-      }, (err: any) => {
-        console.error(err);
+      }, (err) => {
+        if (err.error.text) {
+          this.measurement = <string>err.error.text;
+        }
       });
   }
 
+  get isNoData(): boolean {
+    return this.measurementStarted === true && this.thingSpeakFields === null;
+  }
+
   get debugInfo(): string {
-    if (this.measurement && this.measurement.toString().includes('{')) {
-      const str = this.measurement.toString().split('{')[0];
-      return str;
+    if (this.measurement && this.measurement.includes('{')) {
+      return this.measurement.split('{')[0];
     }
     return null;
   }
 
-  get thingSpeakFields(): JSON {
-    if (this.measurement && this.measurement.toString().includes('{')) {
-      let str = this.measurement.toString().split('{');
-      if (str.length <= 1) {
+  get thingSpeakFields(): { string, number } [] {
+    if (this.measurement && this.measurement.includes('{')) {
+      let str = this.measurement.split('{')[1];
+      if (str.length <= 2) {
         return null;
       }
-      str = '{' + str[str.length - 1];
-      return JSON.parse(str);
+      return <{ string, number } []>JSON.parse('{' + str);
     }
     return null;
   }
