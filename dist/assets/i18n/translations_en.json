@@ -58,10 +58,11 @@
       "collapseAP": "Advanced settings for users who know what they're doing »",
       "connect": "Choose the type of your internet modem. Any connection problems that occur can thus be correctly noted in the log.",
       "connectHiLink": "Connect surfstick in HiLink mode (most used)",
-      "connectModem": "Connect internet modem (surfstick) with Wvdial",
+      "connectModem": "Connect internet modem with Wvdial",
       "connectNothing": "No surfstick connected",
       "connectSelect": "Choose the type of your internet modem...",
       "connectWifi": "Connect to existing WiFi network when reachable?",
+      "defaultGW": "Open Default Gateway (surfstick configuration page).",
       "honeypiAP": "HoneyPi Maintenance Mode",
       "honeypiAPtext": "Change the SSID and password of the AccessPoint.",
       "honeypiModem": "Internet Modem",
@@ -80,6 +81,7 @@
       "wpa_type": "WiFi-Encyrption"
     },
     "log": {
+      "copy": "Copy to Clipboard",
       "delete": "Clear log",
       "empty": "The log on this device is empty.",
       "export": "Export settings",
@@ -93,7 +95,7 @@
       "construction": "This view is only provisional so far and will be extended in the next firmware version.",
       "get": "Recall new measurement",
       "info": "The sensors configured and stored in the \"<strong>{{tab}}</strong>\" tab are displayed here. There is no upload of measurement data to ThingSpeak. Measurement takes up to 1 minute.",
-      "noData": "No measurement data measured. Were the sensors configured in the \"<strong>{{{tab}}</strong>\" tab?",
+      "noData": "No measurement data measured. Were the sensors configured in the \"<strong>{{tab}}</strong>\" tab?",
       "title": "Measurement data"
     },
     "offline": {
