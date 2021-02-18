@@ -74,6 +74,13 @@
     </select>
   </div>
 </div>
+<ng-container *ngIf="wifi.modem.enabled === 1 && isAccessPoint">
+  <div class="row">
+    <div class="form-group col-12 col-sm-6">
+      <a href="./backend/open_gateway.php" target="_blank">{{ 'settings.internet.defaultGW' | translate}}</a>
+    </div>
+  </div>
+</ng-container>
 <ng-container *ngIf="wifi.modem.enabled === 2">
   <div class="row">
     <div class="form-group col-12 col-sm-6">

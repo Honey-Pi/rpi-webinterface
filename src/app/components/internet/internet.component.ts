@@ -71,4 +71,9 @@ export class InternetComponent implements OnInit {
     navigator.clipboard.writeText(text).then().catch(e => console.error(e));
   }
 
+  public get isAccessPoint() {
+    const host: string = window.location.hostname;
+    return (host === '192.168.4.1');
+  }
+
 }
