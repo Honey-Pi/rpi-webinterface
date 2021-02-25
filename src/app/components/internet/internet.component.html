@@ -47,7 +47,7 @@
       {{ 'error.length' | translate: { field: 'settings.internet.ssid' | translate} }}
     </div>
   </div>
-  <div *ngIf="router_password.invalid && (router_password.dirty || router_password.touched)"
+  <div *ngIf="router_password.invalid && (router_password.dirty || router_password.touched) && wifi.router.wpa_type !== 2"
        class="alert alert-danger col-12" role="alert">
     <div *ngIf="router_password?.errors.required">
       {{ 'error.required' | translate: { field: 'settings.internet.password' | translate} }}
