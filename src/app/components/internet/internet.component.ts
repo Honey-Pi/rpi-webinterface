@@ -35,6 +35,11 @@ export class InternetComponent implements OnInit {
   ngOnInit() {
   }
 
+  onRouterSelectChange(deviceValue): void {
+    // reset password after change of encryption because it only contains "********"
+    this.wifi.router.password = "";
+  }
+
   checkInternet(): void {
     this.isLoading = true;
     this.checkInternetResponse = null;

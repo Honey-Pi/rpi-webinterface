@@ -21,7 +21,7 @@
   <!-- WPA2 select -->
   <div class="form-group col-12 col-sm-4">
     <label for="wpa_type" [translate]="'settings.internet.wpa_type'"></label>
-    <select [(ngModel)]="wifi.router.wpa_type" id="wpa_type" name="wpa_type" class="custom-select" required>
+    <select [(ngModel)]="wifi.router.wpa_type" (change)="onRouterSelectChange($event?.target?.value)" id="wpa_type" name="wpa_type" class="custom-select" required>
       <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.internet.wpa_type' | translate}" disabled></option>
       <option [ngValue]="0">WPA2 (default)</option>
       <!--<option [ngValue]="1">WEP</option>-->
