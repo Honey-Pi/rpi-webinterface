@@ -4,6 +4,12 @@
     // text
     header('Content-type:text/plain;charset=utf-8');
 
+    function getLastLines($string, $n = 1) {
+        $lines = explode("\n", $string);
+        $lines = array_slice($lines, -$n);
+        return implode("\n", $lines);
+    }
+
     // delete log
     if (isset($_GET['delete']))
     {
@@ -14,7 +20,8 @@
 
     // read log
     if (file_exists($logFile)) {
-        echo file_get_contents($logFile);
+        $logFile_content = file_get_contents($logFile);
+        echo getLastLines($logFile_content, 500);
     } else {
         echo "NOFILE";
     }
