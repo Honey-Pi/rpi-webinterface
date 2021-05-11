@@ -58,7 +58,11 @@
     <select [(ngModel)]="settings.wittyPi.normal.interval" id="interval" name="interval" class="custom-select" required>
       <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.sensors.interval' | translate}" disabled></option>
       <option [ngValue]="60">1min</option>
+      <option [ngValue]="240">4min</option>
+      <option [ngValue]="270">4min 30sec</option>
       <option [ngValue]="300">5min</option>
+      <option [ngValue]="330">5min 30sec</option>
+      <option [ngValue]="360">6min</option>
       <option [ngValue]="600">10min</option>
       <option [ngValue]="900">15min</option>
       <option [ngValue]="1800">30min</option>
@@ -120,7 +124,11 @@
         <select [(ngModel)]="settings.wittyPi.low.interval" id="low_interval" name="low_interval" class="custom-select" required>
           <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.sensors.interval' | translate}" disabled></option>
           <option [ngValue]="60">1min</option>
+          <option [ngValue]="240">4min</option>
+          <option [ngValue]="270">4min 30sec</option>
           <option [ngValue]="300">5min</option>
+          <option [ngValue]="330">5min 30sec</option>
+          <option [ngValue]="360">6min</option>
           <option [ngValue]="600">10min</option>
           <option [ngValue]="900">15min</option>
           <option [ngValue]="1800">30min</option>
