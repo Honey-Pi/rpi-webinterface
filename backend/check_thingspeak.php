@@ -19,6 +19,10 @@
             'content' => null];
         } else {
             http_response_code(404);
+            if (!$content) {
+                $status_line = $http_response_header[0];
+                $content = $content. " and status-code is: " . $status_line;
+            }
             return ['connected' => false,
             'content' => $content];
         }

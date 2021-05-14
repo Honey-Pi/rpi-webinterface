@@ -45,13 +45,25 @@
                 )
             );
             $context  = stream_context_create($options);
-            $result = file_get_contents($url, false, $context);
-            if ($result === FALSE) { /* Handle error */ }
+            $data = @file_get_contents($url, false, $context);
+            if ($data === false) {
+                  http_response_code(405);
+                  $error = error_get_last();
+                  $status_line = $http_response_header[0];
+                  if($status_line == "HTTP/1.1 429 Too Many Requests") {
+                      $content = "Try it again later. Too many requests for ThingSpeak.";
+                  } else {
+                      $content = "HTTP request failed. Error was: " . $error['message'];
+                  }
+                  $result = json_encode(['success' => false, 'content' => $content]);
+            } else {
+                  $result = $data;
+            }
 
             return $result;
         } else {
             http_response_code(404);
-            return "";
+            $result = json_encode(['success' => false, 'content' => "Error: Could not parse CSV File."]);
         }
 
 

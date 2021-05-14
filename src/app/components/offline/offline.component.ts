@@ -41,10 +41,18 @@ export class OfflineComponent implements OnInit {
   uploadCsv(channelId, writeKey): void {
     this.appService.uploadCsv(channelId, writeKey)
       .subscribe(res => {
-        alert(JSON.stringify(res, null, 4));
+        let response = <any>res;
+        if(response.success === true) {
+          alert("Success!");
+        }else {
+          alert(JSON.stringify(res, null, 4));
+        }
       }, (err: any) => {
         console.error(err);
-        alert(JSON.stringify(err, null, 4));
+        let error = err.error.text || err.error.content;
+        if(error) {
+          alert(JSON.stringify(error, null, 4));
+        }
       });
   }
 
