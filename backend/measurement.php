@@ -10,5 +10,7 @@
         return $output;
     }
 
-    $obj = run_measurement();
-    echo $obj;
+    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+        $obj = run_measurement();
+        echo $obj;
+    }
