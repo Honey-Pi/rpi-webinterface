@@ -47,11 +47,11 @@ export class ThingspeakComponent implements OnInit {
     return (this.settings.ts_channels.length <= 1);
   }
 
-  checkThingSpeakChannel(ts_channel_id: number, ts_write_key: string, el: HTMLButtonElement): void {
+  checkThingSpeakChannel(channelId: number, writeKey: string, el: HTMLButtonElement): void {
     this.translate.get('settings.thingspeak.confirmCheck').subscribe((translated: string) => {
       if (window.confirm(translated)) {
         el.setAttribute('disabled', 'disabled');
-        const thingspeakdata = {ts_channel_id: ts_channel_id, ts_write_key: ts_write_key};
+        const thingspeakdata = {channelId: channelId, writeKey: writeKey};
         this.appService.checkThingSpeakChannel(thingspeakdata).timeout(15000)
           .finally(() => {
             el.removeAttribute('disabled');

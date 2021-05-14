@@ -38,9 +38,10 @@
   <div class="row" *ngIf="channel.ts_channel_id">
     <div class="col-12" style="padding-bottom:15px;">
       <div class="btn-group btn-group-sm" role="group">
-        <a href="{{apiURL}}offlinecsv.php?channelId={{channel.ts_channel_id}}" target="_blank" download="HoneyPi-{{channel.ts_channel_id}}-export.csv" class="btn btn-primary btn-sm">
-          {{'settings.offline.exportButton' | translate}} #{{channel.ts_channel_id}} {{channel.name}}
+        <a href="{{apiURL}}csv-download.php?channelId={{channel.ts_channel_id}}" target="_blank" download="HoneyPi-{{channel.ts_channel_id}}-export.csv" class="btn btn-primary btn-sm">
+          {{'settings.offline.exportButton' | translate}}<br> #{{channel.ts_channel_id}} {{channel.name}}
         </a>
+        <button class="btn btn-secondary btn-sm" type="button" role="button" (click)="uploadCsv(channel.ts_channel_id, channel.ts_write_key)" [translate]="'settings.offline.upload'"></button>
         <button class="btn btn-danger btn-sm" type="button" role="button" (click)="deleteCsv(channel.ts_channel_id)" [translate]="'settings.offline.delete'"></button>
       </div>
     </div>

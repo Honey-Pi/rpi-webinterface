@@ -38,6 +38,16 @@ export class OfflineComponent implements OnInit {
       }, (err: any) => {console.error(err); });
   }
 
+  uploadCsv(channelId, writeKey): void {
+    this.appService.uploadCsv(channelId, writeKey)
+      .subscribe(res => {
+        alert(JSON.stringify(res, null, 4));
+      }, (err: any) => {
+        console.error(err);
+        alert(JSON.stringify(err, null, 4));
+      });
+  }
+
   get isThingSpeakDefined() {
     return (this.settings.ts_channels.filter(x => x.ts_channel_id > 0).length === 0);
   }

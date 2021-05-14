@@ -46,7 +46,17 @@ export class AppService {
 
   deleteCsv(channelId): Observable<string> {
     const timestamp = 't=' + ((new Date()).getTime());
-    return this.http.get(environment.apiURL + 'offlinecsv.php?delete&channelId=' + channelId + '&' + timestamp, {responseType: 'text'});
+    return this.http.get(environment.apiURL + 'csv-download.php?delete&channelId=' + channelId + '&' + timestamp, {responseType: 'text'});
+  }
+
+  uploadCsv(channelId, writeKey): Observable<Response> {
+    const timestamp = 't=' + ((new Date()).getTime());
+    return this.http.post(environment.apiURL + 'csv-upload.php', {channelId:channelId, writeKey:writeKey})
+      .map((response: Response) => {
+        if (response) {
+          return response;
+        }
+      });
   }
 
   update(mode= 'update', usePreVersion: boolean = false, params: string = ''): Observable<Object> {
@@ -83,7 +93,7 @@ export class AppService {
       });
   }
 
-  checkThingSpeakChannel(thingspeakdata: {ts_channel_id: number, ts_write_key: string}): Observable<Response> {
+  checkThingSpeakChannel(thingspeakdata: {channelId: number, writeKey: string}): Observable<Response> {
     return this.http.post(environment.apiURL + 'check_thingspeak.php', thingspeakdata)
       .map((response: Response) => {
         if (response) {
