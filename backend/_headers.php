@@ -7,9 +7,13 @@
     $http_origin            = $request_headers['Origin'];
     $allowed_http_origins   = array(
                                 "http://192.168.178.4.1",
+                                "https://192.168.178.4.1",
                                 "http://honeypi.local",
+                                "https://honeypi.local",
                                 "http://honeypi.fritz.box",
-                                "http://localhost:4200"
+                                "https://honeypi.fritz.box",
+                                "http://localhost:4200",
+                                "https://localhost:4200"
                               );
     $host = parse_url($http_origin, PHP_URL_HOST);
     $tmp = explode('.',$host); $n = count($tmp);
