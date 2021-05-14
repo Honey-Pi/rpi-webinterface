@@ -5,7 +5,7 @@
 
     function is_channel_correct($writeKey)
     {
-        $filename = 'http://api.thingspeak.com/update?api_key='.$writeKey.'&field1=0';
+        $filename = 'https://api.thingspeak.com/update?api_key='.$writeKey.'&field1=0';
         $check = "0";
         try {
             $content = @file_get_contents($filename);
@@ -18,7 +18,7 @@
             return ['connected' => true,
             'content' => null];
         } else {
-            http_response_code(401);
+            http_response_code(404);
             return ['connected' => false,
             'content' => $content];
         }
@@ -28,5 +28,7 @@
     $postBody = file_get_contents("php://input");
     $_POST = json_decode($postBody, true);
 
-    $obj = is_channel_correct($_POST['ts_write_key']);
-    echo json_encode($obj);
+    if(isset($_POST['writeKey'])) {
+        $obj = is_channel_correct($_POST['writeKey']);
+        echo json_encode($obj);
+    }
