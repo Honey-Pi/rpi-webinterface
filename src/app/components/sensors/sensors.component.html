@@ -17,6 +17,7 @@
           <option [ngValue]="8" [translate]="'settings.sensors.sensor_8'">Luftfeuchtigkeit und Temperatur (HDC1008)</option>
           <option [ngValue]="9" [translate]="'settings.sensors.sensor_9'">Luftfeuchtigkeit und Temperatur (SHT31)</option>
           <option [ngValue]="10" [translate]="'settings.sensors.sensor_10'">Luftfeuchtigkeit und Temperatur (AHT10)</option>
+          <option [ngValue]="11" [translate]="'settings.sensors.sensor_11'">Lichtsensor (BH1750)</option>
         </select>
       </td>
       <td>
@@ -128,7 +129,7 @@
           </div>
           <div class="form-group col-12 col-sm-6">
             <label for="i2c_addr" [innerHTML]="'settings.sensors.i2c_addr' | translate"></label>
-            <select [(ngModel)]="sensor.i2c_addr" id="i2c_addr" name="i2c_addr" class="custom-select" required>
+            <select [(ngModel)]="sensor.i2c_addr" id="i2c_addr" name="i2c_addr" class="custom-select">
               <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'I2C-Address'}" disabled></option>
               <option [ngValue]="'0x76'">0x76</option>
               <option [ngValue]="'0x77'">0x77</option>
@@ -469,6 +470,40 @@
                                [ts_field_id]="'ts_field_humidity'"
                                (ts_fieldChanged)="sensor.ts_field_humidity = $event"
                                [ts_field]="sensor.ts_field_humidity" [channels]="settings.ts_channels" ></settings-ts-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-12 col-sm-6">
+            <label for="i2c_addr_8" [innerHTML]="'settings.sensors.i2c_addr' | translate"></label>
+            <select [(ngModel)]="sensor.i2c_addr" id="i2c_addr_8" name="i2c_addr_8" class="custom-select">
+              <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'I2C-Address'}" disabled></option>
+              <option [ngValue]="'0x40'">0x40 (HDC1008)</option>
+              <option [ngValue]="'0x41'">0x41 (HDC1080)</option>
+              <option [ngValue]="'0x44'">0x44 (SHT31)</option>
+              <option [ngValue]="'0x45'">0x45 (SHT31)</option>
+              <option [ngValue]="'0x38'">0x38 (AHT10)</option>
+              <option [ngValue]="'0x39'">0x39 (AHT10)</option>
+            </select>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr *ngIf="sensor.type == 11" [ngClass]="{'my-bg': (i%2 == 0)}">
+      <td colspan="2">
+        <div class="row">
+          <div class="form-group col-12 col-sm-6">
+            <settings-ts-field [label]="'ThingSpeak ' + ('settings.sensors.light' | translate)"
+                               [ts_field_id]="'ts_field'"
+                               (ts_fieldChanged)="sensor.ts_field = $event"
+                               [ts_field]="sensor.ts_field" [channels]="settings.ts_channels" ></settings-ts-field>
+          </div>
+          <div class="form-group col-12 col-sm-6">
+            <label for="i2c_addr_8" [innerHTML]="'settings.sensors.i2c_addr' | translate"></label>
+            <select [(ngModel)]="sensor.i2c_addr" id="i2c_addr_8" name="i2c_addr_8" class="custom-select">
+              <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'I2C-Address'}" disabled></option>
+              <option [ngValue]="'0x23'">0x23 (default)</option>
+              <option [ngValue]="'0x5C'">0x5C</option>
+            </select>
           </div>
         </div>
       </td>
