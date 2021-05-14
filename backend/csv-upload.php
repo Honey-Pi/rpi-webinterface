@@ -61,6 +61,6 @@
     $_POST = json_decode($postBody, true);
 
     if (isset($_POST['channelId']) && isset($_POST['writeKey'])) {
-        $obj = upload_csv($scriptsFolder, $_POST['channelId'], $_POST['writeKey']);
+        $obj = upload_csv($scriptsFolder, (INT)$_POST['channelId'], $_POST['writeKey']);
         echo $obj;
     }
