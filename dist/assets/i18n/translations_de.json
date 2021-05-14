@@ -100,7 +100,7 @@
     },
     "offline": {
       "delete": "Löschen",
-      "export": "Messdaten herunterladen",
+      "export": "Offline Messdaten verwalten",
       "exportButton": "Herunterladen",
       "infoExport": "Die Messdaten werden in einer CSV-Datei abgespeichert. Diese Datei kann anschließend in den ThingSpeak Channel importiert werden. Ansonsten können die Messdaten auch mit der iOS-/Web-App visualisiert werden.",
       "noData": "Gebe im Reiter \"<strong>{{tab}}</strong>\" mindestens einen Channel an.",
@@ -109,7 +109,8 @@
       "radio1": "Beides: Zu ThingSpeak übertragen und in CSV-Datei ablegen",
       "radio2": "Bei Fehlern: Nur bei Internet-Verbindungsfehlern in CSV-Datei schreiben",
       "radio3": "Offline: Ausschließlich Offline in CSV-Datei schreiben",
-      "title": "Offline Messdaten"
+      "title": "Offline Messdaten",
+      "upload": "Datenupload zu ThingSpeak"
     },
     "sensors": {
       "addSensor": "Sensor hinzufügen",
