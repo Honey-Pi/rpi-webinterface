@@ -28,9 +28,14 @@
               "src/favicon.ico"
             ],
             "styles": [
+              "src/assets/bootstrap-4.1.1/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/assets/jquery-3.3.1.min.js",
+              "src/assets/popper.min.js",
+              "src/assets/bootstrap-4.1.1/js/bootstrap.min.js"
+            ],
             "aot": true
           },
           "configurations": {
