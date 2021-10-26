@@ -48,8 +48,8 @@
   </div>
   <div class="clearfix" [class.spinner]="isLoading">
     <div class="btn-group btn-group-sm float-right" role="group">
-      <button *ngIf="settings.wittyPi.version === 2" class="btn btn-outline-warning btn-sm" type="button" role="button" (click)="installWittyPi(2)">WittyPi 2 installieren</button>
-      <button *ngIf="settings.wittyPi.version === 3" class="btn btn-outline-warning btn-sm" type="button" role="button" (click)="installWittyPi(3)">WittyPi 3 installieren</button>
+      <button *ngIf="settings.wittyPi.version === 2" class="btn btn-outline-warning btn-sm" type="button" role="button" (click)="installWittyPi(2)" [translate]="'settings.wittypi.install2'"></button>
+      <button *ngIf="settings.wittyPi.version === 3" class="btn btn-outline-warning btn-sm" type="button" role="button" (click)="installWittyPi(3)" [translate]="'settings.wittypi.install3'"></button>
     </div>
   </div>
   <!-- Interval for normal mode -->
