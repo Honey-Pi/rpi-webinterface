@@ -194,10 +194,13 @@
     "update": {
       "export": "Einstellungen",
       "install": "System neu installieren",
+      "internet_connection": "Keine Internetverbindung. Versuche es später erneut mit einer Internetverbindung.",
+      "need_refresh": "Erfolgreich aktualisiert. Die Seite muss aktualisiert werden. Jetzt neuladen?",
       "preupdate": "Nach neuster Version suchen",
       "title": "Systemupdate",
       "update": "Jetzt aktualisieren",
-      "usePreVersion": "Installiere auch Vorab-Versionen (Betatest)"
+      "usePreVersion": "Installiere auch Vorab-Versionen (Betatest)",
+      "want_import": "Soll die Datei jetzt importiert werden?"
     },
     "wittypi": {
       "empty": "Leeres Feld",
@@ -208,6 +211,7 @@
       "install2": "WittyPi 2 installieren",
       "install3": "WittyPi 3 installieren",
       "loadexample": "Beispiel Zeitplan laden...",
+      "need_restart": "Erfolgreich. Der Raspberry muss jetzt von dir neugestartet werden.",
       "script": "Zeitplan für den WittyPi",
       "title": "Zeit- und Energiemanagement",
       "version": "WittyPi Version auswählen",

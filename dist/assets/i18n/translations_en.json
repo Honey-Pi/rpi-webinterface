@@ -194,10 +194,13 @@
     "update": {
       "export": "Settings",
       "install": "Reinstall system",
+      "internet_connection": "No internet connection. Try again with internet connection.",
+      "need_refresh": "Successfully updated. The page needs to be refreshed. Reload now?",
       "preupdate": "Check for new version",
       "title": "System update",
       "update": "Update now",
-      "usePreVersion": "Also install pre-release versions (beta test)"
+      "usePreVersion": "Also install pre-release versions (beta test)",
+      "want_import": "Should the file be imported now?"
     },
     "wittypi": {
       "empty": "Empty field",
@@ -208,6 +211,7 @@
       "install2": "Install WittyPi 2",
       "install3": "Install WittyPi 3",
       "loadexample": "Load an example schedule...",
+      "need_restart": "Successful. The Raspberry must now be rebooted by you.",
       "script": "Schedule code",
       "title": "Time and energy management",
       "version": "Select WittyPi version",
