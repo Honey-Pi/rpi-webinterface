@@ -144,12 +144,18 @@ export class WittypiComponent implements OnInit {
   @Output()
   settingsChange: EventEmitter<Settings> = new EventEmitter<Settings>();
 
+  public need_restart = 'Erfolgreich. Der Raspberry muss jetzt von dir neugestartet werden.';
+  public internet_connection = 'No internet connection. Try again with internet connection.';
+
   constructor(private appService: AppService, private translate: TranslateService) { }
 
-  ngOnInit() {
-  }
-
   installWittyPi(version: number): void {
+    this.translate.get('settings.update.internet_connection').subscribe((translated: string) => {
+      this.internet_connection = translated;
+    });
+    this.translate.get('settings.wittypi.need_restart').subscribe((translated: string) => {
+      this.need_restart = translated;
+    });
     this.isLoading = true;
     this.translate.get('settings.confirm.installWittyPi').subscribe((res: string) => {
       if (window.confirm(res)) {
@@ -161,19 +167,19 @@ export class WittypiComponent implements OnInit {
                .finally(() => this.isLoading = false)
                .subscribe(resUpdate => {
                  console.log(resUpdate);
-                 alert('Erfolgreich. Der Raspberry muss jetzt von dir neugestartet werden.');
+                 alert(this.need_restart);
                }, (err: any) => {
                  console.error(err);
                  alert('Error while installing WittyPi. Try again.');
                });
             } else {
               this.isLoading = false;
-              alert('No internet connection. Try again with internet connection.');
+              alert(this.internet_connection);
             }
           }, (err: any) => {
             console.log(err);
             this.isLoading = false;
-            alert('No internet connection. Try again with internet connection.');
+            alert(this.internet_connection);
           });
 
       } else {
@@ -183,15 +189,11 @@ export class WittypiComponent implements OnInit {
   }
 
   public showWarningForMissingWait(wittyPiPlan: WittyPi): boolean {
-
     return (wittyPiPlan.interval === 1 && wittyPiPlan.shutdownAfterTransfer === true && wittyPiPlan.schedule.indexOf('WAIT') === -1);
-
   }
 
   public showWarningForWait(wittyPiPlan: WittyPi): boolean {
-
     return ((wittyPiPlan.shutdownAfterTransfer !== true || wittyPiPlan.interval !== 1 ) && wittyPiPlan.schedule.indexOf('WAIT') !== -1);
-
   }
 
 }
