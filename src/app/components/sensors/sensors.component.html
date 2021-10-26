@@ -221,6 +221,14 @@
         </div>
         <div class="row">
           <div class="col-12">
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" name="filter_negative" [(ngModel)]="sensor.filter_negative" id="filter_negative">
+              <label class="form-check-label" for="filter_negative" [translate]="'settings.sensors.filter_negative'"></label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
             <div class="form-check">
               <input class="form-check-input" type="checkbox" [(ngModel)]="sensor.compensation" id="compensation">
               <label class="form-check-label" for="compensation" [translate]="'settings.sensors.enableCompensation'"></label>

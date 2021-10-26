@@ -26,6 +26,7 @@ export class Sensor {
   pin_dt: number;
   pin_sck: number;
   invert: boolean;
+  filter_negative: boolean;
   compensation: boolean;
   compensation_value: number;
   compensation_temp: number;
