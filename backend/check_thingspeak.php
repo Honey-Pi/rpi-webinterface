@@ -7,8 +7,14 @@
     {
         $filename = 'https://api.thingspeak.com/update?api_key='.$writeKey.'&field1=0';
         $check = "0";
+        $arrContextOptions=array(
+            "ssl"=>array(
+                "verify_peer"=>false,
+                "verify_peer_name"=>false,
+            ),
+        );
         try {
-            $content = @file_get_contents($filename);
+            $content = @file_get_contents($filename, false, stream_context_create($arrContextOptions));
         } catch (Exception $e) {
             $content = $e->getMessage();
         }
