@@ -9,7 +9,7 @@ import {WittyPi} from '../../models/wittypi.model';
   templateUrl: './wittypi.component.html',
   styleUrls: ['./wittypi.component.css']
 })
-export class WittypiComponent implements OnInit {
+export class WittypiComponent {
 
   public exampleScriptsNormal: {name: string, script: string}[] =
     [
