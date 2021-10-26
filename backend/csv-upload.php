@@ -42,6 +42,10 @@
                     'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
                     'method'  => 'POST',
                     'content' => http_build_query($data)
+                ),
+                "ssl"=>array(
+                    "verify_peer"=>false,
+                    "verify_peer_name"=>false,
                 )
             );
             $context  = stream_context_create($options);
@@ -65,7 +69,6 @@
             http_response_code(404);
             $result = json_encode(['success' => false, 'content' => "Error: Could not parse CSV File."]);
         }
-
 
     }
 
