@@ -192,6 +192,8 @@
       "title": "ThingSpeak Settings"
     },
     "update": {
+      "availableVersion": "Versions available:",
+      "currentVersion": "Currently installed version:",
       "export": "Settings",
       "install": "Reinstall system",
       "internet_connection": "No internet connection. Try again with internet connection.",
