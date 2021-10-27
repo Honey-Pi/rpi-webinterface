@@ -17,7 +17,7 @@
 <pre class="pre-scrollable" *ngIf="log">Error-Code: {{log | json}}</pre>
 <div *ngIf="versionInfo" class="row">
   <div class="col-12 col-sm-6">
-    <b>Vefügbare Versionen:</b><br>
+    <b [translate]="'settings.update.availableVersion'"></b><br>
 <pre class="pre-scrollable"><ng-container *ngIf="versionInfo['result']['scripts']">rpi-scripts {{versionInfo['result']['scripts'].tag_name}}
 Changelog:
 {{versionInfo['result']['scripts'].body}}</ng-container>
@@ -28,7 +28,7 @@ Changelog:
 </pre>
   </div>
   <div class="col-12 col-sm-6" *ngIf="versionInfo['result']['currentVersion']">
-    <b>Derzeit installierte Version:</b>
+    <b [translate]="'settings.update.currentVersion'"></b>
     <ng-container *ngIf="versionInfo['result']['currentVersion']">
       <pre class="pre-scrollable">{{versionInfo['result']['currentVersion']}}</pre><br>
     </ng-container>

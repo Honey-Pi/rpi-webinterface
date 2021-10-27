@@ -62,26 +62,31 @@ export class UpdateComponent implements OnInit {
             .subscribe(res => {
               console.log(res);
               this.log = res;
-              if (window.confirm(this.need_refresh)) {
-                location.reload(true);
-              }
+              this.translate.get('settings.update.need_refresh').subscribe((translated: string) => {
+                this.need_refresh = translated;
+                if (window.confirm(this.need_refresh)) {
+                  location.reload(true);
+                }
+              });
             }, (err: any) => {console.error(err); });
         } else {
           this.isLoading = false;
-          alert(this.internet_connection);
+          this.translate.get('settings.update.internet_connection').subscribe((translated: string) => {
+            this.internet_connection = translated;
+            alert(this.internet_connection);
+          });
         }
       }, (err: any) => {
         console.log(err);
         this.isLoading = false;
-        alert(this.internet_connection);
+        this.translate.get('settings.update.internet_connection').subscribe((translated: string) => {
+          this.internet_connection = translated;
+          alert(this.internet_connection);
+        });
       });
   }
 
   getVersionInfo(): void {
-    this.translate.get('settings.update.internet_connection').subscribe((translated: string) => {
-      this.internet_connection = translated;
-    });
-
     this.versionInfo = null;
     this.log = null;
     this.isLoading = true;
@@ -116,12 +121,18 @@ export class UpdateComponent implements OnInit {
             });
         } else {
           this.isLoading = false;
-          alert(this.internet_connection);
+          this.translate.get('settings.update.internet_connection').subscribe((translated: string) => {
+            this.internet_connection = translated;
+            alert(this.internet_connection);
+          });
         }
       }, (err: any) => {
         console.log(err);
         this.isLoading = false;
-        alert(this.internet_connection);
+        this.translate.get('settings.update.internet_connection').subscribe((translated: string) => {
+          this.internet_connection = translated;
+          alert(this.internet_connection);
+        });
       });
   }
 
@@ -142,17 +153,20 @@ export class UpdateComponent implements OnInit {
         const fileResult = <string>(<FileReader>evt.target).result;
         const newSettings: Settings = JSON.parse(fileResult);
         if (newSettings) {
-          if (window.confirm(this.want_import)) {
-            this.appService.setSettings(newSettings)
-              .subscribe(res => {
-                if (res) {
-                  console.log(res);
-                  if (window.confirm(this.need_refresh)) {
-                    location.reload(true);
+          this.translate.get('settings.update.want_import').subscribe((translated: string) => {
+            this.want_import = translated;
+            if (window.confirm(this.want_import)) {
+              this.appService.setSettings(newSettings)
+                .subscribe(res => {
+                  if (res) {
+                    console.log(res);
+                    if (window.confirm(this.need_refresh)) {
+                      location.reload(true);
+                    }
                   }
-                }
-              });
-          }
+                });
+            }
+          });
         }
       };
       reader.onerror = (evt) => {
