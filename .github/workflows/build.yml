@@ -21,7 +21,7 @@ jobs:
 
     - run: npm install
     - run: npm install -g @angular/cli > /dev/null
-    - run: ng build --prod
+    - run: ng build --configuration production
 
     # push the /dist folder to your repo
     - name: Commit changes
