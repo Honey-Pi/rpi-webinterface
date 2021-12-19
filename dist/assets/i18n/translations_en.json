@@ -98,6 +98,12 @@
       "noData": "No measurement data measured. Were the sensors configured in the \"<strong>{{tab}}</strong>\" tab?",
       "title": "Measurement data"
     },
+    "miscellaneous": {
+      "display_enabled": "Enable PiOLED",
+      "enable_reset": "Enable the option that when the button is pressed for 10 seconds, all HoneyPi settings are reset",
+      "show_nondefault_password": "Show non-default \"HoneyPi\"-AccessPoint password",
+      "title": "Miscellaneous"
+    },
     "offline": {
       "delete": "Delete",
       "export": "Maintain offline measurement data",
@@ -179,6 +185,8 @@
       "shutdownAfterTransfer": "Shut down Raspberry after single transfer",
       "temperature": "Temperature",
       "title": "Attached sensors",
+      "ts_field_absolutehumidity": "Absolute humidity",
+      "ts_field_uncompensated": "Non compensated weight",
       "use3V": "Using a GPIO as 3.3V power supply source",
       "version": "Version",
       "weightcell": "Weight cell"
