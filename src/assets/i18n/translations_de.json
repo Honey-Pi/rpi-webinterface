@@ -98,6 +98,12 @@
       "noData": "Keine Messdaten gemessen. Wurden die Sensoren im Reiter \"<strong>{{tab}}</strong>\" konfiguriert?",
       "title": "Messdaten"
     },
+    "miscellaneous": {
+      "display_enabled": "PiOLED aktivieren",
+      "enable_reset": "Aktiviere die Option, dass wenn der Taster 10 Sekunden gedrückt wird, alle HoneyPi Einstellungen zurückgesetzt werden",
+      "show_nondefault_password": "Zeige ein geändertes WLAN Passwort des \"HoneyPI\"-AccessPoints",
+      "title": "Weitere Einstellungen"
+    },
     "offline": {
       "delete": "Löschen",
       "export": "Offline Messdaten verwalten",
@@ -179,6 +185,8 @@
       "shutdownAfterTransfer": "Nach einmaliger Übertragung Raspberry herunterfahren",
       "temperature": "Temperatur",
       "title": "Angeschlossene Sensoren",
+      "ts_field_absolutehumidity": "Absolute Luftfeuchte [g/mᵌ]",
+      "ts_field_uncompensated": "Unkompensiertes Gewicht",
       "use3V": "Einen GPIO als 3,3V Quelle vewenden",
       "version": "Version",
       "weightcell": "Wägezelle"

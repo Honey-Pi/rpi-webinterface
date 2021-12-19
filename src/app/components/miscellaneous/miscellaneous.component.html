@@ -1,0 +1,18 @@
+<h5 class="h5">Display</h5>
+<!-- Checkbox: PiOLED? -->
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" [(ngModel)]="settings.display.enabled" id="display_enabled">
+  <label class="form-check-label" for="display_enabled" [translate]="'settings.miscellaneous.display_enabled'"></label>
+</div>
+<ng-container *ngIf="settings.display.enabled">
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" [(ngModel)]="settings.display.show_nondefault_password" id="show_nondefault_password">
+    <label class="form-check-label" for="show_nondefault_password" [translate]="'settings.miscellaneous.show_nondefault_password'"></label>
+  </div>
+</ng-container>
+<hr />
+<h5 class="h5">{{ 'settings.miscellaneous.title' | translate}}</h5>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" [(ngModel)]="settings.enable_reset" id="enable_reset">
+  <label class="form-check-label" for="enable_reset" [translate]="'settings.miscellaneous.enable_reset'"></label>
+</div>

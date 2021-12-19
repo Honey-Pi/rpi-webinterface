@@ -5,6 +5,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {Channel, Settings} from '../../models/settings.model';
 import 'rxjs/add/operator/timeout';
 import {InternetSettings} from '../../models/internet-settings.model';
+import {DisplaySettings} from '../../models/display-settings.model';
 
 @Component({
   selector: 'app-settings',
@@ -49,6 +50,9 @@ export class SettingsComponent implements OnInit {
     }
     if (!settings.sensors) {
       settings.sensors = [];
+    }
+    if (!settings.display) {
+      settings.display = new DisplaySettings();
     }
     return settings;
   }

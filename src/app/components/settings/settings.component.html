@@ -142,6 +142,20 @@
           </div>
         </div>
       </div>
+      <div class="card">
+        <div class="card-header" id="headingNine">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+              {{ 'settings.miscellaneous.title' | translate}}
+            </button>
+          </h5>
+        </div>
+        <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordion">
+          <div class="card-body">
+            <app-miscellaneous [(settings)]="settings"></app-miscellaneous>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </main>

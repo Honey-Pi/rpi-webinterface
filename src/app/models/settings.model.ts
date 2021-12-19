@@ -1,6 +1,7 @@
 import { Sensor } from './sensor.model';
 import {InternetSettings} from './internet-settings.model';
 import {WittyPiSettings} from './wittypi.model';
+import {DisplaySettings} from "./display-settings.model";
 
 export class Settings {
 
@@ -10,6 +11,7 @@ export class Settings {
     this.sensors = [];
     this.internet = new InternetSettings();
     this.wittyPi = new WittyPiSettings();
+    this.display = new DisplaySettings();
   }
   ts_channels: Channel[];
   ts_server_url?: string;
@@ -20,10 +22,12 @@ export class Settings {
   internet: InternetSettings;
   debug?: boolean; // replaced by debuglevel
   debuglevel: number;
+  enable_reset: boolean;
   debuglevel_logfile: number;
   wittyPi: WittyPiSettings;
   w1gpio: number;
   offline: number;
+  display: DisplaySettings;
 }
 
 export class Channel {

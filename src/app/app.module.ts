@@ -22,6 +22,7 @@ import { UpdateComponent } from './components/update/update.component';
 import { OfflineComponent } from './components/offline/offline.component';
 import { GpioFieldComponent } from './components/settings/gpio-field/gpio-field.component';
 import { WeightCalibrationComponent } from './components/sensors/weight-calibration/weight-calibration.component';
+import {MiscellaneousComponent} from "./components/miscellaneous/miscellaneous.component";
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/translations_', '.json');
@@ -34,23 +35,24 @@ const appRoutes: Routes = [
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SettingsComponent,
-    NavbarComponent,
-    FooterComponent,
-    TsFieldComponent,
-    InternetComponent,
-    LogComponent,
-    MeasurementComponent,
-    SensorsComponent,
-    ThingspeakComponent,
-    WittypiComponent,
-    UpdateComponent,
-    OfflineComponent,
-    GpioFieldComponent,
-    WeightCalibrationComponent
-  ],
+    declarations: [
+        AppComponent,
+        SettingsComponent,
+        NavbarComponent,
+        FooterComponent,
+        TsFieldComponent,
+        InternetComponent,
+        LogComponent,
+        MeasurementComponent,
+        SensorsComponent,
+        ThingspeakComponent,
+        WittypiComponent,
+        UpdateComponent,
+        OfflineComponent,
+        GpioFieldComponent,
+        WeightCalibrationComponent,
+        MiscellaneousComponent
+    ],
   imports: [
     BrowserModule,
     HttpClientModule,

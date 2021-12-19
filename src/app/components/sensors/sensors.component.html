@@ -124,9 +124,17 @@
         </div>
         <div class="row">
           <div class="form-group col-12 col-sm-6">
+            <settings-ts-field [label]="'ThingSpeak ' + ('settings.sensors.ts_field_absolutehumidity' | translate)"
+                               [ts_field_id]="'ts_field_absolutehumidity'"
+                               (ts_fieldChanged)="sensor.ts_field_absolutehumidity = $event"
+                               [ts_field]="sensor.ts_field_absolutehumidity" [channels]="settings.ts_channels" ></settings-ts-field>
+          </div>
+          <div class="form-group col-12 col-sm-6">
             <label for="offset_bme680">{{'settings.sensors.temperature' | translate}} {{'settings.sensors.offset' | translate }} [°C]</label>
             <input type="number" step="0.1" class="form-control" [(ngModel)]="sensor.offset" id="offset_bme680" name="offset_bme680" placeholder="{{'settings.sensors.offset' | translate }}" />
           </div>
+        </div>
+        <div class="row">
           <div class="form-group col-12 col-sm-6">
             <label for="i2c_addr" [innerHTML]="'settings.sensors.i2c_addr' | translate"></label>
             <select [(ngModel)]="sensor.i2c_addr" id="i2c_addr" name="i2c_addr" class="custom-select">
@@ -253,6 +261,12 @@
                                    (ts_fieldChanged)="sensor.ts_field_temperature = $event"
                                    [ts_field]="sensor.ts_field_temperature" [channels]="settings.ts_channels" [required]="true"></settings-ts-field>
               </div>
+              <div class="col-12 col-sm-6">
+                <settings-ts-field [label]="'ThingSpeak ' + ('settings.sensors.ts_field_uncompensated' | translate)"
+                                   [ts_field_id]="'ts_field_uncompensated'"
+                                   (ts_fieldChanged)="sensor.ts_field_uncompensated = $event"
+                                   [ts_field]="sensor.ts_field_uncompensated" [channels]="settings.ts_channels" ></settings-ts-field>
+              </div>
             </div>
           </div>
           </div>
@@ -376,6 +390,12 @@
                                [ts_field_id]="'ts_field_air_pressure'"
                                (ts_fieldChanged)="sensor.ts_field_air_pressure = $event"
                                [ts_field]="sensor.ts_field_air_pressure" [channels]="settings.ts_channels" ></settings-ts-field>
+          </div>
+          <div class="form-group col-12 col-sm-6">
+            <settings-ts-field [label]="'ThingSpeak ' + ('settings.sensors.ts_field_absolutehumidity' | translate)"
+                               [ts_field_id]="'ts_field_absolutehumidity'"
+                               (ts_fieldChanged)="sensor.ts_field_absolutehumidity = $event"
+                               [ts_field]="sensor.ts_field_absolutehumidity" [channels]="settings.ts_channels" ></settings-ts-field>
           </div>
         </div>
         <div class="row">
