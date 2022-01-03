@@ -99,7 +99,7 @@
       "title": "Messdaten"
     },
     "miscellaneous": {
-      "display_enabled": "PiOLED aktivieren",
+      "display_enabled": "OLED aktivieren (Modell: OLED 128x64px. mit SSD1306 Chip)",
       "enable_reset": "Aktiviere die Option, dass wenn der Taster 10 Sekunden gedrückt wird, alle HoneyPi Einstellungen zurückgesetzt werden",
       "show_nondefault_password": "Zeige ein geändertes WLAN Passwort des \"HoneyPI\"-AccessPoints",
       "title": "Weitere Einstellungen"
