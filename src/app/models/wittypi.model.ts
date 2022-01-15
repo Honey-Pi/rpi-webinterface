@@ -14,6 +14,10 @@ export class WittyPiSettings {
   voltagecheck_enabled: boolean;
   low: WittyPi;
   normal: WittyPi;
+  default_state: number;
+  power_cut_delay: number;
+  pulsing_interval: number;
+  white_led_duration: number;
 }
 export class WittyPi {
 

@@ -101,6 +101,10 @@
       <textarea placeholder="{{ 'settings.wittypi.script' | translate}}" class="form-control pre-scrollable" id="normal_schedule" rows="5"
               [(ngModel)]="settings.wittyPi.normal.schedule" name="normal_schedule"></textarea>
     </div>
+    <div class="alert alert-warning" role="alert" *ngIf="showWarningForTooBigYears(settings.wittyPi.normal)">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <span [innerHTML]="'error.wittypiyeartobig' | translate"></span>
+    </div>
     <div class="alert alert-warning" role="alert" *ngIf="showWarningForMissingWait(settings.wittyPi.normal)">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
       <span [innerHTML]="'error.wittypinotwait' | translate"></span>
@@ -194,6 +198,10 @@
           <textarea placeholder="{{ 'settings.wittypi.script' | translate}}" class="form-control pre-scrollable" id="low_schedule" rows="5"
                   [(ngModel)]="settings.wittyPi.low.schedule" name="low_schedule"></textarea>
         </div>
+        <div class="alert alert-warning" role="alert" *ngIf="showWarningForTooBigYears(settings.wittyPi.low)">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <span [innerHTML]="'error.wittypiyeartobig' | translate"></span>
+        </div>
         <div class="alert alert-warning" role="alert" *ngIf="showWarningForMissingWait(settings.wittyPi.low)">
           <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
           <span [innerHTML]="'error.wittypinotwait' | translate"></span>
@@ -223,11 +231,43 @@
           <option [ngValue]="20">20ms</option>
           <option [ngValue]="50">50ms</option>
           <option [ngValue]="100">100ms</option>
+          <option [ngValue]="254">254ms</option>
         </select>
     </div>
     <div class="alert alert-info" role="alert">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
       <span [innerHTML]="'alerts.dummyload' | translate"></span>
+    </div>
+    <!-- WittyPi 3 settings -->
+    <div class="row">
+      <div class="form-group col-12 col-sm-6">
+        <label for="power_cut_delay">{{'settings.sensors.power_cut_delay' | translate }} </label>
+        <input type="number" step="1" max="8" min="0" class="form-control" [(ngModel)]="settings.wittyPi.power_cut_delay" id="power_cut_delay" name="power_cut_delay" placeholder="{{'settings.sensors.power_cut_delay' | translate }}" required/>
+      </div>
+      <div class="form-group col-12 col-sm-6">
+        <label for="white_led_duration">{{'settings.sensors.white_led_duration' | translate }} </label>
+        <input type="number" step="1" max="254" min="0" class="form-control" [(ngModel)]="settings.wittyPi.white_led_duration" id="white_led_duration" name="white_led_duration" placeholder="{{'settings.sensors.white_led_duration' | translate }}" required/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-12 col-sm-6">
+        <label for="pulsing_interval" [translate]="'settings.sensors.pulsing_interval'"></label>
+        <select [(ngModel)]="settings.wittyPi.pulsing_interval" id="pulsing_interval" name="pulsing_interval" class="custom-select" required>
+          <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.sensors.pulsing_interval' | translate}" disabled></option>
+          <option [ngValue]="1">1s</option>
+          <option [ngValue]="2">2s</option>
+          <option [ngValue]="4">4s (default)</option>
+          <option [ngValue]="8">8s</option>
+        </select>
+      </div>
+      <div class="form-group col-12 col-sm-6">
+        <label for="default_state" [translate]="'settings.sensors.default_state'"></label>
+        <select [(ngModel)]="settings.wittyPi.default_state" id="default_state" name="default_state" class="custom-select" required>
+          <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.sensors.default_state' | translate}" disabled></option>
+          <option [ngValue]="0">OFF (default)</option>
+          <option [ngValue]="1">ON</option>
+        </select>
+      </div>
     </div>
   </ng-container>
 </ng-container>

@@ -38,7 +38,8 @@
     "spaces": "\"{{field}}\" enthält ein Leerzeichen. Ist das gewollt?",
     "specialchar": "\"{{field}}\" enthält nichterlaubte Sonderzeichen.",
     "wittypinotwait": "Der WittyPi wird vom Raspberry nach erfolgreicher Messübertragung heruntergefahren. Daher sollte dein Zeitplan angepasst werden. Denn durch das fehlende \"WAIT\" hinter dem \"ON M5\" würde das WittyPi-Modul den Raspberry zum Herunterfahren nochmal hochfahren.",
-    "wittypiwait": "Durch das vorhandene \"WAIT\" hinter dem \"ON M5\" wird das WittyP-Modul den Raspberry nicht selbstsbtändig herunterfahren. Aktiviere das \"Herunterfahren nach erfolgreicher Übertragung\" oder entferne das \"WAIT\"."
+    "wittypiwait": "Durch das vorhandene \"WAIT\" hinter dem \"ON M5\" wird das WittyP-Modul den Raspberry nicht selbstsbtändig herunterfahren. Aktiviere das \"Herunterfahren nach erfolgreicher Übertragung\" oder entferne das \"WAIT\".",
+    "wittypiyeartobig": "Die Dauer deines WittyPi Zeitplans ist zu lang. Ändere das Jahr auf höchstens 2037."
   },
   "settings": {
     "confirm": {
@@ -147,6 +148,7 @@
       "debugSelect": "Debug-Level auswählen",
       "debugSelectLogfile": "Die Art und Menge der Ausgaben ins Logfile auswählen.",
       "debuglevel": "Debuglevel",
+      "default_state": "WittyPi default Zustand",
       "dummyload": "Zeitdauer des Dummyloads auswählen (nur nützlich mit einer Powerbank)",
       "dummyloadTimespan": "Zeitdauer des Dummyloads",
       "enableCompensation": "Temperaturkompensation bei temperaturbedingten Messabweichungen",
@@ -161,7 +163,9 @@
       "measurementNone": "Keine Messdatenübertragung",
       "measurementOnce": "Einmalige Übertragung nach dem Anschalten (empfohlen für das WittyPi-Modul)",
       "offset": "Offset",
+      "power_cut_delay": "Verzögerung der Abschaltung [Sekunden]",
       "pressure": "Luftdruck",
+      "pulsing_interval": "Intervall für LED blinken [Sekunden]",
       "quality": "Luftgüte",
       "scale": "Skalierungswert",
       "selectI2CVoltage": "Maximalen Messbereich auswählen [V]",
@@ -189,7 +193,8 @@
       "ts_field_uncompensated": "Unkompensiertes Gewicht",
       "use3V": "Einen GPIO als 3,3V Quelle vewenden",
       "version": "Version",
-      "weightcell": "Wägezelle"
+      "weightcell": "Wägezelle",
+      "white_led_duration": "Dauer der LED [ms]"
     },
     "thingspeak": {
       "addChannel": "Weitere Channel hinzufügen",
