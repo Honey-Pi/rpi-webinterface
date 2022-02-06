@@ -192,7 +192,7 @@ export class SettingsComponent implements OnInit {
       () => {
         // 'onCompleted' callback.
         // No errors, route to new page here
-        window.location.reload(true);
+        window.location.reload();
       }
     );
   }

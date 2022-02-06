@@ -86,7 +86,7 @@
           <div class="col-12">
             <div class="alert alert-info" *ngIf="temperatureSensors.length == 0">
               {{'alerts.noTempSensorFound' | translate}}<br>
-              {{'settings.sensors.checkWires' | translate}} <a (click)="getTemperatureSensors()" [routerLink]="">{{'buttons.refresh' | translate}}</a> {{'settings.sensors.checkWiresSuffix' | translate}}
+              {{'settings.sensors.checkWires' | translate}} <a (click)="getTemperatureSensors()" [routerLink]="[]">{{'buttons.refresh' | translate}}</a> {{'settings.sensors.checkWiresSuffix' | translate}}
             </div>
           </div>
         </div>

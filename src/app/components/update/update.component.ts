@@ -65,7 +65,7 @@ export class UpdateComponent implements OnInit {
               this.translate.get('settings.update.need_refresh').subscribe((translated: string) => {
                 this.need_refresh = translated;
                 if (window.confirm(this.need_refresh)) {
-                  location.reload(true);
+                  window.location.reload();
                 }
               });
             }, (err: any) => {console.error(err); });
@@ -161,7 +161,7 @@ export class UpdateComponent implements OnInit {
                   if (res) {
                     console.log(res);
                     if (window.confirm(this.need_refresh)) {
-                      location.reload(true);
+                      window.location.reload();
                     }
                   }
                 });
