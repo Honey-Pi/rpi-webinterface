@@ -14,7 +14,7 @@
     "noTempSensorFound": "No temperature sensor could be found on the device.",
     "notAP": "<strong>Note:</strong> The maintenance mode is not called through the 'HoneyPi' AccessPoint. Changes are therefore only made after a restart (because the pushbutton is not being pressed).",
     "saved": "<strong>Saved!</strong> The settings have been saved.",
-    "shutdownAfterTransfer": "You have to be quick to get into maintenance mode.",
+    "shutdownAfterTransfer": "To enter the maintenance mode, the button must be pressed immediately after the LED flashes at startup.",
     "updateAP": "<b>Note:</b> The maintenance mode is called by you via the \"HoneyPi\"-AccessPoint. You can enter a WLAN network of your choice in the \"Internet connection\" tab. With a Raspberry 3 or 4, a LAN cable can be connected for system updates.",
     "updateInfo": "1. The data volume of the surf stick can be used up. <br>\n2. It is therefore recommended to disconnect the Raspberry Pi from the Surfstick for the system update and connect it to an existing WiFi network.",
     "updateNotAP": "<b>Success!</b> You call the Raspberry not via the \"HoneyPi\" AccessPoint, but via the IP address in the home network.",
@@ -37,8 +37,9 @@
     "required": "The field \"{{field}}\" is required.",
     "spaces": "\"{{field}}\" contains a space character. Is that wanted?",
     "specialchar": "\"{{field}}\" contains forbidden special characters.",
-    "wittypinotwait": "The WittyPi is shut down by the Raspberry after successful measurement transmission. Therefore your schedule should be adjusted. Because of the missing \"WAIT\" behind the \"ON M5\" the WittyPi module would reboot the Raspberry for shutdown.",
-    "wittypiwait": "Due to the existing \"WAIT\" behind the \"ON M5\", the WittyP module will not shut down the Raspberry on its own. Activate the \"Shutdown after successful transfer\" or remove the \"WAIT\".",
+    "wittypiinstructions": "A schedule on the WittyPi module has been activated, set the measurement interval to \"once after power on\" and activate \"shutdown after successful transfer\".",
+    "wittypinotwait": "The Raspberry shutsdown after successful measurement transmission. Therefore your schedule should be adjusted. At the end of each \"ON\" line there should be a \"WAIT\". A missing \"WAIT\" after the e.g. \"ON M5\" would cause the WittyPi module to start up the Raspberry again for shutdown.",
+    "wittypiwait": "Enable \"Shutdown after successful transfer\", by the existing \"WAIT\" behind the \"ON\" line the Raspberry will not be shutdown by the WittyPi module.",
     "wittypiyeartobig": "The duration of your WittyPi schedule is too long. Change the year to 2037 at most."
   },
   "settings": {
@@ -100,7 +101,7 @@
       "title": "Measurement data"
     },
     "miscellaneous": {
-      "display_enabled": "Enable OLED (Model: OLED 128x64px. with SSD1306 Chip)",
+      "display_enabled": "Enable OLED (Model: OLED 128x64px with SSD1306 Chip)",
       "enable_reset": "Enable the option that when the button is pressed for 10 seconds, all HoneyPi settings are reset",
       "show_nondefault_password": "Show non-default \"HoneyPi\"-AccessPoint password",
       "title": "Miscellaneous"
@@ -161,7 +162,7 @@
       "light": "Light sensor (Lux)",
       "measurementInterval": "Measuring interval",
       "measurementNone": "No measurement data transfer",
-      "measurementOnce": "One-time transfer after power-on (suggested for Witty Pi module)",
+      "measurementOnce": "One-time transfer after power-on (suggested for WittyPi module)",
       "offset": "Offset",
       "power_cut_delay": "Power cut delay [Seconds]",
       "pressure": "Air pressure",
