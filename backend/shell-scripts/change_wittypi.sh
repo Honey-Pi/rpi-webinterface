@@ -1,24 +1,24 @@
 #! /bin/bash
 
 if [ -z "$1" ] ; then
-	echo "Missing argument."
-	exit 1
+    echo "Missing argument."
+    exit 1
 else
-	mode=$1
+    mode=$1
 
     # detect wittyPi version
     if [ -e /home/pi/wittyPi ] ; then
         # WittyPi 2 or Mini
         wittyPi=2
         path='/home/pi/wittyPi'
-	elif [ -e /home/pi/wittypi ] ; then
+    elif [ -e /home/pi/wittypi ] ; then
         # WittyPi 3 or 3 Mini
         wittyPi=3
         path='/home/pi/wittypi'
     else
         echo "Error: No WittyPi installation found."
         exit 1
-	fi
+    fi
 
     # change path to wittyPi folder
     cd $path
@@ -37,18 +37,18 @@ else
         sudo ./syncTime.sh
         # set schedule script
         sudo ./runScript.sh
-	elif [ $mode -eq 2 ] ; then
-		# enable dummyload to keep powerbank alive (supported by wittyPi 3)
-		if [ -z "$2" ] ; then
-			echo "Missing dummyload argument."
-			exit 1
-		else
-			dummyload=$2 # default: 10-15
-			(sleep 6; echo 9; echo 5; echo $dummyload; echo 11) | sudo ./wittyPi.sh
-		fi
-	elif [ $mode -eq 3 ] ; then
-		# reset dummyload to default
-		(sleep 6; echo 9; echo 5; echo 0; echo 11) | sudo ./wittyPi.sh
+    elif [ $mode -eq 2 ] ; then
+        # enable dummyload to keep powerbank alive (supported by wittyPi 3)
+        if [ -z "$2" ] ; then
+            echo "Missing dummyload argument."
+            exit 1
+        else
+            dummyload=$2 # default: 10-15
+            (sleep 6; echo 9; echo 5; echo $dummyload; echo 11) | sudo ./wittyPi.sh
+        fi
+    elif [ $mode -eq 3 ] ; then
+        # reset dummyload to default
+        (sleep 6; echo 9; echo 5; echo 0; echo 11) | sudo ./wittyPi.sh
     fi
 
 fi

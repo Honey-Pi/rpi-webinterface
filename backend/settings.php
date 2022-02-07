@@ -36,8 +36,8 @@
                     if ($router["password"] != "********") {
                         // bug: once wifi was disabled it cannot be enabled without re-entering the password.
                         $escapedSsid = escapeshellarg($router["ssid"]);
-        				$escapedPw = escapeshellarg($router["password"]);
-    				    shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_router_ssidpw.sh $escapedSsid $escapedPw &");
+                        $escapedPw = escapeshellarg($router["password"]);
+                        shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_router_ssidpw.sh $escapedSsid $escapedPw &");
                     }
                 }
 
@@ -48,7 +48,7 @@
 
             } else {
                 // disable connection
-				shell_exec('sudo sh '.$GLOBALS['shellDir'].'/change_router_ssidpw.sh fremderRouter WLANpasswort &');
+                shell_exec('sudo sh '.$GLOBALS['shellDir'].'/change_router_ssidpw.sh fremderRouter WLANpasswort &');
                 $postJson["internet"]["router"]["enabled"] = false;
             }
         }
@@ -57,8 +57,8 @@
         if (isset($postJson["internet"]["honeypi"])) {
             $honeypi = $postJson["internet"]["honeypi"];
             if (isset($honeypi['ssid']) && strlen($honeypi['ssid']) > 0 && isset($honeypi["password"]) && strlen($honeypi["password"]) >= 8) {
-				$escapedHoneypiSsid = clean($honeypi["ssid"]);
-				$escapedHoneypiPw = escapeshellarg($honeypi["password"]);
+                $escapedHoneypiSsid = clean($honeypi["ssid"]);
+                $escapedHoneypiPw = escapeshellarg($honeypi["password"]);
                 shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_honeypi_ssidpw.sh $escapedHoneypiSsid $escapedHoneypiPw;");
             }
         }
@@ -67,7 +67,7 @@
         if (isset($postJson["internet"]["modem"]) && isset($postJson["internet"]["modem"]["enabled"]) && $postJson["internet"]["modem"]["enabled"] == true) {
             $modem = $postJson["internet"]["modem"];
             if (isset($modem['apn']) && strlen($modem['apn']) > 0 && isset($modem["ttyUSB"]) && strlen($modem['ttyUSB']) > 0 ) {
-				$apn = escapeshellarg($modem["apn"]);
+                $apn = escapeshellarg($modem["apn"]);
                 $ttyUSB = escapeshellarg($modem["ttyUSB"]);
                 shell_exec("sudo sh ".$GLOBALS['scriptsFolder']."/shell-scripts/connection.sh set-apn $apn $ttyUSB &");
             }
