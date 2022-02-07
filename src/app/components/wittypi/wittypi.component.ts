@@ -192,6 +192,10 @@ export class WittypiComponent {
     return (wittyPiPlan.interval === 1 && wittyPiPlan.shutdownAfterTransfer === true && wittyPiPlan.schedule.indexOf('WAIT') === -1);
   }
 
+  public showInstructionsForWittyPi(wittyPiPlan: WittyPi): boolean {
+    return !(wittyPiPlan.interval === 1 && wittyPiPlan.shutdownAfterTransfer === true);
+  }
+
   public showWarningForWait(wittyPiPlan: WittyPi): boolean {
     return ((wittyPiPlan.shutdownAfterTransfer !== true || wittyPiPlan.interval !== 1 ) && wittyPiPlan.schedule.indexOf('WAIT') !== -1);
   }

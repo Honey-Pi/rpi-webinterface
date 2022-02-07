@@ -14,7 +14,7 @@
     "noTempSensorFound": "Es konnte kein Temperatursensor am Gerät gefunden werden.",
     "notAP": "<strong>Hinweis:</strong> Der Wartungsmodus wird nicht über den \"HoneyPi\"-AccessPoint aufgerufen. Änderungen werden daher erst nach einem Neustart aktiv (da der Tastendruck ausbleibt).",
     "saved": "<strong>Gespeichert!</strong> Die Einstellungen wurden gespeichert.",
-    "shutdownAfterTransfer": "Man muss dann schnell sein um in den Wartungsmodus zu kommen.",
+    "shutdownAfterTransfer": "Um in den Wartungsmodus zu kommen muss direktet nach dem Blinken der LED beim Start der Taster gedrückt werden.",
     "updateAP": "<b>Hinweis:</b> Der Wartungsmodus wird von Dir über den \"HoneyPi\"-AccessPoint aufgerufen. Du kannst im Reiter \"Internetverbindung\" ein WLAN-Netzwerk deiner Wahl eintragen. Bei einem Raspberry 3 oder 4 kann zum Systemupdate ein LAN Kabel angeschlossen werden.",
     "updateInfo": "1. Das Datenvolumen des Surfsticks kann dabei verbraucht werden. <br>\n2. Es empfiehlt sich daher, den Raspberry Pi für das Systemupdate vom Surfstick zu trennen und ihn mit einem vorhandenen WLAN-Netzwerk zu verbinden.",
     "updateNotAP": "<b> Gut so! </b> Du rufst den Raspberry nicht über den \"HoneyPi\"-AccessPoint auf, sondern über die IP-Adresse im Heimnetzwerk.",
@@ -37,8 +37,9 @@
     "required": "Das Feld \"{{field}}\" wird benötigt.",
     "spaces": "\"{{field}}\" enthält ein Leerzeichen. Ist das gewollt?",
     "specialchar": "\"{{field}}\" enthält nichterlaubte Sonderzeichen.",
-    "wittypinotwait": "Der WittyPi wird vom Raspberry nach erfolgreicher Messübertragung heruntergefahren. Daher sollte dein Zeitplan angepasst werden. Denn durch das fehlende \"WAIT\" hinter dem \"ON M5\" würde das WittyPi-Modul den Raspberry zum Herunterfahren nochmal hochfahren.",
-    "wittypiwait": "Durch das vorhandene \"WAIT\" hinter dem \"ON M5\" wird das WittyP-Modul den Raspberry nicht selbstsbtändig herunterfahren. Aktiviere das \"Herunterfahren nach erfolgreicher Übertragung\" oder entferne das \"WAIT\".",
+    "wittypiinstructions": "Ein Zeitplan auf dem WittyPi Modul wurde aktiviert, setze das Messintervall auf \"einmalige Übertragung nach dem Anschalten\" und aktiviere \"Herunterfahren nach erfolgreicher Übertragung\".",
+    "wittypinotwait": "Der Raspberry wird nach erfolgreicher Messübertragung heruntergefahren. Daher sollte dein Zeitplan angepasst werden. Am Ende jeder \"ON\" Zeile sollte ein \"WAIT\" stehen. Durch ein fehlendes \"WAIT\" hinter dem z.B. \"ON M5\" würde das WittyPi-Modul den Raspberry zum Herunterfahren nochmal hochfahren.",
+    "wittypiwait": "Aktiviere \"Herunterfahren nach erfolgreicher Übertragung\", durch das vorhandene \"WAIT\" in der \"ON\" Zeile wird der Raspberry nicht durch das WittyPi-Modul heruntergefahren.",
     "wittypiyeartobig": "Die Dauer deines WittyPi Zeitplans ist zu lang. Ändere das Jahr auf höchstens 2037."
   },
   "settings": {
@@ -100,7 +101,7 @@
       "title": "Messdaten"
     },
     "miscellaneous": {
-      "display_enabled": "OLED aktivieren (Modell: OLED 128x64px. mit SSD1306 Chip)",
+      "display_enabled": "OLED aktivieren (Modell: OLED 128x64px mit SSD1306 Chip)",
       "enable_reset": "Aktiviere die Option, dass wenn der Taster 10 Sekunden gedrückt wird, alle HoneyPi Einstellungen zurückgesetzt werden",
       "show_nondefault_password": "Zeige ein geändertes WLAN Passwort des \"HoneyPI\"-AccessPoints",
       "title": "Weitere Einstellungen"

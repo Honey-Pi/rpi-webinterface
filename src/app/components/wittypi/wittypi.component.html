@@ -105,6 +105,10 @@
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
       <span [innerHTML]="'error.wittypiyeartobig' | translate"></span>
     </div>
+    <div class="alert alert-warning" role="alert" *ngIf="showInstructionsForWittyPi(settings.wittyPi.normal)">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <span [innerHTML]="'error.wittypiinstructions' | translate"></span>
+    </div>
     <div class="alert alert-warning" role="alert" *ngIf="showWarningForMissingWait(settings.wittyPi.normal)">
       <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
       <span [innerHTML]="'error.wittypinotwait' | translate"></span>
