@@ -11,6 +11,15 @@
         <strong>{{'settings.thingspeak.field' | translate}} {{(i+1)}}</strong>: {{thingSpeakFields['field' + (i+1)]}}
       </li>
     </ng-container>
+    <li *ngIf="thingSpeakFields['latitude']" id="latitude" class="list-group-item">
+      <strong>Latitude</strong>: {{thingSpeakFields['latitude']}}
+    </li>
+    <li *ngIf="thingSpeakFields['longitude']" id="longitude" class="list-group-item">
+      <strong>Longitude</strong>: {{thingSpeakFields['longitude']}}
+    </li>
+    <li *ngIf="thingSpeakFields['elevation']" id="elevation" class="list-group-item">
+      <strong>Elevation</strong>: {{thingSpeakFields['elevation']}}
+    </li>
   </ul>
 </ng-container>
 <div *ngIf="isNoData" class="alert alert-warning" role="alert">
