@@ -38,7 +38,11 @@
     $postBody = file_get_contents("php://input");
     $_POST = json_decode($postBody, true);
 
-    if(isset($_POST['writeKey'])) {
+    if(isset($_POST['writeKey']) && !empty($_POST['writeKey'])) {
         $obj = is_channel_correct($_POST['writeKey']);
         echo json_encode($obj);
+    }else {
+        http_response_code(404);
+        echo json_encode(['connected' => false,
+        'content' => "Missing POST-parameter."]);
     }
