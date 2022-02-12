@@ -565,6 +565,14 @@
   </tr>
   </tbody>
 </table>
+<div class="alert alert-danger" role="alert" *ngIf="checkForAllowedOccurrences(settings.sensors, 99, 1) ||
+checkForAllowedOccurrences(settings.sensors, 11, 1) ||
+checkForAllowedOccurrences(settings.sensors, 7, 1) ||
+checkForAllowedOccurrences(settings.sensors, 5, 2) ||
+checkForAllowedOccurrences(settings.sensors, 1, 2)">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <span [innerHTML]="'alerts.tomanysensorsofthattype' | translate"></span>
+</div>
 <div class="alert alert-info" role="alert">
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   <span [innerHTML]="'alerts.gpio' | translate"></span>

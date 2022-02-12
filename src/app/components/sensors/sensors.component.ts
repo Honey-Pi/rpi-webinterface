@@ -79,4 +79,8 @@ export class SensorsComponent implements OnInit {
       return 0;
   }
 
+  checkForAllowedOccurrences(array:Sensor[], sensorType: number, occurrences: number):boolean {
+    return (new Set(array.filter(sensor => sensor.type == sensorType)).size > occurrences);
+  }
+
 }

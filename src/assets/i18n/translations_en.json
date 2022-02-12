@@ -15,6 +15,7 @@
     "notAP": "<strong>Note:</strong> The maintenance mode is not called through the 'HoneyPi' AccessPoint. Changes are therefore only made after a restart (because the pushbutton is not being pressed).",
     "saved": "<strong>Saved!</strong> The settings have been saved.",
     "shutdownAfterTransfer": "To enter the maintenance mode, the button must be pressed immediately after the LED flashes at startup.",
+    "tomanysensorsofthattype": "Some sensors, including BH1750, PA1010D and EE895 can only be connected to the Raspberry Pi once via I2C bus. The sensors BME280 and BME680 can be connected at most twice due to the limited number of I2C addresses. Delete the duplicate entries of these sensors.",
     "updateAP": "<b>Note:</b> The maintenance mode is called by you via the \"HoneyPi\"-AccessPoint. You can enter a WLAN network of your choice in the \"Internet connection\" tab. With a Raspberry 3 or 4, a LAN cable can be connected for system updates.",
     "updateInfo": "1. The data volume of the surf stick can be used up. <br>\n2. It is therefore recommended to disconnect the Raspberry Pi from the Surfstick for the system update and connect it to an existing WiFi network.",
     "updateNotAP": "<b>Success!</b> You call the Raspberry not via the \"HoneyPi\" AccessPoint, but via the IP address in the home network.",
