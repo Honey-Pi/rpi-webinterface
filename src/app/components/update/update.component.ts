@@ -60,7 +60,7 @@ export class UpdateComponent implements OnInit {
           this.appService.update(mode, this.usePreVersion)
             .finally(() => this.isLoading = false)
             .subscribe(res => {
-              console.log(res);
+              console.log("Update successfully, output: ",res);
               this.log = res;
               this.translate.get('settings.update.need_refresh').subscribe((translated: string) => {
                 this.need_refresh = translated;
@@ -68,7 +68,9 @@ export class UpdateComponent implements OnInit {
                   window.location.reload();
                 }
               });
-            }, (err: any) => {console.error(err); });
+            }, (err: any) => {
+              console.error("Update error, output: ",err);
+            });
         } else {
           this.isLoading = false;
           this.translate.get('settings.update.internet_connection').subscribe((translated: string) => {
@@ -77,7 +79,7 @@ export class UpdateComponent implements OnInit {
           });
         }
       }, (err: any) => {
-        console.log(err);
+        console.error("checkInternet Error:",err);
         this.isLoading = false;
         this.translate.get('settings.update.internet_connection').subscribe((translated: string) => {
           this.internet_connection = translated;

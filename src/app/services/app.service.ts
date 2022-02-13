@@ -118,9 +118,9 @@ export class AppService {
       });
   }
 
-  boot(mode): Observable<Object> {
+  boot(mode): Observable<string> {
     const timestamp = 't=' + ((new Date()).getTime());
-    return this.http.get(environment.apiURL + 'control.php?' + mode + '&' + timestamp);
+    return this.http.get(environment.apiURL + 'control.php?' + mode + '&' + timestamp, {responseType: 'text'});
   }
 
 }

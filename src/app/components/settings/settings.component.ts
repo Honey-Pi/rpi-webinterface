@@ -80,21 +80,17 @@ export class SettingsComponent implements OnInit {
    */
   public getMobileOperatingSystem(): string {
     const userAgent = navigator.userAgent || navigator.vendor || window['opera'];
-
     // Windows Phone must come first because its UA also contains "Android"
     if (/windows phone/i.test(userAgent)) {
       return 'Windows Phone';
     }
-
     if (/android/i.test(userAgent)) {
       return 'Android';
     }
-
     // iOS detection from: http://stackoverflow.com/a/9039885/177710
     if (/iPad|iPhone|iPod/.test(userAgent) && !window['MSStream']) {
       return 'iOS';
     }
-
     return 'unknown';
   }
 
@@ -169,6 +165,7 @@ export class SettingsComponent implements OnInit {
       }
     });
   }
+
   askForShutdown(): void {
     this.translate.get('settings.confirm.shutdown').subscribe((res: string) => {
       if (window.confirm(res)) {
@@ -176,23 +173,55 @@ export class SettingsComponent implements OnInit {
       }
     });
   }
+
+  askForRestart(): void {
+    this.translate.get('settings.confirm.restart').subscribe((res: string) => {
+      if (window.confirm(res)) {
+        this.boot('restart');
+      }
+    });
+  }
+
+  askForStop(): void {
+    this.translate.get('settings.confirm.stop').subscribe((res: string) => {
+      if (window.confirm(res)) {
+        this.boot('stop');
+      }
+    });
+  }
+
+  askForStart(): void {
+    this.translate.get('settings.confirm.start').subscribe((res: string) => {
+      if (window.confirm(res)) {
+        this.boot('start');
+      }
+    });
+  }
+
   boot(mode = 'reboot'): void {
-    this.isConnected = false;
+    if (mode === 'reboot') {
+      // directly enable "missing connection"-modal because reboot will timeout anyway
+      this.isConnected = false;
+    }
     this.appService.boot(mode).timeout(3000).subscribe(
       result => {
-        // Handle result
-        console.log(result);
+        console.log('Boot-Function OK:',result);
+        this.isConnected = true;
       },
       err => {
-        console.error(err, err.name);
-        if (err.name && (err.name === 'TimeoutError' || err.name === 'HttpErrorResponse')) {
-          console.log('Boot: Connection timeout.');
+        if (err.name && err.name === 'TimeoutError') {
+          console.log('Boot-Function: Request received a Connection timeout:',err);
+          this.isConnected = false;
+        } else if(err.name && err.name === 'HttpErrorResponse') {
+          console.log('Boot-Function: Request received a HttpErrorResponse error:',err);
+          this.isConnected = false;
+        } else {
+          console.error(err.name,err);
           this.isConnected = false;
         }
       },
       () => {
-        // 'onCompleted' callback.
-        // No errors, route to new page here
+        console.log("Completed, reload page.");
         window.location.reload();
       }
     );
