@@ -6,6 +6,7 @@
     $logFile = $scriptsFolder . "/error.log";
     $settingsFile = $backendFolder . "/settings.json";
     $wittyPiPath = "/home/pi/wittyPi";
+    $version_file = "/var/www/html/version.txt";
 
     // function to clear files
     function clear_file($file) {

@@ -102,6 +102,15 @@ export class AppService {
       });
   }
 
+  checkNewUpdate(): Observable<{chdir: string, isStable: boolean, isNewVersionAvailable: boolean}> {
+    return this.http.get(environment.apiURL + 'update.php?mode=checkUpdate')
+      .map((response: {chdir: string, isStable: boolean, isNewVersionAvailable: boolean}) => {
+        if (response) {
+          return response;
+        }
+      });
+  }
+
   getWeight(sensor: Sensor): Observable<string> {
     return this.http.post(environment.apiURL + 'weight.php', sensor, {responseType: 'text'})
       .map((response: string) => {

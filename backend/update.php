@@ -1,4 +1,5 @@
 <?php
+
     include_once("_headers.php");
 
     // make script run forever
@@ -17,7 +18,6 @@
     require_once("_vars.php");
     // json
     header('Content-type:application/json;charset=utf-8');
-
 
     // function for shell script
     function updateGit() {
@@ -43,7 +43,34 @@
         }
     }
 
-    function getVersionInfo($stable) {
+    function checkIfCurrentVersionIsStable() {
+        if (file_exists($GLOBALS['version_file'])) {
+            // read current versionInfo
+            $currentVersion = file_get_contents($GLOBALS['version_file']);
+            // count number of "-" character to determine if it is stable or pre-release version
+            // v1.3.7-alpha16 v1.3.7-rc2 => pre-release
+            // v1.3.7 => stable
+            $count_char = substr_count($currentVersion, '-');
+            if ($count_char >= 5){
+                // too many "-" means pre-release
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function isNewReleaseAvailable($versionInfo) {
+        $scriptsVersonFound = substr_count($versionInfo->currentVersion, $versionInfo->scripts->tag_name);
+        $webinterfaceVersonFound = substr_count($versionInfo->currentVersion, $versionInfo->webinterface->tag_name);
+        if ($scriptsVersonFound < 1 || $webinterfaceVersonFound < 1) {
+            $needsUpdate = true;
+        } else {
+            $needsUpdate = false;
+        }
+        return $needsUpdate;
+    }
+
+    function getVersionInfo($isStable) {
         $obj = new \stdClass();
         $arrContextOptions=stream_context_create(array(
             // disable ssl cert
@@ -56,7 +83,7 @@
             )
         ));
         try {
-            if ($stable) {
+            if ($isStable) {
               // the latest release is always a stable one
               $urlAppendix = "/latest";
             } else {
@@ -73,18 +100,16 @@
             $obj->scripts = json_decode($contentScripts);
             $obj->webinterface = json_decode($contentWebinterface);
 
-            if (!$stable) {
+            if (!$isStable) {
               // if more than one release is provided we want to have the first element
               $obj->scripts = $obj->scripts[0];
               $obj->webinterface = $obj->webinterface[0];
             }
 
             // read current versionInfo
-            $version_file = "/var/www/html/version.txt";
-            if (file_exists($version_file)) {
-                $obj->currentVersion = file_get_contents($version_file);
+            if (file_exists($GLOBALS['version_file'])) {
+                $obj->currentVersion = file_get_contents($GLOBALS['version_file']);
             }
-
 
             return $obj;
         } catch (Exception $e) {
@@ -104,13 +129,13 @@
     {
 
         if (isset($_GET['stable'])) {
-          $stable = (INT)$_GET['stable'];
+          $isStable = (INT)$_GET['stable'];
         } else {
-          $stable = 1;
+          $isStable = 1;
         }
 
         if ($_GET['mode'] === 'update') {
-            $output->result = update($stable);
+            $output->result = update($isStable);
         } else if ($_GET['mode'] === 'install')
         {
             $output->git = "Update " . $GLOBALS['honeyPiHome'] . " git:" . "\n";
@@ -119,7 +144,12 @@
             $output->result = install();
         } else if ($_GET['mode'] === 'versionInfo')
         {
-            $output->result = getVersionInfo($stable);
+            $output->result = getVersionInfo($isStable);
+        } else if ($_GET['mode'] === 'checkUpdate')
+        {
+            $output->isStable = checkIfCurrentVersionIsStable();
+            $version_info = getVersionInfo($output->isStable);
+            $output->isNewReleaseAvailable = isNewReleaseAvailable($version_info);
         } else if ($_GET['mode'] === 'installWittyPi')
         {
             $output->result = installWittyPi($_GET['version']);
