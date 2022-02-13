@@ -120,7 +120,7 @@ export class AppService {
 
   boot(mode): Observable<Object> {
     const timestamp = 't=' + ((new Date()).getTime());
-    return this.http.get(environment.apiURL + 'boot.php?' + mode + '&' + timestamp);
+    return this.http.get(environment.apiURL + 'control.php?' + mode + '&' + timestamp);
   }
 
 }
