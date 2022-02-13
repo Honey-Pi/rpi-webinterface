@@ -63,7 +63,7 @@ export class SettingsComponent implements OnInit {
 
   private saveSettingsBackup(settings: Settings) {
     this.settingsBackup = SettingsComponent.deepCopy<Settings>(settings);
-    console.log("saveSettingsBackup", this.settingsBackup);
+    console.log("The following settings have been stored as backup:", this.settingsBackup);
   }
 
   public get isSettingsChanged(): boolean {
@@ -105,6 +105,7 @@ export class SettingsComponent implements OnInit {
     this.getSettings();
     this.innerWidth = window.innerWidth;
   }
+
   hideAlertsTimer() {
     // wait 4 Seconds and hide
     if (this.n) {
@@ -136,7 +137,7 @@ export class SettingsComponent implements OnInit {
   saveSettings(): void  {
     this.appService.setSettings(this.settings).timeout(5000)
       .subscribe(res => {
-        console.log("saveSettings", res);
+        console.log("The following settings have been saved:", res);
         if (res) {
           this.processSettings(res);
         }
