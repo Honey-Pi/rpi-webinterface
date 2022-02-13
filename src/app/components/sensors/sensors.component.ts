@@ -30,7 +30,7 @@ export class SensorsComponent implements OnInit {
   constructor(private appService: AppService) { }
 
   ngOnInit() {
-    this.getTemperatureSensors();
+    this.getTemperatureSensorsAsync();
   }
 
   addSensor(): void {
@@ -56,13 +56,19 @@ export class SensorsComponent implements OnInit {
     return filteredDevices;
   }
 
+  async getTemperatureSensorsAsync() {
+    setTimeout(() => {
+      this.getTemperatureSensors();
+    }, 4000);
+  }
+
   getTemperatureSensors(): void {
     this.appService.getTemperatureSensors()
       .subscribe(res => {
         if (res) {
-          console.log('unfiltered', res);
+          console.log('The following device-ids from DS18b20 temperature sensor have been received (unfiltered):', res);
           this.temperatureSensors = this.filterTemperatureSensors(<any>res);
-          console.log('filtered', this.temperatureSensors);
+          console.log('After removing invalid device-ids from this list the following device-ids are left:', this.temperatureSensors);
         }
       }, (err: any) => {console.error(err); });
   }

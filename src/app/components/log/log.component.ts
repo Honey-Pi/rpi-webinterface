@@ -27,7 +27,13 @@ export class LogComponent implements OnInit {
   constructor(private appService: AppService) { }
 
   ngOnInit() {
-    this.getLog();
+    this.getLogAsync();
+  }
+
+  async getLogAsync() {
+    setTimeout(() => {
+      this.getLog();
+    }, 3000);
   }
 
   getLog(): void {
@@ -45,7 +51,7 @@ export class LogComponent implements OnInit {
       }, (err: any) => {console.error(err); });
   }
 
-  copyMessage(val: string){
+  copyMessage(val: string) {
     const selBox = document.createElement('textarea');
     selBox.style.position = 'fixed';
     selBox.style.left = '0';
