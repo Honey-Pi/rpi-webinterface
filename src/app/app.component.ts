@@ -18,13 +18,13 @@ export class AppComponent implements OnInit {
   }
 
   async initNewUpdateRoutine() {
-    let interval = 5*60*1000; // 5min
+    let interval = 1*60*1000; // 1min
     let lastUpdateCheck: number = parseInt(sessionStorage.getItem('lastUpdateCheck'));
     if (isNaN(lastUpdateCheck) || new Date(lastUpdateCheck) <= new Date(Date.now()-interval)) {
       sessionStorage.setItem('lastUpdateCheck', Date.now().toString());
       await this.searchForNewUpdate();
     } else {
-      console.log("Did not search for new updates because latest check is less than 5 minutes ago.");
+      console.log("Did not search for new updates because latest check is less than 1 minutes ago.");
     }
   }
 
