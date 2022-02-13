@@ -12,7 +12,7 @@
       "scale": "<b>Skalierungswert:</b> Beeinflusst das Messergebnis indem (Messwert-Offset) durch den Skalierungswert geteilt wird.\n<br />Es sind vier Nachkommastellen erlaubt und die <b>Nachkommastellen werden mit Punkt</b> und nicht mit Komma getrennt. Standard ist \"1\"."
     },
     "noTempSensorFound": "Es konnte kein Temperatursensor am Gerät gefunden werden.",
-    "notAP": "<strong>Hinweis:</strong> Der Wartungsmodus wird nicht über den \"HoneyPi\"-AccessPoint aufgerufen. Änderungen werden daher erst nach einem Neustart aktiv (da der Tastendruck ausbleibt).",
+    "notAP": "<strong>Hinweis:</strong> Der Wartungsmodus wird nicht über den \"HoneyPi\"-AccessPoint aufgerufen. Das Drücken des Hardware-Tasters bleibt daher aus. Änderungen der Einstellungen können aber durch ein Klicken auf den folgenden Button angewandt werden:",
     "saved": "<strong>Gespeichert!</strong> Die Einstellungen wurden gespeichert.",
     "shutdownAfterTransfer": "Um in den Wartungsmodus zu kommen muss direktet nach dem Blinken der LED beim Start der Taster gedrückt werden.",
     "tomanysensorsofthattype": "Einige Sensoren, darunter BH1750, PA1010D und EE895 können nur einmal per I2C-Bus an den Raspberry Pi angeschlossen werden. Die Sensoren BME280 und BME680 können aufgrund der begrenzten Anzahl von I2C-Adresen höchstens zwei mal angeschlossen werden. Lösche die doppelten Einträge dieser Sensoren.",
@@ -27,9 +27,12 @@
     "reboot": "Neustarten",
     "refresh": "aktualisiere",
     "remove": "Entfernen",
+    "restart": "HoneyPi-Service neustarten",
     "save": "Speichern",
     "select": "Bitte {{value}} auswählen...",
     "shutdown": "Ausschalten",
+    "start": "Starten",
+    "stop": "Stoppen",
     "tryagain": "Erneut versuchen",
     "undo": "Änderungen verwerfen"
   },
@@ -46,9 +49,12 @@
   "settings": {
     "confirm": {
       "installWittyPi": "Du bist dabei auf deinem HoneyPi die Software für das WittyPi Modul zu installieren. Dazu muss zwingend eine Internetverbindung (bspw. über WLAN) bestehen. Teste das bitte zuvor im Reiter \"Internetverbindung testen\". Vergiss auch nicht deine aktuellen Einstellungen vorher zu Speichern.",
-      "reboot": "Alle ungespeicherten Änderungen gehen verloren. Die Verbindung wird sich vorübergehend trennen. \nDas Gerät wird nun neugestartet. Sicher?",
+      "reboot": "Alle ungespeicherten Änderungen gehen verloren. Die Verbindung wird sich vorübergehend trennen. \nDas Gerät wird nun neugestartet.  \nSicher?",
+      "restart": "Falls der Wartungsmodus aktiv sein sollte, wird dieser beendet und die regulären Messungen beginnen. Bei einem aktivierten WittyPi-Zeitplan fährt der Raspberry evtl. nach erfolgreicher Messdatenübertragung herunter.  \nFortfahren?",
       "savedAP": "Damit alle Änderungen wirksam werden ist meist ein Neustart erforderlich. \nSoll das Gerät nun neugestartet werden?",
-      "shutdown": "Alle ungespeicherten Änderungen gehen verloren. Das Gerät fährt herunter. \nSicher?"
+      "shutdown": "Alle ungespeicherten Änderungen gehen verloren. Das Gerät fährt herunter. \nSicher?",
+      "start": "Falls der Wartungsmodus aktiv sein sollte, wird dieser beendet und die regulären Messungen beginnen. Bei einem aktivierten WittyPi-Zeitplan fährt der Raspberry evtl. nach erfolgreicher Messdatenübertragung herunter.  \nFortfahren?",
+      "stop": "Der HoneyPi service wird gestoppt. Er schaltet sich nicht selbst wieder an, vergess also nicht den Service wieder zu starten!  \nFortfahren?"
     },
     "connectionerror": {
       "body": "<p>Die Bienenstockwaage ist gerade nicht erreichbar, vermutlich wurde das System neu gestartet, dies kann bis zu 1 Minute dauern.\n</p>",
@@ -215,7 +221,7 @@
       "export": "Einstellungen",
       "install": "System neu installieren",
       "internet_connection": "Keine Internetverbindung. Versuche es später erneut mit einer Internetverbindung.",
-      "need_refresh": "Erfolgreich aktualisiert. Die Seite muss aktualisiert werden. Jetzt neuladen?",
+      "need_refresh": "Erfolgreich aktualisiert. Die Seite muss aktualisiert werden.  \nJetzt neuladen?",
       "newVersionAvailable": "Ein aktuelleres Systemupdate ist verfügbar. Du kannst dies im Reiter \"Systemupdate\" aktualisieren. Halte deine HoneyPi Software aktuell, um von Fehlerbehebungen und neuen Features zu profitieren.",
       "preupdate": "Nach neuster Version suchen",
       "title": "Systemupdate",

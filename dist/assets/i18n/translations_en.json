@@ -12,7 +12,7 @@
       "scale": "<b>Scaling value:</b> Influences the measurement result by dividing (measured value-offset) by the scaling value.\n<br /> Four decimal places are allowed and the decimal places are separated by a dot and not by a comma. The default is \"1\"."
     },
     "noTempSensorFound": "No temperature sensor could be found on the device.",
-    "notAP": "<strong>Note:</strong> The maintenance mode is not called through the 'HoneyPi' AccessPoint. Changes are therefore only made after a restart (because the pushbutton is not being pressed).",
+    "notAP": "<strong>Note:</strong> The maintenance mode is not called via the \"HoneyPi\" AccessPoint. Therefore, pressing the hardware button will probably remain off. However, changes can be applied by clicking the following button:",
     "saved": "<strong>Saved!</strong> The settings have been saved.",
     "shutdownAfterTransfer": "To enter the maintenance mode, the button must be pressed immediately after the LED flashes at startup.",
     "tomanysensorsofthattype": "Some sensors, including BH1750, PA1010D and EE895 can only be connected to the Raspberry Pi once via I2C bus. The sensors BME280 and BME680 can be connected at most twice due to the limited number of I2C addresses. Delete the duplicate entries of these sensors.",
@@ -27,9 +27,12 @@
     "reboot": "Reboot",
     "refresh": "refresh",
     "remove": "remove",
+    "restart": "Restart HoneyPi service",
     "save": "Save",
     "select": "Please select a {{value}}",
     "shutdown": "Shutdown",
+    "start": "Start",
+    "stop": "Stop",
     "tryagain": "Try again",
     "undo": "discard changes"
   },
@@ -46,9 +49,12 @@
   "settings": {
     "confirm": {
       "installWittyPi": "You are about to install the software for the WittyPi module on your HoneyPi. For this an internet connection (e.g. via WiFi) must be available. Please test this first in the tab \"Test Internet connection\". Also don't forget to save your current settings first.",
-      "reboot": "All unsaved changes are lost. The connection will be temporarily disconnected. \nThe device will now restart. Are you sure?",
+      "reboot": "All unsaved changes are lost. The connection will be temporarily disconnected. \nThe device will now restart.  \nAre you sure?",
+      "restart": "If the maintenance mode should be active, it will be terminated and the measurements will start. With an activated WittyPi schedule, the Raspberry may shut down after successful measurement data transfer.  \nContinue?",
       "savedAP": "A restart is required for the most changes to take effect. \nShould the device now be restarted?",
-      "shutdown": "All unsaved changes are lost. The device will now shutdown. \nAre you sure?"
+      "shutdown": "All unsaved changes are lost. The device will now shutdown. \nAre you sure?",
+      "start": "If the maintenance mode should be active, it will be terminated and the measurements will start. With an activated WittyPi schedule, the Raspberry may shut down after successful measurement data transfer.  \nContinue?",
+      "stop": "The HoneyPi service is stopped. It does not restart itself, so do not forget to restart the service!  \nContinue?"
     },
     "connectionerror": {
       "body": "<p>The beehive scale is currently not available, probably the system has been restarted, this can take up to 1 minute.\n</p>",
@@ -215,7 +221,7 @@
       "export": "Settings",
       "install": "Reinstall system",
       "internet_connection": "No internet connection. Try again with internet connection.",
-      "need_refresh": "Successfully updated. The page needs to be refreshed. Reload now?",
+      "need_refresh": "Successfully updated. The page needs to be refreshed.  \nReload now?",
       "newVersionAvailable": "A more recent system update is available. You can update this in the \"System update\" tab. Keep your HoneyPi software up to date to benefit from bug fixes and new features.",
       "preupdate": "Check for new version",
       "title": "System update",
