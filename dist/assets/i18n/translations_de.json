@@ -216,6 +216,7 @@
       "install": "System neu installieren",
       "internet_connection": "Keine Internetverbindung. Versuche es später erneut mit einer Internetverbindung.",
       "need_refresh": "Erfolgreich aktualisiert. Die Seite muss aktualisiert werden. Jetzt neuladen?",
+      "newVersionAvailable": "Ein aktuelleres Systemupdate ist verfügbar. Du kannst dies im Reiter \"Systemupdate\" aktualisieren. Halte deine HoneyPi Software aktuell, um von Fehlerbehebungen und neuen Features zu profitieren.",
       "preupdate": "Nach neuster Version suchen",
       "title": "Systemupdate",
       "update": "Jetzt aktualisieren",

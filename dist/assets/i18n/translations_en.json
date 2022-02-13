@@ -216,6 +216,7 @@
       "install": "Reinstall system",
       "internet_connection": "No internet connection. Try again with internet connection.",
       "need_refresh": "Successfully updated. The page needs to be refreshed. Reload now?",
+      "newVersionAvailable": "A more recent system update is available. You can update this in the \"System update\" tab. Keep your HoneyPi software up to date to benefit from bug fixes and new features.",
       "preupdate": "Check for new version",
       "title": "System update",
       "update": "Update now",
