@@ -115,7 +115,7 @@ export class SettingsComponent implements OnInit {
 
   getSettings(): void {
     this.isLoading = true;
-    this.appService.getSettings().timeout(3000)
+    this.appService.getSettings().timeout(4000)
       .finally(() => this.isLoading = false)
       .subscribe(res => {
         if (res) {
@@ -123,9 +123,14 @@ export class SettingsComponent implements OnInit {
           this.isConnected = true;
         }
       }, (err: any) => {
-        console.error(err, err.name);
-        if (err.name && (err.name === 'TimeoutError' || err.name === 'HttpErrorResponse')) {
+        if (err.name && err.name === 'TimeoutError') {
+          console.log('getSettings-Function: Request received a Connection timeout:',err);
           this.isConnected = false;
+        } else if(err.name && err.name === 'HttpErrorResponse') {
+          console.log('getSettings-Function: Request received a HttpErrorResponse error:',err);
+          this.isConnected = false;
+        } else {
+          console.error(err.name,err);
         }
       });
   }

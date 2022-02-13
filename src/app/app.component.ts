@@ -51,7 +51,7 @@ export class AppComponent implements OnInit {
             console.error("Error while searching for new updates:", err);
             this.isNewReleaseAvailable = false;
           });
-      }, 5000);
+      }, 6500);
     });
   }
 }

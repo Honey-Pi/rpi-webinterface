@@ -33,7 +33,7 @@ export class LogComponent implements OnInit {
   async getLogAsync() {
     setTimeout(() => {
       this.getLog();
-    }, 3000);
+    }, 4500);
   }
 
   getLog(): void {

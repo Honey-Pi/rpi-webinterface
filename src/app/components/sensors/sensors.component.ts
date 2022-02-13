@@ -59,7 +59,7 @@ export class SensorsComponent implements OnInit {
   async getTemperatureSensorsAsync() {
     setTimeout(() => {
       this.getTemperatureSensors();
-    }, 4000);
+    }, 5500);
   }
 
   getTemperatureSensors(): void {
