@@ -14,8 +14,10 @@
       <span [innerHTML]="'alerts.notAP' | translate" style="padding-right:5px"></span>
       <div class="btn-group btn-group-sm" role="group" aria-label="Controls">
         <button class="btn btn-sm btn-outline-dark" type="button" (click)="askForRestart()" [translate]="'buttons.restart'">Restart</button>
+        <!--
         <button class="btn btn-sm btn-outline-warning" type="button" (click)="askForStop()" [translate]="'buttons.stop'">Stop</button>
         <button class="btn btn-sm btn-outline-primary" type="button" (click)="askForStart()" [translate]="'buttons.start'">Start</button>
+        -->
       </div>
     </div>
     <div class="alert alert-info" role="alert" *ngIf="isSettingsChanged">
