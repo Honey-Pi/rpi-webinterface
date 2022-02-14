@@ -81,7 +81,7 @@
       "password": "WLAN-Netzwerkschlüssel",
       "ssid": "WLAN-Funknetz (SSID)",
       "testConnection": "Teste Internetverbindung",
-      "testDiag": "Hole Diagnosedaten der Netzwerkverbindungen",
+      "testDiag": "Hole Diagnosedaten",
       "testError": "<strong>Fehler!</strong> Verbindung ins Internet fehlgeschlagen.",
       "testSuccess": "<strong>HoneyPi ist verbunden!</strong> Der Internet Test war erfolgreich.",
       "title": "Internetverbindung",
