@@ -58,8 +58,8 @@ export class UpdateComponent implements OnInit {
         const checkInternetResponse = <any>resInternet;
         if (checkInternetResponse.connected === true) {
           this.appService.update(mode, this.usePreVersion)
-            .finally(() => this.isLoading = false)
             .subscribe(res => {
+              this.isLoading = false;
               console.log("Update successfully, output: ",res);
               this.log = res;
               this.translate.get('settings.update.need_refresh').subscribe((translated: string) => {
@@ -69,7 +69,12 @@ export class UpdateComponent implements OnInit {
                 }
               });
             }, (err: any) => {
+              this.isLoading = false;
+              alert("Error while updating. Try again. Error name: " + err.name);
               console.error("Update error, output: ",err);
+              this.log = err;
+            }, () => {
+              this.isLoading = false;
             });
         } else {
           this.isLoading = false;
