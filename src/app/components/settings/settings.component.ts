@@ -67,7 +67,7 @@ export class SettingsComponent implements OnInit {
   }
 
   public get isSettingsChanged(): boolean {
-    return (JSON.stringify(this.settings) !== JSON.stringify(this.settingsBackup));
+    return this.settingsBackup && this.settings && (JSON.stringify(this.settings) !== JSON.stringify(this.settingsBackup));
   }
 
   public undoChanges() {
