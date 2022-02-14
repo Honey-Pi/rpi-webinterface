@@ -135,6 +135,8 @@
         }
 
         if ($_GET['mode'] === 'update') {
+            $output->git = "Update " . $GLOBALS['honeyPiHome'] . " git:" . "\n";
+            $output->git .= updateGit();
             $output->result = update($isStable);
         } else if ($_GET['mode'] === 'install')
         {
