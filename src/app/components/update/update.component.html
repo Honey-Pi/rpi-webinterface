@@ -14,7 +14,8 @@
 <h5 class="h5" [translate]="'settings.update.title'"></h5>
 
 <!-- Version Informations -->
-<pre class="pre-scrollable" *ngIf="log">Error-Code: {{log | json}}</pre>
+<pre class="pre-scrollable" *ngIf="log">Update Log:
+{{log | json}}</pre>
 <div *ngIf="versionInfo" class="row">
   <div class="col-12 col-sm-6">
     <b [translate]="'settings.update.availableVersion'"></b><br>
