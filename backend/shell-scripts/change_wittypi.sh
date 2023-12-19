@@ -1,19 +1,21 @@
 #! /bin/bash
 
 if [ -z "$1" ] ; then
-    echo "Missing argument."
+    echo "Missing argument mode."
+    exit 1
+elif [ -z "$2" ] ; then
+    echo "Missing argument wittyPi version."
     exit 1
 else
     mode=$1
+    wittyPi_version=$2
 
-    # detect wittyPi version
+    # detect witty Pi install path
     if [ -e /home/pi/wittyPi ] ; then
-        # WittyPi 2 or Mini
-        wittyPi=2
+        # Only WittyPi 2 or Mini use the capital letter in wittyPi
+        wittyPi_version=2 # user selected wrong WittyPi version?
         path='/home/pi/wittyPi'
     elif [ -e /home/pi/wittypi ] ; then
-        # WittyPi 3 or 3 Mini
-        wittyPi=3
         path='/home/pi/wittypi'
     else
         echo "Error: No WittyPi installation found."
@@ -25,16 +27,24 @@ else
 
     if [ $mode -eq 0 ] ; then
         # mode=0: clear current schedule
-        if [ $wittyPi -eq 2 ] ; then
+        if [ $wittyPi_version -eq 2 ] ; then
             (sleep 6; echo 7; echo 4; echo 8) | sudo ./wittyPi.sh
-        elif [ $wittyPi -eq 3 ] ; then
+        elif [ $wittyPi_version -eq 3 ] ; then
             (sleep 6; echo 10; echo 6; echo 11) | sudo ./wittyPi.sh
+        elif [ $wittyPi_version -eq 4 ] ; then
+            # reset all startup and shutdown schedules as well as all other thresholds in Witty Pi 4
+            (sleep 3; echo 12; echo 8; echo 13) | sudo ./wittyPi.sh
         fi
     elif [ $mode -eq 1 ] ; then
         # mode=1: transfer local schedule to the wittyPi module and run it
         sudo cp /var/www/html/backend/schedule.wpi $path/schedule.wpi
-        # Sync time
-        sudo ./syncTime.sh
+        if [ $wittyPi_version -eq 4 ] ; then
+            # Synchronize with network time (only in Witty Pi 4)
+            (sleep 3; echo 3; echo 13) | sudo ./wittyPi.sh
+        else
+            # Sync time
+            sudo ./syncTime.sh
+        fi
         # set schedule script
         sudo ./runScript.sh
     elif [ $mode -eq 2 ] ; then
@@ -43,8 +53,13 @@ else
             echo "Missing dummyload argument."
             exit 1
         else
-            dummyload=$2 # default: 10-15
-            (sleep 6; echo 9; echo 5; echo $dummyload; echo 11) | sudo ./wittyPi.sh
+            dummyload=$3 # default: 10-15
+            if [ $wittyPi_version -eq 3 ] ; then
+                (sleep 6; echo 9; echo 5; echo $dummyload; echo 11) | sudo ./wittyPi.sh
+            else
+                # in Witty Pi 4 a bit hidden (11. View/change other settings...)
+                (sleep 3; echo 11; echo 5; echo $dummyload; sleep 1; echo 13) | sudo ./wittyPi.sh
+            fi
         fi
     elif [ $mode -eq 3 ] ; then
         # reset dummyload to default

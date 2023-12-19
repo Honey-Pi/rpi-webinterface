@@ -94,6 +94,8 @@
             $voltageStateFile = $GLOBALS['scriptsFolder']."/.isLowVoltage";
             clear_file($voltageStateFile);
 
+            $wittyPi_version = (INT)$postJson["wittyPi"]["version"];
+
             if ($postJson["wittyPi"]["enabled"] === true
                 && isset($postJson["wittyPi"]["normal"]["enabled"])
                     && $postJson["wittyPi"]["normal"]["enabled"] === true
@@ -104,7 +106,7 @@
                 file_put_contents($wittyPiFile, $postJson["wittyPi"]["normal"]["schedule"]);
 
                 // set WittyPi (dont wait exec to finish)
-                shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_wittypi.sh 1 > /dev/null 2>&1 &");
+                shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_wittypi.sh 1 $wittyPi_version > /dev/null 2>&1 &");
             } else {
 
                 // clear schedule.wpi
@@ -112,16 +114,16 @@
                 $postJson["wittyPi"]["normal"]["enabled"] = false;
 
                 // reset wittyPi schedule
-                shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_wittypi.sh 0 > /dev/null 2>&1 &");
+                shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_wittypi.sh 0 $wittyPi_version > /dev/null 2>&1 &");
            }
 
            // set WittyPi dummyload
-           if ($postJson["wittyPi"]["enabled"] == true && isset($postJson["wittyPi"]["version"]) && isset($postJson["wittyPi"]["dummyload"]) && $postJson["wittyPi"]["version"] === 3) {
+           if ($postJson["wittyPi"]["enabled"] == true && isset($postJson["wittyPi"]["version"]) && isset($postJson["wittyPi"]["dummyload"]) && $postJson["wittyPi"]["version"] >= 3) {
                if ((INT)$postJson["wittyPi"]["dummyload"] > 0) {
                    $dummyload = (INT)$postJson["wittyPi"]["dummyload"];
-                   shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_wittypi.sh 2 $dummyload > /dev/null 2>&1 &");
+                   shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_wittypi.sh 2 $wittyPi_version $dummyload > /dev/null 2>&1 &");
                } else {
-                   shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_wittypi.sh 3 > /dev/null 2>&1 &");
+                   shell_exec("sudo sh ".$GLOBALS['shellDir']."/change_wittypi.sh 3 $wittyPi_version > /dev/null 2>&1 &");
                }
            }
 

@@ -44,12 +44,14 @@
       <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.sensors.version' | translate}" disabled></option>
       <option [ngValue]="2">WittyPi Version 2</option>
       <option [ngValue]="3">WittyPi Version 3</option>
+      <option [ngValue]="4">WittyPi Version 4</option>
     </select>
   </div>
   <div class="clearfix" [class.spinner]="isLoading">
     <div class="btn-group btn-group-sm float-right" role="group">
       <button *ngIf="settings.wittyPi.version === 2" class="btn btn-outline-warning btn-sm" type="button" role="button" (click)="installWittyPi(2)" [translate]="'settings.wittypi.install2'"></button>
       <button *ngIf="settings.wittyPi.version === 3" class="btn btn-outline-warning btn-sm" type="button" role="button" (click)="installWittyPi(3)" [translate]="'settings.wittypi.install3'"></button>
+      <button *ngIf="settings.wittyPi.version === 4" class="btn btn-outline-warning btn-sm" type="button" role="button" (click)="installWittyPi(4)" [translate]="'settings.wittypi.install4'"></button>
     </div>
   </div>
   <!-- Interval for normal mode -->
@@ -222,7 +224,7 @@
     </div>
   </div>
   <!-- dummyload -->
-  <ng-container *ngIf="settings.wittyPi.version === 3">
+  <ng-container *ngIf="settings.wittyPi.version >= 3">
     <hr />
     <div class="form-group">
       <!-- dummy load select -->
