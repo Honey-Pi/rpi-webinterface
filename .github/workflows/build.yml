@@ -19,7 +19,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-node-
 
-    - run: npm install
+    - run: npm install --save --legacy-peer-deps
     - run: npm install -g @angular/cli > /dev/null
     - run: ng build --configuration production
 
