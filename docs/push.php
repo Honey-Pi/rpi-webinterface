@@ -5,7 +5,7 @@
   Replacement Keys: https://de.mathworks.com/help/thingspeak/thinghttp-app.html#bvtzy2y-5
   */
 
-  require __DIR__ . '/vendor/autoload.php';
+  require __DIR__ . '/../vendor/autoload.php';
 
   use Google\Auth\ApplicationDefaultCredentials;
   use GuzzleHttp\Client;
@@ -21,7 +21,7 @@
   {
 
     // specify the path to the application credentials
-    putenv('GOOGLE_APPLICATION_CREDENTIALS=/path/to/my/credentials.json');
+    putenv('GOOGLE_APPLICATION_CREDENTIALS=' . __DIR__ . '/../credentials.json');
 
     $scopes = ['https://www.googleapis.com/auth/firebase.messaging'];
 
