@@ -18,12 +18,24 @@ else
     elif [ -e /home/pi/wittypi ] ; then
         path='/home/pi/wittypi'
     else
-        echo "Error: No WittyPi installation found."
-        exit 1
+        echo "Warning: No WittyPi installation found."
+        path='/home/pi/wittypi'
+        mkdir -p "$path" # create folder for the HoneyPi wittypi.py controller so it can place the schedule there
     fi
 
     # change path to wittyPi folder
     cd $path
+
+    # Check if WittyPi software is installed (or if it's just a blank folder)
+    # In case if it's just a blank folder, then the HoneyPi wittyPi.py controller will be used.
+    if [ -f ./wittyPi.sh ]; then # wittyPi.sh does not exist
+        echo "Info: $path/wittyPi.sh exists - use WittyPi UUgear software to sync schedule. "
+    else
+        echo "Info: Cancel change_wittypi.sh because wittyPi.sh is not installed. Use HoneyPi wittypiy.py controller instead."
+        sudo cp /var/www/html/backend/schedule.wpi $path/schedule.wpi
+        exit 1
+    fi
+
 
     if [ $mode -eq 0 ] ; then
         # mode=0: clear current schedule
