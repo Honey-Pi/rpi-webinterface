@@ -48,7 +48,7 @@
   },
   "settings": {
     "confirm": {
-      "installWittyPi": "You are about to install the software for the WittyPi module on your HoneyPi. For this an internet connection (e.g. via WiFi) must be available. Please test this first in the tab \"Test Internet connection\". Also don't forget to save your current settings first.",
+      "installWittyPi": "NOTE: This installation is no longer necessary and the WittyPi should also work without installation. \n\nYou are about to install the software for the WittyPi module on your HoneyPi. For this an internet connection (e.g. via WiFi) must be available. Please test this first in the tab \"Test Internet connection\". Also don't forget to save your current settings first.",
       "reboot": "All unsaved changes are lost. The connection will be temporarily disconnected. \nThe device will now restart.  \nAre you sure?",
       "restart": "If the maintenance mode should be active, it will be terminated and the measurements will start. With an activated WittyPi schedule, the Raspberry may shut down after successful measurement data transfer.  \nContinue?",
       "savedAP": "A restart is required for the most changes to take effect. \nShould the device now be restarted?",
@@ -111,7 +111,7 @@
       "display_enabled": "Enable OLED (Model: OLED 128x64px with SSD1306 Chip)",
       "enable_reset": "Enable the option that when the button is pressed for 10 seconds, all HoneyPi settings are reset",
       "show_nondefault_password": "Show non-default \"HoneyPi\"-AccessPoint password",
-      "timeToStopMaintenance": "The maintenance mode of the HoneyPi Access-Point automatically turns off to correct accidental activations and continue normal measurement operations.",
+      "timeToStopMaintenance": "The maintenance mode of the HoneyPi Access-Point automatically turns off to correct accidental activations or forgotton switch offs and continue normal measurement operations.",
       "title": "Miscellaneous"
     },
     "offline": {
