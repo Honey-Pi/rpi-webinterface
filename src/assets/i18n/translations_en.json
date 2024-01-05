@@ -111,6 +111,7 @@
       "display_enabled": "Enable OLED (Model: OLED 128x64px with SSD1306 Chip)",
       "enable_reset": "Enable the option that when the button is pressed for 10 seconds, all HoneyPi settings are reset",
       "show_nondefault_password": "Show non-default \"HoneyPi\"-AccessPoint password",
+      "timeToStopMaintenance": "The maintenance mode of the HoneyPi Access-Point automatically turns off to correct accidental activations and continue normal measurement operations.",
       "title": "Miscellaneous"
     },
     "offline": {

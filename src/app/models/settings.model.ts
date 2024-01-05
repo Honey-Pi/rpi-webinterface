@@ -27,6 +27,7 @@ export class Settings {
   wittyPi: WittyPiSettings;
   w1gpio: number;
   offline: number;
+  timeToStopMaintenance: number;
   display: DisplaySettings;
 }
 

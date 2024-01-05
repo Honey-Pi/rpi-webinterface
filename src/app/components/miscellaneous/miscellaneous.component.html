@@ -12,7 +12,27 @@
 </ng-container>
 <hr />
 <h5 class="h5">{{ 'settings.miscellaneous.title' | translate}}</h5>
-<div class="form-check">
-  <input class="form-check-input" type="checkbox" [(ngModel)]="settings.enable_reset" id="enable_reset">
-  <label class="form-check-label" for="enable_reset" [translate]="'settings.miscellaneous.enable_reset'"></label>
+<div class="">
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" [(ngModel)]="settings.enable_reset" id="enable_reset">
+    <label class="form-check-label" for="enable_reset" [translate]="'settings.miscellaneous.enable_reset'"></label>
+  </div>
+</div>
+<hr />
+<div class="row">
+  <div class="form-group col-12 col-sm-6">
+
+    <select [(ngModel)]="settings.timeToStopMaintenance" id="timeToStopMaintenance" name="timeToStopMaintenance" class="custom-select" required>
+      <option [ngValue]="undefined" [translate]="'buttons.select' | translate: {value: 'settings.sensors.interval' | translate}" disabled></option>
+      <option [ngValue]="900">15min</option>
+      <option [ngValue]="1800">30min</option>
+      <option [ngValue]="3600">1h</option>
+      <option [ngValue]="5200">2h</option>
+      <option [ngValue]="10400">4h</option>
+      <option [ngValue]="28800">8h (default)</option>
+      <option [ngValue]="34200">12h</option>
+      <option [ngValue]="86400">24h</option>
+    </select>
+    <label class="" for="enable_reset" [translate]="'settings.miscellaneous.timeToStopMaintenance'"></label>
+  </div>
 </div>
