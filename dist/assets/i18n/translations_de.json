@@ -48,7 +48,7 @@
   },
   "settings": {
     "confirm": {
-      "installWittyPi": "Du bist dabei auf deinem HoneyPi die Software für das WittyPi Modul zu installieren. Dazu muss zwingend eine Internetverbindung (bspw. über WLAN) bestehen. Teste das bitte zuvor im Reiter \"Internetverbindung testen\". Vergiss auch nicht deine aktuellen Einstellungen vorher zu Speichern.",
+      "installWittyPi": "HINWEIS: Diese Installation ist nicht mehr notwendig und der WittyPi sollte auch ohne Installation funktionieren. \n\nDu bist dabei auf deinem HoneyPi die Software für das WittyPi Modul zu installieren. Dazu muss zwingend eine Internetverbindung (bspw. über WLAN) bestehen. Teste das bitte zuvor im Reiter \"Internetverbindung testen\". Vergiss auch nicht deine aktuellen Einstellungen vorher zu Speichern.",
       "reboot": "Alle ungespeicherten Änderungen gehen verloren. Die Verbindung wird sich vorübergehend trennen. \nDas Gerät wird nun neugestartet.  \nSicher?",
       "restart": "Falls der Wartungsmodus aktiv sein sollte, wird dieser beendet und die regulären Messungen beginnen. Bei einem aktivierten WittyPi-Zeitplan fährt der Raspberry evtl. nach erfolgreicher Messdatenübertragung herunter.  \nFortfahren?",
       "savedAP": "Damit alle Änderungen wirksam werden ist meist ein Neustart erforderlich. \nSoll das Gerät nun neugestartet werden?",
@@ -111,7 +111,7 @@
       "display_enabled": "OLED aktivieren (Modell: OLED 128x64px mit SSD1306 Chip)",
       "enable_reset": "Aktiviere die Option, dass wenn der Taster 10 Sekunden gedrückt wird, alle HoneyPi Einstellungen zurückgesetzt werden",
       "show_nondefault_password": "Zeige ein geändertes WLAN Passwort des \"HoneyPI\"-AccessPoints",
-      "timeToStopMaintenance": "Der Wartungsmodus des HoneyPi Access-Points schaltet sich automatisch ab, um versehentliche Aktivierungen zu korrigieren und den normalen Messbetrieb fortzusetzen.",
+      "timeToStopMaintenance": "Der Wartungsmodus des HoneyPi Access-Points schaltet sich automatisch ab, um versehentliche Aktivierungen oder vergessenes Abschalten des Wartungsmodus zu korrigieren und den normalen Messbetrieb fortzusetzen.",
       "title": "Weitere Einstellungen"
     },
     "offline": {
