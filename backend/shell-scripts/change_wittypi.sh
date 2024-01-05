@@ -28,10 +28,10 @@ else
 
     # Check if WittyPi software is installed (or if it's just a blank folder)
     # In case if it's just a blank folder, then the HoneyPi wittyPi.py controller will be used.
-    if [ -f ./wittyPi.sh ]; then 
+    if [ -f ./wittyPi.sh ]; then
         echo "Info: $path/wittyPi.sh exists - use WittyPi UUgear software to sync schedule. "
     else
-        echo "Info: Cancel change_wittypi.sh because wittyPi.sh is not installed. Use HoneyPi wittypiy.py controller instead."
+        echo "Info: Cancel change_wittypi.sh because wittyPi.sh is not installed. Use HoneyPi wittypi.py controller instead."
         sudo cp /var/www/html/backend/schedule.wpi $path/schedule.wpi
         exit 1
     fi
@@ -60,7 +60,7 @@ else
         # set schedule script
         sudo ./runScript.sh
     elif [ $mode -eq 2 ] ; then
-        # enable dummyload to keep powerbank alive (supported by wittyPi 3)
+        # mode=2: enable dummyload to keep powerbank alive (supported by wittyPi 3)
         if [ -z "$2" ] ; then
             echo "Missing dummyload argument."
             exit 1
@@ -74,10 +74,14 @@ else
             fi
         fi
     elif [ $mode -eq 3 ] ; then
-        # reset dummyload to default
-        (sleep 6; echo 9; echo 5; echo 0; echo 11) | sudo ./wittyPi.sh
+        # mode=3: reset dummyload to 0
+        if [ $wittyPi_version -eq 3 ] ; then
+            (sleep 6; echo 9; echo 5; echo 0; echo 11) | sudo ./wittyPi.sh
+        else
+            # in Witty Pi 4 a bit hidden (11. View/change other settings...)
+            (sleep 3; echo 11; echo 5; echo 0; sleep 1; echo 13) | sudo ./wittyPi.sh
+        fi
     fi
-
 fi
 
 exit 0
