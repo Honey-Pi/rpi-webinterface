@@ -28,7 +28,7 @@ else
 
     # Check if WittyPi software is installed (or if it's just a blank folder)
     # In case if it's just a blank folder, then the HoneyPi wittyPi.py controller will be used.
-    if [ -f ./wittyPi.sh ]; then # wittyPi.sh does not exist
+    if [ -f ./wittyPi.sh ]; then 
         echo "Info: $path/wittyPi.sh exists - use WittyPi UUgear software to sync schedule. "
     else
         echo "Info: Cancel change_wittypi.sh because wittyPi.sh is not installed. Use HoneyPi wittypiy.py controller instead."
