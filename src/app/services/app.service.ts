@@ -102,9 +102,9 @@ export class AppService {
       });
   }
 
-  checkNewUpdate(): Observable<{chdir: string, isStable: boolean, isNewVersionAvailable: boolean}> {
+  checkNewUpdate(): Observable<{chdir: string, isStable: boolean, isNewReleaseAvailable: boolean}> {
     return this.http.get(environment.apiURL + 'update.php?mode=checkUpdate')
-      .map((response: {chdir: string, isStable: boolean, isNewVersionAvailable: boolean}) => {
+      .map((response: {chdir: string, isStable: boolean, isNewReleaseAvailable: boolean}) => {
         if (response) {
           return response;
         }

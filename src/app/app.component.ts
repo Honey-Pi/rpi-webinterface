@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
           })
           .subscribe(res => {
             // ok
-            if (res.isNewVersionAvailable === true) {
+            if (res.isNewReleaseAvailable === true) {
               console.log("There is a new release available. Install it to keep your HoneyPi up-to-date.");
               console.log("isStable=",res.isStable);
               this.isNewReleaseAvailable = true;
