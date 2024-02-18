@@ -9,6 +9,7 @@
     "gpio": "<b>GPIO:</b> Die Kontaktstifte auf dem Raspberry Pi Board haben zwei Nummerierungen. Eine physische von 1 bis 40 und eine für jeden frei programmierbaren GPIO. Bei der Angabe des Kontaktstiftes wird hier im Wartungsmodus immer die GPIO Nummerierung angegeben.",
     "hx711": {
       "offset": "<b>Offset:</b> Beeinflusst das Messergebnis indem das Offset vom Messwert abgezogen wird.\n<br />Kann auch eine negative Zahl sein. <b>Angabe in Gramm.</b> Standard ist \"0\".",
+      "offset2": "Kann auch eine negative Zahl sein. <b>Angabe in Gramm.</b> Standard ist \"0\". <b>Der Wert wird am Ende Wartungsmodus automatisch errechnet, indem die Gewichtsveränderung im Wartungsmodus automatisch erfasst und mit dem bisherigen Wert verrechnet wird.</b>",
       "scale": "<b>Skalierungswert:</b> Beeinflusst das Messergebnis indem (Messwert-Offset) durch den Skalierungswert geteilt wird.\n<br />Es sind vier Nachkommastellen erlaubt und die <b>Nachkommastellen werden mit Punkt</b> und nicht mit Komma getrennt. Standard ist \"1\"."
     },
     "noTempSensorFound": "Es konnte kein Temperatursensor am Gerät gefunden werden.",
@@ -172,6 +173,7 @@
       "measurementNone": "Keine Messdatenübertragung",
       "measurementOnce": "Einmalige Übertragung nach dem Anschalten (empfohlen für das WittyPi-Modul)",
       "offset": "Offset",
+      "offset2": "Summe Gewichtsänderungen",
       "power_cut_delay": "Verzögerung der Abschaltung [Sekunden]",
       "pressure": "Luftdruck",
       "pulsing_interval": "Intervall für LED blinken [Sekunden]",
@@ -203,6 +205,7 @@
       "title": "Angeschlossene Sensoren",
       "ts_field_absolutehumidity": "Absolute Luftfeuchte [g/mᵌ]",
       "ts_field_uncompensated": "Unkompensiertes Gewicht",
+      "ts_field_offset2": "Feld für Summe der Gewichtsänderungen",
       "use3V": "Einen GPIO als 3,3V Quelle vewenden",
       "version": "Version",
       "weightcell": "Wägezelle",

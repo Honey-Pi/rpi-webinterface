@@ -28,12 +28,14 @@ export class Sensor {
   offset: number; // HX711, BME680, BME280 & MAX6675/MAX31855
   pin_dt: number;
   pin_sck: number;
+  offset2: number; // HX711
   invert: boolean;
   filter_negative: boolean;
   compensation: boolean;
   compensation_value: number;
   compensation_temp: number;
   ts_field_uncompensated: string;
+  ts_field_offset2: string;
   // BME680
   i2c_addr: string;
   ts_field_air_pressure: string;

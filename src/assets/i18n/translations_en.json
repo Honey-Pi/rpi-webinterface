@@ -9,6 +9,7 @@
     "gpio": "<b>GPIO:</b> The contact pins on the Raspberry Pi Board have two numberings. One physical from 1 to 40 and one for each freely programmable GPIO. Here in maintenance mode is always the GPIO numbering beeing used.",
     "hx711": {
       "offset": "<b>Offset:</b> Influences the measuring result by subtracting the offset from the measured value.\n<br />Can also be a negative number. Indication in grams. Default is \"0\".",
+      "offset2": "<br />Can also be a negative number. Indication in grams. Default is \"0\". <b>Changed automatically during maintenance mode. Any weight change in maintenance mode is automatoically measured and this value will be updated.</b>",
       "scale": "<b>Scaling value:</b> Influences the measurement result by dividing (measured value-offset) by the scaling value.\n<br /> Four decimal places are allowed and the decimal places are separated by a dot and not by a comma. The default is \"1\"."
     },
     "noTempSensorFound": "No temperature sensor could be found on the device.",
@@ -172,6 +173,7 @@
       "measurementNone": "No measurement data transfer",
       "measurementOnce": "One-time transfer after power-on (suggested for WittyPi module)",
       "offset": "Offset",
+      "offset2": "Sum of weight changes",
       "power_cut_delay": "Power cut delay [Seconds]",
       "pressure": "Air pressure",
       "pulsing_interval": "Interval for LED pulsing [Seconds]",
@@ -203,6 +205,7 @@
       "title": "Attached sensors",
       "ts_field_absolutehumidity": "Absolute humidity",
       "ts_field_uncompensated": "Non compensated weight",
+      "ts_field_offset2": "for Sum of weight changes",
       "use3V": "Using a GPIO as 3.3V power supply source",
       "version": "Version",
       "weightcell": "Weight cell",

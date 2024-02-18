@@ -230,6 +230,28 @@
           </div>
         </div>
         <div class="row">
+		  <div class="col-12 col-md-6">
+			<label for="offset2">{{'settings.sensors.offset2' | translate}}</label>
+			<input type="number" step="1" class="form-control" [(ngModel)]="sensor.offset2" id="offset2" name="offset2" placeholder="{{'settings.sensors.offset2' | translate }}" />
+		  </div>
+		  <div class="col-12 col-md-6">
+			<div class="col-12 col-sm-6">
+				<settings-ts-field [label]="'ThingSpeak ' + ('settings.sensors.ts_field_offset2' | translate)"
+								   [ts_field_id]="'ts_field_offset2'"
+								   (ts_fieldChanged)="sensor.ts_field_offset2 = $event"
+								   [ts_field]="sensor.ts_field_offset2" [channels]="settings.ts_channels" ></settings-ts-field>
+			</div>
+		  </div>
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <div class="alert alert-info" [innerHTML]="'alerts.hx711.offset2' | translate"></div>
+          </div>
+          <div class="col-12 col-md-6">
+            
+          </div>
+        </div>
+        </div>
+        <div class="row">
           <div class="col-12">
             <div class="form-group form-check">
               <input type="checkbox" class="form-check-input" name="filter_negative" [(ngModel)]="sensor.filter_negative" id="filter_negative">
