@@ -221,15 +221,8 @@
             <div class="alert alert-info" [innerHTML]="'alerts.hx711.scale' | translate"></div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-12">
-            <div class="form-group form-check">
-              <input type="checkbox" class="form-check-input" name="invert" [(ngModel)]="sensor.invert" id="invert">
-              <label class="form-check-label" for="invert" [translate]="'settings.sensors.invert'"></label>
-            </div>
-          </div>
-        </div>
-        <div class="row">
+        <div class="card card-body">
+		<div class="row">
 		  <div class="col-12 col-md-6">
 			<label for="offset2">{{'settings.sensors.offset2' | translate}}</label>
 			<input type="number" step="1" class="form-control" [(ngModel)]="sensor.offset2" id="offset2" name="offset2" placeholder="{{'settings.sensors.offset2' | translate }}" />
@@ -242,7 +235,8 @@
 								   [ts_field]="sensor.ts_field_offset2" [channels]="settings.ts_channels" ></settings-ts-field>
 			</div>
 		  </div>
-        <div class="row">
+        </div>
+		<div class="row">
           <div class="col-12 col-md-6">
             <div class="alert alert-info" [innerHTML]="'alerts.hx711.offset2' | translate"></div>
           </div>
@@ -250,6 +244,14 @@
             
           </div>
         </div>
+		</div>
+		<div class="row">
+          <div class="col-12">
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" name="invert" [(ngModel)]="sensor.invert" id="invert">
+              <label class="form-check-label" for="invert" [translate]="'settings.sensors.invert'"></label>
+            </div>
+          </div>
         </div>
         <div class="row">
           <div class="col-12">
