@@ -1,0 +1,1991 @@
+[
+    {
+        "term": "afterSave",
+        "definition": "Promene u ovom delu \u0107e nakon novog pokretanja biti aktivne.",
+        "context": "\"alerts\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "afterSaveOrManualStart",
+        "definition": "Promene u rasporedu postaju aktivne nakon ponovnog pokretanja ili nakon \u0161to se re\u017eim merenja zaustavi i ponovo pokrene pomoc\u0301u dugmeta. Da li Witty Pi radi po rasporedu za u\u0161tedu energije odlu\u010duje se u rutini merenja, kada je tako\u0111e izmeren napon baterije (volti).",
+        "context": "\"alerts\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "changedSettings",
+        "definition": "Uneli ste promene koje nisu sa\u010duvane.",
+        "context": "\"alerts\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "deviceId",
+        "definition": "<strong>Napomena:<\/strong> Otkriven je senzor sa neva\u017eec\u0301im ID-om ure\u0111aja.\nOvo se de\u0161ava, izme\u0111u ostalog, sa DS18B20 kada je otpornik zaboravljen ili je kori\u0161c\u0301en neispravan otpornik.\nDrugi uzrok mo\u017ee biti povezan DHT senzor. \n<strong>U ovom slu\u010daju, ovo obave\u0161tenje se mo\u017ee zanemariti.<\/strong>",
+        "context": "\"alerts\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "dummyload",
+        "definition": "La\u017eno optere\u0107enje je funkcija Witty Pi-a da odr\u017eava Powerbank aktivnim. Odre\u0111eni modeli Powerbank imaju tendenciju da se isklju\u010de kada nije potrebno napajanje tokom du\u017eeg vremenskog perioda. Da biste u\u0161tedeli bateriju, La\u017eno optere\u0107enje treba da ostane deaktivirano sve dok se ne koristi Powerbank.",
+        "context": "\"alerts\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "errorSaving",
+        "definition": "<strong>Gre\u0161ka!<\/strong> Nije moguc\u0301e sa\u010duvati pode\u0161avanja.",
+        "context": "\"alerts\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "gpio",
+        "definition": "<b>GPIO:<\/b> Kontaktne pinove na plo\u010di Raspberry Pi imaju dve numeracije. Jedan fizi\u010dki od 1 do 40 i jedan za svaki slobodno programabilni GPIO. Kada se specificira kontakt pina, GPIO numeracija je uvek navedena ovde u re\u017eimu odr\u017eavanja.",
+        "context": "\"alerts\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "offset",
+        "definition": "<b>Offset:<\/b> Uti\u010de na rezultat merenja oduzimanjem odstupanja od izmerene vrednosti.\n<br \/>Mo\u017ee biti i negativan broj. <b>Indikacija u gramima.<\/b> Podrazumevano je \"0\".",
+        "context": "\"alerts\".\"hx711\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "offset2",
+        "definition": "Mo\u017ee biti i negativan broj. <b>Indikacija u gramima.<\/b> Podrazumevano je \"0\". <b>Vrednost se automatski izra\u010dunava na kraju re\u017eima odr\u017eavanja tako \u0161to se automatski bele\u017ei promena te\u017eine u re\u017eimu odr\u017eavanja i pomera u odnosu na prethodnu vrednost.<\/b>",
+        "context": "\"alerts\".\"hx711\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "scale",
+        "definition": "<b>Vrednost skaliranja:<\/b> Uti\u010de na rezultat merenja deljenjem (pomeranje merene vrednosti) sa vredno\u0161c\u0301u skaliranja.\n<br \/>Dopu\u0161tena su \u010detiri decimala, a <b>decimala su odvojena ta\u010dkom<\/b>, a ne zarezom. Podrazumevano je \"1\".",
+        "context": "\"alerts\".\"hx711\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "noTempSensorFound",
+        "definition": "Na ure\u0111aju nije prona\u0111en senzor temperature.",
+        "context": "\"alerts\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "notAP",
+        "definition": "<strong>Napomena:<\/strong> Re\u017eimu odr\u017eavanja se ne pristupa preko \u201eHoneyPi\u201c pristupne ta\u010dke. Hardversko dugme stoga nije pritisnuto. Me\u0111utim, promene pode\u0161avanja se mogu primeniti klikom na sledec\u0301e dugme:",
+        "context": "\"alerts\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "saved",
+        "definition": "<strong>Sa\u010duvano!<\/strong> Pode\u0161avanja su sa\u010duvana.",
+        "context": "\"alerts\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "shutdownAfterTransfer",
+        "definition": "Da biste u\u0161li u re\u017eim odr\u017eavanja, dugme se mora pritisnuti odmah nakon \u0161to LED treperi pri pokretanju.",
+        "context": "\"alerts\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "tomanysensorsofthattype",
+        "definition": "Neki senzori, uklju\u010dujuc\u0301i BH1750, PA1010D i EE895, mogu se samo jednom povezati na Raspberry Pi preko I2C magistrale. Senzori BME280 i BME680 mogu se povezati najvi\u0161e dva puta zbog ograni\u010denog broja I2C adresa. Izbri\u0161ite duple unose ovih senzora.",
+        "context": "\"alerts\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "updateAP",
+        "definition": "<b>Napomena:<\/b> Re\u017eimu odr\u017eavanja pristupate preko \u201cHoneyPi\u201d pristupne ta\u010dke. Mo\u017eete da unesete WiFi mre\u017eu po svom izboru na kartici \u201eInternet veza\u201c. U zavisnosti od modela Raspberry-ja, mo\u017ee se povezati i LAN kabl.",
+        "context": "\"alerts\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "updateInfo",
+        "definition": "1. Obim podataka USB LTE Modema za surfovanje se mogu potro\u0161iti. <br>\n2. Zbog toga se preporu\u010duje da isklju\u010dite Raspberry Pi sa USB LTE Modema za a\u017euriranje sistema i pove\u017eete ga na postojec\u0301u WiFi mre\u017eu.",
+        "context": "\"alerts\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "updateNotAP",
+        "definition": "<b>Dobra stvar! <\/b> Raspberry-ju ne pristupate preko \u201eHoneyPi\u201c pristupne ta\u010dke, vec\u0301 preko IP adrese u kuc\u0301noj mre\u017ei.",
+        "context": "\"alerts\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "wittypi",
+        "definition": "Uz pomoc\u0301 dodatnog Witty Pi modula, Raspberry Pi se mo\u017ee vremenski kontrolisati.\nVec\u0301 nudimo tri korisna rasporeda. Oni se mogu promeniti u polju za unos. Preduslov je opcioni <strong>Witty Pi<\/strong> modul.\nPrilikom \u010duvanja, trebalo bi da postoji \u201einternet veza\u201c (npr. preko USB LTE Modema za surfovanje ili WiFi) kako bi se moglo a\u017eurirati trenutno sistemsko vreme.",
+        "context": "\"alerts\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "brand",
+        "definition": "HoneyPi",
+        "context": "",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "add",
+        "definition": "Dodati",
+        "context": "\"buttons\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "reboot",
+        "definition": "Ponovo pokrenuti",
+        "context": "\"buttons\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "refresh",
+        "definition": "a\u017euriranje",
+        "context": "\"buttons\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "remove",
+        "definition": "Ukloni",
+        "context": "\"buttons\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "restart",
+        "definition": "HoneyPi-Servis ponovo pokrenite",
+        "context": "\"buttons\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "save",
+        "definition": "Sa\u010duvati",
+        "context": "\"buttons\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "select",
+        "definition": "Izaberite {{vrednost}}...",
+        "context": "\"buttons\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "shutdown",
+        "definition": "Ugasiti",
+        "context": "\"buttons\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "start",
+        "definition": "Pokrenuti",
+        "context": "\"buttons\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "stop",
+        "definition": "Zaustaviti",
+        "context": "\"buttons\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "tryagain",
+        "definition": "Ponovo poku\u0161ati",
+        "context": "\"buttons\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "undo",
+        "definition": "Poni\u0161ti promene",
+        "context": "\"buttons\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "length",
+        "definition": "\"{{field}}\" je izvan va\u017eec\u0301eg opsega vrednosti.",
+        "context": "\"error\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "required",
+        "definition": "Polje \u201e{{field}}\u201c je obavezno.",
+        "context": "\"error\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "spaces",
+        "definition": "\u201e{{field}}\u201c sadr\u017ei razmak. Da li je to namerno?",
+        "context": "\"error\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "specialchar",
+        "definition": "\u201e{{field}}\u201c sadr\u017ei specijalne znakove koji nisu dozvoljeni.",
+        "context": "\"error\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "wittypiinstructions",
+        "definition": "Aktiviran je raspored na Witty Pi modulu, podesite interval merenja na \"Jednokratni prenos nakon uklju\u010divanja\" i aktivirajte \"Ga\u0161enje nakon uspe\u0161nog prenosa\".",
+        "context": "\"error\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "wittypinotwait",
+        "definition": "Raspberry c\u0301e se isklju\u010diti nakon uspe\u0161nog prenosa merenja. Prema tome, va\u0161 raspored treba prilagoditi. Trebalo bi da postoji \u201eWAIT\u201c na kraju svakog \u201eON\u201c reda. Na primer, ako iza \u201eON M5\u201c nema \u201eWAIT\u201c, Witty Pi modul bi ponovo pokrenuo Raspberry da bi ga isklju\u010dio.",
+        "context": "\"error\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "wittypiwait",
+        "definition": "Aktivirajte \"Ga\u0161enje nakon uspe\u0161nog prenosa\", prisustvo \"WAIT\" u liniji \"ON\" zna\u010di da Witty Pi modul nec\u0301e isklju\u010diti Raspberri.",
+        "context": "\"error\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "wittypiyeartobig",
+        "definition": "Trajanje va\u0161eg Witty Pi rasporeda je predugo. Promenite godinu na najkasnije 2037.",
+        "context": "\"error\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "installWittyPi",
+        "definition": "NAPOMENA: Ova instalacija vi\u0161e nije neophodna i Witty Pi bi trebalo da radi bez instalacije.\n\nSpremate se da instalirate softver za Witty Pi modul na svoj HoneyPi.\nDa biste to uradili, mora da postoji internet veza (npr. preko WLAN-a). Molimo vas da to unapred testirate na kartici \u201eTest Internet veze\u201c. Ne zaboravite da prethodno sa\u010duvate trenutna pode\u0161avanja.",
+        "context": "\"settings\".\"confirm\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "reboot",
+        "definition": "Sve nesa\u010duvane promene c\u0301e biti izgubljene. Veza c\u0301e biti privremeno prekinuta.\nUre\u0111aj c\u0301e se sada ponovo pokrenuti.\nSa\u010duvati?",
+        "context": "\"settings\".\"confirm\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "restart",
+        "definition": "Ako je re\u017eim odr\u017eavanja aktivan, on c\u0301e biti okon\u010dan i po\u010dec\u0301e redovna merenja. Ako je Witty Pi raspored aktiviran, Raspberry se mo\u017ee isklju\u010diti nakon uspe\u0161nog prenosa podataka merenja.\nNastavi?",
+        "context": "\"settings\".\"confirm\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "savedAP",
+        "definition": "Obi\u010dno je potrebno ponovno pokretanje da bi sve promene stupile na snagu.\nDa li bi ure\u0111aj sada trebalo ponovo pokrenuti?",
+        "context": "\"settings\".\"confirm\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "shutdown",
+        "definition": "Sve ne sa\u010duvane promene c\u0301e biti izgubljene. Ure\u0111aj se gasi.\nSa\u010duvati?",
+        "context": "\"settings\".\"confirm\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "start",
+        "definition": "Ako je re\u017eim odr\u017eavanja aktivan, on c\u0301e biti okon\u010dan i po\u010dec\u0301e redovna merenja. Ako je Witty Pi raspored aktiviran, Raspberry se mo\u017ee isklju\u010diti nakon uspe\u0161nog prenosa podataka merenja.\nNastavi?",
+        "context": "\"settings\".\"confirm\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "stop",
+        "definition": "Merenja HoneyPi su zaustavljena. Nec\u0301e se ponovo uklju\u010diti, tako da ne zaboravite da ponovo pokrenete merenja!\nNastavi?",
+        "context": "\"settings\".\"confirm\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "body",
+        "definition": "<p>Vaga ko\u0161nice trenutno nije dostupna, sistem je verovatno ponovo pokrenut, ovo mo\u017ee da potraje do par minuta.\n<\/p>",
+        "context": "\"settings\".\"connectionerror\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "stayconnectedAP",
+        "definition": "Uverite se da ste i dalje povezani na \"HoneyPi\" WiFi.\nVeza je mo\u017eda u me\u0111uvremenu automatski prekinuta. Po\u0161to \u201eHoneyPi\u201c pristupna ta\u010dka ne obezbe\u0111uje internet vezu, ure\u0111aji imaju tendenciju da koriste mobilne komunikacije za internet uprkos tome \u0161to su povezani na WiFi. Da biste se i dalje povezali sa HoneyPi web interfejsom, mo\u017ee pomoc\u0301i: Aktivirajte re\u017eim letenja, a zatim aktivirajte samo WiFi. Ponovo se pove\u017eite na \u201eHoneyPi\u201c pristupnu ta\u010dku.",
+        "context": "\"settings\".\"connectionerror\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "stayconnectedNotAP",
+        "definition": "Izgleda da ne mo\u017eete da pristupite HoneyPi-u preko pristupne ta\u010dke \"AccessPoint-a\". Drugi razlog mo\u017ee biti da se IP adresa ure\u0111aja u va\u0161oj kuc\u0301noj mre\u017ei promenila. Da biste isklju\u010dili dalje gre\u0161ke, poma\u017ee da obri\u0161ete ke\u0161 pretra\u017eiva\u010da ili isprobate drugi pretra\u017eiva\u010d.",
+        "context": "\"settings\".\"connectionerror\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "title",
+        "definition": "Veza nije uspostavljena",
+        "context": "\"settings\".\"connectionerror\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "apn",
+        "definition": "APN",
+        "context": "\"settings\".\"internet\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "collapseAP",
+        "definition": "Napredna pode\u0161avanja za korisnike koji znaju \u0161ta rade \u00bb",
+        "context": "\"settings\".\"internet\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "connect",
+        "definition": "Izaberite tip USB LTE Modema koji imate. To zna\u010di da svi problemi sa vezom koji se pojave mogu biti ispravno zabele\u017eeni u evidenciji.",
+        "context": "\"settings\".\"internet\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "connectHiLink",
+        "definition": "Pove\u017eite USB LTE Modem u HiLink re\u017eimu (uglavnom se koristi)",
+        "context": "\"settings\".\"internet\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "connectModem",
+        "definition": "Koristite modem sa wvdial-om",
+        "context": "\"settings\".\"internet\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "connectNothing",
+        "definition": "Nije povezan USB LTE Modem.",
+        "context": "\"settings\".\"internet\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "connectSelect",
+        "definition": "Izaberite tip USB LTE Modema koji \u017eelite...",
+        "context": "\"settings\".\"internet\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "connectWifi",
+        "definition": "Povezati se na postojec\u0301u WiFi mre\u017eu ako je u dometu?",
+        "context": "\"settings\".\"internet\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "defaultGW",
+        "definition": "Otvorite podrazumevani mre\u017eni prolaz (stranica za konfiguraciju USB LTE Modema).",
+        "context": "\"settings\".\"internet\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "honeypiAP",
+        "definition": "HoneyPi re\u017eim odr\u017eavanja",
+        "context": "\"settings\".\"internet\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "honeypiAPtext",
+        "definition": "Promenite SSID i lozinku pristupne ta\u010dke.",
+        "context": "\"settings\".\"internet\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "honeypiModem",
+        "definition": "USB LTE Modem",
+        "context": "\"settings\".\"internet\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "infoConnection",
+        "definition": "Tokom re\u017eima odr\u017eavanja, ne mo\u017eete da se pove\u017eete na WiFi mre\u017eu u isto vreme, jer WiFi \u010dip vec\u0301 obezbe\u0111uje pristupnu ta\u010dku.\nStoga se mo\u017ee testirati samo internet veza povezanog USB LTE Modema ili LAN porta.",
+        "context": "\"settings\".\"internet\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "isMobileConnected",
+        "definition": "Internet veza je dostupna?",
+        "context": "\"settings\".\"internet\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "isSurfstickConnected",
+        "definition": "Mre\u017ee povezane?",
+        "context": "\"settings\".\"internet\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "password",
+        "definition": "WLAN-Lozinka",
+        "context": "\"settings\".\"internet\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "ssid",
+        "definition": "Ime WLAN mre\u017ee (SSID)",
+        "context": "\"settings\".\"internet\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "testConnection",
+        "definition": "Testirajte internet vezu",
+        "context": "\"settings\".\"internet\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "testDiag",
+        "definition": "Dobijte dijagnosti\u010dke podatke",
+        "context": "\"settings\".\"internet\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "testError",
+        "definition": "<strong>Gre\u0161ka!<\/strong> Povezivanje sa Internetom nije uspelo.",
+        "context": "\"settings\".\"internet\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "testSuccess",
+        "definition": "<strong>Honey Pi je povezan!<\/strong> Internet test je bio uspe\u0161an.",
+        "context": "\"settings\".\"internet\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "title",
+        "definition": "Internet konekcija",
+        "context": "\"settings\".\"internet\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "ttyUSB",
+        "definition": "ttiUSB ulaz",
+        "context": "\"settings\".\"internet\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "wifi",
+        "definition": "WLAN pristup internetu",
+        "context": "\"settings\".\"internet\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "wpa_type",
+        "definition": "WPA-Enkripcija",
+        "context": "\"settings\".\"internet\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "copy",
+        "definition": "Kopiraj u me\u0111uspremnik",
+        "context": "\"settings\".\"log\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "delete",
+        "definition": "Izbri\u0161i",
+        "context": "\"settings\".\"log\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "empty",
+        "definition": "Protokol na ovom ure\u0111aju je prazan.",
+        "context": "\"settings\".\"log\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "export",
+        "definition": "Izvezite pode\u0161avanja",
+        "context": "\"settings\".\"log\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "get",
+        "definition": "A\u017euriranje",
+        "context": "\"settings\".\"log\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "import",
+        "definition": "Uvoz",
+        "context": "\"settings\".\"log\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "importSettings",
+        "definition": "Uvezite datoteku pode\u0161avanja:",
+        "context": "\"settings\".\"log\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "nofile",
+        "definition": "Ne postoji protokol na ovom ure\u0111aju.",
+        "context": "\"settings\".\"log\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "title",
+        "definition": "Protokol",
+        "context": "\"settings\".\"log\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "construction",
+        "definition": "Ovaj prikaz je trenutno samo privremen i bic\u0301e pro\u0161iren u sledec\u0301oj verziji firmvera",
+        "context": "\"settings\".\"measurement\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "get",
+        "definition": "Pokreni novo merenje",
+        "context": "\"settings\".\"measurement\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "info",
+        "definition": "Ovde su prikazani senzori koji su konfigurisani i sa\u010duvani na kartici \u201e<strong>{{tab}}<\/strong>\u201c. Merenje je lokalno, nema u\u010ditavanja.",
+        "context": "\"settings\".\"measurement\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "noData",
+        "definition": "Nema merenih podataka. Da li su senzori konfigurisani na kartici \u201e<strong>{{tab}}<\/strong>\u201c?",
+        "context": "\"settings\".\"measurement\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "title",
+        "definition": "Podaci o merenju",
+        "context": "\"settings\".\"measurement\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "display_enabled",
+        "definition": "Aktivirajte Display (model: OLED 128k64pk sa SSD1306 \u010dipom)",
+        "context": "\"settings\".\"miscellaneous\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "enable_reset",
+        "definition": "Aktivirajte opciju da ako se dugme pritisne 10 sekundi, sva HoneiPi pode\u0161avanja c\u0301e biti resetovana",
+        "context": "\"settings\".\"miscellaneous\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "show_nondefault_password",
+        "definition": "Prika\u017ei promenjenu lozinku za WLAN pristupne ta\u010dke \u201eHoneiPI\u201c.",
+        "context": "\"settings\".\"miscellaneous\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "timeToStopMaintenance",
+        "definition": "Re\u017eim odr\u017eavanja HoneiPi pristupne ta\u010dke se automatski isklju\u010duje da bi se ispravila slu\u010dajna aktivacija ili zaboravila da se isklju\u010di re\u017eim odr\u017eavanja i da bi se nastavio normalan rad merenja.",
+        "context": "\"settings\".\"miscellaneous\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "title",
+        "definition": "Vi\u0161e pode\u0161avanja",
+        "context": "\"settings\".\"miscellaneous\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "delete",
+        "definition": "Izbri\u0161i",
+        "context": "\"settings\".\"offline\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "export",
+        "definition": "Upravljajte podacima merenja van mre\u017ee",
+        "context": "\"settings\".\"offline\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "exportButton",
+        "definition": "Preuzimanje",
+        "context": "\"settings\".\"offline\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "infoExport",
+        "definition": "Podaci merenja se \u010duvaju u CSV datoteci. Ova datoteka se zatim mo\u017ee uvesti u ThingSpeak kanal. Ina\u010de, podaci merenja se tako\u0111e mogu vizuelizovati pomoc\u0301u iOS\/veb aplikacije.",
+        "context": "\"settings\".\"offline\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "noData",
+        "definition": "Unesite najmanje jedan kanal na karticu \u201e<strong>{{tab}}<\/strong>\u201c.",
+        "context": "\"settings\".\"offline\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "offline",
+        "definition": "Van mre\u017ee: Sa\u010duvajte podatke merenja van mre\u017ee bez ThingSpeak-a",
+        "context": "\"settings\".\"offline\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "radio0",
+        "definition": "Na mre\u017ei: Preneto isklju\u010divo na mre\u017ei na ThingSpeak",
+        "context": "\"settings\".\"offline\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "radio1",
+        "definition": "Oba: Prenesite na ThingSpeak i sa\u010duvajte u CSV datoteci",
+        "context": "\"settings\".\"offline\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "radio2",
+        "definition": "U slu\u010daju gre\u0161aka: Pi\u0161ite u CSV datoteku samo u slu\u010daju gre\u0161aka internet veze",
+        "context": "\"settings\".\"offline\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "radio3",
+        "definition": "Van mre\u017ee: Pi\u0161ite u CSV datoteku samo van mre\u017ee",
+        "context": "\"settings\".\"offline\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "title",
+        "definition": "Merenje van mre\u017ee",
+        "context": "\"settings\".\"offline\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "upload",
+        "definition": "Otpremanje podataka na ThingSpeak",
+        "context": "\"settings\".\"offline\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "addSensor",
+        "definition": "Dodajte senzor",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "advancedSettings",
+        "definition": "Napredna pode\u0161avanja \u00bb",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "buttonPin",
+        "definition": "Dugme re\u017eima odr\u017eavanja GPIO",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "btnBack",
+        "definition": "Nazad",
+        "context": "\"settings\".\"sensors\".\"calibration\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "btnFinish",
+        "definition": "Prihvatite vrednosti kalibracije",
+        "context": "\"settings\".\"sensors\".\"calibration\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "btnNext",
+        "definition": "Dalje",
+        "context": "\"settings\".\"sensors\".\"calibration\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "guidedTour",
+        "definition": "Vo\u0111ena kalibracija vage",
+        "context": "\"settings\".\"sensors\".\"calibration\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "step0",
+        "definition": "<p>Pokrenite automatsku kalibraciju vage.<\/p>",
+        "context": "\"settings\".\"sensors\".\"calibration\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "step1",
+        "definition": "<p>\n            Uklonite sve tegove sa vage i uverite se da se merenje ne ometa dodirom vage.\n            <br>Zatim pritisnite Dalje.\n<\/p>",
+        "context": "\"settings\".\"sensors\".\"calibration\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "step2",
+        "definition": "<p>\n            Stavite poznatu te\u017einu za kalibraciju na vagu.\n            Te\u017eina treba da bude najmanje 3000g (3kg).\n            <br>Unesite te\u017einu koju ste stavili na vagu [u gramima].\n            Zatim pritisnite Dalje.\n<\/p>",
+        "context": "\"settings\".\"sensors\".\"calibration\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "step3",
+        "definition": "<p>\nKalibracija je zavr\u0161ena. Ne zaboravite da sa\u010duvate nova pode\u0161avanja.\n<\/p>",
+        "context": "\"settings\".\"sensors\".\"calibration\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "title",
+        "definition": "Kalibracija vage",
+        "context": "\"settings\".\"sensors\".\"calibration\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "weightPlaceholder",
+        "definition": "Te\u017eina [u gramima]",
+        "context": "\"settings\".\"sensors\".\"calibration\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "checkWires",
+        "definition": "Proverite da li su senzori pravilno povezani i",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "checkWiresSuffix",
+        "definition": "liste.",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "co2",
+        "definition": "CO2",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "compensationSelectTemp",
+        "definition": "Izbor temperaturnog senzora",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "compensationTemp",
+        "definition": "Temperatura tokom kalibracije",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "compensationTempPlaceholder",
+        "definition": "Temperaturna vrednost (npr. 22\u00b0C)",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "compensationValue",
+        "definition": "Vrednost korekcije [gram po \u00b0C]",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "compensationValuePlaceholder",
+        "definition": "Vrednost kompenzacije",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "customValue",
+        "definition": "Unesite svoju vrednost...",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "debug",
+        "definition": "Aktivirajte re\u017eim za otklanjanje gre\u0161aka <small>(bez ponovnog pokretanja, HDMI izlaz je uklju\u010den, uspe\u0161ni transferi u protokolu)<\/small>",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "debugSelect",
+        "definition": "Izaberite nivo za otklanjanje gre\u0161aka",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "debugSelectLogfile",
+        "definition": "Izaberite vrstu i iznos tro\u0161kova u datoteci evidencije.",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "debuglevel",
+        "definition": "Nivo za otklanjanje gre\u0161aka",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "default_state",
+        "definition": "Witty Pi podrazumevano stanje",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "dummyload",
+        "definition": "Izaberite trajanje la\u017enog opterec\u0301enja (korisno samo sa Powerbank)",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "dummyloadTimespan",
+        "definition": "Trajanje la\u017enog opterec\u0301enja",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "enableCompensation",
+        "definition": "Temperaturna kompenzacija za temperaturna odstupanja merenja",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "filter_negative",
+        "definition": "Filtrirajte negativne izmerene vrednosti da biste smanjili gre\u0161ke merenja",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "humidity",
+        "definition": "Vla\u017enost",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "i2c_addr",
+        "definition": "I2C adresa <br><small>Potrebno je samo ako je povezano vi\u0161e od jednog identi\u010dnog senzora.<\/small>",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "interval",
+        "definition": "Interval",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "invert",
+        "definition": "Obrnuti znak negativno",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "ledPin",
+        "definition": "Eksterni LED GPIO",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "light",
+        "definition": "Svetlosni senzor (Lux)",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "measurementInterval",
+        "definition": "Interval merenja",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "measurementNone",
+        "definition": "Nema prenosa podataka merenja",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "measurementOnce",
+        "definition": "Jednokratni prenos nakon uklju\u010divanja (preporu\u010duje se za Witty Pi modul)",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "offset",
+        "definition": "Ofset",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "offset2",
+        "definition": "Promene ukupne te\u017eine",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "power_cut_delay",
+        "definition": "Ka\u0161njenje isklju\u010divanja [Sekunde]",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "pressure",
+        "definition": "Vazdu\u0161ni pritisak",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "pulsing_interval",
+        "definition": "Interval za treptanje LED diode [Sekunde]",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "quality",
+        "definition": "Kvalitet vazduha",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "scale",
+        "definition": "Skaliranje vrednosti",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "selectI2CVoltage",
+        "definition": "Izaberite maksimalni opseg merenja [V]",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "selectI2CVoltage_c",
+        "definition": "Maksimalni merljivi napon [V] (npr. 16,5V)",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "selectPin",
+        "definition": "Izaberite PIN za PCF8591",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "selectType",
+        "definition": "Izbor modela senzora",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "sensor",
+        "definition": "Senzor",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "sensor_0",
+        "definition": "Senzor temperature (DS18b20)",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "sensor_1",
+        "definition": "Temperatura+Vla\u017enost+Barometarski pritisak+Kvalitet (BME680)",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "sensor_10",
+        "definition": "Vla\u017enost i temperatura (AHT10\/AHT15\/AHT20\/AHT21)",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "sensor_11",
+        "definition": "Svetlosni senzor (BH1750)",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "sensor_12",
+        "definition": "Vla\u017enost i temperatura (SHT25)",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "sensor_2",
+        "definition": "Senzor te\u017eine (HX711)",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "sensor_3",
+        "definition": "Vla\u017enost i temperatura (DHT11\/DHT22\/AM2302)",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "sensor_4",
+        "definition": "Senzor temperature (MAX6675\/MAX31855)",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "sensor_5",
+        "definition": "Temperatura+vla\u017enost+barometarski pritisak (BME280)",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "sensor_6",
+        "definition": "Voltmetar za bateriju (PCF8591)",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "sensor_7",
+        "definition": "CO2 + temperatura + vazdu\u0161ni pritisak (EE895)",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "sensor_8",
+        "definition": "Vla\u017enost i temperatura (HDC1080\/HDC2080)",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "sensor_9",
+        "definition": "Vla\u017enost i temperatura (SHT30\/SHT31\/SHT35\/SHT85)",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "sensor_99",
+        "definition": "GPS (PA1010D)",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "sensors",
+        "definition": "Senzori",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "shutdownAfterTransfer",
+        "definition": "Isklju\u010dite Raspberri nakon jednokratnog prenosa",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "temperature",
+        "definition": "Temperatura",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "timeout",
+        "definition": "Vremensko ograni\u010denje [Sekunde]",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "title",
+        "definition": "Prika\u010deni senzori",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "ts_field_absolutehumidity",
+        "definition": "Apsolutna vla\u017enost [g\/m\u1d4c]",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "ts_field_uncompensated",
+        "definition": "Nekompenzovana te\u017eina",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "ts_field_offset2",
+        "definition": "Polje za zbir promena te\u017eine",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "use3V",
+        "definition": "Koristite GPIO kao izvor od 3,3 V",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "version",
+        "definition": "Verzija",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "weightcell",
+        "definition": "Vaga",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "white_led_duration",
+        "definition": "Trajanje LED-a [ms]",
+        "context": "\"settings\".\"sensors\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "addChannel",
+        "definition": "Dodajte slede\u0107i kanal",
+        "context": "\"settings\".\"thingspeak\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "checkConnection",
+        "definition": "Proverite vezu sa ThingSpeak-om",
+        "context": "\"settings\".\"thingspeak\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "confirmCheck",
+        "definition": "Upravo c\u0301ete testirati da li su detalji ThingSpeak veze koje ste uneli ta\u010dni.\nNapomena: Ova funkcija radi samo ako je Raspberri povezan na internet. Da biste proverili internet vezu, postoji kartica i dugme ispod \u201eProveri internet vezu\u201c.",
+        "context": "\"settings\".\"thingspeak\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "field",
+        "definition": "Polje",
+        "context": "\"settings\".\"thingspeak\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "removeChannel",
+        "definition": "Ukloni kanal sa liste",
+        "context": "\"settings\".\"thingspeak\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "title",
+        "definition": "ThingSpeak pode\u0161avanja",
+        "context": "\"settings\".\"thingspeak\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "availableVersion",
+        "definition": "Dostupne verzije:",
+        "context": "\"settings\".\"update\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "currentVersion",
+        "definition": "Trenutno instalirana verzija:",
+        "context": "\"settings\".\"update\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "export",
+        "definition": "Pode\u0161avanja",
+        "context": "\"settings\".\"update\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "install",
+        "definition": "Ponovo instalirajte sistem",
+        "context": "\"settings\".\"update\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "internet_connection",
+        "definition": "Nema internet veze. Poku\u0161ajte ponovo kasnije sa internet vezom.",
+        "context": "\"settings\".\"update\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "need_refresh",
+        "definition": "A\u017euriranje uspe\u0161no. Stranica treba da se a\u017eurira.\nPonovo u\u010ditaj sada?",
+        "context": "\"settings\".\"update\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "newVersionAvailable",
+        "definition": "Dostupna je novija verzija sistema. Ovo mo\u017eete a\u017eurirati na kartici \u201eA\u017euriranje sistema\u201c. Odr\u017eavajte svoj Honey Pi softver a\u017eurnim da biste imali koristi od ispravki gre\u0161aka i novih funkcija.",
+        "context": "\"settings\".\"update\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "preupdate",
+        "definition": "Proverite najnoviju verziju",
+        "context": "\"settings\".\"update\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "title",
+        "definition": "A\u017euriranje sistema",
+        "context": "\"settings\".\"update\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "update",
+        "definition": "A\u017euriranje sada",
+        "context": "\"settings\".\"update\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "usePreVersion",
+        "definition": "Tako\u0111e instalirajte verzije pre izdanja (beta test verzije)",
+        "context": "\"settings\".\"update\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "want_import",
+        "definition": "Da li sada treba da se uveze datoteka?",
+        "context": "\"settings\".\"update\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "empty",
+        "definition": "Prazno polje",
+        "context": "\"settings\".\"wittypi\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "enableLowMode",
+        "definition": "Omoguc\u0301ite raspored u\u0161teda energije",
+        "context": "\"settings\".\"wittypi\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "enableNormalMode",
+        "definition": "Aktivirajte raspored",
+        "context": "\"settings\".\"wittypi\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "enableVoltageCheck",
+        "definition": "Prebacivanje izme\u0111u razli\u010ditih rasporeda sa povezanim voltmetrom (PCF8591)",
+        "context": "\"settings\".\"wittypi\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "enableWitty",
+        "definition": "Aktivirajte Witty Pi modul",
+        "context": "\"settings\".\"wittypi\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "install2",
+        "definition": "WittyPi 2 instalacija",
+        "context": "\"settings\".\"wittypi\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "install3",
+        "definition": "WittyPi 3 instalacija",
+        "context": "\"settings\".\"wittypi\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "install4",
+        "definition": "WittyPi 4 instalacija",
+        "context": "\"settings\".\"wittypi\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "loadexample",
+        "definition": "U\u010ditavanje zadatih rasporeda...",
+        "context": "\"settings\".\"wittypi\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "need_restart",
+        "definition": "Uspe\u0161an. Sada morate ponovo pokrenuti Raspberry.",
+        "context": "\"settings\".\"wittypi\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "script",
+        "definition": "Raspored za Witty Pi",
+        "context": "\"settings\".\"wittypi\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "title",
+        "definition": "Upravljanje vremenom i energijom",
+        "context": "\"settings\".\"wittypi\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "version",
+        "definition": "Izaberite verziju Witty Pi",
+        "context": "\"settings\".\"wittypi\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "voltage",
+        "definition": "Napon",
+        "context": "\"settings\".\"wittypi\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "voltageLow",
+        "definition": "Vrednost napona za aktiviranje rasporeda u\u0161tede energije",
+        "context": "\"settings\".\"wittypi\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "voltageLowInterval",
+        "definition": "Interval merenja u re\u017eimu u\u0161tede energije",
+        "context": "\"settings\".\"wittypi\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "voltageNormal",
+        "definition": "Vrednost napona za povratak na normalan raspored",
+        "context": "\"settings\".\"wittypi\"",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    },
+    {
+        "term": "title",
+        "definition": "Re\u017eim odr\u017eavanja",
+        "context": "",
+        "term_plural": "",
+        "reference": "",
+        "comment": "",
+        "fuzzy": 0
+    }
+]
