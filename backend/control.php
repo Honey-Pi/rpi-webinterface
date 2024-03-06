@@ -16,7 +16,7 @@
         shell_exec("sudo systemctl disable hostapd.service");
         shell_exec("sudo systemctl stop dnsmasq.service");
         shell_exec("sudo systemctl disable dnsmasq.service");
-        shell_exec("sudo shutdown -h 0");
+        shell_exec("sudo shutdown -h now");
     }
     function stop_honeypi() {
         shell_exec("sudo systemctl stop honeypi.service");

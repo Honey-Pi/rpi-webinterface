@@ -21,7 +21,12 @@
 
     // function for shell script
     function updateGit() {
-        return shell_exec("sudo git reset HEAD --hard && sudo git pull");
+        chdir($GLOBALS['honeyPiHome']);
+        $out = shell_exec("cd ".$GLOBALS['honeyPiHome']." 2>&1");
+        $out .= shell_exec("cd ".$GLOBALS['honeyPiHome']." && sudo git config --global --add safe.directory ".$GLOBALS['honeyPiHome']." 2>&1");
+        $out .= shell_exec("cd ".$GLOBALS['honeyPiHome']." && sudo git reset HEAD --hard 2>&1");
+        $out .= shell_exec("cd ".$GLOBALS['honeyPiHome']." && sudo git pull 2>&1");
+        return $out;
     }
     function update($stable) {
         return shell_exec("sudo sh ".$GLOBALS['honeyPiHome']."/update.sh ".(INT)$stable."");
@@ -118,12 +123,10 @@
         return $obj;
     }
 
+    # Add Working dir to output
     $output = new \stdClass();
-    // switch working dir
-    $output->chdir = "Changed working dir from ";
-    $output->chdir .= getcwd() . "\n";
-    chdir($GLOBALS['honeyPiHome']);
-    $output->chdir .= " to " . getcwd() . "\n";
+    $output->chdir = "Working dir: ";
+    $output->chdir .= getcwd();
 
     if (isset($_GET['mode']))
     {
